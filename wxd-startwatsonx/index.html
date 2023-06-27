@@ -1,0 +1,958 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Start IBM watsonx.data - IBM watsonx.data Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#starting-ibm-watsonxdata" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM watsonx.data Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Start IBM watsonx.data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    IBM watsonx.data Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Accessing IBM watsonx.data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Accessing IBM watsonx.data" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Accessing IBM watsonx.data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-techzone/" class="md-nav__link">
+        TechZone image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-vmware/" class="md-nav__link">
+        Local VMWare image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Start IBM watsonx.data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Start IBM watsonx.data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-instructions" class="md-nav__link">
+    Lab Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-ibm-watsonxdata-developer-edition" class="md-nav__link">
+    Start IBM watsonx.data Developer Edition
+  </a>
+  
+    <nav class="md-nav" aria-label="Start IBM watsonx.data Developer Edition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-status-of-ibm-watsonxdata" class="md-nav__link">
+    Check status of IBM watsonx.data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presto-engine-test" class="md-nav__link">
+    Presto Engine Test
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-prestocli/" class="md-nav__link">
+        Presto CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-watsonui/" class="md-nav__link">
+        IBM watsonx.data UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-presto/" class="md-nav__link">
+        Presto UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-minio/" class="md-nav__link">
+        MinIO UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-dbeaver/" class="md-nav__link">
+        dBeaver
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Presto SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Presto SQL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Presto SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-analytics/" class="md-nav__link">
+        Analytic Workloads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-advanced/" class="md-nav__link">
+        Advanced Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-timetravel/" class="md-nav__link">
+        Time Travel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-federation/" class="md-nav__link">
+        Federation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-superset/" class="md-nav__link">
+        Apache Superset
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-objectstore/" class="md-nav__link">
+        Working with Object Store Buckets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-ingest/" class="md-nav__link">
+        Ingesting Data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-disclaimer/" class="md-nav__link">
+        Disclaimer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-revisions/" class="md-nav__link">
+        Revisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-instructions" class="md-nav__link">
+    Lab Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-ibm-watsonxdata-developer-edition" class="md-nav__link">
+    Start IBM watsonx.data Developer Edition
+  </a>
+  
+    <nav class="md-nav" aria-label="Start IBM watsonx.data Developer Edition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-status-of-ibm-watsonxdata" class="md-nav__link">
+    Check status of IBM watsonx.data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presto-engine-test" class="md-nav__link">
+    Presto Engine Test
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="starting-ibm-watsonxdata">Starting IBM watsonx.data</h1>
+<p>The Developer package is meant to be used on single nodes. While it uses the same code base, there are some restrictions, especially on scale. In this lab, we will open some additional ports as well to understand how everything works. We will also use additional utilities to illustrate connectivity and what makes the IBM watsonx.data "open". </p>
+<h2 id="lab-instructions">Lab Instructions</h2>
+<p>Throughout the labs, any command that needs to be executed will be highlighted in a grey box:</p>
+<pre><code>cd /root/ibm-lh-dev/bin
+</code></pre>
+<p>Copy the text that is found within the box and paste it into the command window to execute. Note that some commands may span multiple lines, so make sure you copy everything in the box. Depending on your browser, you may see a copy icon on the far right side of the command.</p>
+<h2 id="start-ibm-watsonxdata-developer-edition">Start IBM watsonx.data Developer Edition</h2>
+<p>Make sure that you have an open terminal session and have switched to the root userid.</p>
+<pre><code>sudo su -
+</code></pre>
+<p>Switch to the development code bin directory.</p>
+<pre><code>cd /root/ibm-lh-dev/bin
+</code></pre>
+<p>Once you have switched to the development directory, you can start the IBM watsonx.data system. The <mark>LH_RUN_MODE</mark> flag is used to allow for non-SSL ports to be used in our development environment. The stop command ensure that we have a clean startup.</p>
+<pre><code>export LH_RUN_MODE=diag
+./stop.sh
+./start.sh 
+</code></pre>
+<p><strong>Note</strong>: If you forget to set the <mark>LH_RUN_MODE</mark> flag, many of the URLs in the lab will be unreachable. If you find that you cannot connect to the URLs, you will need to stop the service and start it again.</p>
+<p>The output will be like:</p>
+<pre style="font-size: small; color: darkgreen; overflow: scroll">
+using /root/ibm-lh-dev/localstorage/volumes as data root directory for user: root/1001 
+infra config location is /root/ibm-lh-dev/localstorage/volumes/infra
+
+-- starting data plane containers...
+
+==== starting: ibm-lh-minio ==== 
+468339b93d94c78c1bb9bdcfe7f20ef0cc8d6c09725768847474b13bb51048e4
+==== starting: ibm-lh-postgres ==== 
+063643caeccd86f0612dbf587919f9b1c1681ab0e6632f04c7cd00bbd8f67596
+==== starting: lh-hive-metastore ==== 
+3d4ff7fb304fa4513642e289c290e3423827eef732d774c3be4229fe51601a9d
+==== starting: ibm-lh-presto ==== 
+3cc4313e53a784daf8b7747696bcd0260fe22d6abbaf8d749e50509d961066af
+
+-- starting control plane containers...
+
+==== starting: ibm-lh-control-plane-prereq ==== 
+creating (if needed) db ibm_lh_repo
+exists result: 
+CREATE DATABASE
+creating if needed, meta-repo tables in ibm_lh_repo
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+creating (if needed) db lakehouse-log
+exists result: 
+CREATE DATABASE
+creating if needed, meta-repo tables in lakehouse-log
+CREATE TABLE
+==== starting: lhconsole-api ==== 
+12fc73711934100cde1f6d4e633c28e2da0b9f4a804fe8923375669fcfeeb023
+==== starting: lhconsole-javaapi ==== 
+2c391fdcb68177346e6c73a26710da6101b9c19f52fa2ca2633a91bfcb95ae4c
+==== starting: lhconsole-nodeclient ==== 
+eca661eba3ba2fbef620438fe7986ebceb50c738bfdc0f08aeb3052e2560c8cb
+==== starting: lhconsole-ui ==== 
+efc6d69b051200ec85c2efd43dd884ec3a2e45304131065d1d7c09f3af464788
+</pre>
+
+<h3 id="check-status-of-ibm-watsonxdata">Check status of IBM watsonx.data</h3>
+<p>One the system has started; you can check the status with the following command.</p>
+<pre><code class="language-bash">./status.sh --all
+</code></pre>
+<p>Output will look like:</p>
+<pre style="font-size: small; color: darkgreen; overflow: scroll"">
+using /root/ibm-lh-dev/localstorage/volumes as data root directory for user: root/1001 
+infra config location is /root/ibm-lh-dev/localstorage/volumes/infra
+lhconsole-ui                running         0.0.0.0:9443->8443/tcp, :::9443->8443/tcp
+lhconsole-nodeclient-svc        running         3001/tcp
+lhconsole-javaapi-svc           running         8090/tcp
+lhconsole-api               running         3333/tcp, 8081/tcp
+ibm-lh-presto               running         0.0.0.0:8443->8443/tcp, :::8443->8443/tcp
+ibm-lh-hive-metastore           running         
+ibm-lh-postgres             running         5432/tcp
+ibm-lh-minio                running         
+</pre>
+
+<p>To confirm that the software is working, run the following commands to validate the installation.</p>
+<h2 id="presto-engine-test">Presto Engine Test</h2>
+<p>Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks.</p>
+<pre><code>./checkpresto.sh
+</code></pre>
+<pre style="font-size: small; color: darkgreen">
+Waiting for Presto to start.
+...........................
+Ready
+</pre>
+
+<p><strong>Note</strong>: If the starting message appears to take too long (fills up the entire line with dots), kill the command (CTRL-C) and restart the IBM watsonx.data image (this rare event occurs because of resource contention in our small machine). </p>
+<p>To restart the image, issue the following commands.</p>
+<pre><code>export LH_RUN_MODE=diag
+./stop.sh
+./start.sh
+./checkpresto.sh
+</code></pre>
+<p>Once the command returns "Ready" you can connect to the presto CLI.</p>
+<pre><code>./presto-cli.sh --catalog tpch --schema tiny
+</code></pre>
+<p>Check the record count of the customer table. </p>
+<p><strong>Note</strong>: If the Presto engine has not yet started (you didn't run the checkpresto script), the next command may result in a useless Java error message. You may need to wait for a minute for attempting to run the statement again.</p>
+<pre><code>select * from customer limit 10;
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+ custkey |        name        |                address                | nationkey |      phone      | acctbal | mktsegment |                                                      comment                                                      
+---------+--------------------+---------------------------------------+-----------+-----------------+---------+------------+-------------------------------------------------------------------------------------------------------------------
+       1 | Customer#000000001 | IVhzIApeRb ot,c,E                     |        15 | 25-989-741-2988 |  711.56 | BUILDING   | to the even, regular platelets. regular, ironic epitaphs nag e                                                    
+       2 | Customer#000000002 | XSTf4,NCwDVaWNe6tEgvwfmRchLXak        |        13 | 23-768-687-3665 |  121.65 | AUTOMOBILE | l accounts. blithely ironic theodolites integrate boldly: caref                                                   
+       3 | Customer#000000003 | MG9kdTD2WBHm                          |         1 | 11-719-748-3364 | 7498.12 | AUTOMOBILE |  deposits eat slyly ironic, even instructions. express foxes detect slyly. blithely even accounts abov            
+       4 | Customer#000000004 | XxVSJsLAGtn                           |         4 | 14-128-190-5944 | 2866.83 | MACHINERY  |  requests. final, regular ideas sleep final accou                                                                 
+       5 | Customer#000000005 | KvpyuHCplrB84WgAiGV6sYpZq7Tj          |         3 | 13-750-942-6364 |  794.47 | HOUSEHOLD  | n accounts will have to unwind. foxes cajole accor                                                                
+       6 | Customer#000000006 | sKZz0CsnMD7mp4Xd0YrBvx,LREYKUWAh yVn  |        20 | 30-114-968-4951 | 7638.57 | AUTOMOBILE | tions. even deposits boost according to the slyly bold packages. final accounts cajole requests. furious          
+       7 | Customer#000000007 | TcGe5gaZNgVePxU5kRrvXBfkasDTea        |        18 | 28-190-982-9759 | 9561.95 | AUTOMOBILE | ainst the ironic, express theodolites. express, even pinto beans among the exp                                    
+       8 | Customer#000000008 | I0B10bB0AymmC, 0PrRYBCP1yGJ8xcBPmWhl5 |        17 | 27-147-574-9335 | 6819.74 | BUILDING   | among the slyly regular theodolites kindle blithely courts. carefully even theodolites haggle slyly along the ide 
+       9 | Customer#000000009 | xKiAFTjUsCuxfeleNqefumTrjS            |         8 | 18-338-906-3675 | 8324.07 | FURNITURE  | r theodolites according to the requests wake thinly excuses: pending requests haggle furiousl                     
+      10 | Customer#000000010 | 6LrEaV6KR6PLVcgl2ArL Q3rqzLzcT1 v2    |         5 | 15-741-346-9870 | 2753.54 | HOUSEHOLD  | es regular deposits haggle. fur                                                                                   
+(10 rows)
+</pre>
+<p>Quit the Presto CLI. The Presto quit command can be used with or without a semicolon.</p>
+<pre><code>quit;
+</code></pre>
+<p>Congratulations, your system is now up and running!</p>
+<h1 id="portainer">Portainer</h1>
+<p>This lab system has Portainer installed. Portainer provides an administrative interface to the Docker images that are running on this system. You can use this console to check that all the containers are running and see what resources they are using. Open your browser and navigate to:</p>
+<ul>
+<li>Portainer console - https://ussouth.techzone-services.com:xxxxx</li>
+<li>VMWare Image - https://localhost:6443/</li>
+<li>Credentials: userid: <mark>admin</mark> password: <mark>watsonx.data</mark></li>
+</ul>
+<p>Once you have logged in, you should select “Get Started”.</p>
+<p><img alt="Browser" src="../wxd-images/portainer-main.png" /></p>
+<p>The next screen displays the main control panel for Portainer.</p>
+<p><img alt="Browser" src="../wxd-images/portainer-local.png" /></p>
+<p>Select the Local server.</p>
+<p><img alt="Browser" src="../wxd-images/portainer-dashboard.png" /></p>
+<p>This screen provides details on the containers, images, volumes, and networks that make up your docker installation. To view the containers that are running, select the container icon.</p>
+<p><img alt="Browser" src="../wxd-images/portainer-running.png" /></p>
+<p>From within this view, you can view the details of any container, including the environment settings, the current logs, and allow you to shell into the environment. 
+For more details on Portainer, see the <a href="https://docs.portainer.io/user/home">Portainer documentation</a>.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../wxd-vmware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Local VMWare image" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Local VMWare image
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wxd-prestocli/" class="md-footer__link md-footer__link--next" aria-label="Next: Presto CLI" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Presto CLI
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
