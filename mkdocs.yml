@@ -1,0 +1,43 @@
+site_name: IBM watsonx.data Lab
+# theme:
+#   name: material
+nav:
+  - Introduction: "wxd-intro.md"
+  - Accessing IBM watsonx.data:
+    - TechZone image: "wxd-techzone.md"
+    - Local VMWare image: "wxd-vmware.md"
+  - Start IBM watsonx.data: "wxd-startwatsonx.md"
+  - Introduction: 
+    - Presto CLI: "wxd-prestocli.md"
+    - IBM watsonx.data UI: "wxd-watsonui.md"
+    - Presto UI: "wxd-presto.md"
+    - MinIO UI: "wxd-minio.md"
+    - dBeaver: "wxd-dbeaver.md"
+  - Presto SQL:
+    - Analytic Workloads: "wxd-analytics.md"
+    - Advanced Functions: "wxd-advanced.md"
+    - Time Travel: "wxd-timetravel.md"
+    - Federation: "wxd-federation.md"
+    - Apache Superset: "wxd-superset.md"
+  - Working with Object Store Buckets: "wxd-objectstore.md"
+  - Ingesting Data: "wxd-ingest.md"
+  - Troubleshooting: "wxd-troubleshooting.md"
+  - Appendix: 
+    - Disclaimer: "wxd-disclaimer.md"
+    - Revisions: "wxd-revisions.md"
+    - Acknowledgements: "wxd-acknowledgements.md"
+
+  # Copyright
+copyright: Copyright &copy; 2023 IBM 
+
+# Theme
+theme:
+  name: material
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  logo: img/IBM_logo®_rev_RGB.png
+  palette:
+    scheme: default
+    primary: black
+    accent: black
