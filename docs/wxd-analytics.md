@@ -89,7 +89,7 @@ Fragment 1 [SOURCE]
             mktsegment := 7:mktsegment:varchar (1:57)
             name := 2:name:varchar (1:57)
 </pre>
-A fragment represents a stage of the distributed plan. The Presto scheduler schedules the execution by each stage, and stages can be run on separated instances.
+A fragment represents a stage of the distributed plan. The Presto scheduler schedules the execution by each stage, and stages can be run on separate instances.
 
 Create explain statement in a visual format.
 ```
