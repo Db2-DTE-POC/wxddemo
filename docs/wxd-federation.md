@@ -91,7 +91,7 @@ The Add database dialog is displayed.
       
 Enter the following values:
 
-   * Database type – <mark>Postgres</mark>
+   * Database type – <mark>PostgreSQL</mark>
    * Database name – <mark>pgdatadb</mark>
    * Hostname – <mark>ibm-lh-postgres</mark>
    * Port – <mark>5432</mark>
@@ -204,7 +204,7 @@ sudo firewall-cmd --reload
 ```
 Use the dBeaver menu to create a new database connection using the following information:
    
-   * Database Type: <mark>Postgresdb</mark>
+   * Database Type: <mark>PostgreSQL</mark>
    * Host (VNC): <mark>localhost</mark> Port: <mark>5432</mark>
    * Database: <mark>ibm_lh_repo</mark>
    * Userid: <mark>admin</mark> Password: (cat /tmp/postgres.pw to see the value)

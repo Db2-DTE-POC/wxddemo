@@ -647,7 +647,12 @@
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Check current snapshots – STARTING STATE.</p>
-<pre><code>SELECT * FROM iceberg_minio.workshop.&quot;customer$snapshots&quot; ORDER BY committed_at;
+<pre><code>SELECT 
+   * 
+FROM 
+   iceberg_minio.workshop.&quot;customer$snapshots&quot; 
+ORDER BY 
+   committed_at;
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         committed_at         |     snapshot_id     | parent_id | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                
@@ -656,7 +661,12 @@
 (1 row)
 </pre>
 <p>Capture the first snapshot ID returned by the SQL statement. You will need this value when you run the rollback command.</p>
-<pre><code>SELECT snapshot_id FROM iceberg_minio.workshop.&quot;customer$snapshots&quot; ORDER BY committed_at;
+<pre><code>SELECT 
+   snapshot_id 
+FROM 
+   iceberg_minio.workshop.&quot;customer$snapshots&quot; 
+ORDER BY 
+   committed_at;
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
      snapshot_id     
@@ -666,10 +676,17 @@
 </pre>
 
 <p>Remember that number that was returned with the query above. Insert the following record to change the customer table in the workshop schema. </p>
-<pre><code>insert into customer values(1501,'Deepak','IBM SVL',16,'123-212-3455',123,'AUTOMOBILE','Testing snapshots');
+<pre><code>insert into customer 
+  values(1501,'Deepak','IBM SVL',16,'123-212-3455',
+         123,'AUTOMOBILE','Testing snapshots');
 </code></pre>
 <p>Let us look at the snapshots available for the customer table in the workshop schema. You should have 2 snapshots. </p>
-<pre><code>SELECT * FROM iceberg_minio.workshop.&quot;customer$snapshots&quot; ORDER BY committed_at;
+<pre><code>SELECT 
+   * 
+FROM 
+   iceberg_minio.workshop.&quot;customer$snapshots&quot; 
+ORDER BY 
+   committed_at;
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         committed_at         |     snapshot_id     |      parent_id      | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                

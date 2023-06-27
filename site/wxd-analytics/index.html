@@ -796,7 +796,11 @@
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Run a simple scan query which selects customer names and market segment.</p>
-<pre><code>select name, mktsegment from customer limit 3;
+<pre><code>select 
+   name, mktsegment 
+from 
+   customer 
+limit 3;
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         name        | mktsegment 
@@ -939,8 +943,12 @@ echo &quot;MinIO Password: &quot; $LH_S3_SECRET_KEY
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Now that have created a partitioned table, we will execute a SQL statement that will make use of this fact.</p>
-<pre><code>select * from iceberg_minio.&quot;workshop&quot;.part_customer 
-   where mktsegment='MACHINERY';
+<pre><code>select
+   * 
+from 
+   iceberg_minio.&quot;workshop&quot;.part_customer 
+where 
+   mktsegment='MACHINERY';
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
  custkey |        name        |                 address                  | nationkey |      phone      | acctbal | mktsegment |                                                       comment                                                        
@@ -1024,10 +1032,13 @@ CREATE TABLE: 15000 rows
 </pre>
 
 <p>Use a Windowing function.</p>
-<pre><code>SELECT orderkey, clerk, totalprice, 
+<pre><code>SELECT 
+   orderkey, clerk, totalprice, 
    rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk 
-FROM orders 
-ORDER BY clerk, rnk;
+FROM 
+   orders 
+ORDER BY 
+   clerk, rnk;
 </code></pre>
 <p>Try to write a window function to show the custkey, orderdate, totalprice and priororder. The output should look like this.</p>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
@@ -1052,7 +1063,10 @@ custkey | orderdate  | totalprice | priororder
 
 <h2 id="prepared-statements">Prepared statements</h2>
 <p>Save a query as a prepared statement.</p>
-<pre><code>prepare customer_by_segment from select * from customer where mktsegment=?;
+<pre><code>prepare 
+   customer_by_segment
+from 
+   select * from customer where mktsegment=?;
 </code></pre>
 <p>Execute prepared statement using parameters.</p>
 <pre><code>execute customer_by_segment using 'FURNITURE';
