@@ -1,0 +1,118 @@
+# Reporting/Dashboarding using Apache Superset
+
+Apache Superset is not a part of IBM watsonx.data and is only used to demonstrate the capability to connect to IBM watsonx.data from other BI/Reporting tools.
+
+Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
+
+   * Browser SSH - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+
+Switch to the Apache Superset directory.
+```
+cd /root/ibm-lh-dev/bin/superset
+```
+Use docker-compose to start Apache Superset.
+```
+docker compose -f docker-compose-non-dev.yml up
+```
+This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are done using it, press CTRL-C to stop the service. 
+
+**Note**: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against IBM watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
+
+![Browser](wxd-images/superset-1.png)
+ 
+Open your browser and navigate to:
+
+   * Apache Superset - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * VMWare Image - <mark>http://localhost:8088/</mark>
+
+The credentials for Apache Superset are userid admin, Password admin.
+
+![Browser](wxd-images/superset-2.png)
+  
+### Setup a Database Connection to IBM watsonx.data
+Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
+
+   * Browser SSH - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   
+The TechZone image has been designed so that you can have multiple SSH browser windows open. Wait until Apache Superset has initialized completely, and then issue the following command as root.
+```
+docker cp /tmp/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
+```
+In the Apache Superset console,  press the Settings button on the far right and select Database connections.
+
+![Browser](wxd-images/superset-3.png) 
+
+Then select the [+ DATABASE] option on the far-right side of the panel.
+ 
+![Browser](wxd-images/superset-4.png) 
+
+A connection dialog will display.
+
+![Browser](wxd-images/superset-5.png)
+ 
+Select Presto as the database connection type.
+ 
+![Browser](wxd-images/superset-6.png)
+
+In the SQLALCHEMY URI field, enter the following information.
+```
+presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_minio
+```
+
+Select the Advanced tab.
+
+![Browser](wxd-images/superset-7.png)
+ 
+Copy the following information into the security box.
+```
+{"connect_args":{"protocol":"https","requests_kwargs":{"verify":"/tmp/lh-ssl-ts.crt"}}}
+```
+
+![Browser](wxd-images/superset-8.png)
+ 
+Press the Connect button to create the connection.
+
+### Create reports/charts/dashboards
+Once the connection has been tested and created for IBM watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.
+
+Select Datasets at the top of the Apache Superset window.
+
+![Browser](wxd-images/superset-9.png)
+ 
+Press [+ DATASET]. 
+
+![Browser](wxd-images/superset-10.png)
+ 
+In the Database field, select Presto.
+
+![Browser](wxd-images/superset-11.png)
+ 
+The schemas will take a few seconds to load. Select the `workshop` schema.
+
+![Browser](wxd-images/superset-12.png)
+ 
+Select customer from the list.
+
+![Browser](wxd-images/superset-13.png)
+ 
+The display will show the columns associated with this table. On the bottom right-hand corner is a button named CREATE DATASET AND CREATE CHART. Press that to display the following panel.
+
+![Browser](wxd-images/superset-14.png)
+ 
+To create a simple Line Chart, we start by selecting the Line Chart icon. If you click it once it displays information about the chart type. If you double-click it, the chart builder screen will display. 
+
+![Browser](wxd-images/superset-15.png)
+ 
+Click on the mktsegment field and drag it into the X-AXIS field. Then drag the acctbal field into the METRICS field. The program will ask how the field is to be computed. Select AVG from the list and SAVE.
+
+![Browser](wxd-images/superset-16.png)
+ 
+Now press the CREATE CHART button found at the bottom of the screen.
+
+![Browser](wxd-images/superset-17.png)
+
+Try to create different charts/dashboards if you have time.
+
+**Note**: When you are finished using Apache Superset, press CTRL-C (Control-C) in the terminal window that you used to start it. This will stop the program and release the resources it is using. If you press CTRL-C twice, it immediately kills the program, but it may lose some of the work that you may have done.
+ 
+ ![Browser](wxd-images/superset-18.png)
