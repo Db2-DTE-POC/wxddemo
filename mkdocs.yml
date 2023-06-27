@@ -36,7 +36,7 @@ theme:
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
-  logo: img/IBM_logo®_rev_RGB.png
+  logo: wxd-images/IBM_logo®_rev_RGB.png
   palette:
     scheme: default
     primary: black
