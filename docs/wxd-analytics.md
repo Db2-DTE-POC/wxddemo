@@ -221,7 +221,9 @@ Due to the partitioning of this table by `mktsegment`, it will completely skip s
 
 We run an explain against this query using the following command.
 ```
-explain (format graphviz) select * from iceberg_minio."workshop".customer where mktsegment='MACHINERY';
+explain (format graphviz) 
+   select * from iceberg_minio."workshop".customer
+      where mktsegment='MACHINERY';
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
 Query Plan                                                                                                                                                    
@@ -285,7 +287,8 @@ Start Presto CLI with Workshop Schema.
 
 Create the Orders Table.
 ```
-create table iceberg_minio.workshop.orders as select * from tpch.tiny.orders;
+create table iceberg_minio.workshop.orders as 
+  select * from tpch.tiny.orders;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: scroll">
 CREATE TABLE: 15000 rows
@@ -293,7 +296,10 @@ CREATE TABLE: 15000 rows
 
 Use a Windowing function.
 ```
-SELECT orderkey, clerk, totalprice, rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk FROM orders ORDER BY clerk, rnk;
+SELECT orderkey, clerk, totalprice, 
+   rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk 
+FROM orders 
+ORDER BY clerk, rnk;
 ```
 
 Try to write a window function to show the custkey, orderdate, totalprice and priororder. The output should look like this.

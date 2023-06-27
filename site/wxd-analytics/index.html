@@ -937,7 +937,8 @@ echo &quot;MinIO Password: &quot; $LH_S3_SECRET_KEY
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Now that have created a partitioned table, we will execute a SQL statement that will make use of this fact.</p>
-<pre><code>select * from iceberg_minio.&quot;workshop&quot;.part_customer where mktsegment='MACHINERY';
+<pre><code>select * from iceberg_minio.&quot;workshop&quot;.part_customer 
+   where mktsegment='MACHINERY';
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
  custkey |        name        |                 address                  | nationkey |      phone      | acctbal | mktsegment |                                                       comment                                                        
