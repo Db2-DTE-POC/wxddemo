@@ -1,0 +1,1029 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>TechZone image - IBM watsonx.data Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ibm-watsonxdata-techzone-image" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../img/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM watsonx.data Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TechZone image
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../img/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    IBM watsonx.data Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Accessing IBM watsonx.data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Accessing IBM watsonx.data" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Accessing IBM watsonx.data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          TechZone image
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        TechZone image
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-a-techzone-image" class="md-nav__link">
+    Requesting a TechZone image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techzone-urls-and-ports" class="md-nav__link">
+    TechZone URLs and Ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-machine-console" class="md-nav__link">
+    Virtual Machine Console
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Machine Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techzone-guacamole-access" class="md-nav__link">
+    TechZone Guacamole Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-command-window" class="md-nav__link">
+    Terminal Command Window
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal Command Window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-terminal-shell" class="md-nav__link">
+    Local Terminal Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-window-via-browser" class="md-nav__link">
+    Terminal Window via Browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-window-in-virtual-machine" class="md-nav__link">
+    Terminal Window in Virtual Machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-vmware/" class="md-nav__link">
+        Local VMWare image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-startwatsonx/" class="md-nav__link">
+        Start IBM watsonx.data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-prestocli/" class="md-nav__link">
+        Presto CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-watsonui/" class="md-nav__link">
+        IBM watsonx.data UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-presto/" class="md-nav__link">
+        Presto UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-minio/" class="md-nav__link">
+        MinIO UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-dbeaver/" class="md-nav__link">
+        dBeaver
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Presto SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Presto SQL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Presto SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-analytics/" class="md-nav__link">
+        Analytic Workloads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-advanced/" class="md-nav__link">
+        Advanced Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-timetravel/" class="md-nav__link">
+        Time Travel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-federation/" class="md-nav__link">
+        Federation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-superset/" class="md-nav__link">
+        Apache Superset
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-objectstore/" class="md-nav__link">
+        Working with Object Store Buckets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-ingest/" class="md-nav__link">
+        Ingesting Data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-disclaimer/" class="md-nav__link">
+        Disclaimer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-revisions/" class="md-nav__link">
+        Revisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-a-techzone-image" class="md-nav__link">
+    Requesting a TechZone image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techzone-urls-and-ports" class="md-nav__link">
+    TechZone URLs and Ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-machine-console" class="md-nav__link">
+    Virtual Machine Console
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Machine Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techzone-guacamole-access" class="md-nav__link">
+    TechZone Guacamole Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-command-window" class="md-nav__link">
+    Terminal Command Window
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal Command Window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-terminal-shell" class="md-nav__link">
+    Local Terminal Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-window-via-browser" class="md-nav__link">
+    Terminal Window via Browser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-window-in-virtual-machine" class="md-nav__link">
+    Terminal Window in Virtual Machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="ibm-watsonxdata-techzone-image">IBM watsonx.data TechZone Image</h1>
+<p>There are two methods for running the IBM watsonx.data development system. One is to use an image on TechZone and the second is to run a virtual machine on your laptop. This section will describe the steps involved in using a TechZone image, while the next section will explain how to use a supplied VMWare image. </p>
+<h2 id="requesting-a-techzone-image">Requesting a TechZone image</h2>
+<p>Log into Techzone (https://techzone.ibm.com) and search for IBM watsonx.data
+Developer Base Image or use the following link.</p>
+<p><a href="https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image">https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image</a></p>
+<p>If you have not logged into the IBM Cloud site, you will be asked to
+authenticate with your IBM userid. If you do not have an IBM userid, you will
+need to register for one. This lab is open to IBMers and Business Partners. Once
+you have logged in, you should see the following.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-main.png" /></p>
+<p>Select the Environment tab on the far-left side.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-environment.png" /></p>
+<p>Press the Reserve button.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-reservenow.png" /></p>
+<p>Select “reserve now” (why wait?).</p>
+<p><img alt="Browser" src="../wxd-images/techzone-menu.png" /></p>
+<p>For “Purpose” select Self Education. This will expand to request additional information.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-reason.png" /></p>
+<p>Make sure to check "Not to be used with customer data".</p>
+<p><img alt="Browser" src="../wxd-images/techzone-customerno.png" /></p>
+<p>Fill in the purpose field with something meaningful (IBM watsonx.data
+education). Next select preferred Geography for the image.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-region.png" /></p>
+<p>Choose any of the regions that are closest to your location. For the Americas,
+choose DAL10, but WDC04 can also be used if you find reservations are failing on
+the Dallas datacenter. Next select the end date for the lab.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-date.png" /></p>
+<p>Make sure you select enough time for you to use the lab! It defaults to 2 days,
+but you can extend the reservation! You do not need to enable VPN Access. Once
+you have completed the form, click SUBMIT in the bottom right-hand corner.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-submit.png" /></p>
+<p>At this point you will need to wait patiently for the request to be placed into
+Provisioning mode.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-provisioning.png" /></p>
+<p>Eventually you will receive the message that the system is now Ready. Of course,
+you may also get a message telling you that the system provisioning has Failed.
+I would suggest trying again. If DAL10 fails, try WDC04 or one of the other locations. </p>
+<p><img alt="Browser" src="../wxd-images/techzone-ready.png" /></p>
+<p>The reservation email
+from TechZone is extremely important since it lists all the ports that you will
+be using to access the lab. Details on what these ports are used for are
+described in the next section on URLs and Ports.</p>
+<p><strong>Note</strong>: Do not attempt to use these URLs until you read the section on Port usage and after you start the server.</p>
+<h2 id="techzone-urls-and-ports">TechZone URLs and Ports</h2>
+<p>The TechZone reservation note provides URLs to the services that you will
+accessing in IBM watsonx.data. These URLs provide access to:</p>
+<ul>
+<li><mark>9443</mark> - IBM watsonx.data management console</li>
+<li><mark>8080</mark> - Presto console</li>
+<li><mark>9001</mark> - MinIO console (S3 buckets)</li>
+<li><mark>6443</mark> - Portainer (Docker container management)</li>
+<li><mark>8088</mark> - Apache Superset (Query and Graphing)</li>
+<li><mark>5901</mark> - VNC Access (Access to GUI in the machine)</li>
+<li><mark>7681</mark> - SSH (Terminal access) via Browser</li>
+<li><mark>22</mark> - SSH (Terminal access) via local terminal program</li>
+<li><mark>8443</mark> - Presto External Port (dBeaver connection)</li>
+<li><mark>5432</mark> - Postgres External Port (dBeaver connection)</li>
+</ul>
+<p>Each of these services will have a URL and a specific port number assigned to it. The default port number when running inside the virtual machine are highlighed in <mark>yellow</mark>. These are <strong>not</strong> the port numbers that you will use to access these services. The port numbers have been randomly set to different values for the TechZone image. For instance, a TechZone reservation might have a URL for the IBM watsonx.data console listed as:</p>
+<pre style="font-size: normal; color: green">
+IBM watsonx.data UI - https://ussouth.techzone-services.com:42909
+</pre>
+<p>Click on this URL to access the UI in your local browser. The instructions in the lab will refer to a TechZone or VMware URL when asking for you to connect to a service. The following example asks you to connect to the UI.</p>
+<p>Open your browser and navigate to:</p>
+<ul>
+<li>IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark></li>
+<li>VMWare Image - <mark>https://localhost:9443/</mark></li>
+</ul>
+<p>If you need to manually enter the URL into a browser, make sure to use the port number (<mark>xxxxx</mark>) provided in the TechZone reservation document. It is recommended that you use the links provided in the reservation document to save yourself time and reduce the chances of incorrectly typing the URL.</p>
+<h2 id="virtual-machine-console">Virtual Machine Console</h2>
+<p>Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. The VNC port address has been provided to you in the reservation document. </p>
+<ul>
+<li>VNC for watsonx userid - vnc://ussouth.techzone-services.com:xxxxx</li>
+</ul>
+<p>Use the Mac screen sharing app or an equivalent one on Windows (i.e., RealVNC) to connect to watsonx. You can also connect using the Safari browser by using the URL provided. It will automatically start the screen sharing application.</p>
+<p><strong>Note</strong>: The VNC URL format is only valid in Safari and will not work in other browsers.</p>
+<p>When the service connects to the server it will prompt for the password of the <mark>watsonx</mark> user - <mark>watsonx.data</mark>.</p>
+<p><img alt="Browser" src="../wxd-images/vnc-password.png" /></p>
+<p>Once connected you will see the console of the watsonx user.</p>
+<p><img alt="Browser" src="../wxd-images/vnc-console.png" /></p>
+<h3 id="techzone-guacamole-access">TechZone Guacamole Access</h3>
+<p><strong>Do not use this interface unless you find that you are unable to connect using the VNC link provided</strong>. The TechZone reservation document includes a link to the details of the virtual machine.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-details.png" /></p>
+<p>Clicking on this link will display the details of your reservation.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-all-details.png" /></p>
+<p>At the bottom of the reservation page you will find the console button.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-console.png" /></p>
+<p>Clicking on this button will display the logon screen for the server.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-vnc.png" /></p>
+<p>You will <strong>not</strong> be able to logon as the watsonx user. The VNC session (mentioned above) will be controlling access to the users home directory and the system does not permit two sessions accessing the same userid. If you do attempt to connect you will only get a black screen and you will need to reboot the server before apply the following fix.</p>
+<p>Use a local terminal shell (iterm, Hyper, terminal) and use the SSH command to shell into the machine. The TechZone reservation document provides the command that you need to use.</p>
+<ul>
+<li>SSH for watsonx userid - <mark>ssh -p xxxxx watsonx@ussouth.techzone-services.com</mark></li>
+</ul>
+<p>The highlighted text would be placed into the terminal window and executed. The password for watsonx is <mark>watsonx.data</mark>. You will need to say "yes" to the continue connecting prompt.</p>
+<p><img alt="Browser" src="../wxd-images/ssh-local.png" /></p>
+<p>At this point you are connected as the watsonx user. To become the root user, you must enter the following command in the terminal window.</p>
+<pre><code>sudo su -
+</code></pre>
+<p>Now issue the following command to turn off the VNC service in the machine.</p>
+<pre><code>systemctl stop vncserver@:1
+</code></pre>
+<p>Close the terminal window by first exiting from root.</p>
+<pre><code>exit
+</code></pre>
+<p>Now you can close the watsonx connection.</p>
+<pre><code>exit
+</code></pre>
+<p>At this point you will be able to use the Console button and use the login screen to connect to watsonx.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-watsonx.png" /></p>
+<p>At this point your image is ready to start the lab.</p>
+<h2 id="terminal-command-window">Terminal Command Window</h2>
+<p>All of the commands in the lab will require you to execute commands in a terminal window. In addition, the labs require access to the root userid, and this can be accomplished in two ways that are described below.</p>
+<h3 id="local-terminal-shell">Local Terminal Shell</h3>
+<p>Select a local terminal shell (iterm, Hyper, terminal) and use the SSH command to shell into the machine. The TechZone reservation document provides the command that you need to use to shell into the machine.</p>
+<ul>
+<li>SSH for watsonx userid - <mark>ssh -p xxxxx watsonx@ussouth.techzone-services.com</mark></li>
+</ul>
+<p>The highlighted text would be placed into the terminal window and executed. The password for watsonx is <mark>watsonx.data</mark>. You will need to say "yes" to the continue connecting prompt.</p>
+<p><img alt="Browser" src="../wxd-images/ssh-local.png" /></p>
+<p>At this point you are connected as the watsonx user. To become the root user, you must enter the following command in the terminal window.</p>
+<pre><code>sudo su -
+</code></pre>
+<p>Now as the root user you will be ready to run the commands found in the lab.</p>
+<h3 id="terminal-window-via-browser">Terminal Window via Browser</h3>
+<p>This lab provides a URL to use SSH in a browser window. This is a URL which will open an SSH shell into the machine using the browser instead of having to use a terminal session on your workstation.</p>
+<ul>
+<li>Browser SSH - <mark>http://ussouth.techzone-services.com:xxxxx</mark></li>
+</ul>
+<p>Copy the link into a browser window and hit Enter. The browser will prompt you for a userid and password.</p>
+<p><img alt="Browser" src="../wxd-images/terminal-logon.png" /></p>
+<p>The userid is <mark>watsonx</mark> and the password is <mark>watsonx.data</mark>.</p>
+<p><img alt="Browser" src="../wxd-images/terminal-browser.png" /></p>
+<p>Although you logged in as <mark>watsonx</mark>, you are immediately switched to the <mark>root</mark> user. There is no need to switch userids. Note that you can open as many SSH browser windows as required. The userid and password prompt will not be repeated after the initial log in.</p>
+<h3 id="terminal-window-in-virtual-machine">Terminal Window in Virtual Machine</h3>
+<p>You can use the Terminal application in the virtual machine to issue commands. The disadvantage of using this approach is that you cannot cut and paste commands into this environment due to VNC restrictions.</p>
+<p><img alt="Browser" src="../wxd-images/terminal-vmware-command.png" /></p>
+<p><strong>Note</strong>: If you find that you can't start a terminal session in the VNC console, you may need to press the power button at the top right-hand corner and log out from the watsonx user. </p>
+<p><img alt="Browser" src="../wxd-images/wxd-internet.png" /></p>
+<p>The SSH Browser creates a lock on the terminal session within the machine, so logging out and back in again will release the lock and allow you to start a terminal session. The Browser Terminal session can continue to be used.</p>
+<p>The screen will refresh and log you back in as watsonx. At this point you should be able to start a terminal session.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../wxd-intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wxd-vmware/" class="md-footer__link md-footer__link--next" aria-label="Next: Local VMWare image" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Local VMWare image
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>

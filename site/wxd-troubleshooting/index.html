@@ -1,0 +1,956 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Troubleshooting - IBM watsonx.data Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#troubleshooting-ibm-watsonxdata" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../img/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM watsonx.data Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+      
+  <img src="../img/IBM_logo®_rev_RGB.png" alt="logo">
+
+    </a>
+    IBM watsonx.data Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Accessing IBM watsonx.data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Accessing IBM watsonx.data" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Accessing IBM watsonx.data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-techzone/" class="md-nav__link">
+        TechZone image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-vmware/" class="md-nav__link">
+        Local VMWare image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-startwatsonx/" class="md-nav__link">
+        Start IBM watsonx.data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-prestocli/" class="md-nav__link">
+        Presto CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-watsonui/" class="md-nav__link">
+        IBM watsonx.data UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-presto/" class="md-nav__link">
+        Presto UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-minio/" class="md-nav__link">
+        MinIO UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-dbeaver/" class="md-nav__link">
+        dBeaver
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Presto SQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Presto SQL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Presto SQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-analytics/" class="md-nav__link">
+        Analytic Workloads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-advanced/" class="md-nav__link">
+        Advanced Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-timetravel/" class="md-nav__link">
+        Time Travel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-federation/" class="md-nav__link">
+        Federation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-superset/" class="md-nav__link">
+        Apache Superset
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-objectstore/" class="md-nav__link">
+        Working with Object Store Buckets
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-ingest/" class="md-nav__link">
+        Ingesting Data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Troubleshooting
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-tried-to-access-the-ibm-watsonxdata-console-and-it-isnt-working" class="md-nav__link">
+    I tried to access the IBM watsonx.data console and it isn't working
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-command-i-typed-in-says-not-found-or-parameter-unknown" class="md-nav__link">
+    The command I typed in says "not found" or parameter unknown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-started-ibm-watsonxdata-but-no-services-are-reachable" class="md-nav__link">
+    I have started IBM watsonx.data but no services are reachable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unable-to-connect-to-server-dbeaver" class="md-nav__link">
+    Unable to connect to server (dBeaver)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-passwords-for-the-services" class="md-nav__link">
+    What are the passwords for the services?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-cant-open-up-a-terminal-window-with-vnc-or-guacamole" class="md-nav__link">
+    I Can't Open up a Terminal Window with VNC or Guacamole
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-deleted-a-bucket-and-i-cant-seem-to-add-it-back" class="md-nav__link">
+    I deleted a bucket and I can't seem to add it back
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendix" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Appendix
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-disclaimer/" class="md-nav__link">
+        Disclaimer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-revisions/" class="md-nav__link">
+        Revisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-tried-to-access-the-ibm-watsonxdata-console-and-it-isnt-working" class="md-nav__link">
+    I tried to access the IBM watsonx.data console and it isn't working
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-command-i-typed-in-says-not-found-or-parameter-unknown" class="md-nav__link">
+    The command I typed in says "not found" or parameter unknown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-started-ibm-watsonxdata-but-no-services-are-reachable" class="md-nav__link">
+    I have started IBM watsonx.data but no services are reachable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unable-to-connect-to-server-dbeaver" class="md-nav__link">
+    Unable to connect to server (dBeaver)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-passwords-for-the-services" class="md-nav__link">
+    What are the passwords for the services?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-cant-open-up-a-terminal-window-with-vnc-or-guacamole" class="md-nav__link">
+    I Can't Open up a Terminal Window with VNC or Guacamole
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-deleted-a-bucket-and-i-cant-seem-to-add-it-back" class="md-nav__link">
+    I deleted a bucket and I can't seem to add it back
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="troubleshooting-ibm-watsonxdata">Troubleshooting IBM watsonx.data</h1>
+<p>Although we have tried to make the lab as error-free as possible, occasionally things will go wrong. Here is a list of common questions, problems, and potential solutions.</p>
+<h4 id="i-tried-to-access-the-ibm-watsonxdata-console-and-it-isnt-working">I tried to access the IBM watsonx.data console and it isn't working</h4>
+<p>The base image does not start the IBM watsonx.data services. You need to start all the services first before you can access the IBM watsonx.data console, along with the Presto and MinIO consoles. Make sure that the <code>LH_RUN_MODE</code> environment variable has been
+set before starting the services. Without this setting, the non-SSL ports will be blocked and you will be unable to reach many of the services in the system.
+<code class="language-bash"><pre>
+export LH_RUN_MODE=diag
+./stop.sh
+./start.sh
+./checkpresto.sh
+</pre></code></p>
+<h4 id="the-command-i-typed-in-says-not-found-or-parameter-unknown">The command I typed in says "not found" or parameter unknown</h4>
+<ol>
+<li>
+<p>This error often occurs when you copy a command from Word (written with an English keyboard) and paste it into a "local" terminal window that is using a different code page. We have seen this with the "-" character which Windows sometimes turns into a "dash" rather than a "minus" sign. If you use the Brower-based SSH window, this cut and paste error normally does not appear. However, copying this into a terminal window using your local operating system can sometime cause problems. Typing the command "manually" will  work.</p>
+</li>
+<li>
+<p>Cut and Paste into some fields may cause errors if the text contains an extra white space which is not a blank. For instance, the dBeaver program does not strip these whitespace characters from a parameter name. For instance, if you placed an extra "tab" character at the end of the SSH parameter, the program would issue an error message that says it can't find the parameter.</p>
+</li>
+<li>
+<p>For all Presto and IBM watsonx.data commands, you must be the root user and be in the <code>/root/ibm-lh-data/bin directory</code> to issue these commands.
+ </p>
+</li>
+</ol>
+<h4 id="i-have-started-ibm-watsonxdata-but-no-services-are-reachable">I have started IBM watsonx.data but no services are reachable</h4>
+<p>Mostly likely reason is that the system was started without the run mode setting changed to diagnostic mode. The setting is required to open all non-SSL ports (MinIO, Presto, etc...). Run the following command in the terminal window where you started the program. 
+<code class="language-bash"><pre>
+env | grep LH_RUN_MODE
+</pre></code></p>
+<p>If the results are empty, then you should stop and restart the service with the following commands.
+<code class="language-bash"><pre>
+export LH_RUN_MODE=diag
+./stop.sh
+./start.sh
+./checkpresto.sh
+</pre></code></p>
+<h4 id="unable-to-connect-to-server-dbeaver">Unable to connect to server (dBeaver)</h4>
+<p>Double-check the server address that you are using in the configuration. If you are using dBeaver "inside" the IBM watsonx.data virtual machine, the server is <code>localhost</code>. If you are connecting with your own copy of dBeaver, you need to use <code>ibm-lh-presto-svc</code> and update your host command to point to your TechZone server location.</p>
+<h4 id="what-are-the-passwords-for-the-services">What are the passwords for the services?</h4>
+<p>This table lists the passwords for the services that have "fixed" userids and passwords.</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Userid</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual Machine</td>
+<td>watsonx</td>
+<td>watsonx.data</td>
+</tr>
+<tr>
+<td>Virtual Machine</td>
+<td>root</td>
+<td>watsonx.data</td>
+</tr>
+<tr>
+<td>IBM watsonx.data UI</td>
+<td>ibmlhadmin</td>
+<td>password</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Minio</td>
+<td>Generated</td>
+<td>Generated</td>
+</tr>
+<tr>
+<td>Postgres</td>
+<td>admin</td>
+<td>Generated</td>
+</tr>
+<tr>
+<td>Apache Superset</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Portainer</td>
+<td>admin</td>
+<td>watsonx.data</td>
+</tr>
+</tbody>
+</table>
+<p>Use the following commands to get the generated userid and password for MinIO.
+<code class="language-bash"><pre>
+export LH_S3_ACCESS_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_ACCESS_KEY | sed 's/.<em>=//')
+export LH_S3_SECRET_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_SECRET_KEY | sed 's/.</em>=//')
+echo "MinIO Userid  : " $LH_S3_ACCESS_KEY
+echo "MinIO Password: " $LH_S3_SECRET_KEY
+</pre></code></p>
+<p>Use the following command to get the password for Postgres.
+<code class="language-bash"><pre>
+export POSTGRES_PASSWORD=$(docker exec ibm-lh-postgres printenv | grep POSTGRES_PASSWORD | sed 's/.*=//')
+echo "Postgres Userid   : admin"
+echo "Postgres Password : " $POSTGRES_PASSWORD
+</pre></code></p>
+<h4 id="i-cant-open-up-a-terminal-window-with-vnc-or-guacamole">I Can't Open up a Terminal Window with VNC or Guacamole</h4>
+<p>First thing to remember is that you can't use VNC and the TechZone Guacamole interface at the same time. Only one can be active at a time. If you start with VNC, you need to fully shut it down if you want to switch to the TechZone Guacamole version.</p>
+<p>If you find that you cannot start a terminal session (a window never gets displayed), you will need to log out as the watsonx user. This problem is a result of the SSH Browser having started before the Gnome UI. The fix requires that you click the power button at the top of the display and then selecting log out. This will reset the UI and allow you to use the terminal window again.</p>
+<h4 id="i-deleted-a-bucket-and-i-cant-seem-to-add-it-back">I deleted a bucket and I can't seem to add it back</h4>
+<p>If you delete a bucket from the IBM watsonx.data system, the bucket name remains in the catalog (for now) which prevents you from re-creating it. Use a different name for the bucket when cataloging it. This limitation will be removed in a future build.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../wxd-ingest/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ingesting Data" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ingesting Data
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wxd-disclaimer/" class="md-footer__link md-footer__link--next" aria-label="Next: Disclaimer" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Disclaimer
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 IBM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
