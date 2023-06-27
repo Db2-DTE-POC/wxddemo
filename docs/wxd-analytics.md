@@ -22,7 +22,11 @@ Open the Presto CLI.
 
 Run a simple scan query which selects customer names and market segment.
 ```
-select name, mktsegment from customer limit 3;
+select 
+   name, mktsegment 
+from 
+   customer 
+limit 3;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         name        | mktsegment 
@@ -196,8 +200,12 @@ Connect to Presto with the Workshop Schema.
 ```
 Now that have created a partitioned table, we will execute a SQL statement that will make use of this fact.
 ```
-select * from iceberg_minio."workshop".part_customer 
-   where mktsegment='MACHINERY';
+select
+   * 
+from 
+   iceberg_minio."workshop".part_customer 
+where 
+   mktsegment='MACHINERY';
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
  custkey |        name        |                 address                  | nationkey |      phone      | acctbal | mktsegment |                                                       comment                                                        
@@ -298,10 +306,13 @@ CREATE TABLE: 15000 rows
 
 Use a Windowing function.
 ```
-SELECT orderkey, clerk, totalprice, 
+SELECT 
+   orderkey, clerk, totalprice, 
    rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk 
-FROM orders 
-ORDER BY clerk, rnk;
+FROM 
+   orders 
+ORDER BY 
+   clerk, rnk;
 ```
 
 Try to write a window function to show the custkey, orderdate, totalprice and priororder. The output should look like this.
@@ -329,7 +340,10 @@ custkey | orderdate  | totalprice | priororder
 
 Save a query as a prepared statement.
 ```
-prepare customer_by_segment from select * from customer where mktsegment=?;
+prepare 
+   customer_by_segment
+from 
+   select * from customer where mktsegment=?;
 ```
 Execute prepared statement using parameters.
 ```

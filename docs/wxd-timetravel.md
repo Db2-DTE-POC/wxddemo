@@ -11,7 +11,12 @@ Connect to Presto using the workshop schema.
 ```
 Check current snapshots – STARTING STATE.
 ```
-SELECT * FROM iceberg_minio.workshop."customer$snapshots" ORDER BY committed_at;
+SELECT 
+   * 
+FROM 
+   iceberg_minio.workshop."customer$snapshots" 
+ORDER BY 
+   committed_at;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         committed_at         |     snapshot_id     | parent_id | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                
@@ -21,7 +26,12 @@ SELECT * FROM iceberg_minio.workshop."customer$snapshots" ORDER BY committed_at;
 </pre>
 Capture the first snapshot ID returned by the SQL statement. You will need this value when you run the rollback command.
 ```
-SELECT snapshot_id FROM iceberg_minio.workshop."customer$snapshots" ORDER BY committed_at;
+SELECT 
+   snapshot_id 
+FROM 
+   iceberg_minio.workshop."customer$snapshots" 
+ORDER BY 
+   committed_at;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
      snapshot_id     
@@ -32,12 +42,19 @@ SELECT snapshot_id FROM iceberg_minio.workshop."customer$snapshots" ORDER BY com
 
 Remember that number that was returned with the query above. Insert the following record to change the customer table in the workshop schema. 
 ```
-insert into customer values(1501,'Deepak','IBM SVL',16,'123-212-3455',123,'AUTOMOBILE','Testing snapshots');
+insert into customer 
+  values(1501,'Deepak','IBM SVL',16,'123-212-3455',
+         123,'AUTOMOBILE','Testing snapshots');
 ```
  
 Let us look at the snapshots available for the customer table in the workshop schema. You should have 2 snapshots. 
 ```
-SELECT * FROM iceberg_minio.workshop."customer$snapshots" ORDER BY committed_at;
+SELECT 
+   * 
+FROM 
+   iceberg_minio.workshop."customer$snapshots" 
+ORDER BY 
+   committed_at;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
         committed_at         |     snapshot_id     |      parent_id      | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                
