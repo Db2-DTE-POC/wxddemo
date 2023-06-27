@@ -194,7 +194,8 @@ Connect to Presto with the Workshop Schema.
 ```
 Now that have created a partitioned table, we will execute a SQL statement that will make use of this fact.
 ```
-select * from iceberg_minio."workshop".part_customer where mktsegment='MACHINERY';
+select * from iceberg_minio."workshop".part_customer 
+   where mktsegment='MACHINERY';
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
  custkey |        name        |                 address                  | nationkey |      phone      | acctbal | mktsegment |                                                       comment                                                        
