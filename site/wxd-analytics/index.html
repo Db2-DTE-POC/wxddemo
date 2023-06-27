@@ -906,7 +906,9 @@ EOF
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Create a partitioned table, based on column mktsegment and copy data from TPCH.TINY.CUSTOMER table.</p>
-<pre><code>create table iceberg_minio.workshop.part_customer with (partitioning = array['mktsegment']) as select * from tpch.tiny.customer;
+<pre><code>create table iceberg_minio.workshop.part_customer 
+  with (partitioning = array['mktsegment']) 
+  as select * from tpch.tiny.customer;
 </code></pre>
 <p>Quit Presto.</p>
 <pre><code>quit;
