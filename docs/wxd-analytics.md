@@ -149,7 +149,9 @@ Connect to Presto with the Workshop Schema.
 ```
 Create a partitioned table, based on column mktsegment and copy data from TPCH.TINY.CUSTOMER table.
 ```
-create table iceberg_minio.workshop.part_customer with (partitioning = array['mktsegment']) as select * from tpch.tiny.customer;
+create table iceberg_minio.workshop.part_customer 
+  with (partitioning = array['mktsegment']) 
+  as select * from tpch.tiny.customer;
 ```
 Quit Presto.
 ```

@@ -962,7 +962,9 @@ echo &quot;MinIO Password: &quot; $LH_S3_SECRET_KEY
 
 <p>Due to the partitioning of this table by <code>mktsegment</code>, it will completely skip scanning a large percentage of the objects in the object store.</p>
 <p>We run an explain against this query using the following command.</p>
-<pre><code>explain (format graphviz) select * from iceberg_minio.&quot;workshop&quot;.customer where mktsegment='MACHINERY';
+<pre><code>explain (format graphviz) 
+   select * from iceberg_minio.&quot;workshop&quot;.customer
+      where mktsegment='MACHINERY';
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
 Query Plan                                                                                                                                                    
@@ -1012,14 +1014,18 @@ EOF
 <pre><code>./presto-cli.sh --catalog iceberg_minio --schema workshop
 </code></pre>
 <p>Create the Orders Table.</p>
-<pre><code>create table iceberg_minio.workshop.orders as select * from tpch.tiny.orders;
+<pre><code>create table iceberg_minio.workshop.orders as 
+  select * from tpch.tiny.orders;
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: scroll">
 CREATE TABLE: 15000 rows
 </pre>
 
 <p>Use a Windowing function.</p>
-<pre><code>SELECT orderkey, clerk, totalprice, rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk FROM orders ORDER BY clerk, rnk;
+<pre><code>SELECT orderkey, clerk, totalprice, 
+   rank() OVER (PARTITION BY clerk ORDER BY totalprice DESC) AS rnk 
+FROM orders 
+ORDER BY clerk, rnk;
 </code></pre>
 <p>Try to write a window function to show the custkey, orderdate, totalprice and priororder. The output should look like this.</p>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
