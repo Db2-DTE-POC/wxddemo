@@ -21,4 +21,4 @@ For any questions regarding the lab, including any suggestions, general comments
 We would also appreciate any feedback on the successful use of the lab.
 Thanks for using IBM watsonx.data!
 
-Dan & George
+Dan, Deepak & George
