@@ -147,9 +147,10 @@ At this point you are connected as the watsonx user. To become the root user, yo
 sudo su -
 ```
 
-Now issue the following command to turn off the VNC service in the machine.
+Now issue the following commandsto turn off the VNC service in the machine.
 ```
 systemctl stop vncserver@:1
+systemctl disable vncserver@:1
 ```
 
 Close the terminal window by first exiting from root.
