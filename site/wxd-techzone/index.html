@@ -906,8 +906,9 @@ IBM watsonx.data UI - https://ussouth.techzone-services.com:42909
 <p>At this point you are connected as the watsonx user. To become the root user, you must enter the following command in the terminal window.</p>
 <pre><code>sudo su -
 </code></pre>
-<p>Now issue the following command to turn off the VNC service in the machine.</p>
+<p>Now issue the following commandsto turn off the VNC service in the machine.</p>
 <pre><code>systemctl stop vncserver@:1
+systemctl disable vncserver@:1
 </code></pre>
 <p>Close the terminal window by first exiting from root.</p>
 <pre><code>exit
