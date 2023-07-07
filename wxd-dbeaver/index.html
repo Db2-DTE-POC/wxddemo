@@ -791,19 +791,19 @@ Add another field called <mark>SSLKeyStorePath</mark> and give it value of <mark
 <p>If you want to use a local copy of dBeaver, you will need to make some changes to your local system and the IBM watsonx.data system to connect. The instructions in the previous section require some slight modifications.</p>
 <p>First locate the Presto connection port in your reservation document.</p>
 <ul>
-<li>Presto Port - Server: <mark>eu-de.techzone-services.com Port: 35752</mark></li>
+<li>Presto Port - Server: <mark>region.techzone-services.com Port: 35752</mark></li>
 </ul>
 <p>In a terminal window on your local machine, issue the following command to determine the IP address of your TechZone server.</p>
-<pre><code>ping eu-de.techzone-services.com
+<pre><code>ping region.techzone-services.com
 </code></pre>
 <pre style="font-size: small; color: darkgreen; overflow: auto">
-PING eu-de.techzone-services.com (149.81.9.250): 56 data bytes
-64 bytes from 149.81.9.250: icmp_seq=0 ttl=52 time=157.459 ms
+PING region.techzone-services.com (149.81.9.250): 56 data bytes
+64 bytes from 111.11.1.111: icmp_seq=0 ttl=52 time=157.459 ms
 </pre>
 
 <p><strong>Note</strong>: Your server will be different! The FRA04 server is shown above.</p>
 <p>This IP address needs to be placed into your local hosts file. On OSX, use the following command with the IP address found above.</p>
-<pre><code>echo '149.81.9.250 ibm-lh-presto-svc' | sudo tee -a /etc/hosts
+<pre><code>echo '111.11.1.111 ibm-lh-presto-svc' | sudo tee -a /etc/hosts
 </code></pre>
 <p>In a terminal window on the IBM watsonx.data server, issue the following commands:</p>
 <pre><code>sudo firewall-cmd --add-port={8443/tcp,5432/tcp} --permanent --zone=public
