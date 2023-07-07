@@ -4,7 +4,7 @@ Apache Superset is not a part of IBM watsonx.data and is only used to demonstrat
 
 Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
 
-   * Browser SSH - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Browser SSH - <mark>http://region.techzone-services.com:xxxxx</mark>
 
 Switch to the Apache Superset directory.
 ```
@@ -22,7 +22,7 @@ This command will download the necessary code for Apache Superset and start the 
  
 Open your browser and navigate to:
 
-   * Apache Superset - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Apache Superset - <mark>http://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>http://localhost:8088/</mark>
 
 The credentials for Apache Superset are userid admin, Password admin.
@@ -32,7 +32,7 @@ The credentials for Apache Superset are userid admin, Password admin.
 ### Setup a Database Connection to IBM watsonx.data
 Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
 
-   * Browser SSH - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Browser SSH - <mark>http://region.techzone-services.com:xxxxx</mark>
    
 The TechZone image has been designed so that you can have multiple SSH browser windows open. Wait until Apache Superset has initialized completely, and then issue the following command as root.
 ```

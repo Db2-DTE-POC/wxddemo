@@ -52,7 +52,7 @@ This will save the certificate file into a shared volume that is accessible by t
 
 Before ingesting the file, we need to create a new schema that we will use for the table being loaded. Open your browser and navigate to:
 
-   * IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark>
+   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>https://localhost:9443/</mark>
 
 In the watsonx.data UI select the Data Explorer.

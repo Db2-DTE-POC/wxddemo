@@ -96,22 +96,22 @@ If you want to use a local copy of dBeaver, you will need to make some changes t
  
 First locate the Presto connection port in your reservation document.
 
-   * Presto Port - Server: <mark>eu-de.techzone-services.com Port: 35752</mark>
+   * Presto Port - Server: <mark>region.techzone-services.com Port: 35752</mark>
 
 In a terminal window on your local machine, issue the following command to determine the IP address of your TechZone server.
 ```
-ping eu-de.techzone-services.com
+ping region.techzone-services.com
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
-PING eu-de.techzone-services.com (149.81.9.250): 56 data bytes
-64 bytes from 149.81.9.250: icmp_seq=0 ttl=52 time=157.459 ms
+PING region.techzone-services.com (149.81.9.250): 56 data bytes
+64 bytes from 111.11.1.111: icmp_seq=0 ttl=52 time=157.459 ms
 </pre>
 
 **Note**: Your server will be different! The FRA04 server is shown above.
 
 This IP address needs to be placed into your local hosts file. On OSX, use the following command with the IP address found above.
 ```
-echo '149.81.9.250 ibm-lh-presto-svc' | sudo tee -a /etc/hosts
+echo '111.11.1.111 ibm-lh-presto-svc' | sudo tee -a /etc/hosts
 ```
 In a terminal window on the IBM watsonx.data server, issue the following commands:
 ```

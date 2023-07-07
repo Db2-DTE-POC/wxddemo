@@ -70,7 +70,7 @@ echo $POSTGRES_PASSWORD > /tmp/postgres.pw
 
 Open your browser and connect to the IBM watsonx.data UI:
 
-   * IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark>
+   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>https://localhost:9443/</mark>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
@@ -211,7 +211,7 @@ Use the dBeaver menu to create a new database connection using the following inf
 
 If you are using the local connection, you will need to get host and port information from the TechZone reservation:
 
-   * Postgres Port - Server: <mark>ussouth.techzone-services.com Port: xxxxx</mark>
+   * Postgres Port - Server: <mark>region.techzone-services.com Port: xxxxx</mark>
 
 Your database connection screen should look like the following panel.
 

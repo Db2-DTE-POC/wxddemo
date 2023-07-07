@@ -1,7 +1,7 @@
 # Using the IBM watsonx.data console UI
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - https://ussouth.techzone-services.com:xxxxx
+   * IBM watsonx.data UI - https://region.techzone-services.com:xxxxx
    * VMWare Image - https://localhost:9443/
    * Credentials: username: <mark>ibmlhadmin</mark> password: <mark>password</mark>
 

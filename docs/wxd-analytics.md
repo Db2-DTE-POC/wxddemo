@@ -165,7 +165,7 @@ quit;
 ### Inspect object store directory/object/file structure
 Open your browser and navigate to:
    
-   * MinIO console - http://ussouth.techzone-services.com:xxxxx
+   * MinIO console - http://region.techzone-services.com:xxxxx
    * VMWare Image - http://localhost:9001/
 
 If you forget the userid and password, use the following command to extract them.

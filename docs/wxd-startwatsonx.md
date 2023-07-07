@@ -149,7 +149,7 @@ Congratulations, your system is now up and running!
 
 This lab system has Portainer installed. Portainer provides an administrative interface to the Docker images that are running on this system. You can use this console to check that all the containers are running and see what resources they are using. Open your browser and navigate to:
 
-   * Portainer console - https://ussouth.techzone-services.com:xxxxx
+   * Portainer console - https://region.techzone-services.com:xxxxx
    * VMWare Image - https://localhost:6443/
    * Credentials: userid: <mark>admin</mark> password: <mark>watsonx.data</mark>
 

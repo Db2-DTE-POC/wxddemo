@@ -15,7 +15,7 @@ MinIO Password:  93da45c5af87abd86c9dbc83
 
 Open your browser and navigate to:
 
-   * Minio console - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>http://localhost:9001/</mark>
    
 ![Browser](wxd-images/minio-logon.png)

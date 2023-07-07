@@ -1,7 +1,7 @@
 # Using the Presto console UI
 The PrestoDB console UI can be accessed from:
 
-   * Presto console - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Presto console - <mark>http://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>http://localhost:8080/ui</mark>
 
 The Presto console allows you to do the following:

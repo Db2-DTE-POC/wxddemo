@@ -21,7 +21,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
 ### Create new bucket in MinIO
 Open your browser and navigate to:
 
-   * Minio console - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+   * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>https://localhost:9001/</mark>
    
 Check to see if the MinIO credentials exist in your terminal session.
@@ -55,7 +55,7 @@ You should now see your new bucket below.
  
 Open your browser and connect to the IBM watsonx.data UI:
 
-   * IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark>
+   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>https://localhost:9443/</mark>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
@@ -157,7 +157,7 @@ quit;
    * You can use the Developer sandbox (bin/dev-sandbox.sh), as described in Lab 3 to inspect the Customer as well, via the s3-inspect utility. 
    * Recommend you use the MinIO console to view the bucket instead.
 Open your browser and navigate to:
-     * Minio console - <mark>http://ussouth.techzone-services.com:xxxxx</mark>
+     * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
      * VMWare Image - <mark>http://localhost:9001/</mark>
 
 From the main screen select Object Browser and view the contents of the customer bucket.

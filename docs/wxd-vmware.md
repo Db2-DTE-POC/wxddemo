@@ -37,7 +37,7 @@ The instructions in the lab will refer to a TechZone or VMware URL when asking f
 
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark>
+   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
    * VMWare Image - <mark>https://localhost:9443/</mark>
 
 The port number (<mark>xxxxx</mark>) will need to match the service found above. The assumption is that you are running inside the VMware image (i.e., using a browser inside the virtual machine).

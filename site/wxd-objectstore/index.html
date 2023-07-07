@@ -741,7 +741,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
 <h3 id="create-new-bucket-in-minio">Create new bucket in MinIO</h3>
 <p>Open your browser and navigate to:</p>
 <ul>
-<li>Minio console - <mark>http://ussouth.techzone-services.com:xxxxx</mark></li>
+<li>Minio console - <mark>http://region.techzone-services.com:xxxxx</mark></li>
 <li>VMWare Image - <mark>https://localhost:9001/</mark></li>
 </ul>
 <p>Check to see if the MinIO credentials exist in your terminal session.</p>
@@ -765,7 +765,7 @@ export LH_S3_SECRET_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_SECRET
 <p><img alt="Browser" src="../wxd-images/minio-bucket-4.png" /></p>
 <p>Open your browser and connect to the IBM watsonx.data UI:</p>
 <ul>
-<li>IBM watsonx.data UI - <mark>https://ussouth.techzone-services.com:xxxxx</mark></li>
+<li>IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark></li>
 <li>VMWare Image - <mark>https://localhost:9443/</mark></li>
 </ul>
 <p>Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.</p>
@@ -841,7 +841,7 @@ CREATE TABLE: 1500 rows
 <li>You can use the Developer sandbox (bin/dev-sandbox.sh), as described in Lab 3 to inspect the Customer as well, via the s3-inspect utility. </li>
 <li>Recommend you use the MinIO console to view the bucket instead.
 Open your browser and navigate to:<ul>
-<li>Minio console - <mark>http://ussouth.techzone-services.com:xxxxx</mark></li>
+<li>Minio console - <mark>http://region.techzone-services.com:xxxxx</mark></li>
 <li>VMWare Image - <mark>http://localhost:9001/</mark></li>
 </ul>
 </li>
