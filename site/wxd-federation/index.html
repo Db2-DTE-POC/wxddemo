@@ -13,7 +13,7 @@
     
     
       
-        <title>Federation - IBM watsonx.data Lab</title>
+        <title>Federation - Watsonx.data Lab</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#federation-with-ibm-watsonxdata" class="md-skip">
+        <a href="#federation-with-watsonxdata" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-header__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IBM watsonx.data Lab
+            Watsonx.data Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,12 +163,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-nav__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
     </a>
-    IBM watsonx.data Lab
+    Watsonx.data Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -413,7 +413,7 @@
   
     <li class="md-nav__item">
       <a href="../wxd-watsonui/" class="md-nav__link">
-        IBM watsonx.data UI
+        Watsonx.data UI
       </a>
     </li>
   
@@ -797,8 +797,8 @@
                 
 
 
-<h1 id="federation-with-ibm-watsonxdata">Federation with IBM watsonx.data</h1>
-<p>IBM watsonx.data can federate data from other data sources, there are a few out of box connectors and one could create additional connectors using the SDK if need be (This does involve some programming and testing effort) and not a trivial exercise. We will use the existing PostgreSQL instance, add some data, and test the federation capabilities. </p>
+<h1 id="federation-with-watsonxdata">Federation with watsonx.data</h1>
+<p>Watsonx.data can federate data from other data sources, there are a few out of box connectors and one could create additional connectors using the SDK if need be (This does involve some programming and testing effort) and not a trivial exercise. We will use the existing PostgreSQL instance, add some data, and test the federation capabilities. </p>
 <p>Open the developer sandbox and use existing scripts to create a PostgreSQL database and add some data.</p>
 <p>Switch to the bin directory as the root user.</p>
 <pre><code>cd /root/ibm-lh-dev/bin
@@ -850,9 +850,9 @@ echo &quot;Postgres Userid   : admin&quot;
 echo &quot;Postgres Password : &quot; $POSTGRES_PASSWORD
 echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
 </code></pre>
-<p>Open your browser and connect to the IBM watsonx.data UI:</p>
+<p>Open your browser and connect to the watsonx.data UI:</p>
 <ul>
-<li>IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a></li>
+<li>Watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a></li>
 </ul>
 <p>Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.</p>
 <p><img alt="Browser" src="../wxd-images/watsonx-icon-infra.png" /></p>
@@ -885,11 +885,11 @@ echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
 <p>Press the Associate button and the screen will update to show the connection.</p>
 <p><img alt="Browser" src="../wxd-images/watsonx-infrastructure-3.png" /></p>
 <h3 id="presto-federation">Presto Federation</h3>
-<p>First check to make sure that the Presto engine has finished starting. While the IBM watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.</p>
+<p>First check to make sure that the Presto engine has finished starting. While the watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.</p>
 <pre><code>check_presto
 </code></pre>
 <p>When the command comes back as Ready, you can start using the Presto CLI.</p>
-<p>Connect to IBM watsonx.data and try Federation.</p>
+<p>Connect to watsonx.data and try Federation.</p>
 <pre><code>./presto-cli --catalog pgdatadb
 </code></pre>
 <p>Show the current schemas. </p>
