@@ -1,6 +1,6 @@
 # System Overview
 
-The IBM watsonx.data system is running on a virtual machine with the following resources:
+The watsonx.data system is running on a virtual machine with the following resources:
 
    * 4 vCPUs
    * 16Gb of memory
@@ -8,7 +8,7 @@ The IBM watsonx.data system is running on a virtual machine with the following r
 
 This is sufficient for running this exercises found in this lab but cannot be used for large scale testing. 
 
-When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the IBM watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.
+When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.
 
 ## Lab Instructions
 Throughout the labs, any command that needs to be executed will be highlighted in a grey box:
@@ -36,7 +36,7 @@ Switch to the development code bin directory.
 cd /root/ibm-lh-dev/bin
 ```
 
-Once you have switched to the development directory, you can start running IBM watsonx.data commands. You can check the status with the following command.
+Once you have switched to the development directory, you can start running watsonx.data commands. You can check the status with the following command.
 ```bash
 ./status.sh --all
 ```
@@ -57,7 +57,7 @@ ibm-lh-minio				running
 To confirm that the software is working, run the following commands to validate the installation.
 
 ## Presto Engine Test
-Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks. The following command is not part of IBM watsonx.data, but has been included to simplify checking the status of the Presto service.
+Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks. The following command is not part of watsonx.data, but has been included to simplify checking the status of the Presto service.
 ```
 check_presto
 ```

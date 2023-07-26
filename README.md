@@ -1,2 +1,2 @@
 # wxddemo
-IBM watsonx.data Demonstration Script
+Watsonx.data Demonstration Script

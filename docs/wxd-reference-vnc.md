@@ -2,7 +2,7 @@
 
 **Note**: Before using VNC, make sure that you have installed Wireguard and have activated the connection.
 
-In order to access the console of the IBM watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. 
+In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. 
 
    * VNC for watsonx userid - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
 

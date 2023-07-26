@@ -1,6 +1,6 @@
 # Ingesting Data
 
-In this lab we will install the ingest tool (lh-tool) alongside the IBM watsonx.data developer edition that is running in this lab. The Ingest tool is a separate install and currently needs to be downloaded after IBM watsonx.data is started. The lab image contains a copy of this code so you will not need to download it.
+In this lab we will install the ingest tool (lh-tool) alongside the watsonx.data developer edition that is running in this lab. The Ingest tool is a separate install and currently needs to be downloaded after watsonx.data is started. The lab image contains a copy of this code so you will not need to download it.
 
 In addition, there is a staging file (yellowtaxi-parquet) found in root’s directory that will be used for loading into the system.
 
@@ -14,7 +14,7 @@ docker run --network ibm-lh-network -v /root/staging:/staging --name ibm-lh-tool
 ```
 ### Start and stop ingest container
 
-The ingest tool is outside of the control of the IBM watsonx.data dev environment that you have been using in the labs.  Using ./bin/start or ./bin/stop will not start or stop the ingest container. If you need to Start or Stop the service, use the following commands.
+The ingest tool is outside of the control of the watsonx.data dev environment that you have been using in the labs.  Using ./bin/start or ./bin/stop will not start or stop the ingest container. If you need to Start or Stop the service, use the following commands.
 
    * Stop the ibm-lh-tools container: 
      ```
@@ -24,7 +24,7 @@ The ingest tool is outside of the control of the IBM watsonx.data dev environmen
      ```
      docker start ibm-lh-tools
      ```
-### Ingest data into the IBM watsonx.data
+### Ingest data into watsonx.data
 Before running the utility, we need to retrieve several credentials for MinIO and the 
 keystore password. 
 ```
@@ -52,7 +52,7 @@ This will save the certificate file into a shared volume that is accessible by t
 
 Before ingesting the file, we need to create a new schema that we will use for the table being loaded. Open your browser and navigate to:
 
-   * IBM watsonx.data UI - **https://192.168.252.2:9443**
+   * watsonx.data UI - **https://192.168.252.2:9443**
    * VMWare Image - **https://localhost:9443/**
 
 In the watsonx.data UI select the Data Explorer.
@@ -166,7 +166,7 @@ After ingesting the data, exit the docker container.
 ```
 exit
 ```
-Refresh the IBM watsonx.data UI to view the iceberg_data catalog in the Data Explorer.
+Refresh the watsonx.data UI to view the iceberg_data catalog in the Data Explorer.
 
 ![Browser](wxd-images/watsonx-de-iceberg-1.png)
  

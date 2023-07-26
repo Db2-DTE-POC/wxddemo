@@ -4,7 +4,7 @@
 
 If you have not already downloaded the VPN certificate, follow these steps. 
 
-Access your reservation from the TechZone site. Click on the arrows that corresponds to the IBM watsonx.data reservation. 
+Access your reservation from the TechZone site. Click on the arrows that corresponds to the watsonx.data reservation. 
 
 ![Browser](wxd-images/techzone-reservations.png)
 

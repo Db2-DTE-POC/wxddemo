@@ -1,5 +1,5 @@
 # Requesting a TechZone image
-Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the IBM watsonx.data
+Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
 Developer Base Image or use the following link.
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
@@ -27,7 +27,7 @@ For “Purpose” select Self Education. This will expand to request additional 
 
 ![Browser](wxd-images/techzone-reason.png)
  
-Fill in the purpose field with something meaningful (IBM watsonx.data
+Fill in the purpose field with something meaningful (watsonx.data
 education). Next select preferred Geography for the image.
 
 ![Browser](wxd-images/techzone-region.png)

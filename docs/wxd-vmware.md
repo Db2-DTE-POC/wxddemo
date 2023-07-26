@@ -1,6 +1,6 @@
-# IBM watsonx.data VMware Image
+# watsonx.data VMware Image
 
-The IBM watsonx.data lab can be run in a virtual machine environment using VMWare Workstation, VMWare Fusion, or Oracle VirtualBox. The location of the OVA file (a compressed OS image format) is provided in the TechZone page for the lab:
+The watsonx.data lab can be run in a virtual machine environment using VMWare Workstation, VMWare Fusion, or Oracle VirtualBox. The location of the OVA file (a compressed OS image format) is provided in the TechZone page for the lab:
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
 
@@ -22,7 +22,7 @@ Before starting the machine, you may want to adjust the hardware requirements.
 ### VMware URLs 
 All of the URLs in the lab will be using **localhost** as the server and the following ports:
 
-   * **9443** - IBM watsonx.data management console
+   * **9443** - watsonx.data management console
    * **8080** - Presto console
    * **9001** - MinIO console (S3 buckets)
    * **6443** - Portainer (Docker container management)
@@ -37,7 +37,7 @@ The instructions in the lab will refer to a TechZone or VMware URL when asking f
 
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - **https://192.168.252.2:9443**
+   * watsonx.data UI - **https://192.168.252.2:9443**
    * VMWare Image - **https://localhost:9443/**
 
 The port number (**xxxxx**) will need to match the service found above. The assumption is that you are running inside the VMware image (i.e., using a browser inside the virtual machine).
@@ -91,7 +91,7 @@ Search for an **ensxx**** value in the output from the command. There you should
 
 Remember that inside your virtual machine, you will be using **https://localhost:6443**. The following PORT numbers are open in the machine:
 
-   * **9443** - IBM watsonx.data management console
+   * **9443** - watsonx.data management console
    * **8080** - Presto console
    * **9001** - MinIO console (S3 buckets)
    * **6443** - Portainer (Docker container management)

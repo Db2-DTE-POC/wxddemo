@@ -1,6 +1,6 @@
 # Advanced Functions
 
-IBM watsonx.data supports several different types of functions including:
+Watsonx.data supports several different types of functions including:
 
    * Mathematical functions
    * Conversion functions

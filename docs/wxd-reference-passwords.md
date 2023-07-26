@@ -6,7 +6,7 @@ This table lists the passwords for the services that have "fixed" userids and pa
 |-------|------|--------|
 |Virtual Machine|watsonx|watsonx.data
 |Virtual Machine|root|watsonx.data
-|IBM watsonx.data UI|ibmlhadmin|password
+|watsonx.data UI|ibmlhadmin|password
 |Presto|None|None
 |Minio|Generated|Generated
 |Postgres|admin|Generated

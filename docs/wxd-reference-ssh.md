@@ -1,6 +1,6 @@
 # SSH Access
 
-You have the choice of using the VNC connection to the virtual machine, or using a local terminal shell (iterm, Hyper, terminal) to run commands against the IBM watsonx.data server.
+You have the choice of using the VNC connection to the virtual machine, or using a local terminal shell (iterm, Hyper, terminal) to run commands against the watsonx.data server.
 
 To connect to the server, open a terminal session and issue the following command to connect as the <code style="color:blue;font-size:medium;">watsonx</code> user:
 

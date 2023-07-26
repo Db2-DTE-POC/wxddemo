@@ -1,6 +1,6 @@
 # Working with Object Store Buckets
 
-In this lab, we will run through some exercises to understand how the IBM watsonx.data can be configured to work with multiple buckets, using IBM COS, in addition to the out of the box MinIO bucket. 
+In this lab, we will run through some exercises to understand how the watsonx.data can be configured to work with multiple buckets, using IBM COS, in addition to the out of the box MinIO bucket. 
 In the GA version, there will be a user experience to facilitate such setup, however this lab will help you understand some of the service-service interactions & configurations.
 
 ### Why do we need to do this?
@@ -8,7 +8,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
    * In this lab, we will use multiple buckets as this is also how we can illustrate compute-storage separation.
    * Out of the box, both in SaaS and Software, a tiny Object Store bucket is allocated, primarily for getting started use cases.  
      * Customers would need to point to their own bucket for their data. 
-   * The use of a remote bucket (in this example, MinIO) also showcases the “open” aspect of the IBM watsonx.data.  
+   * The use of a remote bucket (in this example, MinIO) also showcases the “open” aspect of the watsonx.data.  
      * Customers _own their data_ and can physically access the iceberg-ed bucket using other applications or engines, even custom ones that they build themselves.
    * Customers would also have requirements to place (data sovereignty) buckets in specific locations.
      * Compute/analytics engines may need to run in different locations, say closer to applications and connect to buckets in other networks/geos.
@@ -52,9 +52,9 @@ You should now see your new bucket below.
 
 ![Browser](wxd-images/minio-bucket-4.png)
  
-Open your browser and connect to the IBM watsonx.data UI:
+Open your browser and connect to the watsonx.data UI:
 
-   * IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
+   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
@@ -105,7 +105,7 @@ Select the <code style="color:blue;font-size:medium;">presto-01</code> engine an
 
 ## Exploring the Customer bucket
 
-First check to make sure that the Presto engine has finished starting. While the IBM watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.
+First check to make sure that the Presto engine has finished starting. While the watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.
 
 ```
 check_presto
@@ -144,4 +144,4 @@ From the main screen select Object Browser and view the contents of the customer
 
 ![Browser](wxd-images/watsonx-add-bucket-6.png) 
 
-**Note**: You can continue to add new buckets when working with the IBM watsonx.data UI. However, if you delete the catalog or bucket in the UI, you may find that you may not be able to re-catalog it. If you find that this happens, create another bucket, or rename the original one if that is possible.
+**Note**: You can continue to add new buckets when working with the watsonx.data UI. However, if you delete the catalog or bucket in the UI, you may find that you may not be able to re-catalog it. If you find that this happens, create another bucket, or rename the original one if that is possible.

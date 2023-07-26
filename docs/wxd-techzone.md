@@ -1,9 +1,9 @@
-# IBM watsonx.data TechZone Image
+# watsonx.data TechZone Image
 
-There are two methods for running the IBM watsonx.data development system. One is to use an image on TechZone and the second is to run a virtual machine on your laptop. This section will describe the steps involved in using a TechZone image, while the next section will explain how to use a supplied VMWare image. 
+There are two methods for running the watsonx.data development system. One is to use an image on TechZone and the second is to run a virtual machine on your laptop. This section will describe the steps involved in using a TechZone image, while the next section will explain how to use a supplied VMWare image. 
 
 ## Requesting a TechZone image
-Log into Techzone (https://techzone.ibm.com) and search for IBM watsonx.data
+Log into Techzone (https://techzone.ibm.com) and search for watsonx.data
 Developer Base Image or use the following link.
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
@@ -35,7 +35,7 @@ Make sure to check "Not to be used with customer data".
 
 ![Browser](wxd-images/techzone-customerno.png)
  
-Fill in the purpose field with something meaningful (IBM watsonx.data
+Fill in the purpose field with something meaningful (watsonx.data
 education). Next select preferred Geography for the image.
 
 ![Browser](wxd-images/techzone-region.png)
@@ -75,9 +75,9 @@ described in the next section on URLs and Ports.
 **Note**: Do not attempt to use these URLs until you read the section on Port usage and after you start the server.
  
 ## TechZone URLs and Ports 
-The TechZone reservation does not provide any URLs to the services that you will be accessing in IBM watsonx.data. You will need to use the VPN certificate to access the ports that are used in the lab. The ports that are used in the lab are listed below.
+The TechZone reservation does not provide any URLs to the services that you will be accessing in watsonx.data. You will need to use the VPN certificate to access the ports that are used in the lab. The ports that are used in the lab are listed below.
 
-   * <code style="color:blue;font-size:medium;">9443** - IBM watsonx.data management console
+   * <code style="color:blue;font-size:medium;">9443** - watsonx.data management console
    * <code style="color:blue;font-size:medium;">8080** - Presto console
    * <code style="color:blue;font-size:medium;">9001** - MinIO console (S3 buckets)
    * <code style="color:blue;font-size:medium;">6443** - Portainer (Docker container management)
@@ -96,7 +96,7 @@ Click on this URL to access the UI in your local browser. The instructions in th
 
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - **https://192.168.252.2:9443**
+   * watsonx.data UI - **https://192.168.252.2:9443**
    * VMWare Image - **https://localhost:9443/**
 
 If you need to manually enter the URL into a browser, make sure to use the port number (**xxxxx**) provided in the TechZone reservation document. It is recommended that you use the links provided in the reservation document to save yourself time and reduce the chances of incorrectly typing the URL.

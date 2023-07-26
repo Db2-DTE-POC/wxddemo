@@ -1,8 +1,8 @@
 # dBeaver Client Tool
 
-You could use any tool that supports connectivity through JDBC drivers to connect to IBM watsonx.data, but we chose to use dBeaver for this lab. 
+You could use any tool that supports connectivity through JDBC drivers to connect to watsonx.data, but we chose to use dBeaver for this lab. 
 
-dBeaver is a client tool that we can use to connect to the IBM watsonx.data and execute queries etc. The tool has been installed in the watsonx users home directory. To access dBeaver, you must use the VNC service which has been installed on this server for you.
+dBeaver is a client tool that we can use to connect to the watsonx.data and execute queries etc. The tool has been installed in the watsonx users home directory. To access dBeaver, you must use the VNC service which has been installed on this server for you.
 
 ## Start dBeaver Locally (VNC)
 To start dBeaver, you must be connected to the console of the Linux server as the watsonx user. 
@@ -27,7 +27,7 @@ If you do not see this screen, select Database, and then select New Database Con
 
 ![Browser](wxd-images/dbeaver-newcatalog.png)
  
-## Catalog IBM watsonx.data Connection
+## Catalog watsonx.data Connection
 We will use the PrestoDB JDBC connector (NOT PrestoSQL). This is the other name for Trino, a variant of PrestoDB which might work. Select SQL (see Left side) and scroll down until you see PrestoDB. 
 
 ![Browser](wxd-images/dbeaver-selectpresto.png)

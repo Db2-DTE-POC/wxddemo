@@ -1,4 +1,4 @@
-site_name: IBM watsonx.data Lab
+site_name: Watsonx.data Lab
 # theme:
 #   name: material
 nav:
@@ -16,7 +16,7 @@ nav:
   - Check Server Status: "wxd-startwatsonx.md"
   - Introduction: 
     - Presto CLI: "wxd-prestocli.md"
-    - IBM watsonx.data UI: "wxd-watsonui.md"
+    - Watsonx.data UI: "wxd-watsonui.md"
     - Presto UI: "wxd-presto.md"
     - MinIO UI: "wxd-minio.md"
     - dBeaver: "wxd-dbeaver.md"

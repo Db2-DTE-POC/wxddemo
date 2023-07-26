@@ -4,7 +4,7 @@
 
 If you have not already downloaded the VPN certificate, follow these steps. 
 
-Access your reservation from the TechZone site. Click on the arrows that corresponds to the IBM watsonx.data reservation. The menu button that is beside the arrow provides options to extend or delete the reservation.
+Access your reservation from the TechZone site. Click on the arrows that corresponds to the watsonx.data reservation. The menu button that is beside the arrow provides options to extend or delete the reservation.
 
 ![Browser](wxd-images/techzone-extend.png)
 
@@ -28,11 +28,11 @@ https://www.wireguard.com/install/
 Once installed, you will use the software to load the VPN certificate.
 
 
-The following sections describe how to get started quickly with the IBM watsonx.data developer system. If you are not familiar with some of the tools mentioned below, select the details link for more instructions.
+The following sections describe how to get started quickly with the watsonx.data developer system. If you are not familiar with some of the tools mentioned below, select the details link for more instructions.
 
 ## Requesting a TechZone image
 
-Log into Techzone (https://techzone.ibm.com) and search for IBM watsonx.data
+Log into Techzone (https://techzone.ibm.com) and search for watsonx.data
 Developer Base Image or use the following link.
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
@@ -43,7 +43,7 @@ More details: [Reserving a TechZone image](wxd-reference-techzone.md)
 
 ## Accessing the Image
 
-The email from TechZone that indicate that the image is ready will contain a link to to your reservations. Click on the link and search for the IBM watsonx.data reservation. Make sure the download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
+The email from TechZone that indicate that the image is ready will contain a link to to your reservations. Click on the link and search for the watsonx.data reservation. Make sure the download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
 
 More details: [Accessing a TechZone image](wxd-reference-access.md)
 
@@ -61,10 +61,10 @@ The password for the VNC connection is <code style="color:blue;font-size:medium;
 
 ## Open Ports
 
-The following URLs and Ports are used to access the IBM watsonx.data services.
+The following URLs and Ports are used to access the watsonx.data services.
 The ports that are used in the lab are listed below.
 
-   * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - IBM watsonx.data management console
+   * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console
    * <a href="http://192.168.252.2:8080" target="_blank">https://192.168.252.2:8080</a> - Presto console
    * <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a> - MinIO console (S3 buckets)
    * <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)
@@ -86,7 +86,7 @@ This table lists the passwords for the services that have "fixed" userids and pa
 |-------|------|--------|
 |Virtual Machine|watsonx|watsonx.data
 |Virtual Machine|root|watsonx.data
-|IBM watsonx.data UI|ibmlhadmin|password
+|watsonx.data UI|ibmlhadmin|password
 |Presto|None|None
 |Minio|Generated|Generated
 |Postgres|admin|Generated

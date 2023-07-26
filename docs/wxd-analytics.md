@@ -1,14 +1,14 @@
 # Analytic Workloads
 
-IBM watsonx.data is based on open source PrestoDB, a distributed query engine that enables querying data stored in open file formats using open table formats for optimization and performance. Some of the characteristics which you will learn and see in action include:
+Watsonx.data is based on open source PrestoDB, a distributed query engine that enables querying data stored in open file formats using open table formats for optimization and performance. Some of the characteristics which you will learn and see in action include:
 
    * Compute processing is performed in memory and in parallel.
    * Data is pipelined between query stages and over the network reducing latency overhead that one would have if disk I/O were involved.
 
 ## Executing and analyzing analytic workloads
-Let us start with some simple examples of running queries and analyze the execution. We can either use the dBeaver interface or the IBM watsonx.data CLI. We will eventually be able to use the IBM watsonx.data console UI as well but for the moment it is under construction.
+Let us start with some simple examples of running queries and analyze the execution. We can either use the dBeaver interface or the watsonx.data CLI. We will eventually be able to use the watsonx.data console UI as well but for the moment it is under construction.
 
-### Connect to IBM watsonx.data
+### Connect to watsonx.data
 
 Make sure you are the root user and change to the development directory.
 ```

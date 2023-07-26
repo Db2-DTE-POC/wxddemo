@@ -1,6 +1,6 @@
 # Reporting/Dashboarding using Apache Superset
 
-Apache Superset is not a part of IBM watsonx.data and is only used to demonstrate the capability to connect to IBM watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.
+Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.
 
 Open a terminal window as the `watsonx` userid in VNC, or use SSH to connect as `watsonx`.
 
@@ -16,7 +16,7 @@ Clone the Apache Superset repository with the git command. This command typicall
 git clone https://github.com/apache/superset.git
 ```
 
-The `docker-compose-non-dev.yml` file needs to be updated so that Apache Superset can access the same network that IBM watsonx.data is using. 
+The `docker-compose-non-dev.yml` file needs to be updated so that Apache Superset can access the same network that watsonx.data is using. 
 
 ```
 cd ./superset
@@ -38,7 +38,7 @@ docker compose -f docker-compose-non-dev.yml up
 
 This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. 
 
-**Note**: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against IBM watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
+**Note**: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
 
 ![Browser](wxd-images/superset-1.png)
  
@@ -50,7 +50,7 @@ The credentials for Apache Superset are userid `admin`, Password `admin`.
 
 ![Browser](wxd-images/superset-2.png)
   
-### Setup a Database Connection to IBM watsonx.data
+### Setup a Database Connection to watsonx.data
 Open another terminal window for this next step. Once Apache Superset has started loading exmaples, you can issue the following command as `watsonx` or `root`.
 ```
 docker cp /certs/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
@@ -90,7 +90,7 @@ Copy the following information into the security box.
 Press the Connect button to create the connection.
 
 ### Create reports/charts/dashboards
-Once the connection has been tested and created for IBM watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.
+Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.
 
 Select Datasets at the top of the Apache Superset window.
 

@@ -1,22 +1,22 @@
-# IBM watsonx.data Introduction
-IBM watsonx.data is based on open source PrestoDB, a distributed query engine that enables querying data stored in open file formats using open table formats for optimization or performance. Some of the characteristics which you will learn and see in action include:
+# watsonx.data Introduction
+ Watsonx.data is based on open source PrestoDB, a distributed query engine that enables querying data stored in open file formats using open table formats for optimization or performance. Some of the characteristics which you will learn and see in action include:
 
    * Compute processing is performed in memory and in parallel.
    * Data is pipelined between query stages and over the network reducing latency overhead that one would have if disk I/O were involved.
 
-All the below tasks will be done using the Developer edition of IBM watsonx.data.
+All the below tasks will be done using the Developer edition of watsonx.data.
 
-## Using IBM watsonx.data
-Connectivity to IBM watsonx.data can be done using the following methods:
+## Using watsonx.data
+Connectivity to watsonx.data can be done using the following methods:
 
    * Command line interface(CLI)
    * Windows, Linux, OSX
    * JDBC drivers
-   * IBM watsonx.data UI 
+   * watsonx.data UI 
 
-### Connecting to IBM watsonx.data and executing queries using CLI
+### Connecting to watsonx.data and executing queries using CLI
 
-Open the IBM watsonx.data CLI using the development directory. Make sure you are the root user. 
+Open the watsonx.data CLI using the development directory. Make sure you are the root user. 
 ```
 whoami
 ```
@@ -34,7 +34,7 @@ Start the Presto CLI.
 ./presto-cli
 ```
 
-We are going to inspect the available catalogs in the IBM watsonx.data system. An IBM watsonx.data catalog contains schemas and references a data source via a connector. A connector is like a driver for a database. IBM watsonx.data connectors are an implementation of Presto’s SPI which allows Presto to interact with a resource. There are several built-in connectors for JMX, Hive, TPCH etc., some of which you will use as part of the labs.
+We are going to inspect the available catalogs in the watsonx.data system. A watsonx.data catalog contains schemas and references a data source via a connector. A connector is like a driver for a database. Watsonx.data connectors are an implementation of Presto’s SPI which allows Presto to interact with a resource. There are several built-in connectors for JMX, Hive, TPCH etc., some of which you will use as part of the labs.
 
 Display the catalogs.
 ```

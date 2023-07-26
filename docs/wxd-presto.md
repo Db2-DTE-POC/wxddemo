@@ -11,7 +11,7 @@ The Presto console allows you to do the following:
    * Data throughput 
    * Query details (text and plan)
 
-**Note**: The Presto console is very valuable when it comes to diagnosing problems with any queries you run in the IBM watsonx.data environment. If a query fails you can find more details in the Presto console using the instructions below.
+**Note**: The Presto console is very valuable when it comes to diagnosing problems with any queries you run in the watsonx.data environment. If a query fails you can find more details in the Presto console using the instructions below.
    
 ![Browser](wxd-images/presto-main.png)
  

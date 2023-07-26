@@ -1,4 +1,4 @@
-# Accessing the IBM watsonx.data TechZone Image
+# Accessing the watsonx.data TechZone Image
 
 The reservation email from TechZone is extremely important since it provides a link to your reservation. 
 
@@ -8,7 +8,7 @@ Click on the **View My Reservations** to access your reservations.
 
 ![Browser](wxd-images/techzone-reservations.png)
 
-Click on the arrows that corresponds to the IBM watsonx.data reservation. The menu button that is beside the arrow provides options to extend or delete the reservation.
+Click on the arrows that corresponds to the watsonx.data reservation. The menu button that is beside the arrow provides options to extend or delete the reservation.
 
 ![Browser](wxd-images/techzone-extend.png)
 

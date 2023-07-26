@@ -1,5 +1,5 @@
-# Federation with IBM watsonx.data
-IBM watsonx.data can federate data from other data sources, there are a few out of box connectors and one could create additional connectors using the SDK if need be (This does involve some programming and testing effort) and not a trivial exercise. We will use the existing PostgreSQL instance, add some data, and test the federation capabilities. 
+# Federation with watsonx.data
+Watsonx.data can federate data from other data sources, there are a few out of box connectors and one could create additional connectors using the SDK if need be (This does involve some programming and testing effort) and not a trivial exercise. We will use the existing PostgreSQL instance, add some data, and test the federation capabilities. 
 
 Open the developer sandbox and use existing scripts to create a PostgreSQL database and add some data.
 
@@ -66,9 +66,9 @@ echo "Postgres Password : " $POSTGRES_PASSWORD
 echo $POSTGRES_PASSWORD > /tmp/postgres.pw
 ```
 
-Open your browser and connect to the IBM watsonx.data UI:
+Open your browser and connect to the watsonx.data UI:
 
-   * IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
+   * Watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
@@ -121,7 +121,7 @@ Press the Associate button and the screen will update to show the connection.
  
 ### Presto Federation
 
-First check to make sure that the Presto engine has finished starting. While the IBM watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.
+First check to make sure that the Presto engine has finished starting. While the watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.
 
 ```
 check_presto
@@ -129,7 +129,7 @@ check_presto
 
 When the command comes back as Ready, you can start using the Presto CLI.
 
-Connect to IBM watsonx.data and try Federation.
+Connect to watsonx.data and try Federation.
 ```
 ./presto-cli --catalog pgdatadb
 ```

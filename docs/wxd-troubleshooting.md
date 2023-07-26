@@ -1,4 +1,4 @@
-# Troubleshooting IBM watsonx.data
+# Troubleshooting watsonx.data
 
 Although we have tried to make the lab as error-free as possible, occasionally things will go wrong. Here is a list of common questions, problems, and potential solutions.
 

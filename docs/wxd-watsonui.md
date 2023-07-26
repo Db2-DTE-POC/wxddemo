@@ -1,7 +1,7 @@
-# Using the IBM watsonx.data console UI
+# Using the watsonx.data console UI
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> 
+   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> 
    * Credentials: username: <code style="color:blue;font-size:medium;">ibmlhadmin</code> password: <code style="color:blue;font-size:medium;">password</code>
 
 Note: You will get a Certificate error in Firefox:
@@ -16,7 +16,7 @@ Choose “Accept the Risk and Continue”. If you are using Google Chrome, you c
 
 ![Browser](wxd-images/chrome-browser.png)
 
-The IBM watsonx.data UI will display.
+The watsonx.data UI will display.
   
 ![Browser](wxd-images/watsonx-data-ui.png)  
 
@@ -28,9 +28,9 @@ The userid is<code style="color:blue;font-size:medium;">ibmlhadmin</code> with p
  
 Dismiss all the error messages and then click on the Person icon (far right side above the messages) and Logout. Close the browser window after logging out and open the web page again until you get the proper login screen. At this point you will be connected to the console.
 
-## IBM watsonx.data UI Navigation
+## watsonx.data UI Navigation
 
-The main screen provides a snapshot of the objects that are currently found in the IBM watsonx.data system. The infrastructure components shows that there is 1 engine, 2 catalogs and 2 buckets associated with the system.
+The main screen provides a snapshot of the objects that are currently found in the watsonx.data system. The infrastructure components shows that there is 1 engine, 2 catalogs and 2 buckets associated with the system.
 
 ![Browser](wxd-images/watsonx-components.png) 
 

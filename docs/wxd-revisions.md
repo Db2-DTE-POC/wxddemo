@@ -15,5 +15,5 @@ Clarified some commands and added an Appendix on common issues.
 ### July 25, 2023
 
 * Updated the lab to GA 1.0.1 code
-* Automated start of IBM watsonx.data and simplification of many of the sections
+* Automated start of watsonx.data and simplification of many of the sections
 * Removed the loading section until a new version is available
