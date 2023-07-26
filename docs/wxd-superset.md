@@ -2,7 +2,7 @@
 
 Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.
 
-Open a terminal window as the `watsonx` userid in VNC, or use SSH to connect as `watsonx`.
+Open a terminal window and connect via SSH as `watsonx`. 
 
 ```
 ssh watsonx@192.168.252.2
