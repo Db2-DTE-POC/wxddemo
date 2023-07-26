@@ -45,7 +45,7 @@ Enter the following values into the dialog.
 * Password: <code style="color:blue;font-size:medium;">password</code>
 * Database: <code style="color:blue;font-size:medium;">tpch</code>
 
-Then select the Driver Properties tab. You will be asked to download the database driver.
+Then select the Driver Properties tab. You might be asked to download the database driver.
 
 ![Browser](wxd-images/dbeaver-download.png) 
 
