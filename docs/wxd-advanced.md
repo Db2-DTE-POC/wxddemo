@@ -19,7 +19,7 @@ cd /root/ibm-lh-dev/bin
 ```
 Connect to the Workshop Schema.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop
+./presto-cli --catalog iceberg_data --schema workshop
 ```
 ### Concatenation of one or more string/varchar values
 Note: We are using a combination of the “concat” string function and the “cast” conversion function as part of this query.

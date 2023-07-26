@@ -10,7 +10,6 @@ All the below tasks will be done using the Developer edition of IBM watsonx.data
 Connectivity to IBM watsonx.data can be done using the following methods:
 
    * Command line interface(CLI)
-   * ODBC drivers
    * Windows, Linux, OSX
    * JDBC drivers
    * IBM watsonx.data UI 
@@ -32,10 +31,10 @@ cd /root/ibm-lh-dev/bin
 ```
 Start the Presto CLI.
 ```
-./presto-cli.sh
+./presto-cli
 ```
 
-We are going to inspect the available catalogs in the IBM watsonx.data system. An IBM watsonx.data catalog contains schemas and references a data source via a connector. A connector is like a driver for a database. IBM watsonx.data connectors are an implementation of Presto’s SPI which allows Presto to interact with a resource. There are several built-in connectors for JMX, Hive, TPCH etc., some of which you will see/use as part of the labs.
+We are going to inspect the available catalogs in the IBM watsonx.data system. An IBM watsonx.data catalog contains schemas and references a data source via a connector. A connector is like a driver for a database. IBM watsonx.data connectors are an implementation of Presto’s SPI which allows Presto to interact with a resource. There are several built-in connectors for JMX, Hive, TPCH etc., some of which you will use as part of the labs.
 
 Display the catalogs.
 ```
@@ -45,7 +44,7 @@ show catalogs;
     Catalog    
 ---------------
  hive_data     
- iceberg_minio 
+ iceberg_data 
  jmx           
  system        
  tpcds         
@@ -79,7 +78,7 @@ quit;
 
 You can connect to a specific catalog and schema and look at the tables etc.
 ```
-./presto-cli.sh --catalog tpch --schema tiny
+./presto-cli --catalog tpch --schema tiny
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
 presto:tiny>

@@ -20,8 +20,7 @@ We organized this lab into a number of sections that cover many of the highlight
    * Advanced SQL functions
    * Time Travel and Federation
    * Working with Object Store Buckets
-   * Using the IBM Tool Loader
 
 In addition, there is an Appendix which includes common errors and potential fixes or workarounds. 
 
-To get started, reserve a Techzone image, or download the VMware image.
+Get started by reserving a Techzone image!

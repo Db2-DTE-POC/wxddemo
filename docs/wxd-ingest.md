@@ -52,8 +52,8 @@ This will save the certificate file into a shared volume that is accessible by t
 
 Before ingesting the file, we need to create a new schema that we will use for the table being loaded. Open your browser and navigate to:
 
-   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>https://localhost:9443/</mark>
+   * IBM watsonx.data UI - **https://192.168.252.2:9443**
+   * VMWare Image - **https://localhost:9443/**
 
 In the watsonx.data UI select the Data Explorer.
 
@@ -75,7 +75,7 @@ Press the Create button to finish the creation of the schema.
 
 ![Browser](wxd-images/watsonx-new-staging.png)
  
-You should see the new `staging` schema under `hive_data`. You need to repeat the same process again, but this time you are going to add a schema called `ingest` in the `iceberg_minio` catalog.
+You should see the new `staging` schema under `hive_data`. You need to repeat the same process again, but this time you are going to add a schema called `ingest` in the `iceberg_data` catalog.
 
 ![Browser](wxd-images/watsonx-create-ingest.png)
  
@@ -117,7 +117,7 @@ cd /staging
 cat <<EOF > ingest-local.sh
 #!/bin/bash
 source ./keys.sh
-table_name="iceberg_minio.ingest.yellow_tripdata_2022_01_localfile"
+table_name="iceberg_data.ingest.yellow_tripdata_2022_01_localfile"
 file="yellow_tripdata_2022-01.parquet"
 dir="/staging"
 
@@ -125,12 +125,12 @@ ibm-lh data-copy \\
    --source-data-files \${dir}/\${file} \\
    --target-tables \${table_name} \\
    --ingestion-engine-endpoint "hostname=ibm-lh-presto-svc,port=8443" \\
-   --staging-location s3://dev-bucket-01/ingest/ \\
+   --staging-location s3://iceberg-bucket/ingest/ \\
    --staging-s3-creds \\
 "AWS_SECRET_ACCESS_KEY=\${secret_key}\\
 ,AWS_ACCESS_KEY_ID=\${access_key}\\
 ,AWS_REGION=us-east-1\\
-,BUCKET_NAME=dev-bucket-01\\
+,BUCKET_NAME=iceberg-bucket\\
 ,ENDPOINT_URL=http://ibm-lh-minio:9000" \\
     --create-if-not-exist \\
     --trust-store-path /staging/lh-ssl-ts.jks \\
@@ -151,7 +151,7 @@ Ingesting SECTION: cmdline
 Reading parquet file:/staging/yellow_tripdata_2022-01.parquet
 Inferring source schema...
 Schema inferred
-Ingesting source folder s3://dev-bucket-01/ingest/stage_1686085369_19_ea7fa9994c96/ into target table ingest.yellow_tripdata_2022_01_localfile
+Ingesting source folder s3://iceberg-bucket/ingest/stage_1686085369_19_ea7fa9994c96/ into target table ingest.yellow_tripdata_2022_01_localfile
 
 The specified table does not exist
 Target table does not exist.. creating
@@ -166,7 +166,7 @@ After ingesting the data, exit the docker container.
 ```
 exit
 ```
-Refresh the IBM watsonx.data UI to view the iceberg_minio catalog in the Data Explorer.
+Refresh the IBM watsonx.data UI to view the iceberg_data catalog in the Data Explorer.
 
 ![Browser](wxd-images/watsonx-de-iceberg-1.png)
  

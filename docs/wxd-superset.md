@@ -1,20 +1,42 @@
 # Reporting/Dashboarding using Apache Superset
 
-Apache Superset is not a part of IBM watsonx.data and is only used to demonstrate the capability to connect to IBM watsonx.data from other BI/Reporting tools.
+Apache Superset is not a part of IBM watsonx.data and is only used to demonstrate the capability to connect to IBM watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.
 
-Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
+Open a terminal window as the `watsonx` userid in VNC, or use SSH to connect as `watsonx`.
 
-   * Browser SSH - <mark>http://region.techzone-services.com:xxxxx</mark>
-
-Switch to the Apache Superset directory.
 ```
-cd /root/ibm-lh-dev/bin/superset
+ssh watsonx@192.168.252.2
 ```
+
+Password is `watsonx.data`.
+
+Clone the Apache Superset repository with the git command. This command typically takes less than 1 minute to download the code.
+
+```
+git clone https://github.com/apache/superset.git
+```
+
+The `docker-compose-non-dev.yml` file needs to be updated so that Apache Superset can access the same network that IBM watsonx.data is using. 
+
+```
+cd ./superset
+sed '/version: "3.7"/q' docker-compose-non-dev.yml > yamlfix.txt
+cat <<EOF >> yamlfix.txt
+networks:
+  default:
+    external: True
+    name: ibm-lh-network
+EOF
+sed -e '1,/version: "3.7"/ d' docker-compose-non-dev.yml  >> yamlfix.txt
+cp yamlfix.txt docker-compose-non-dev.yml
+```
+
 Use docker-compose to start Apache Superset.
 ```
 docker compose -f docker-compose-non-dev.yml up
 ```
-This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are done using it, press CTRL-C to stop the service. 
+
+This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. 
 
 **Note**: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against IBM watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
 
@@ -22,21 +44,16 @@ This command will download the necessary code for Apache Superset and start the 
  
 Open your browser and navigate to:
 
-   * Apache Superset - <mark>http://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>http://localhost:8088/</mark>
+   * Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> 
 
-The credentials for Apache Superset are userid admin, Password admin.
+The credentials for Apache Superset are userid `admin`, Password `admin`.
 
 ![Browser](wxd-images/superset-2.png)
   
 ### Setup a Database Connection to IBM watsonx.data
-Open another terminal window for this next step. If you are using the TechZone image, you can access the SSH shell for root by using the link provided in the reservation details:
-
-   * Browser SSH - <mark>http://region.techzone-services.com:xxxxx</mark>
-   
-The TechZone image has been designed so that you can have multiple SSH browser windows open. Wait until Apache Superset has initialized completely, and then issue the following command as root.
+Open another terminal window for this next step. Once Apache Superset has started loading exmaples, you can issue the following command as `watsonx` or `root`.
 ```
-docker cp /tmp/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
+docker cp /certs/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
 ```
 In the Apache Superset console,  press the Settings button on the far right and select Database connections.
 
@@ -56,7 +73,7 @@ Select Presto as the database connection type.
 
 In the SQLALCHEMY URI field, enter the following information.
 ```
-presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_minio
+presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_data
 ```
 
 Select the Advanced tab.

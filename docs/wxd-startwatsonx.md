@@ -1,17 +1,32 @@
-# Starting IBM watsonx.data
+# System Overview
 
-The Developer package is meant to be used on single nodes. While it uses the same code base, there are some restrictions, especially on scale. In this lab, we will open some additional ports as well to understand how everything works. We will also use additional utilities to illustrate connectivity and what makes the IBM watsonx.data "open". 
+The IBM watsonx.data system is running on a virtual machine with the following resources:
+
+   * 4 vCPUs
+   * 16Gb of memory
+   * 400Gb of disk
+
+This is sufficient for running this exercises found in this lab but cannot be used for large scale testing. 
+
+When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the IBM watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.
 
 ## Lab Instructions
 Throughout the labs, any command that needs to be executed will be highlighted in a grey box:
 ```
 cd /root/ibm-lh-dev/bin
 ```
-Copy the text that is found within the box and paste it into the command window to execute. Note that some commands may span multiple lines, so make sure you copy everything in the box. Depending on your browser, you may see a copy icon on the far right side of the command.
+A copy icon is usually found on the far right-hand side of the command box. Use this to copy the text and paste it into your command window. You can also select the text and copy it that way. 
 
-## Start IBM watsonx.data Developer Edition
+Note that some commands may span multiple lines, so make sure you copy everything in the box. 
 
-Make sure that you have an open terminal session and have switched to the root userid.
+## System Check
+
+Make sure that you have an open terminal session using SSH from your workstation, or a terminal window inside the VNC browser.
+```
+ssh watsonx@192.168.252.2
+```
+Password is <code style="color:blue;font-size:medium;">watsonx.data</code>.
+Next switch to the root userid.
 ```
 sudo su -
 ```
@@ -21,59 +36,7 @@ Switch to the development code bin directory.
 cd /root/ibm-lh-dev/bin
 ```
 
-Once you have switched to the development directory, you can start the IBM watsonx.data system. The <mark>LH_RUN_MODE</mark> flag is used to allow for non-SSL ports to be used in our development environment. The stop command ensure that we have a clean startup.
-```
-export LH_RUN_MODE=diag
-./stop.sh
-./start.sh 
-```
-
-**Note**: If you forget to set the <mark>LH_RUN_MODE</mark> flag, many of the URLs in the lab will be unreachable. If you find that you cannot connect to the URLs, you will need to stop the service and start it again.
-
-The output will be like:
-<pre style="font-size: small; color: darkgreen; overflow: scroll">
-using /root/ibm-lh-dev/localstorage/volumes as data root directory for user: root/1001 
-infra config location is /root/ibm-lh-dev/localstorage/volumes/infra
-
--- starting data plane containers...
-
-==== starting: ibm-lh-minio ==== 
-468339b93d94c78c1bb9bdcfe7f20ef0cc8d6c09725768847474b13bb51048e4
-==== starting: ibm-lh-postgres ==== 
-063643caeccd86f0612dbf587919f9b1c1681ab0e6632f04c7cd00bbd8f67596
-==== starting: lh-hive-metastore ==== 
-3d4ff7fb304fa4513642e289c290e3423827eef732d774c3be4229fe51601a9d
-==== starting: ibm-lh-presto ==== 
-3cc4313e53a784daf8b7747696bcd0260fe22d6abbaf8d749e50509d961066af
-
--- starting control plane containers...
-
-==== starting: ibm-lh-control-plane-prereq ==== 
-creating (if needed) db ibm_lh_repo
-exists result: 
-CREATE DATABASE
-creating if needed, meta-repo tables in ibm_lh_repo
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE
-creating (if needed) db lakehouse-log
-exists result: 
-CREATE DATABASE
-creating if needed, meta-repo tables in lakehouse-log
-CREATE TABLE
-==== starting: lhconsole-api ==== 
-12fc73711934100cde1f6d4e633c28e2da0b9f4a804fe8923375669fcfeeb023
-==== starting: lhconsole-javaapi ==== 
-2c391fdcb68177346e6c73a26710da6101b9c19f52fa2ca2633a91bfcb95ae4c
-==== starting: lhconsole-nodeclient ==== 
-eca661eba3ba2fbef620438fe7986ebceb50c738bfdc0f08aeb3052e2560c8cb
-==== starting: lhconsole-ui ==== 
-efc6d69b051200ec85c2efd43dd884ec3a2e45304131065d1d7c09f3af464788
-</pre>
-
-### Check status of IBM watsonx.data
-One the system has started; you can check the status with the following command.
+Once you have switched to the development directory, you can start running IBM watsonx.data commands. You can check the status with the following command.
 ```bash
 ./status.sh --all
 ```
@@ -94,9 +57,9 @@ ibm-lh-minio				running
 To confirm that the software is working, run the following commands to validate the installation.
 
 ## Presto Engine Test
-Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks.
+Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks. The following command is not part of IBM watsonx.data, but has been included to simplify checking the status of the Presto service.
 ```
-./checkpresto.sh
+check_presto
 ```
 <pre style="font-size: small; color: darkgreen">
 Waiting for Presto to start.
@@ -104,25 +67,21 @@ Waiting for Presto to start.
 Ready
 </pre>
 
-**Note**: If the starting message appears to take too long (fills up the entire line with dots), kill the command (CTRL-C) and restart the IBM watsonx.data image (this rare event occurs because of resource contention in our small machine). 
+**Note**: If the starting message may take up to 5 minutes when the system first initializes. 
 
-To restart the image, issue the following commands.
-```
-export LH_RUN_MODE=diag
-./stop.sh
-./start.sh
-./checkpresto.sh
-```
 Once the command returns "Ready" you can connect to the presto CLI.
 ```
-./presto-cli.sh --catalog tpch --schema tiny
+./presto-cli --catalog tpch --schema tiny
 ```
 Check the record count of the customer table. 
 
-**Note**: If the Presto engine has not yet started (you didn't run the checkpresto script), the next command may result in a useless Java error message. You may need to wait for a minute for attempting to run the statement again.
+**Note**: If the Presto engine has not yet started (you didn't run the check_presto script), the next command may result in a useless Java error message. You may need to wait for a minute for attempting to run the statement again.
 ```
 select * from customer limit 10;
 ```
+
+All Presto commands end with a semi-colon. The result set should include the a number of rows (the results will be random).
+
 <pre style="font-size: small; color: darkgreen; overflow: auto">
  custkey |        name        |                address                | nationkey |      phone      | acctbal | mktsegment |                                                      comment                                                      
 ---------+--------------------+---------------------------------------+-----------+-----------------+---------+------------+-------------------------------------------------------------------------------------------------------------------
@@ -138,36 +97,22 @@ select * from customer limit 10;
       10 | Customer#000000010 | 6LrEaV6KR6PLVcgl2ArL Q3rqzLzcT1 v2    |         5 | 15-741-346-9870 | 2753.54 | HOUSEHOLD  | es regular deposits haggle. fur                                                                                   
 (10 rows)
 </pre>
+
+The output on your screen will look similar to the following:
+
+![Browser](wxd-images/presto-output.png)
+
+The arrows on the far right side indicate that there is more output to view. Press the right and left arrows on your keyboard to scroll the display.
+
+![Browser](wxd-images/presto-scroll.png)
+
+If the result set is small, all of the results will display on the screen and no scrolling will be available unless the results are wider than the screen size. 
+
+When thje display shows <code style="color:blue;font-size:medium;">(END)</code> you have reached the bottom of the output. If the display shows a colon (<code style="color:blue;font-size:medium;">:</code>) at the bottom of the screen, you can use the up and down arrow keys to scroll a record at a time, or the Page Up and Page Down keys to scroll a page at a time. To quit viewing the output, press the Q key.
+
 Quit the Presto CLI. The Presto quit command can be used with or without a semicolon.
 ```
 quit;
 ```
 
 Congratulations, your system is now up and running!
-
-# Portainer
-
-This lab system has Portainer installed. Portainer provides an administrative interface to the Docker images that are running on this system. You can use this console to check that all the containers are running and see what resources they are using. Open your browser and navigate to:
-
-   * Portainer console - https://region.techzone-services.com:xxxxx
-   * VMWare Image - https://localhost:6443/
-   * Credentials: userid: <mark>admin</mark> password: <mark>watsonx.data</mark>
-
-Once you have logged in, you should select “Get Started”.
-
-![Browser](wxd-images/portainer-main.png)
-
-The next screen displays the main control panel for Portainer.
-
-![Browser](wxd-images/portainer-local.png)
-
-Select the Local server.
-
-![Browser](wxd-images/portainer-dashboard.png)
-
-This screen provides details on the containers, images, volumes, and networks that make up your docker installation. To view the containers that are running, select the container icon.
-
-![Browser](wxd-images/portainer-running.png)
- 
-From within this view, you can view the details of any container, including the environment settings, the current logs, and allow you to shell into the environment. 
-For more details on Portainer, see the [Portainer documentation](https://docs.portainer.io/user/home).

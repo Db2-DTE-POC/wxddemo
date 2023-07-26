@@ -42,13 +42,17 @@ education). Next select preferred Geography for the image.
 
 Choose any of the regions that are closest to your location. For the Americas,
 choose DAL10, but WDC04 can also be used if you find reservations are failing on
-the Dallas datacenter. Next select the end date for the lab.
+the Dallas datacenter. 
+
+**Note**: During periods of high TechZone utilization, the provisioning of your
+lab environment may fail. This is not an error with the lab itself, but a 
+consequence of the popularity of running workloads on TechZone. The recommendation is to try to reserve the environment again and choose a different data center. To check the status of the TechZone environment, please refer to the ![TechZone Status](techzone.status.site.com).
+
+Next select the end date for the lab.
 
 ![Browser](wxd-images/techzone-date.png)
 
-Make sure you select enough time for you to use the lab! It defaults to 2 days,
-but you can extend the reservation! You do not need to enable VPN Access. Once
-you have completed the form, click SUBMIT in the bottom right-hand corner.
+Make sure you select enough time for you to use the lab! It defaults to 2 days, but you can extend the reservation! You **must** enable VPN Access. You will not be able to run the lab exercises without downloading the VPN certificate.  Once you have completed the form, click SUBMIT in the bottom right-hand corner.
 
 ![Browser](wxd-images/techzone-submit.png)
 
@@ -71,43 +75,42 @@ described in the next section on URLs and Ports.
 **Note**: Do not attempt to use these URLs until you read the section on Port usage and after you start the server.
  
 ## TechZone URLs and Ports 
-The TechZone reservation note provides URLs to the services that you will
-accessing in IBM watsonx.data. These URLs provide access to:
+The TechZone reservation does not provide any URLs to the services that you will be accessing in IBM watsonx.data. You will need to use the VPN certificate to access the ports that are used in the lab. The ports that are used in the lab are listed below.
 
-   * <mark>9443</mark> - IBM watsonx.data management console
-   * <mark>8080</mark> - Presto console
-   * <mark>9001</mark> - MinIO console (S3 buckets)
-   * <mark>6443</mark> - Portainer (Docker container management)
-   * <mark>8088</mark> - Apache Superset (Query and Graphing)
-   * <mark>5901</mark> - VNC Access (Access to GUI in the machine)
-   * <mark>7681</mark> - SSH (Terminal access) via Browser
-   * <mark>22</mark> - SSH (Terminal access) via local terminal program
-   * <mark>8443</mark> - Presto External Port (dBeaver connection)
-   * <mark>5432</mark> - Postgres External Port (dBeaver connection)
+   * <code style="color:blue;font-size:medium;">9443** - IBM watsonx.data management console
+   * <code style="color:blue;font-size:medium;">8080** - Presto console
+   * <code style="color:blue;font-size:medium;">9001** - MinIO console (S3 buckets)
+   * <code style="color:blue;font-size:medium;">6443** - Portainer (Docker container management)
+   * <code style="color:blue;font-size:medium;">**8088** - Apache Superset (Query and Graphing)
+   * <code style="color:blue;font-size:medium;">5901** - VNC Access (Access to GUI in the machine)
+   * <code style="color:blue;font-size:medium;">7681** - SSH (Terminal access) via Browser
+   * <code style="color:blue;font-size:medium;">22** - SSH (Terminal access) via local terminal program
+   * <code style="color:blue;font-size:medium;">8443** - Presto External Port (dBeaver connection)
+   * <code style="color:blue;font-size:medium;">5432** - Postgres External Port (dBeaver connection)
 
-Each of these services will have a URL and a specific port number assigned to it. The default port number when running inside the virtual machine are highlighed in <mark>yellow</mark>. These are **not** the port numbers that you will use to access these services. The port numbers have been randomly set to different values for the TechZone image. For instance, a TechZone reservation might have a URL for the IBM watsonx.data console listed as:
-<pre style="font-size: normal; color: green">
-IBM watsonx.data UI - https://region.techzone-services.com:42909
-</pre>
+Each of these services will have a URL and a specific port number assigned to it. The default port number when running inside the virtual machine are highlighed in **yellow**. 
+
+Techzone versus VMWare image.
+
 Click on this URL to access the UI in your local browser. The instructions in the lab will refer to a TechZone or VMware URL when asking for you to connect to a service. The following example asks you to connect to the UI.
 
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>https://localhost:9443/</mark>
+   * IBM watsonx.data UI - **https://192.168.252.2:9443**
+   * VMWare Image - **https://localhost:9443/**
 
-If you need to manually enter the URL into a browser, make sure to use the port number (<mark>xxxxx</mark>) provided in the TechZone reservation document. It is recommended that you use the links provided in the reservation document to save yourself time and reduce the chances of incorrectly typing the URL.
+If you need to manually enter the URL into a browser, make sure to use the port number (**xxxxx**) provided in the TechZone reservation document. It is recommended that you use the links provided in the reservation document to save yourself time and reduce the chances of incorrectly typing the URL.
 
 ## Virtual Machine Console
 Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. The VNC port address has been provided to you in the reservation document. 
 
-   * VNC for watsonx userid - vnc://region.techzone-services.com:xxxxx
+   * VNC for watsonx userid - vnc://192.168.252.2:5901
 
 Use the Mac screen sharing app or an equivalent one on Windows (i.e., RealVNC) to connect to watsonx. You can also connect using the Safari browser by using the URL provided. It will automatically start the screen sharing application.
 
 **Note**: The VNC URL format is only valid in Safari and will not work in other browsers.
  
-When the service connects to the server it will prompt for the password of the <mark>watsonx</mark> user - <mark>watsonx.data</mark>.
+When the service connects to the server it will prompt for the password of the **watsonx** user - **watsonx.data**.
 
 ![Browser](wxd-images/vnc-password.png)
  
@@ -136,9 +139,9 @@ You will **not** be able to logon as the watsonx user. The VNC session (mentione
 
 Use a local terminal shell (iterm, Hyper, terminal) and use the SSH command to shell into the machine. The TechZone reservation document provides the command that you need to use.
 
-   * SSH for watsonx userid - <mark>ssh -p xxxxx watsonx@region.techzone-services.com</mark>
+   * SSH for watsonx userid - **ssh -p xxxxx watsonx@192.x.x.x**
 
-The highlighted text would be placed into the terminal window and executed. The password for watsonx is <mark>watsonx.data</mark>. You will need to say "yes" to the continue connecting prompt.
+The highlighted text would be placed into the terminal window and executed. The password for watsonx is **watsonx.data**. You will need to say "yes" to the continue connecting prompt.
 
 ![Browser](wxd-images/ssh-local.png)
  
@@ -177,9 +180,9 @@ All of the commands in the lab will require you to execute commands in a termina
 
 Select a local terminal shell (iterm, Hyper, terminal) and use the SSH command to shell into the machine. The TechZone reservation document provides the command that you need to use to shell into the machine.
 
-   * SSH for watsonx userid - <mark>ssh -p xxxxx watsonx@region.techzone-services.com</mark>
+   * SSH for watsonx userid - **ssh -p xxxxx watsonx@192.x.x.x**
 
-The highlighted text would be placed into the terminal window and executed. The password for watsonx is <mark>watsonx.data</mark>. You will need to say "yes" to the continue connecting prompt.
+The highlighted text would be placed into the terminal window and executed. The password for watsonx is **watsonx.data**. You will need to say "yes" to the continue connecting prompt.
 
 ![Browser](wxd-images/ssh-local.png)
  
@@ -192,17 +195,17 @@ Now as the root user you will be ready to run the commands found in the lab.
 ### Terminal Window via Browser
 This lab provides a URL to use SSH in a browser window. This is a URL which will open an SSH shell into the machine using the browser instead of having to use a terminal session on your workstation.
    
-   * Browser SSH - <mark>http://region.techzone-services.com:xxxxx</mark>
+   * Browser SSH - **http://192.168.252.2:5678 [check]**
 
 Copy the link into a browser window and hit Enter. The browser will prompt you for a userid and password.
 
 ![Browser](wxd-images/terminal-logon.png)
 
-The userid is <mark>watsonx</mark> and the password is <mark>watsonx.data</mark>.
+The userid is **watsonx** and the password is **watsonx.data**.
 
 ![Browser](wxd-images/terminal-browser.png)
 
-Although you logged in as <mark>watsonx</mark>, you are immediately switched to the <mark>root</mark> user. There is no need to switch userids. Note that you can open as many SSH browser windows as required. The userid and password prompt will not be repeated after the initial log in.
+Although you logged in as **watsonx**, you are immediately switched to the **root** user. There is no need to switch userids. Note that you can open as many SSH browser windows as required. The userid and password prompt will not be repeated after the initial log in.
 
 ### Terminal Window in Virtual Machine
 

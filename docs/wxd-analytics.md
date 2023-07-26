@@ -16,8 +16,10 @@ cd /root/ibm-lh-dev/bin
 ```
 
 Open the Presto CLI.
+
+**Note**: The `workshop` schema was created as part of the introduction to Minio. If you have not run that lab, the schema will not be available. Please see the [Introduction to Minio](wxd-minio.md#creating-schemas-and-tables) section.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop
+./presto-cli --catalog iceberg_data --schema workshop
 ```
 
 Run a simple scan query which selects customer names and market segment.
@@ -45,7 +47,7 @@ explain select name, mktsegment from customer;
         Estimates: {rows: 1500 (15.85kB), cpu: 16230.00, memory: 0.00, network: 16230.00}
     - RemoteStreamingExchange[GATHER] => [name:varchar, mktsegment:varchar]
             Estimates: {rows: 1500 (15.85kB), cpu: 16230.00, memory: 0.00, network: 16230.00}
-        - TableScan[TableHandle {connectorId='iceberg_minio', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'}] => [name:varchar, mktsegment:varchar]
+        - TableScan[TableHandle {connectorId='iceberg_data', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'}] => [name:varchar, mktsegment:varchar]
                 Estimates: {rows: 1500 (15.85kB), cpu: 16230.00, memory: 0.00, network: 0.00}
                 mktsegment := 7:mktsegment:varchar (1:38)
                 name := 2:name:varchar (1:38)
@@ -60,7 +62,7 @@ explain (type io) select name, mktsegment from customer;
 {
   "inputTableColumnInfos" : [ {
     "table" : {
-      "catalog" : "iceberg_minio",
+      "catalog" : "iceberg_data",
       "schemaTable" : {
         "schema" : "workshop",
         "table" : "customer"
@@ -88,7 +90,7 @@ Fragment 1 [SOURCE]
     Output layout: [name, mktsegment]
     Output partitioning: SINGLE []
     Stage Execution Strategy: UNGROUPED_EXECUTION
-    - TableScan[TableHandle {connectorId='iceberg_minio', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'}, grouped = false] => [name:varchar, mktsegment:varchar]
+    - TableScan[TableHandle {connectorId='iceberg_data', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'}, grouped = false] => [name:varchar, mktsegment:varchar]
             Estimates: {rows: 1500 (15.85kB), cpu: 16230.00, memory: 0.00, network: 0.00}
             mktsegment := 7:mktsegment:varchar (1:57)
             name := 2:name:varchar (1:57)
@@ -107,7 +109,7 @@ plannode_1[label="{Output[name, mktsegment]|Estimates: \{rows: ? (?), cpu: ?, me
 }", style="rounded, filled", shape=record, fillcolor=white];
 plannode_2[label="{ExchangeNode[GATHER]|name, mktsegment|Estimates: \{rows: ? (?), cpu: ?, memory: ?, network: ?\}
 }", style="rounded, filled", shape=record, fillcolor=gold];
-plannode_3[label="{TableScan | [TableHandle \{connectorId='iceberg_minio', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'\}]|Estimates: \{rows: ? (?), cpu: ?, memory: ?, network: ?\}
+plannode_3[label="{TableScan | [TableHandle \{connectorId='iceberg_data', connectorHandle='workshop.customer$data@Optional[7053670466726060568]', layout='Optional[workshop.customer$data@Optional[7053670466726060568]]'\}]|Estimates: \{rows: ? (?), cpu: ?, memory: ?, network: ?\}
 }", style="rounded, filled", shape=record, fillcolor=deepskyblue];
 }
 plannode_1 -> plannode_2;
@@ -127,7 +129,7 @@ EOF
 ```
 Run Presto by pointing to the file with the SQL in it.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop --file /mnt/infra/explain.sql > /tmp/plan.dot
+./presto-cli --catalog iceberg_data --schema workshop --file /mnt/infra/explain.sql > /tmp/plan.dot
 ```
 We need to get rid of headers and stuff that Presto generated when creating the output (there is no way to turn that off).
 ```
@@ -149,11 +151,11 @@ eog /tmp/plan.png
 ### Creating a Table with User-defined Partitions
 Connect to Presto with the Workshop Schema.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop
+./presto-cli --catalog iceberg_data --schema workshop
 ```
 Create a partitioned table, based on column mktsegment and copy data from TPCH.TINY.CUSTOMER table.
 ```
-create table iceberg_minio.workshop.part_customer 
+create table iceberg_data.workshop.part_customer 
   with (partitioning = array['mktsegment']) 
   as select * from tpch.tiny.customer;
 ```
@@ -165,10 +167,9 @@ quit;
 ### Inspect object store directory/object/file structure
 Open your browser and navigate to:
    
-   * MinIO console - http://region.techzone-services.com:xxxxx
-   * VMWare Image - http://localhost:9001/
+   * MinIO console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
 
-If you forget the userid and password, use the following command to extract them.
+If you forget the userid and password, use the following command to extract them or use the <code style="color:blue;font-size:medium;">passwords</code> command.
 ```
 export LH_S3_ACCESS_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_ACCESS_KEY | sed 's/.*=//')
 export LH_S3_SECRET_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_SECRET_KEY | sed 's/.*=//')
@@ -179,7 +180,7 @@ Click on the Object browser tab to show the current buckets in the MinIO system.
 
 ![Browser](wxd-images/minio-adv-objects.png)
   
-Select dev-bucket-01. You will see two tables, customer and part_customer.
+Select iceberg-bucket. You will see two tables, customer and part_customer.
 
 ![Browser](wxd-images/minio-adv-bucket.png)
  
@@ -196,14 +197,14 @@ Examining the part_customer, you will notice is the data is split into multiple 
 ### Predicate query to utilize partitions
 Connect to Presto with the Workshop Schema.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop
+./presto-cli --catalog iceberg_data --schema workshop
 ```
 Now that have created a partitioned table, we will execute a SQL statement that will make use of this fact.
 ```
 select
    * 
 from 
-   iceberg_minio."workshop".part_customer 
+   iceberg_data."workshop".part_customer 
 where 
    mktsegment='MACHINERY';
 ```
@@ -232,7 +233,7 @@ Due to the partitioning of this table by `mktsegment`, it will completely skip s
 We run an explain against this query using the following command.
 ```
 explain (format graphviz) 
-   select * from iceberg_minio."workshop".customer
+   select * from iceberg_data."workshop".customer
       where mktsegment='MACHINERY';
 ```
 <pre style="font-size: small; color: darkgreen; overflow: auto">
@@ -247,7 +248,7 @@ Query Plan
  }", style="rounded, filled", shape=record, fillcolor=gold];                                                                                                                                                                                                                                                     
  plannode_3[label="{Filter|(mktsegment) = (VARCHAR'MACHINERY')|Estimates: \{rows: 750 (56.84kB), cpu: 232830.00, memory: 0.00, network: 0.00\}                                                                                                                                                                   
  }", style="rounded, filled", shape=record, fillcolor=yellow];                                                                                                                                                                                                                                                   
- plannode_4[label="{TableScan | [TableHandle \{connectorId='iceberg_minio', connectorHandle='workshop.customer$data@Optional[7230522396120575591]', layout='Optional[workshop.customer$data@Optional[7230522396120575591]]'\}]|Estimates: \{rows: 1500 (113.69kB), cpu: 116415.00, memory: 0.00, network: 0.00\} 
+ plannode_4[label="{TableScan | [TableHandle \{connectorId='iceberg_data', connectorHandle='workshop.customer$data@Optional[7230522396120575591]', layout='Optional[workshop.customer$data@Optional[7230522396120575591]]'\}]|Estimates: \{rows: 1500 (113.69kB), cpu: 116415.00, memory: 0.00, network: 0.00\} 
  }", style="rounded, filled", shape=record, fillcolor=deepskyblue];                                                                                                                                                                                                                                              
  }                                                                                                                                                                                                                                                                                                               
  plannode_1 -> plannode_2;                                                                                                                                                                                                                                                                                       
@@ -262,12 +263,12 @@ quit;
 Place the explain SQL into the following file.
 ```
 cat <<EOF >/root/ibm-lh-dev/localstorage/volumes/infra/explain.sql
-explain (format graphviz) select * from iceberg_minio."workshop".customer where mktsegment='MACHINERY';
+explain (format graphviz) select * from iceberg_data."workshop".customer where mktsegment='MACHINERY';
 EOF
 ```
 Run the Presto command to generate the explain output.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop --file /mnt/infra/explain.sql > /tmp/plan.dot
+./presto-cli --catalog iceberg_data --schema workshop --file /mnt/infra/explain.sql > /tmp/plan.dot
 ```
 Remove Headers.
 ```
@@ -292,12 +293,12 @@ This section will create an orders table to test joins and aggregations.
 
 Start Presto CLI with Workshop Schema.
 ```
-./presto-cli.sh --catalog iceberg_minio --schema workshop
+./presto-cli --catalog iceberg_data --schema workshop
 ```
 
 Create the Orders Table.
 ```
-create table iceberg_minio.workshop.orders as 
+create table iceberg_data.workshop.orders as 
   select * from tpch.tiny.orders;
 ```
 <pre style="font-size: small; color: darkgreen; overflow: scroll">

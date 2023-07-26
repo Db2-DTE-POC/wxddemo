@@ -13,10 +13,19 @@ MinIO Userid  :  c4643026087cc21989eb5c12
 MinIO Password:  93da45c5af87abd86c9dbc83
 </pre>
 
+You can get all passwords for the system when you are logged in as the <code style="color:blue;font-size:medium;">watsonx</code> user by using the following command.
+```
+passwords
+```
+
+If you are logged in as the root user, the syntax is slightly different:
+```
+SSH_TTY=true SSH_CLIENT=true passwords
+```
+
 Open your browser and navigate to:
 
-   * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>http://localhost:9001/</mark>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
    
 ![Browser](wxd-images/minio-logon.png)
  
@@ -28,7 +37,7 @@ We are going to examine these buckets after we populate them with some data.
  
 ## Creating Schemas and Tables
 
-Not all catalogs support creation of schemas - as an example, the TPCH catalog is not writeable. We will use the iceberg_minio catalog for this exercise. We will need to get some details before we continue.
+Not all catalogs support creation of schemas - as an example, the TPCH catalog is not writeable. We will use the iceberg_data catalog for this exercise. We will need to get some details before we continue.
 
 Make sure you are connected as the root user and are in the proper directory.
 
@@ -38,11 +47,11 @@ cd /root/ibm-lh-dev/bin
 
 Login to the Presto CLI.
 ```
-./presto-cli.sh --catalog iceberg_minio
+./presto-cli --catalog iceberg_data
 ```
-Create schema <mark>workshop</mark> in catalog <mark>iceberg_minio</mark>. Note how we are using the <mark>dev-bucket-01</mark> bucket which you should have seen in the MinIO object browser.
+Create schema <code style="color:blue;font-size:medium;">workshop</code> in catalog<code style="color:blue;font-size:medium;">iceberg_data</code>. Note how we are using the <code style="color:blue;font-size:medium;">iceberg-bucket</code> bucket which you should have seen in the MinIO object browser.
 ```
-CREATE SCHEMA IF NOT EXISTS workshop with (location='s3a://dev-bucket-01/');
+CREATE SCHEMA IF NOT EXISTS workshop with (location='s3a://iceberg-bucket/');
 ```
 Show the schemas available.
 ```
@@ -86,15 +95,15 @@ Refresh the Minio screen (see button on the far-right side).
 
 ![Browser](wxd-images/minio-refresh.png)
  
-You should now see new objects under <mark>dev-bucket-01</mark>. Click on the bucket name and you will see the customer table.
+You should now see new objects under <code style="color:blue;font-size:medium;">iceberg-bucket</code> Click on the bucket name and you will see the customer table.
 
 ![Browser](wxd-images/minio-customer.png)
  
-Selecting the <mark>customer</mark> object will show that there is data and metadata in there.
+Selecting the <code style="color:blue;font-size:medium;">customer</code> object will show that there is data and metadata in there.
 
 ![Browser](wxd-images/minio-customer-data.png)
  
-How do we know that this data is based on Apache iceberg? If you open the file under <mark>metadata</mark>, you should see metadata information for the data we are storing in parquet file format. 
+How do we know that this data is based on Apache iceberg? If you open the file under <code style="color:blue;font-size:medium;">metadata</code>, you should see metadata information for the data we are storing in parquet file format. 
 
 ![Browser](wxd-images/minio-customer-metadata.png)
  
@@ -111,27 +120,33 @@ Open the developer sandbox to connect to MinIO, download the selected parquet fi
 ```
 ./dev-sandbox.sh
 ```
+
+Update the Python files to be executable (makes our commands more convenient).
+```
+chmod +x /scripts/*.py
+```
+
 List all files in the object store (MinIO).
 ```
-/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket dev-bucket-01
+/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket iceberg-bucket
 ```
 
 <pre style="font-size: small; color: darkgreen; overflow: auto">
-dev-bucket-01 b'customer/data/e9536a5e-14a1-4823-98ed-cc22d6fc38db.parquet' 2023-06-06 14:31:47.778000+00:00 6737d7268fcb3eb459b675f27f716f48 75373 None
-dev-bucket-01 b'customer/metadata/00000-e26c56e0-c4d7-4625-8b06-422429f6ba8d.metadata.json' 2023-06-06 14:31:48.629000+00:00 2e722c7dd83c1dd260a7e6c9503c0e04 3272 None
-dev-bucket-01 b'customer/metadata/7cb074a4-3da7-4184-9db8-567383bb588a-m0.avro' 2023-06-06 14:31:48.401000+00:00 655a5568207cc399b8297f1488ef77e7 6342 None
-dev-bucket-01 b'customer/metadata/snap-6143645832277262458-1-7cb074a4-3da7-4184-9db8-567383bb588a.avro' 2023-06-06 14:31:48.445000+00:00 0c3714299d43ae86a46eabdcaac1351e 3753 None
+iceberg-bucket b'customer/data/e9536a5e-14a1-4823-98ed-cc22d6fc38db.parquet' 2023-06-06 14:31:47.778000+00:00 6737d7268fcb3eb459b675f27f716f48 75373 None
+iceberg-bucket b'customer/metadata/00000-e26c56e0-c4d7-4625-8b06-422429f6ba8d.metadata.json' 2023-06-06 14:31:48.629000+00:00 2e722c7dd83c1dd260a7e6c9503c0e04 3272 None
+iceberg-bucket b'customer/metadata/7cb074a4-3da7-4184-9db8-567383bb588a-m0.avro' 2023-06-06 14:31:48.401000+00:00 655a5568207cc399b8297f1488ef77e7 6342 None
+iceberg-bucket b'customer/metadata/snap-6143645832277262458-1-7cb074a4-3da7-4184-9db8-567383bb588a.avro' 2023-06-06 14:31:48.445000+00:00 0c3714299d43ae86a46eabdcaac1351e 3753 None
 </pre>
 
 You can extract the string with the following command.
 ```
-PARQUET=$(/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket dev-bucket-01 | grep -o '.*parquet' | sed -n "s/.*b'//p")
+PARQUET=$(/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket iceberg-bucket | grep -o '.*parquet' | sed -n "s/.*b'//p")
 ```
 
 The file name that is retrieved is substituted into the next command.
 Note: The file name found in $PARQUET will be different on your system.
 ```
-/scripts/s3-download.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket dev-bucket-01 --srcFile $PARQUET --destFile /tmp/x.parquet
+/scripts/s3-download.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket iceberg-bucket --srcFile $PARQUET --destFile /tmp/x.parquet
 ```
  
 Describe the File Contents.

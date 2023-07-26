@@ -1,9 +1,8 @@
 # Using the IBM watsonx.data console UI
 Open your browser and navigate to:
 
-   * IBM watsonx.data UI - https://region.techzone-services.com:xxxxx
-   * VMWare Image - https://localhost:9443/
-   * Credentials: username: <mark>ibmlhadmin</mark> password: <mark>password</mark>
+   * IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> 
+   * Credentials: username: <code style="color:blue;font-size:medium;">ibmlhadmin</code> password: <code style="color:blue;font-size:medium;">password</code>
 
 Note: You will get a Certificate error in Firefox:
 
@@ -13,19 +12,21 @@ Select Advanced.
 
 ![Browser](wxd-images/browser-warning-2.png)
  
-Choose “Accept the Risk and Continue”. If you are using Google Chrome, you can bypass the error message by typing in “thisisunsafe”. 
+Choose “Accept the Risk and Continue”. If you are using Google Chrome, you can bypass the error message by typing in “thisisunsafe” or clicking on the "Proceed to 192.168.252.2 (unsafe)" link.
+
+![Browser](wxd-images/chrome-browser.png)
+
+The IBM watsonx.data UI will display.
   
 ![Browser](wxd-images/watsonx-data-ui.png)  
 
-The userid is <mark>ibmlhadmin</mark> with password of <mark>password</mark>.
+The userid is<code style="color:blue;font-size:medium;">ibmlhadmin</code> with password of <code style="color:blue;font-size:medium;">password</code>.
 
 **Note**: If you see the following screen when first connecting to the UI, this is an indication that the service has not completely initialized.
 
 ![Browser](wxd-images/watsonx-data-ui-failure.png)
  
 Dismiss all the error messages and then click on the Person icon (far right side above the messages) and Logout. Close the browser window after logging out and open the web page again until you get the proper login screen. At this point you will be connected to the console.
-
-**Note**: With the IBM watsonx.data Developer version everything is already pre-provisioned as part of the system start up. Console UI is still under construction, but you will be able to navigate the different screens and experience it.
 
 ## IBM watsonx.data UI Navigation
 
@@ -51,8 +52,7 @@ You can explore the various menus to see how the UI works. A brief description o
 
 ![Browser](wxd-images/watsonx-infrastructure.png) 
 
-* Ingestion Hub - Used for loading data into the system (currently not enabled).
-* Data Explorer - Used to explore the various data sources that are catalogued in the system. You can explore the schemas, tables, table layout and view a subset of the data with this option.
+* Data Manager - Used to explore the various data sources that are catalogued in the system. You can explore the schemas, tables, table layout and view a subset of the data with this option. The display make take a few minutes to show the schemas in the system as it is querying the catalog and populating the descriptions on the screen.
 
 ![Browser](wxd-images/watsonx-dataexplorer.png) 
 
@@ -67,7 +67,5 @@ You can explore the various menus to see how the UI works. A brief description o
 * Access Control - Control who can access the data.
 
 ![Browser](wxd-images/watsonx-access.png) 
-
-* Billing and Usage - Information on the usage of the system (currently not enabled).
 
 Try using the Data Explorer and Query engine to access some of the data in the pre-defined TPCH schema.

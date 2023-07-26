@@ -1,8 +1,7 @@
 # Using the Presto console UI
 The PrestoDB console UI can be accessed from:
 
-   * Presto console - <mark>http://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>http://localhost:8080/ui</mark>
+   * Presto console - <a href="http://192.168.252.2:8080" target="_blank">https://192.168.252.2:8080</a>
 
 The Presto console allows you to do the following:
 
@@ -11,6 +10,8 @@ The Presto console allows you to do the following:
    * Queries in queue
    * Data throughput 
    * Query details (text and plan)
+
+**Note**: The Presto console is very valuable when it comes to diagnosing problems with any queries you run in the IBM watsonx.data environment. If a query fails you can find more details in the Presto console using the instructions below.
    
 ![Browser](wxd-images/presto-main.png)
  
@@ -18,7 +19,7 @@ On the main Presto screen, click the Finished Button (middle of the screen).
 
 ![Browser](wxd-images/presto-finished.png)
  
-A list of finished queries will display below the tab bar. You can scroll through the list of queries and get details of the execution plans. If you scroll through the list, you should see the test query "select * from customer limit 5".
+A list of finished queries will display below the tab bar. You can scroll through the list of queries and get details of the execution plans. If you scroll through the list, you should see the test query "select * from customer limit 5". If you had a query that failed, look for the SQL in this list and continue on with the next step.
 
 ![Browser](wxd-images/presto-limit-5.png)
  
@@ -26,7 +27,7 @@ Click on the query ID to see details of the execution plan that Presto produced.
 
 ![Browser](wxd-images/presto-query-details.png)
  
-You can get more information about the query by clicking on any of the tabs that are on this screen. For instance, the Live Plan tab will show a visual explain of the stages that the query went through during execution.
+You can get more information about the query by clicking on any of the tabs that are on this screen. For instance, the Live Plan tab will show a visual explain of the stages that the query went through during execution. Scrolling to the bottom of this screen will also display any error messages that may have been produced by the SQL.
 
 ![Browser](wxd-images/presto-live-plan.png)
 
@@ -42,7 +43,7 @@ cd /root/ibm-lh-dev/bin
 
 Start the Presto CLI.
 ```
-./presto-cli.sh
+./presto-cli
 ```
 What queries are currently running?
 ```

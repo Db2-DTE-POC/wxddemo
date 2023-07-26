@@ -21,8 +21,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
 ### Create new bucket in MinIO
 Open your browser and navigate to:
 
-   * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>https://localhost:9001/</mark>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
    
 Check to see if the MinIO credentials exist in your terminal session.
 ```
@@ -41,7 +40,7 @@ Click on the Buckets tab to show the current buckets in the MinIO system.
 
 ![Browser](wxd-images/minio-bucket-1.png)
  
-You can see that we have two buckets used for the labs. We need to create a new bucket to use for our schema. Press the “Create Bucket +” option on the right side of the screen.
+You can see that we have two buckets used for the labs. We need to create a new bucket to use for our schema. Press the “Create Bucket +” option on the right side of the screen. **Note**: The size and contents of the existing buckets will be different on your system.
  
 ![Browser](wxd-images/minio-bucket-2.png)
  
@@ -55,8 +54,7 @@ You should now see your new bucket below.
  
 Open your browser and connect to the IBM watsonx.data UI:
 
-   * IBM watsonx.data UI - <mark>https://region.techzone-services.com:xxxxx</mark>
-   * VMWare Image - <mark>https://localhost:9443/</mark>
+   * IBM watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
@@ -69,23 +67,23 @@ printf "\nAccess Key: $LH_S3_ACCESS_KEY \nSecret Key: $LH_S3_SECRET_KEY\n"
 
 Click on the Add component menu and select Add bucket.
 
-![Browser](wxd-images/watsonx-add-component.png)
+![Browser](wxd-images/watsonx-add-bucket.png)
  
 Fill in the dialog with the following values.
 
-   * Bucket type – <mark>Amazon S3</mark>
-   * Bucket name – <mark>customer</mark>
-   * Display name – <mark>customer</mark>
-   * Endpoint – <mark>http://ibm-lh-minio-svc:9000</mark>
+   * Bucket type – <code style="color:blue;font-size:medium;">MinIO</code>
+   * Bucket name – <code style="color:blue;font-size:medium;">customer</code>
+   * Display name – <code style="color:blue;font-size:medium;">customer</code>
+   * Endpoint – <code style="color:blue;font-size:medium;">http://ibm-lh-minio-svc:9000</code>
    * Access key – $LH_S3_ACCESS_KEY (contents of this value)
    * Secret key –  $LH_S3_SECRET_KEY (contents of this value)
-   * Activate now – <mark>Yes</mark>
-   * Catalog type - <mark>Apache Iceberg</mark>
-   * Catalog name - <mark>customer</mark>
+   * Activate now – <code style="color:blue;font-size:medium;">Yes</code>
+   * Catalog type - <code style="color:blue;font-size:medium;">Apache Iceberg</code>
+   * Catalog name - <code style="color:blue;font-size:medium;">customer</code>
    
 ![Browser](wxd-images/watsonx-add-bucket-1.png)   
    
-When done press Add and Activate now. Your UI should change to display the new bucket (Your screen may be slightly different).
+When done press Add and Activate now. Your UI should change to display the new bucket (Your screen may be slightly different). **Note**: This step may take a minute to complete.
 
 ![Browser](wxd-images/watsonx-add-bucket-2.png)   
  
@@ -99,38 +97,23 @@ Press the associate button and the following dialog will display.
 
 ![Browser](wxd-images/watsonx-add-bucket-4.png)  
  
-Press the Associate button and wait for the screen to refresh. You will need to refresh the browser window to see the new connections. 
+Select the <code style="color:blue;font-size:medium;">presto-01</code> engine and then press the **Save and restart engine** button. Associate button and wait for the screen to refresh. 
 
 ![Browser](wxd-images/watsonx-add-bucket-5.png)  
 
 **Note**: Your display will be different.
+
+## Exploring the Customer bucket
+
+First check to make sure that the Presto engine has finished starting. While the IBM watsonx.data UI has restarted the Presto process, it takes a few seconds to become available.
+
+```
+check_presto
+```
  
-The engine needs to be restarted to recognize the addition of the new catalog and bucket. Although this step should be automated, in this development build we need to force the restart of Presto. First make sure you are in the proper directory.
-```
-cd /root/ibm-lh-dev/bin
-```
-Then stop and start the Presto service.
-```
-./stop_service.sh ibm-lh-presto
-./start_service.sh ibm-lh-presto
-./checkpresto.sh
-```
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-Inspecting docker image ibm-lh-presto before removal:
-ibm-lh-presto still running. Removing ibm-lh-presto...
-ibm-lh-presto
-
-FYI: LH_RUN_MODE is set to diag
-49cf2c7020e3727d4fa9c1bd43c9f1774e6ff6cd26bd2980678e6aa24af059cc
-Waiting for Presto to start.
-....................
-Ready
-</pre>
-Once this command completes, refresh the browser, and then continue onto the next step. If you run a SQL command before Presto starts, a Java error message will be displayed that provides no useful information.
-
 Connect to Presto using the new customer catalog.
 ``` 
-./presto-cli.sh --catalog customer
+./presto-cli --catalog customer
 ```
 We will create a schema where we store our table data using the new catalog name we created for the customer bucket.
 ```
@@ -151,14 +134,11 @@ Quit Presto.
 ```
 quit;
 ```
+You can use the Developer sandbox (bin/dev-sandbox.sh), as described in [MinIO UI](wxd-minio.md#do-i-really-need-apache-iceberg), to inspect the Customer bucket with the s3-inspect utility.
 
-### Exploring the Customer bucket
+It's easier to use the MinIO console to view the bucket instead. Open your browser and navigate to:
 
-   * You can use the Developer sandbox (bin/dev-sandbox.sh), as described in Lab 3 to inspect the Customer as well, via the s3-inspect utility. 
-   * Recommend you use the MinIO console to view the bucket instead.
-Open your browser and navigate to:
-     * Minio console - <mark>http://region.techzone-services.com:xxxxx</mark>
-     * VMWare Image - <mark>http://localhost:9001/</mark>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
 
 From the main screen select Object Browser and view the contents of the customer bucket.
 
