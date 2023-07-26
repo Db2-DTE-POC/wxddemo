@@ -13,7 +13,7 @@
     
     
       
-        <title>MinIO UI - Watsonx.data Lab</title>
+        <title>MinIO UI - watsonx.data Lab</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Watsonx.data Lab" class="md-header__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="watsonx.data Lab" class="md-header__button md-logo" aria-label="watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Watsonx.data Lab
+            watsonx.data Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,12 +163,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Watsonx.data Lab" class="md-nav__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="watsonx.data Lab" class="md-nav__button md-logo" aria-label="watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
     </a>
-    Watsonx.data Lab
+    watsonx.data Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -415,7 +415,7 @@
   
     <li class="md-nav__item">
       <a href="../wxd-watsonui/" class="md-nav__link">
-        Watsonx.data UI
+        watsonx.data UI
       </a>
     </li>
   
@@ -839,8 +839,13 @@ MinIO Password:  93da45c5af87abd86c9dbc83
 <p>You can get all passwords for the system when you are logged in as the <code style="color:blue;font-size:medium;">watsonx</code> user by using the following command.</p>
 <pre><code>passwords
 </code></pre>
-<p>If you are logged in as the root user, the syntax is slightly different:</p>
-<pre><code>SSH_TTY=true SSH_CLIENT=true passwords
+<p>If you receive the following message:</p>
+<pre style="font-size: medium; color: darkgreen; overflow: auto">
+(zenity:29252): Gtk-WARNING **: 11:27:32.683: cannot open display:
+</pre>
+
+<p>You will need to issue the command with the <code>text</code> option.</p>
+<pre><code>passwords text
 </code></pre>
 <p>Open your browser and navigate to:</p>
 <ul>

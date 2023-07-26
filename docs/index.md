@@ -2,7 +2,7 @@
 
 ![WatsonX](wxd-images/watsonxlogoibm.png)
 
-The next-gen Watsonx.data lakehouse is designed to overcome the costs and complexities enterprises face. This will be the world’s first and only open data store with multi-engine support that is built for hybrid deployment  across your entire ecosystem.
+The next-gen watsonx.data lakehouse is designed to overcome the costs and complexities enterprises face. This will be the world’s first and only open data store with multi-engine support that is built for hybrid deployment  across your entire ecosystem.
  
    * Watsonx.data is the only lakehouse with multiple query engines allowing you to optimize costs and performance by pairing the right workload with the right engine.
    * Run all workloads from a single pane of glass, eliminating trade-offs with convenience while still improving cost and performance.

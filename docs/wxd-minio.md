@@ -18,9 +18,14 @@ You can get all passwords for the system when you are logged in as the <code sty
 passwords
 ```
 
-If you are logged in as the root user, the syntax is slightly different:
+If you receive the following message:
+<pre style="font-size: medium; color: darkgreen; overflow: auto">
+(zenity:29252): Gtk-WARNING **: 11:27:32.683: cannot open display:
+</pre>
+
+You will need to issue the command with the `text` option.
 ```
-SSH_TTY=true SSH_CLIENT=true passwords
+passwords text
 ```
 
 Open your browser and navigate to:

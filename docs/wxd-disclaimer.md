@@ -1,6 +1,6 @@
 # Disclaimer
  
-## Watsonx.data
+## watson.data
 
 Copyright © 2023 by International Business Machines Corporation (IBM). All
 rights reserved. Printed in Canada. Except as permitted under the Copyright Act

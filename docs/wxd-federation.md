@@ -68,7 +68,7 @@ echo $POSTGRES_PASSWORD > /tmp/postgres.pw
 
 Open your browser and connect to the watsonx.data UI:
 
-   * Watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
+   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
