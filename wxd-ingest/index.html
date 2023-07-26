@@ -13,7 +13,7 @@
     
     
       
-        <title>Ingesting Data - IBM watsonx.data Lab</title>
+        <title>Ingesting Data - Watsonx.data Lab</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-header__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IBM watsonx.data Lab
+            Watsonx.data Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,12 +163,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-nav__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
     </a>
-    IBM watsonx.data Lab
+    Watsonx.data Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -413,7 +413,7 @@
   
     <li class="md-nav__item">
       <a href="../wxd-watsonui/" class="md-nav__link">
-        IBM watsonx.data UI
+        Watsonx.data UI
       </a>
     </li>
   
@@ -727,8 +727,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ingest-data-into-the-ibm-watsonxdata" class="md-nav__link">
-    Ingest data into the IBM watsonx.data
+  <a href="#ingest-data-into-watsonxdata" class="md-nav__link">
+    Ingest data into watsonx.data
   </a>
   
 </li>
@@ -762,7 +762,7 @@
 
 
 <h1 id="ingesting-data">Ingesting Data</h1>
-<p>In this lab we will install the ingest tool (lh-tool) alongside the IBM watsonx.data developer edition that is running in this lab. The Ingest tool is a separate install and currently needs to be downloaded after IBM watsonx.data is started. The lab image contains a copy of this code so you will not need to download it.</p>
+<p>In this lab we will install the ingest tool (lh-tool) alongside the watsonx.data developer edition that is running in this lab. The Ingest tool is a separate install and currently needs to be downloaded after watsonx.data is started. The lab image contains a copy of this code so you will not need to download it.</p>
 <p>In addition, there is a staging file (yellowtaxi-parquet) found in root’s directory that will be used for loading into the system.</p>
 <p>As the <code>root</code> user, switch to the developer bin directory.</p>
 <pre><code>cd /root/ibm-lh-dev/bin
@@ -771,14 +771,14 @@
 <pre><code>docker run --network ibm-lh-network -v /root/staging:/staging --name ibm-lh-tools -dt us.icr.io/nz-cloud/ibmlh-datacopy:v1.0-beta
 </code></pre>
 <h3 id="start-and-stop-ingest-container">Start and stop ingest container</h3>
-<p>The ingest tool is outside of the control of the IBM watsonx.data dev environment that you have been using in the labs.  Using ./bin/start or ./bin/stop will not start or stop the ingest container. If you need to Start or Stop the service, use the following commands.</p>
+<p>The ingest tool is outside of the control of the watsonx.data dev environment that you have been using in the labs.  Using ./bin/start or ./bin/stop will not start or stop the ingest container. If you need to Start or Stop the service, use the following commands.</p>
 <ul>
 <li>Stop the ibm-lh-tools container: 
      <code>docker stop ibm-lh-tools</code></li>
 <li>Start the ibm-lh-tools container: 
      <code>docker start ibm-lh-tools</code></li>
 </ul>
-<h3 id="ingest-data-into-the-ibm-watsonxdata">Ingest data into the IBM watsonx.data</h3>
+<h3 id="ingest-data-into-watsonxdata">Ingest data into watsonx.data</h3>
 <p>Before running the utility, we need to retrieve several credentials for MinIO and the 
 keystore password. </p>
 <pre><code>export LH_S3_ACCESS_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_ACCESS_KEY | sed 's/.*=//')
@@ -801,7 +801,7 @@ chmod +x /root/staging/keys.sh
 <h3 id="create-a-hive-schema-for-staging-the-ingest-file">Create a hive schema for staging the ingest file</h3>
 <p>Before ingesting the file, we need to create a new schema that we will use for the table being loaded. Open your browser and navigate to:</p>
 <ul>
-<li>IBM watsonx.data UI - <strong>https://192.168.252.2:9443</strong></li>
+<li>watsonx.data UI - <strong>https://192.168.252.2:9443</strong></li>
 <li>VMWare Image - <strong>https://localhost:9443/</strong></li>
 </ul>
 <p>In the watsonx.data UI select the Data Explorer.</p>
@@ -891,7 +891,7 @@ Complete migration
 <p>After ingesting the data, exit the docker container.</p>
 <pre><code>exit
 </code></pre>
-<p>Refresh the IBM watsonx.data UI to view the iceberg_data catalog in the Data Explorer.</p>
+<p>Refresh the watsonx.data UI to view the iceberg_data catalog in the Data Explorer.</p>
 <p><img alt="Browser" src="../wxd-images/watsonx-de-iceberg-1.png" /></p>
 <p>Click on the yellow_tripdata table to see the schema definition.</p>
 <p><img alt="Browser" src="../wxd-images/watsonx-de-iceberg-2.png" /></p>

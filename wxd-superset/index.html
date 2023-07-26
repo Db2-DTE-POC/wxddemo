@@ -13,7 +13,7 @@
     
     
       
-        <title>Apache Superset - IBM watsonx.data Lab</title>
+        <title>Apache Superset - Watsonx.data Lab</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-header__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IBM watsonx.data Lab
+            Watsonx.data Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,12 +163,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-nav__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
     </a>
-    IBM watsonx.data Lab
+    Watsonx.data Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -413,7 +413,7 @@
   
     <li class="md-nav__item">
       <a href="../wxd-watsonui/" class="md-nav__link">
-        IBM watsonx.data UI
+        Watsonx.data UI
       </a>
     </li>
   
@@ -594,8 +594,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-a-database-connection-to-ibm-watsonxdata" class="md-nav__link">
-    Setup a Database Connection to IBM watsonx.data
+  <a href="#setup-a-database-connection-to-watsonxdata" class="md-nav__link">
+    Setup a Database Connection to watsonx.data
   </a>
   
 </li>
@@ -770,8 +770,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-a-database-connection-to-ibm-watsonxdata" class="md-nav__link">
-    Setup a Database Connection to IBM watsonx.data
+  <a href="#setup-a-database-connection-to-watsonxdata" class="md-nav__link">
+    Setup a Database Connection to watsonx.data
   </a>
   
 </li>
@@ -798,7 +798,7 @@
 
 
 <h1 id="reportingdashboarding-using-apache-superset">Reporting/Dashboarding using Apache Superset</h1>
-<p>Apache Superset is not a part of IBM watsonx.data and is only used to demonstrate the capability to connect to IBM watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.</p>
+<p>Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.</p>
 <p>Open a terminal window as the <code>watsonx</code> userid in VNC, or use SSH to connect as <code>watsonx</code>.</p>
 <pre><code>ssh watsonx@192.168.252.2
 </code></pre>
@@ -806,7 +806,7 @@
 <p>Clone the Apache Superset repository with the git command. This command typically takes less than 1 minute to download the code.</p>
 <pre><code>git clone https://github.com/apache/superset.git
 </code></pre>
-<p>The <code>docker-compose-non-dev.yml</code> file needs to be updated so that Apache Superset can access the same network that IBM watsonx.data is using. </p>
+<p>The <code>docker-compose-non-dev.yml</code> file needs to be updated so that Apache Superset can access the same network that watsonx.data is using. </p>
 <pre><code>cd ./superset
 sed '/version: &quot;3.7&quot;/q' docker-compose-non-dev.yml &gt; yamlfix.txt
 cat &lt;&lt;EOF &gt;&gt; yamlfix.txt
@@ -822,7 +822,7 @@ cp yamlfix.txt docker-compose-non-dev.yml
 <pre><code>docker compose -f docker-compose-non-dev.yml up
 </code></pre>
 <p>This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. </p>
-<p><strong>Note</strong>: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against IBM watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. </p>
+<p><strong>Note</strong>: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. </p>
 <p><img alt="Browser" src="../wxd-images/superset-1.png" /></p>
 <p>Open your browser and navigate to:</p>
 <ul>
@@ -831,7 +831,7 @@ cp yamlfix.txt docker-compose-non-dev.yml
 <p>The credentials for Apache Superset are userid <code>admin</code>, Password <code>admin</code>.</p>
 <p><img alt="Browser" src="../wxd-images/superset-2.png" />
   </p>
-<h3 id="setup-a-database-connection-to-ibm-watsonxdata">Setup a Database Connection to IBM watsonx.data</h3>
+<h3 id="setup-a-database-connection-to-watsonxdata">Setup a Database Connection to watsonx.data</h3>
 <p>Open another terminal window for this next step. Once Apache Superset has started loading exmaples, you can issue the following command as <code>watsonx</code> or <code>root</code>.</p>
 <pre><code>docker cp /certs/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
 </code></pre>
@@ -854,7 +854,7 @@ cp yamlfix.txt docker-compose-non-dev.yml
 <p><img alt="Browser" src="../wxd-images/superset-8.png" /></p>
 <p>Press the Connect button to create the connection.</p>
 <h3 id="create-reportschartsdashboards">Create reports/charts/dashboards</h3>
-<p>Once the connection has been tested and created for IBM watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.</p>
+<p>Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.</p>
 <p>Select Datasets at the top of the Apache Superset window.</p>
 <p><img alt="Browser" src="../wxd-images/superset-9.png" /></p>
 <p>Press [+ DATASET]. </p>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Check Server Status - IBM watsonx.data Lab</title>
+        <title>Check Server Status - Watsonx.data Lab</title>
       
     
     
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="IBM watsonx.data Lab" class="md-header__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-header__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            IBM watsonx.data Lab
+            Watsonx.data Lab
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -163,12 +163,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="IBM watsonx.data Lab" class="md-nav__button md-logo" aria-label="IBM watsonx.data Lab" data-md-component="logo">
+    <a href=".." title="Watsonx.data Lab" class="md-nav__button md-logo" aria-label="Watsonx.data Lab" data-md-component="logo">
       
   <img src="../wxd-images/IBM_logo®_rev_RGB.png" alt="logo">
 
     </a>
-    IBM watsonx.data Lab
+    Watsonx.data Lab
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -468,7 +468,7 @@
   
     <li class="md-nav__item">
       <a href="../wxd-watsonui/" class="md-nav__link">
-        IBM watsonx.data UI
+        Watsonx.data UI
       </a>
     </li>
   
@@ -810,14 +810,14 @@
 
 
 <h1 id="system-overview">System Overview</h1>
-<p>The IBM watsonx.data system is running on a virtual machine with the following resources:</p>
+<p>The watsonx.data system is running on a virtual machine with the following resources:</p>
 <ul>
 <li>4 vCPUs</li>
 <li>16Gb of memory</li>
 <li>400Gb of disk</li>
 </ul>
 <p>This is sufficient for running this exercises found in this lab but cannot be used for large scale testing. </p>
-<p>When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the IBM watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.</p>
+<p>When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.</p>
 <h2 id="lab-instructions">Lab Instructions</h2>
 <p>Throughout the labs, any command that needs to be executed will be highlighted in a grey box:</p>
 <pre><code>cd /root/ibm-lh-dev/bin
@@ -835,7 +835,7 @@ Next switch to the root userid.</p>
 <p>Switch to the development code bin directory.</p>
 <pre><code>cd /root/ibm-lh-dev/bin
 </code></pre>
-<p>Once you have switched to the development directory, you can start running IBM watsonx.data commands. You can check the status with the following command.</p>
+<p>Once you have switched to the development directory, you can start running watsonx.data commands. You can check the status with the following command.</p>
 <pre><code class="language-bash">./status.sh --all
 </code></pre>
 <p>Output will look like:</p>
@@ -854,7 +854,7 @@ ibm-lh-minio                running
 
 <p>To confirm that the software is working, run the following commands to validate the installation.</p>
 <h2 id="presto-engine-test">Presto Engine Test</h2>
-<p>Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks. The following command is not part of IBM watsonx.data, but has been included to simplify checking the status of the Presto service.</p>
+<p>Check the Presto engine by connecting to a schema. First, we need to make sure that the Presto engine has completed all startup tasks. The following command is not part of watsonx.data, but has been included to simplify checking the status of the Presto service.</p>
 <pre><code>check_presto
 </code></pre>
 <pre style="font-size: small; color: darkgreen">
