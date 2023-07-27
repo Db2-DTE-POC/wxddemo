@@ -13,6 +13,7 @@ nav:
     - Available Ports: "wxd-reference-ports.md"
     - Userids and Passwords: "wxd-reference-passwords.md"
     - Portainer Console: "wxd-reference-portainer.md"
+    - Documentation: "wxd-reference-documentation.md"
   - Check Server Status: "wxd-startwatsonx.md"
   - Introduction: 
     - Presto CLI: "wxd-prestocli.md"
