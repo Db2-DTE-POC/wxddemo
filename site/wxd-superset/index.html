@@ -818,10 +818,13 @@
 </code></pre>
 <p>Password is <code>watsonx.data</code>.</p>
 <p>Clone the Apache Superset repository with the git command. This command typically takes less than 1 minute to download the code.</p>
+<p>Download the superset code again.</p>
 <pre><code>git clone https://github.com/apache/superset.git
 </code></pre>
 <p>The <code>docker-compose-non-dev.yml</code> file needs to be updated so that Apache Superset can access the same network that watsonx.data is using. </p>
 <pre><code>cd ./superset
+cp docker-compose-non-dev.yml docker-compose-non-dev-backup.yml
+
 sed '/version: &quot;3.7&quot;/q' docker-compose-non-dev.yml &gt; yamlfix.txt
 cat &lt;&lt;EOF &gt;&gt; yamlfix.txt
 networks:
@@ -830,7 +833,9 @@ networks:
     name: ibm-lh-network
 EOF
 sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yamlfix.txt
-cp yamlfix.txt docker-compose-non-dev.yml
+</code></pre>
+<p>We update the Apache Superset code to version <code>2.1.0</code>.</p>
+<pre><code>sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt &gt; docker-compose-non-dev.yml
 </code></pre>
 <p>Use docker-compose to start Apache Superset.</p>
 <pre><code>docker compose -f docker-compose-non-dev.yml up

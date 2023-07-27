@@ -30,3 +30,54 @@ systemctl disable vncserver@:1
 #### A SQL Statement failed but there are no error messages
 
 You need to use the Presto console <a href="http://192.168.252.2:8080" target="presto">https://192.168.252.2:8080</a> and search for the SQL statement. Click on the Query ID to find more details of the statement execution and scroll to the bottom of the web page to see any error details. 
+
+#### Apache Superset isn't Starting
+
+If Superset doesn't start for some reason, you will need to reset it completely to try it again. First make sure you are connected as the `watsonx` user **not** `root`.
+
+Make sure you have stopped the terminal session that is running Apache Superset. Next remove the Apache Superset directory.
+
+```
+sudo rm -rf /home/watsonx/superset
+```
+
+We remove the docker images associated with Apache Superset. If no containers or volumes exist you will get an error message.
+
+```
+docker ps -a -q --filter "name=superset" | xargs docker container rm --force
+docker volume list -q  --filter "name=superset" | xargs docker volume rm --force
+```
+
+Download the superset code again.
+
+```
+git clone https://github.com/apache/superset.git
+```
+
+The `docker-compose-non-dev.yml` file needs to be updated so that Apache Superset can access the same network that watsonx.data is using. 
+
+```
+cd ./superset
+cp docker-compose-non-dev.yml docker-compose-non-dev-backup.yml
+
+sed '/version: "3.7"/q' docker-compose-non-dev.yml > yamlfix.txt
+cat <<EOF >> yamlfix.txt
+networks:
+  default:
+    external: True
+    name: ibm-lh-network
+EOF
+sed -e '1,/version: "3.7"/ d' docker-compose-non-dev.yml  >> yamlfix.txt
+```
+
+We update the Apache Superset code to version `2.1.0`.
+```
+sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt > docker-compose-non-dev.yml
+```
+
+Use docker-compose to start Apache Superset.
+```
+docker compose -f docker-compose-non-dev.yml up
+```
+
+

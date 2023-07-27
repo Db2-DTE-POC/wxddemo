@@ -12,6 +12,8 @@ Password is `watsonx.data`.
 
 Clone the Apache Superset repository with the git command. This command typically takes less than 1 minute to download the code.
 
+Download the superset code again.
+
 ```
 git clone https://github.com/apache/superset.git
 ```
@@ -20,6 +22,8 @@ The `docker-compose-non-dev.yml` file needs to be updated so that Apache Superse
 
 ```
 cd ./superset
+cp docker-compose-non-dev.yml docker-compose-non-dev-backup.yml
+
 sed '/version: "3.7"/q' docker-compose-non-dev.yml > yamlfix.txt
 cat <<EOF >> yamlfix.txt
 networks:
@@ -28,7 +32,11 @@ networks:
     name: ibm-lh-network
 EOF
 sed -e '1,/version: "3.7"/ d' docker-compose-non-dev.yml  >> yamlfix.txt
-cp yamlfix.txt docker-compose-non-dev.yml
+```
+
+We update the Apache Superset code to version `2.1.0`.
+```
+sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt > docker-compose-non-dev.yml
 ```
 
 Use docker-compose to start Apache Superset.
