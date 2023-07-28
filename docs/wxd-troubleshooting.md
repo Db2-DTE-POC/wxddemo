@@ -29,7 +29,7 @@ systemctl disable vncserver@:1
 
 #### A SQL Statement failed but there are no error messages
 
-You need to use the Presto console <a href="http://192.168.252.2:8080" target="presto">https://192.168.252.2:8080</a> and search for the SQL statement. Click on the Query ID to find more details of the statement execution and scroll to the bottom of the web page to see any error details. 
+You need to use the Presto console <a href="http://192.168.252.2:8080" target="presto">http://192.168.252.2:8080</a> and search for the SQL statement. Click on the Query ID to find more details of the statement execution and scroll to the bottom of the web page to see any error details. 
 
 #### Apache Superset isn't Starting
 

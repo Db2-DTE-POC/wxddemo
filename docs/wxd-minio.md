@@ -30,7 +30,7 @@ passwords text
 
 Open your browser and navigate to:
 
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
    
 ![Browser](wxd-images/minio-logon.png)
  

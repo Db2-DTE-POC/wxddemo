@@ -21,7 +21,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
 ### Create new bucket in MinIO
 Open your browser and navigate to:
 
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
    
 Check to see if the MinIO credentials exist in your terminal session.
 ```
@@ -138,7 +138,7 @@ You can use the Developer sandbox (bin/dev-sandbox.sh), as described in [MinIO U
 
 It's easier to use the MinIO console to view the bucket instead. Open your browser and navigate to:
 
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
+   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
 
 From the main screen select Object Browser and view the contents of the customer bucket.
 

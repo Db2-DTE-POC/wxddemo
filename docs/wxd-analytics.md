@@ -167,7 +167,7 @@ quit;
 ### Inspect object store directory/object/file structure
 Open your browser and navigate to:
    
-   * MinIO console - <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a>
+   * MinIO console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
 
 If you forget the userid and password, use the following command to extract them or use the <code style="color:blue;font-size:medium;">passwords</code> command.
 ```

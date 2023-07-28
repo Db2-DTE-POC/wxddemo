@@ -1,7 +1,7 @@
 # Using the Presto console UI
 The PrestoDB console UI can be accessed from:
 
-   * Presto console - <a href="http://192.168.252.2:8080" target="_blank">https://192.168.252.2:8080</a>
+   * Presto console - <a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a>
 
 The Presto console allows you to do the following:
 

@@ -65,8 +65,8 @@ The following URLs and Ports are used to access the watsonx.data services.
 The ports that are used in the lab are listed below.
 
    * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console
-   * <a href="http://192.168.252.2:8080" target="_blank">https://192.168.252.2:8080</a> - Presto console
-   * <a href="http://192.168.252.2:9001" target="_blank">https://192.168.252.2:9001</a> - MinIO console (S3 buckets)
+   * <a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a> - Presto console
+   * <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a> - MinIO console (S3 buckets)
    * <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)
    * <a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)
    * vnc://192.168.252.2:5901 - VNC Access (Access to GUI in the machine)
