@@ -67,7 +67,7 @@ Enter the property name "SSL", in uppercase (the parameter is case sensitive!). 
 
 ![Browser](wxd-images/dbeaver-setting-ssl.png) 
 
-Click on the <code style="color:blue;font-size:medium;">SSL</code> field and you will update the value to<code style="color:blue">True</code> and hit Enter. Add another field called <code style="color:blue;font-size:medium;">SSLTrustStorePath</code> and give it value of <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code> and finally add the <code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> setting with a value of <code style="color:blue;font-size:medium;">changeit</code>. The panel should now contain three values.
+Click on the <code style="color:blue;font-size:medium;">SSL</code> field and you will update the value to<code style="color:blue">True</code> and hit Enter. Add another field called <code style="color:blue;font-size:medium;">SSLTrustStorePath</code> and give it value of <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code> and finally add the <code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> setting with a value of <code style="color:blue;font-size:medium;">watsonx.data</code>. The panel should now contain three values.
 
 ![Browser](wxd-images/dbeaver-setting-list.png)
  
