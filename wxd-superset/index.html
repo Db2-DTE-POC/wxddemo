@@ -873,7 +873,8 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p><img alt="Browser" src="../wxd-images/superset-8.png" /></p>
 <p>Press the Connect button to create the connection.</p>
 <h3 id="create-reportschartsdashboards">Create reports/charts/dashboards</h3>
-<p>Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.</p>
+<p>Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface. </p>
+<p><strong>Note</strong>: The Apache Superset team removes, inserts and updates charts on a frequent basis with no advance notification. The example you see below may not be exactly the same when you run the code. This is not something that we can control in the demonstration environment.</p>
 <p>Select Datasets at the top of the Apache Superset window.</p>
 <p><img alt="Browser" src="../wxd-images/superset-9.png" /></p>
 <p>Press [+ DATASET]. </p>
@@ -886,9 +887,9 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p><img alt="Browser" src="../wxd-images/superset-13.png" /></p>
 <p>The display will show the columns associated with this table. On the bottom right-hand corner is a button named CREATE DATASET AND CREATE CHART. Press that to display the following panel.</p>
 <p><img alt="Browser" src="../wxd-images/superset-14.png" /></p>
-<p>To create a simple Line Chart, we start by selecting the Line Chart icon. If you click it once it displays information about the chart type. If you double-click it, the chart builder screen will display. </p>
+<p>To create a simple Bar Chart, we start by selecting the Bar Chart icon. If you click it once it displays information about the chart type. If you double-click it, the chart builder screen will display. </p>
 <p><img alt="Browser" src="../wxd-images/superset-15.png" /></p>
-<p>Click on the mktsegment field and drag it into the X-AXIS field. Then drag the acctbal field into the METRICS field. The program will ask how the field is to be computed. Select AVG from the list and SAVE.</p>
+<p>Click on the <code>mktsegment</code> field and drag it into the DIMENSIONS field. Then drag the <code>acctbal</code> field into the METRICS field. The program will ask how the field is to be computed. Select AVG from the list and SAVE.</p>
 <p><img alt="Browser" src="../wxd-images/superset-16.png" /></p>
 <p>Now press the CREATE CHART button found at the bottom of the screen.</p>
 <p><img alt="Browser" src="../wxd-images/superset-17.png" /></p>
