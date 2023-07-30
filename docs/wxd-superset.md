@@ -98,7 +98,9 @@ Copy the following information into the security box.
 Press the Connect button to create the connection.
 
 ### Create reports/charts/dashboards
-Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface.
+Once the connection has been tested and created for watsonx.data, we can click on Dataset and create a new dataset based on the customer table in the tiny schema. Reports/dashboards can then be created using the very intuitive Superset interface. 
+
+**Note**: The Apache Superset team removes, inserts and updates charts on a frequent basis with no advance notification. The example you see below may not be exactly the same when you run the code. This is not something that we can control in the demonstration environment.
 
 Select Datasets at the top of the Apache Superset window.
 
@@ -124,11 +126,11 @@ The display will show the columns associated with this table. On the bottom righ
 
 ![Browser](wxd-images/superset-14.png)
  
-To create a simple Line Chart, we start by selecting the Line Chart icon. If you click it once it displays information about the chart type. If you double-click it, the chart builder screen will display. 
+To create a simple Bar Chart, we start by selecting the Bar Chart icon. If you click it once it displays information about the chart type. If you double-click it, the chart builder screen will display. 
 
 ![Browser](wxd-images/superset-15.png)
  
-Click on the mktsegment field and drag it into the X-AXIS field. Then drag the acctbal field into the METRICS field. The program will ask how the field is to be computed. Select AVG from the list and SAVE.
+Click on the `mktsegment` field and drag it into the DIMENSIONS field. Then drag the `acctbal` field into the METRICS field. The program will ask how the field is to be computed. Select AVG from the list and SAVE.
 
 ![Browser](wxd-images/superset-16.png)
  
