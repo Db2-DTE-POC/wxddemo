@@ -13,7 +13,7 @@
     
     
       
-        <title>Wireguard VPN Access - watsonx.data Lab</title>
+        <title>Database Connections - watsonx.data Lab</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wireguard-vpn-access" class="md-skip">
+        <a href="#database-connections" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wireguard VPN Access
+              Database Connections
             
           </span>
         </div>
@@ -637,11 +637,126 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../wxd-connections/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Database Connections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Database Connections
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#watsonxdata-presto-access" class="md-nav__link">
+    watsonx.data Presto Access
+  </a>
+  
+    <nav class="md-nav" aria-label="watsonx.data Presto Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presto-internal-access" class="md-nav__link">
+    Presto Internal Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presto-external-access" class="md-nav__link">
+    Presto External Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db2-access" class="md-nav__link">
+    Db2 Access
+  </a>
+  
+    <nav class="md-nav" aria-label="Db2 Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db2-internal-access" class="md-nav__link">
+    Db2 Internal Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2-external-access" class="md-nav__link">
+    Db2 External Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql-access" class="md-nav__link">
+    PostgreSQL Access
+  </a>
+  
+    <nav class="md-nav" aria-label="PostgreSQL Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-internal-access" class="md-nav__link">
+    PostgreSQL Internal Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-external-access" class="md-nav__link">
+    PostgreSQL External Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -749,51 +864,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download-the-vpn-certificate" class="md-nav__link">
-    Download the VPN Certificate
+  <a href="#watsonxdata-presto-access" class="md-nav__link">
+    watsonx.data Presto Access
   </a>
+  
+    <nav class="md-nav" aria-label="watsonx.data Presto Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#presto-internal-access" class="md-nav__link">
+    Presto Internal Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presto-external-access" class="md-nav__link">
+    Presto External Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requesting-a-techzone-image" class="md-nav__link">
-    Requesting a TechZone image
+  <a href="#db2-access" class="md-nav__link">
+    Db2 Access
   </a>
+  
+    <nav class="md-nav" aria-label="Db2 Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db2-internal-access" class="md-nav__link">
+    Db2 Internal Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2-external-access" class="md-nav__link">
+    Db2 External Access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#accessing-the-image" class="md-nav__link">
-    Accessing the Image
+  <a href="#postgresql-access" class="md-nav__link">
+    PostgreSQL Access
+  </a>
+  
+    <nav class="md-nav" aria-label="PostgreSQL Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-internal-access" class="md-nav__link">
+    PostgreSQL Internal Access
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#wireguard-setup" class="md-nav__link">
-    Wireguard Setup
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-external-access" class="md-nav__link">
+    PostgreSQL External Access
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vnc-access" class="md-nav__link">
-    VNC Access
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#open-ports" class="md-nav__link">
-    Open Ports
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passwords" class="md-nav__link">
-    Passwords
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -811,125 +958,99 @@
                 
 
 
-<h1 id="wireguard-vpn-access">Wireguard VPN Access</h1>
-<h2 id="download-the-vpn-certificate">Download the VPN Certificate</h2>
-<p>If you have not already downloaded the VPN certificate, follow these steps. </p>
-<p>Access your reservation from the TechZone site. Click on the arrows that corresponds to the watsonx.data reservation. The menu button that is beside the arrow provides options to extend or delete the reservation.</p>
-<p><img alt="Browser" src="../wxd-images/techzone-extend.png" /></p>
-<p>When you click on the arrow the browser will display the details of your image.</p>
-<p><img alt="Browser" src="../wxd-images/techzone-my-details.png" /></p>
-<p>Scroll down to the bottom of the web page to get the VPN certificate.</p>
-<p><img alt="Browser" src="../wxd-images/techzone-vpn.png" /></p>
-<p>Click the Download VPN certificate to your machine and remember the filename for later use.</p>
-<p><img alt="Browser" src="../wxd-images/techzone-vpn-name.png" /></p>
-<p>Once you have the VPN downloaded, you must start the Wireguard VPN client. If you do not have this software on your system, download the software from the following site.</p>
-<p>https://www.wireguard.com/install/</p>
-<p>Once installed, you will use the software to load the VPN certificate.</p>
-<p>The following sections describe how to get started quickly with the watsonx.data developer system. If you are not familiar with some of the tools mentioned below, select the details link for more instructions.</p>
-<h2 id="requesting-a-techzone-image">Requesting a TechZone image</h2>
-<p>Log into Techzone (https://techzone.ibm.com) and search for watsonx.data
-Developer Base Image or use the following link.</p>
-<p><a href="https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image">https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image</a></p>
-<p>Make sure to <strong>enable VPN access</strong> in the reservation. </p>
-<p>More details: <a href="../wxd-reference-techzone/">Reserving a TechZone image</a></p>
-<h2 id="accessing-the-image">Accessing the Image</h2>
-<p>The email from TechZone that indicate that the image is ready will contain a link to to your reservations. Click on the link and search for the watsonx.data reservation. Make sure the download the VPN certificate onto your machine. <strong>Do not use the VM Remote Console button on the reservation.</strong></p>
-<p>More details: <a href="../wxd-reference-access/">Accessing a TechZone image</a></p>
-<h2 id="wireguard-setup">Wireguard Setup</h2>
-<p>Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and enable the connection.</p>
-<p>More details: <a href="../wxd-reference-wireguard/">Wireguard Setup</a></p>
-<h2 id="vnc-access">VNC Access</h2>
-<p>Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: 192.168.252.2:5901. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>.</p>
-<p>The password for the VNC connection is <code style="color:blue;font-size:medium;">watsonx.data</code></p>
-<h2 id="open-ports">Open Ports</h2>
-<p>The following URLs and Ports are used to access the watsonx.data services.
-The ports that are used in the lab are listed below.</p>
+<h1 id="database-connections">Database Connections</h1>
+<p>There are three database systems that can be accessed inside and outside the virtual machine environment:</p>
 <ul>
-<li><a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console</li>
-<li><a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a> - Presto console</li>
-<li><a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a> - MinIO console (S3 buckets)</li>
-<li><a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)</li>
-<li><a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)</li>
-<li>vnc://192.168.252.2:5901 - VNC Access (Access to GUI in the machine)</li>
-<li>8443 - Presto External Port</li>
-<li>5432 - Postgres External Port</li>
-<li>50000 - Db2 Database Port   </li>
+<li>watsonx.data Presto engine</li>
+<li>Db2 LUW</li>
+<li>PostgreSQL</li>
 </ul>
-<p><strong>The Apache Superset link will not be active until started as part of the lab.</strong></p>
-<p>More details: <a href="../wxd-reference-ports/">Open Ports</a></p>
-<h2 id="passwords">Passwords</h2>
-<p>This table lists the passwords for the services that have "fixed" userids and passwords.</p>
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Userid</th>
-<th>Password</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Virtual Machine</td>
-<td>watsonx</td>
-<td>watsonx.data</td>
-</tr>
-<tr>
-<td>Virtual Machine</td>
-<td>root</td>
-<td>watsonx.data</td>
-</tr>
-<tr>
-<td>watsonx.data UI</td>
-<td>ibmlhadmin</td>
-<td>password</td>
-</tr>
-<tr>
-<td>Presto</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr>
-<td>Minio</td>
-<td>Generated</td>
-<td>Generated</td>
-</tr>
-<tr>
-<td>Postgres</td>
-<td>admin</td>
-<td>Generated</td>
-</tr>
-<tr>
-<td>Apache Superset</td>
-<td>admin</td>
-<td>admin</td>
-</tr>
-<tr>
-<td>Portainer</td>
-<td>admin</td>
-<td>watsonx.data</td>
-</tr>
-<tr>
-<td>Db2</td>
-<td>db2inst1</td>
-<td>db2inst1</td>
-</tr>
-</tbody>
-</table>
-<p>Use the following commands to get the generated userid and password for MinIO.
-<code class="language-bash"><pre>
-export LH_S3_ACCESS_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_ACCESS_KEY | sed 's/.<em>=//')
-export LH_S3_SECRET_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_SECRET_KEY | sed 's/.</em>=//')
-echo "MinIO Userid  : " $LH_S3_ACCESS_KEY
-echo "MinIO Password: " $LH_S3_SECRET_KEY
-</pre></code></p>
-<p>Use the following command to get the password for Postgres.
-<code class="language-bash"><pre>
-export POSTGRES_PASSWORD=$(docker exec ibm-lh-postgres printenv | grep POSTGRES_PASSWORD | sed 's/.*=//')
-echo "Postgres Userid   : admin"
-echo "Postgres Password : " $POSTGRES_PASSWORD
-</pre></code></p>
-<p>If you have a terminal window open you can use the command <code>passwords</code> command to retrieve all of the passwords.</p>
-<p><strong>Note</strong>: You cannot cut and paste a value into a VNC screen.</p>
+<p>In order to access these images outside the Virtual machine image, you must extract the certificates and add a host name to your workstation.</p>
+<h2 id="watsonxdata-presto-access">watsonx.data Presto Access</h2>
+<p>When connecting to the Presto engine, choose the PrestoDB driver.</p>
+<h3 id="presto-internal-access">Presto Internal Access</h3>
+<p>For local access the following credentials are used:</p>
+<ul>
+<li>Hostname: <code style="color:blue;font-size:medium;">localhost</code></li>
+<li>Port: <code style="color:blue;font-size:medium;">8443</code></li>
+<li>Username: <code style="color:blue;font-size:medium;">ibmlhadmin</code></li>
+<li>Password: <code style="color:blue;font-size:medium;">password</code></li>
+<li>Database: <code style="color:blue;font-size:medium;">tpch</code></li>
+</ul>
+<p>In addition, you need to set the following driver properties:</p>
+<ul>
+<li><code style="color:blue;font-size:medium;">SSL</code> <code style="color:blue;font-size:medium;">True</code></li>
+<li><code style="color:blue;font-size:medium;">SSLTrustStorePath</code> <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code></li>
+<li><code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> <code style="color:blue;font-size:medium;">watsonx.data</code></li>
+</ul>
+<h3 id="presto-external-access">Presto External Access</h3>
+<p>The watsonx.data Presto database requires that the certificate be extracted from the image and a host name be added to your workstation. </p>
+<p>The first step is to extract the Presto certificate onto your local file system.</p>
+<pre><code>scp watsonx@192.168.252.2:/certs/presto-key.jks /Users/myname/Downloads
+</code></pre>
+<p>Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.</p>
+<pre><code>echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
+</code></pre>
+<p>The database connection settings are:</p>
+<ul>
+<li>Hostname: <code style="color:blue;font-size:medium;">watsonxdata</code></li>
+<li>Port: <code style="color:blue;font-size:medium;">8443</code></li>
+<li>Username: <code style="color:blue;font-size:medium;">ibmlhadmin</code></li>
+<li>Password: <code style="color:blue;font-size:medium;">password</code></li>
+<li>Database: <code style="color:blue;font-size:medium;">tpch</code></li>
+</ul>
+<p>In addition, you need to set the following driver properties:</p>
+<ul>
+<li><code style="color:blue;font-size:medium;">SSL</code> <code style="color:blue;font-size:medium;">True</code></li>
+<li><code style="color:blue;font-size:medium;">SSLTrustStorePath</code> <code style="color:blue;font-size:medium;">/mydownload/presto-key.jks</code></li>
+<li><code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> <code style="color:blue;font-size:medium;">watsonx.data</code></li>
+</ul>
+<p><strong>Note</strong>: The <code>/mydownload/presto-key.jks</code> value needs to be replaced with the location that you copied the key in the earlier step.</p>
+<h2 id="db2-access">Db2 Access</h2>
+<p>When connecting to the Db2 engine, select the Db2 LUW driver.</p>
+<h3 id="db2-internal-access">Db2 Internal Access</h3>
+<p>The Db2 server can be accessed on port 50000 inside the virtual machine using the following credentials:</p>
+<ul>
+<li>Hostname - <code style="color:blue;font-size:medium;">localhost</code></li>
+<li>Port - <code style="color:blue;font-size:medium;">50000</code></li>
+<li>Username - <code style="color:blue;font-size:medium;">db2inst1</code></li>
+<li>Password - <code style="color:blue;font-size:medium;">db2inst1</code></li>
+<li>Database - <code style="color:blue;font-size:medium;">gosales</code></li>
+</ul>
+<h3 id="db2-external-access">Db2 External Access</h3>
+<p>When accessing the database outside the virtual machine, you must change the host to 192.168.252.2. All of the other settings remain the same.</p>
+<ul>
+<li>Hostname - <code style="color:blue;font-size:medium;">192.168.252.2</code></li>
+<li>Port - <code style="color:blue;font-size:medium;">50000</code></li>
+<li>Username - <code style="color:blue;font-size:medium;">db2inst1</code></li>
+<li>Password - <code style="color:blue;font-size:medium;">db2inst1</code></li>
+<li>Database - <code style="color:blue;font-size:medium;">gosales</code></li>
+</ul>
+<h2 id="postgresql-access">PostgreSQL Access</h2>
+<p>When connecting to the PostgreSQL engine, select the PostgreSQL driver. In order to connect to the PostgreSQL system, you will need to extract the admin password using the following command when connected to the watsonx.data system.</p>
+<pre><code>export POSTGRES_PASSWORD=$(docker exec ibm-lh-postgres printenv | grep POSTGRES_PASSWORD | sed 's/.*=//')
+echo &quot;Postgres Userid   : admin&quot;
+echo &quot;Postgres Password : &quot; $POSTGRES_PASSWORD
+echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
+</code></pre>
+<h3 id="postgresql-internal-access">PostgreSQL Internal Access</h3>
+<p>When accessing the PostgreSQL database in the system, use the following settings.</p>
+<ul>
+<li>Hostname –<code style="color:blue;font-size:medium;">ibm-lh-postgres</code></li>
+<li>Port – <code style="color:blue;font-size:medium;">5432</code></li>
+<li>Username – <code style="color:blue;font-size:medium;">admin</code></li>
+<li>Password – The value that was extracted in the earlier step</li>
+<li>Database – <code style="color:blue;font-size:medium;">gosales</code>   </li>
+</ul>
+<h3 id="postgresql-external-access">PostgreSQL External Access</h3>
+<p>The following credentials are used for remote access.</p>
+<ul>
+<li>Hostname: <code style="color:blue;font-size:medium;">192.168.252.2</code></li>
+<li>Port: <code style="color:blue;font-size:medium;">5432</code></li>
+<li>Username: <code style="color:blue;font-size:medium;">admin</code></li>
+<li>Password: The value that was extracted in the earlier step</li>
+<li>Database name: <code style="color:blue;font-size:medium;">gosales</code></li>
+</ul>
 
               
             </article>
@@ -940,6 +1061,42 @@ echo "Postgres Password : " $POSTGRES_PASSWORD
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../wxd-datasets/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Datasets" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Datasets
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wxd-disclaimer/" class="md-footer__link md-footer__link--next" aria-label="Next: Disclaimer" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Disclaimer
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
