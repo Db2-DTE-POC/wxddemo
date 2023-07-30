@@ -13,7 +13,7 @@
     
     
       
-        <title>dBeaver - watsonx.data Lab</title>
+        <title>Requesting an IBMid - watsonx.data Lab</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dbeaver-client-tool" class="md-skip">
+        <a href="#requesting-an-ibm-userid" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dBeaver
+              Requesting an IBMid
             
           </span>
         </div>
@@ -209,12 +209,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -235,11 +237,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../wxd-reference-ibmid/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Requesting an IBMid
       </a>
+      
     </li>
   
 
@@ -398,14 +410,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
@@ -482,59 +492,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          dBeaver
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../wxd-dbeaver/" class="md-nav__link">
         dBeaver
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#start-dbeaver-locally-vnc" class="md-nav__link">
-    Start dBeaver Locally (VNC)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#catalog-watsonxdata-connection" class="md-nav__link">
-    Catalog watsonx.data Connection
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -806,28 +768,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#start-dbeaver-locally-vnc" class="md-nav__link">
-    Start dBeaver Locally (VNC)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#catalog-watsonxdata-connection" class="md-nav__link">
-    Catalog watsonx.data Connection
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -840,54 +780,14 @@
                 
 
 
-<h1 id="dbeaver-client-tool">dBeaver Client Tool</h1>
-<p>You could use any tool that supports connectivity through JDBC drivers to connect to watsonx.data, but we chose to use dBeaver for this lab. </p>
-<p>dBeaver is a client tool that we can use to connect to the watsonx.data and execute queries etc. The tool has been installed in the watsonx users home directory. To access dBeaver, you must use the VNC service which has been installed on this server for you.</p>
-<h2 id="start-dbeaver-locally-vnc">Start dBeaver Locally (VNC)</h2>
-<p>To start dBeaver, you must be connected to the console of the Linux server as the watsonx user. </p>
-<p>In the virtual machine, click on the Applications button, choose the Database folder and click on the dBeaver icon.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-icon.png" /> </p>
-<p>The start-up screen for dBeaver will display.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-startup.png" /> </p>
-<p>The dBeaver program may ask if you want to create an empty database or update the release. Just say No.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-sample.png" /> </p>
-<p>The first dialog from dBeaver will ask you to create a database connection.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-connection.png" /></p>
-<p>If you do not see this screen, select Database, and then select New Database Connection:</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-newcatalog.png" /></p>
-<h2 id="catalog-watsonxdata-connection">Catalog watsonx.data Connection</h2>
-<p>We will use the PrestoDB JDBC connector (NOT PrestoSQL). This is the other name for Trino, a variant of PrestoDB which might work. Select SQL (see Left side) and scroll down until you see PrestoDB. </p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-selectpresto.png" /></p>
-<p>Select PrestoDB and then press “Next”. The following screen will be displayed.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-credentials.png" /></p>
-<p>Enter the following values into the dialog. 
-<strong>Note</strong>: These settings are case sensitive.</p>
-<ul>
-<li>Host: <code style="color:blue;font-size:medium;">localhost</code></li>
-<li>Port: <code style="color:blue;font-size:medium;">8443</code></li>
-<li>Username: <code style="color:blue;font-size:medium;">ibmlhadmin</code></li>
-<li>Password: <code style="color:blue;font-size:medium;">password</code></li>
-<li>Database: <code style="color:blue;font-size:medium;">tpch</code></li>
-</ul>
-<p>Then select the Driver Properties tab. You might be asked to download the database driver.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-download.png" /> </p>
-<p>Make sure select “Force Download” otherwise it will not properly download the driver. Once downloaded it will display the Driver properties dialog.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-settings.png" /></p>
-<p>Press the [+] button on the bottom left of the User Properties list.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-add-setting.png" /></p>
-<p>You need to enter three properties:</p>
-<ul>
-<li><code style="color:blue;font-size:medium;">SSL</code> <code style="color:blue;font-size:medium;">True</code></li>
-<li><code style="color:blue;font-size:medium;">SSLTrustStorePath</code> <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code></li>
-<li><code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> <code style="color:blue;font-size:medium;">watsonx.data</code></li>
-</ul>
-<p>Enter the property name "SSL", in uppercase (the parameter is case sensitive!). When you hit OK it will display the setting in the list.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-setting-ssl.png" /> </p>
-<p>Click on the <code style="color:blue;font-size:medium;">SSL</code> field and you will update the value to<code style="color:blue">True</code> and hit Enter. Add another field called <code style="color:blue;font-size:medium;">SSLTrustStorePath</code> and give it value of <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code> and finally add the <code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> setting with a value of <code style="color:blue;font-size:medium;">watsonx.data</code>. The panel should now contain three values.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-setting-list.png" /></p>
-<p>Press Finish when done. You should now see the TPCH database on the left panel. Clicking on the &gt;TPCH line should display the objects that are found in the database.</p>
-<p><img alt="Browser" src="../wxd-images/dbeaver-tpch.png" /></p>
-<p>You can now use dBeaver to navigate through the different schemas in the Presto database. The iceberg_data schema should also be visible in the dBeaver console. Open the iceberg_data catalog and search for the customer table under workshop schema. This schema will only exist if you created it in the previous section on MinIO.</p>
+<h1 id="requesting-an-ibm-userid">Requesting an IBM Userid.</h1>
+<p>An IBMid is needed to access IBM Technology Zone. If you do not have an IBMid, click on the following link.</p>
+<p><a href="https://techzone.ibm.com target="_blank">https://techzone.ibm.com</a></p>
+<p>You should see the following login screen for TechZone.</p>
+<p><img alt="Browser" src="../wxd-images/ibmid-credentials.png" /></p>
+<p>Click on the `Create an IBMid`` button and proceed to fill in the details on this form:</p>
+<p><img alt="Browser" src="../wxd-images/ibmid-newuser.png" /></p>
+<p>Once you have verified your account, you can continue onto logging into the TechZone server.</p>
 
               
             </article>
@@ -903,7 +803,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../wxd-minio/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MinIO UI" rel="prev">
+        <a href="../wxd-quick/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick Start" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -912,20 +812,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MinIO UI
+              Quick Start
             </div>
           </div>
         </a>
       
       
         
-        <a href="../wxd-analytics/" class="md-footer__link md-footer__link--next" aria-label="Next: Analytic Workloads" rel="next">
+        <a href="../wxd-reference-techzone/" class="md-footer__link md-footer__link--next" aria-label="Next: Requesting an image" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Analytic Workloads
+              Requesting an image
             </div>
           </div>
           <div class="md-footer__button md-icon">
