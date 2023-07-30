@@ -16,4 +16,5 @@ Clarified some commands and added an Appendix on common issues.
 
 * Updated the lab to GA 1.0.1 code
 * Automated start of watsonx.data and simplification of many of the sections
-* Removed the loading section until a new version is available
+* Removed the Ingest section until a new version is available
+* Added Db2 and PostgreSQL connection details
