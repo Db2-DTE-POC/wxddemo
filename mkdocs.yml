@@ -30,6 +30,7 @@ nav:
   - Working with Object Store Buckets: "wxd-objectstore.md"
   - Troubleshooting: "wxd-troubleshooting.md"
   - Datasets: "wxd-datasets.md"
+  - Database Connections: "wxd-connections.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"
     - Revisions: "wxd-revisions.md"
