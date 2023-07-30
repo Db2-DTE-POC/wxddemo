@@ -22,7 +22,7 @@ Click the Download VPN certificate to your machine and remember the filename for
 
 ## Wireguard VPN Client
 
-WireGuard uses state-of-the-art cryptography and network code to create an encrypted tunnel between two devices based on symmetric encryption. 
+WireGuard uses state-of-the-art cryptography and network code to create an encrypted tunnel between two devices based on symmetric encryption. Wireguard can run at the same time as the IBM VPN client. 
 
 If you do not have this software on your system, download the software from the following site.
 

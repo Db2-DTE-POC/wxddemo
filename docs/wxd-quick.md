@@ -34,7 +34,7 @@ More details: [Accessing a TechZone image](wxd-reference-access.md)
 
 ## Wireguard Setup
 
-Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection.
+Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab.
 
 More details: [Wireguard Setup](wxd-reference-wireguard.md)
 
