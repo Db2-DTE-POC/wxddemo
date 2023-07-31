@@ -50,4 +50,4 @@ When running this command from within the virtual machine, it will display a lis
 
 ![Browser](wxd-images/wxd-showpasswords-vm.png)
 
-**Note:** You cannot cut and paste values into the VNC window. 
+**Note:** You cannot cut-and-paste values into the VNC window. 

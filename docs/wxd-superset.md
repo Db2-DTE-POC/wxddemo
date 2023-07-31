@@ -1,6 +1,6 @@
 # Reporting/Dashboarding using Apache Superset
 
-Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.
+Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded, so these libraries cannot be preloaded into this development image.
 
 Open a terminal window and connect via SSH as `watsonx`. 
 
@@ -46,7 +46,7 @@ docker compose -f docker-compose-non-dev.yml up
 
 This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. 
 
-**Note**: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
+**Note**: The terminal window is being used by Apache Superset, so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
 
 ![Browser](wxd-images/superset-1.png)
  

@@ -114,7 +114,7 @@ How do we know that this data is based on Apache iceberg? If you open the file u
  
 ### Do I really need Apache Iceberg?
 
-YES, YOU DO! however it is good to understand why? Metadata is also stored in the Parquet file format but only for the single parquet file. If we add more data/partitions, the data is split into multiple Parquet files, and we don’t have a mechanism to get the table to parquet files mapping. Run the following example to understand this better.
+YES, YOU DO! However, it is good to understand why? Metadata is also stored in the Parquet file format but only for the single parquet file. If we add more data/partitions, the data is split into multiple Parquet files, and we don’t have a mechanism to get the table to parquet files mapping. Run the following example to understand this better.
 
 You need to get the access keys for MinIO before running the following lab. Make sure you are still connected as `root`.
 ```
@@ -220,7 +220,7 @@ row group 0, column 1:
 ----------------------
 </pre>
 
-**Note**: In this instance we used an `insert into select * from customer` with no partitioning defined so there was only 1 parquet file and only 1 row group. This is not the norm, and we deliberately did this to show you the value of using Apache Iceberg file format which can be used by multiple runtimes to access Iceberg data stored in parquet format and managed by hive metastore.
+**Note**: In this instance we used an `insert into select * from customer` with no partitioning defined there was only 1 parquet file and only 1 row group. This is not the norm, and we deliberately did this to show you the value of using Apache Iceberg file format which can be used by multiple runtimes to access Iceberg data stored in parquet format and managed by hive metastore.
 
 Exit from the Sandbox.
 ```

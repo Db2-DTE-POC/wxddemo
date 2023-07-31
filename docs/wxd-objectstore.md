@@ -1,7 +1,7 @@
 # Working with Object Store Buckets
 
 In this lab, we will run through some exercises to understand how the watsonx.data can be configured to work with multiple buckets, using IBM COS, in addition to the out of the box MinIO bucket. 
-In the GA version, there will be a user experience to facilitate such setup, however this lab will help you understand some of the service-service interactions & configurations.
+In the GA version, there will be a user experience to facilitate such setup, however this lab will help you understand some service-service interactions & configurations.
 
 ### Why do we need to do this?
 

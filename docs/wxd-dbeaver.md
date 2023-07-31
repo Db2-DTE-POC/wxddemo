@@ -37,7 +37,7 @@ Select PrestoDB and then press “Next”. The following screen will be displaye
 ![Browser](wxd-images/dbeaver-credentials.png)
  
 Enter the following values into the dialog. 
-**Note**: These settings are case sensitive.
+**Note**: These settings are case-sensitive.
  
 * Host: <code style="color:blue;font-size:medium;">localhost</code>
 * Port: <code style="color:blue;font-size:medium;">8443</code>
@@ -63,7 +63,7 @@ You need to enter three properties:
    * <code style="color:blue;font-size:medium;">SSLTrustStorePath</code> <code style="color:blue;font-size:medium;">/certs/presto-key.jks</code>
    * <code style="color:blue;font-size:medium;">SSLTrustStorePassword</code> <code style="color:blue;font-size:medium;">watsonx.data</code>
 
-Enter the property name "SSL", in uppercase (the parameter is case sensitive!). When you hit OK it will display the setting in the list.
+Enter the property name "SSL", in uppercase (the parameter is case-sensitive!). When you hit OK it will display the setting in the list.
 
 ![Browser](wxd-images/dbeaver-setting-ssl.png) 
 

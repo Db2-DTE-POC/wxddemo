@@ -15,7 +15,7 @@ sudo su -
 
 The password for watsonx and root is <code style="color:blue;font-size:medium;">watsonx.data</code>. 
 
-You can have multiple connections into the machine at any one time. You may find it is easier to cut and paste commands into a local terminal shell rather than using the VNC console.
+You can have multiple connections into the machine at any one time. You may find it is easier to cut-and-paste commands into a local terminal shell rather than using the VNC console.
 
 ## Copying Files
 

@@ -16,6 +16,18 @@ The data files can be found in the <code style="color:blue;font-size:medium;">/s
 
 Within the Parquet and Relational directories are SQL statements that can be used to catalog and load the data into the different systems. 
 
+## Loading your own data
+
+You can load your own data into the image by using the following steps. **Note**: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.
+
+Use a terminal shell to copy the source data into a temporary location in the watsonx userid location.
+
+```
+scp ~/Downloads/myfile.csv watsonx@192.168.252.2:/home/watsonx/Downloads
+```
+
+This command will copy the `myfile.csv` file into the `Downloads` directory of the watsonx user. Once the data has been copied, you can use the MinIO interface to create a new Bucket and import the data into the bucket. At that point you can use the watsonx.data UI to catalog the data. 
+
 ## Great Outdoors Company
 
 The Sample Outdoors Company, or GO Sales, or any variation of the Sample Outdoors name, is the name of a fictitious business operation whose sample data is used to develop sample applications for IBM® and IBM customers. Its fictitious records include sample data for sales transactions, product distribution, finance, and human resources. Any resemblance to actual names, addresses, contact numbers, or transaction values, is coincidental. 
@@ -181,7 +193,7 @@ Neither you nor any data providers shall have any liability for any direct, indi
 
 #### Taxi Data
 
-This site provides applications using data that has been modified for use from its original source, www.cityofchicago.org, the official website of the City of Chicago.  The City of Chicago makes no claims as to the content, accuracy, timeliness, or completeness of any of the data provided at this site.  The data provided at this site is subject to change at any time.  It is understood that the data provided at this site is being used at one’s own risk.
+This site provides applications using data that has been modified for use from its original source, www.cityofchicago.org, the official website of the City of Chicago.  The City of Chicago makes no claims as to the content, accuracy, timeliness, or completeness of the data provided at this site.  The data provided at this site is subject to change at any time.  It is understood that the data provided at this site is being used at one’s own risk.
 
 
 

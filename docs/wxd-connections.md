@@ -68,11 +68,12 @@ When connecting to the Db2 engine, select the Db2 LUW driver.
 
 The Db2 server can be accessed on port 50000 inside the virtual machine using the following credentials:
 
-   * Hostname - <code style="color:blue;font-size:medium;">localhost</code>
+   * Hostname - <code style="color:blue;font-size:medium;">watsonxdata</code>
    * Port - <code style="color:blue;font-size:medium;">50000</code>
    * Username - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Password - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Database - <code style="color:blue;font-size:medium;">gosales</code>
+   * SSL - <code style="color:blue;font-size:medium;">off</code>
 
 ### Db2 External Access
 
@@ -83,6 +84,7 @@ When accessing the database outside the virtual machine, you must change the hos
    * Username - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Password - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Database - <code style="color:blue;font-size:medium;">gosales</code>
+   * SSL - <code style="color:blue;font-size:medium;">off</code>
 
 ## PostgreSQL Access
 
