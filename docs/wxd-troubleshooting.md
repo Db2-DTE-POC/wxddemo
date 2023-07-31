@@ -8,6 +8,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Apache Superset isn't Starting](#apache-superset-isnt-starting)
    * [Apache Superset screens differ from the lab](#apache-superset-screens-differ-from-the-lab)
    * [My VPN doesn't work](#my-vpn-doesnt-work)
+   * [I am unable to use VPN](#i-am-unable-to-use-a-vpn)
 
 ### What are the passwords for the services?
 
@@ -93,6 +94,43 @@ The Apache Superset project makes frequent changes to the types of charts that a
 
 ### My VPN doesn't work
 
-If you downloaded a VPN certificate and it doesn't appear to work, locate the file on your file system and attempt to view it. If the contents of the file contains the word `disabled`, this indicates that you did not request the VPN certificate to be enabled. You will need to request another image in order to connect with VPN. The other option is to use the Virtual console (guacamole) provided with the reservation. This requires that all exercises in this lab be done in that machine environment.
+If you downloaded a VPN certificate, and it doesn't appear to work, locate the file on your file system and attempt to view it. If the contents of the file contains the word `disabled`, this indicates that you did not request the VPN certificate to be enabled. You will need to request another image in order to connect with VPN. The other option is to use the Virtual console (guacamole) provided with the reservation. This requires that all exercises in this lab be done in that machine environment.
+
+### I am unable to use a VPN
+
+If you are blocked from using a VPN tunnel, you must use the guacamole interface provided in the reservation details (VM Remote Console). In this case, all URLs will need to be accessed using the Firefox browser that is in the image. Cut-and-paste only works inside the virtual machine so you must use the lab documentation inside the virtual machine.
+
+![Browser](wxd-images/console-remote.png)
+
+Once you click on the VM Remote Console button, the login screen for the image will be shown. Do not log into the `watsonx` userid yet!
+
+![Browser](wxd-images/console-main.png)
+
+You will not be able to log on as `watsonx` due to the VNC service that is currently running in the machine. If you try to login you will lock up the screen! If this happens you should reboot the server. 
+
+Once you have the login screen, select `Techzone` from the list of users. Enter `IBMDem0s!` as the password. Once you have gained access to the system, click on Activities at the top of the screen and search for Terminal. Once a terminal screen has opened, issue the following instructions.
+
+```
+sudo su -
+```
+No password should be required.
+
+```
+systemctl stop vncserver@:1
+systemctl disable vncserver@:1
+exit
+```
+
+Log out of the Techzone userid and log into the `watsonx` user. At this point you can run the lab using this environment. Note that all URLs will continue to work in this image with IP addresses of `192.168.252.2`.
+
+### Presto doesn't appear to be working
+
+If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a restart of Presto with the following command:
+
+```
+restart_presto
+```
+
+This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.
 
 
