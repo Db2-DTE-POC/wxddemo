@@ -45,7 +45,7 @@ More details: [Accessing a TechZone image](wxd-reference-access.md)
 
 ## Accessing the Image (watsonx Challenge)
 
-An email will have been sent to you with a link to the instructions on how to access the image. You will be supplied with the VPN certificate required to gain access to the image.
+You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead.
 
 ## Wireguard Setup
 
