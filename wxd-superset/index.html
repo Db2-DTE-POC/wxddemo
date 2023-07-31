@@ -874,13 +874,13 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p><img alt="Browser" src="../wxd-images/superset-1.png" /></p>
 <p>Open your browser and navigate to:</p>
 <ul>
-<li>Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> </li>
+<li>Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> </li>
 </ul>
 <p>The credentials for Apache Superset are userid <code>admin</code>, Password <code>admin</code>.</p>
 <p><img alt="Browser" src="../wxd-images/superset-2.png" />
   </p>
 <h3 id="setup-a-database-connection-to-watsonxdata">Setup a Database Connection to watsonx.data</h3>
-<p>Open another terminal window for this next step. Once Apache Superset has started loading exmaples, you can issue the following command as <code>watsonx</code> or <code>root</code>.</p>
+<p>Open another terminal window for this next step. Once Apache Superset has started loading examples, you can issue the following command as <code>watsonx</code> or <code>root</code>.</p>
 <pre><code>docker cp /certs/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
 </code></pre>
 <p>In the Apache Superset console,  press the Settings button on the far right and select Database connections.</p>
