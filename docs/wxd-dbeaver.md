@@ -2,7 +2,7 @@
 
 You could use any tool that supports connectivity through JDBC drivers to connect to watsonx.data, but we chose to use dBeaver for this lab. 
 
-dBeaver is a client tool that we can use to connect to the watsonx.data and execute queries etc. The tool has been installed in the watsonx users home directory. To access dBeaver, you must use the VNC service which has been installed on this server for you.
+dBeaver is a client tool that we can use to connect to watsonx.data and execute queries etc. The tool has been installed in the watsonx users home directory. To access dBeaver, you must use the VNC service which has been installed on this server for you.
 
 ## Start dBeaver Locally (VNC)
 To start dBeaver, you must be connected to the console of the Linux server as the watsonx user. 

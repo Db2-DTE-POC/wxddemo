@@ -52,14 +52,14 @@ This command will download the necessary code for Apache Superset and start the 
  
 Open your browser and navigate to:
 
-   * Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> 
+   * Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> 
 
 The credentials for Apache Superset are userid `admin`, Password `admin`.
 
 ![Browser](wxd-images/superset-2.png)
   
 ### Setup a Database Connection to watsonx.data
-Open another terminal window for this next step. Once Apache Superset has started loading exmaples, you can issue the following command as `watsonx` or `root`.
+Open another terminal window for this next step. Once Apache Superset has started loading examples, you can issue the following command as `watsonx` or `root`.
 ```
 docker cp /certs/lh-ssl-ts.crt superset_app:/tmp/lh-ssl-ts.crt
 ```

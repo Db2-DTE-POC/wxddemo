@@ -8,7 +8,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
    * In this lab, we will use multiple buckets as this is also how we can illustrate compute-storage separation.
    * Out of the box, both in SaaS and Software, a tiny Object Store bucket is allocated, primarily for getting started use cases.  
      * Customers would need to point to their own bucket for their data. 
-   * The use of a remote bucket (in this example, MinIO) also showcases the “open” aspect of the watsonx.data.  
+   * The use of a remote bucket (in this example, MinIO) also showcases the “open” aspect of the watsonx.data system.  
      * Customers _own their data_ and can physically access the iceberg-ed bucket using other applications or engines, even custom ones that they build themselves.
    * Customers would also have requirements to place (data sovereignty) buckets in specific locations.
      * Compute/analytics engines may need to run in different locations, say closer to applications and connect to buckets in other networks/geos.

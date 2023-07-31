@@ -7,7 +7,7 @@ The ports that are used in the lab are listed below.
    * <a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a> - Presto console
    * <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a> - MinIO console (S3 buckets)
    * <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)
-   * <a href="http://192.168.252.2:8088" target="_blank">https://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)
+   * <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)
    * <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code> - VNC Access (Access to GUI in the machine)
    * <code style="color:blue;font-size:medium;">8443</code> - Presto External Port
    * <code style="color:blue;font-size:medium;">5432</code> - Postgres External Port

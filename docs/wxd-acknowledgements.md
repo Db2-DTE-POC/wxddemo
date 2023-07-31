@@ -7,7 +7,7 @@ from the members of the watsonx.data activation community. Formatting and
 script development was done by George Baklarz. 
 
 The contents of this eBook are
-the result of a lot of research and testing based on the contents of IBM
+the result of a lot of research and testing based on the contents of 
 watsonx.data. Results are based on a specific version of watsonx.data so you
 may have different results if using an older or newer version of the development
 kit.
