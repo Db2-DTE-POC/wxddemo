@@ -29,6 +29,7 @@ nav:
     - Federation: "wxd-federation.md"
     - Apache Superset: "wxd-superset.md"
   - Working with Object Store Buckets: "wxd-objectstore.md"
+  - Documentation: "wxd-reference-documentation.md"
   - Troubleshooting: "wxd-troubleshooting.md"
   - Datasets: "wxd-datasets.md"
   - Database Connections: "wxd-connections.md"
