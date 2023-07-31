@@ -856,7 +856,7 @@
 
 
 <h1 id="reportingdashboarding-using-apache-superset">Reporting/Dashboarding using Apache Superset</h1>
-<p>Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded so these libraries cannot be preloaded into this development image.</p>
+<p>Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded, so these libraries cannot be preloaded into this development image.</p>
 <p>Open a terminal window and connect via SSH as <code>watsonx</code>. </p>
 <pre><code>ssh watsonx@192.168.252.2
 </code></pre>
@@ -885,7 +885,7 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <pre><code>docker compose -f docker-compose-non-dev.yml up
 </code></pre>
 <p>This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. </p>
-<p><strong>Note</strong>: The terminal window is being used by Apache Superset so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. </p>
+<p><strong>Note</strong>: The terminal window is being used by Apache Superset, so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. </p>
 <p><img alt="Browser" src="../wxd-images/superset-1.png" /></p>
 <p>Open your browser and navigate to:</p>
 <ul>
