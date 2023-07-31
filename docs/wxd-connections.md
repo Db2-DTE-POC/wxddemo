@@ -1,12 +1,13 @@
 # Database Connections
 
-There are three database systems that can be accessed inside and outside the virtual machine environment:
+There are three database systems that can be accessed inside and outside the virtual machine environment: watsonx.data Presto, Db2 LUW and PostgreSQL.
 
-   * watsonx.data Presto engine
-   * Db2 LUW
-   * PostgreSQL
+In order to access these images outside the Virtual machine image, you must extract the certificates and add a host name to your workstation. Details on accessing the databases are shown below.
 
-In order to access these images outside the Virtual machine image, you must extract the certificates and add a host name to your workstation.
+   * [Accessing Presto](#watsonxdata-presto-access)
+   * [Accessing Db2](#db2-access)
+   * [Accessing PostgreSQL](#postgresql-access)
+   * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
 
 ## watsonx.data Presto Access
 
@@ -117,3 +118,10 @@ The following credentials are used for remote access.
    * Password: The value that was extracted in the earlier step
    * Database name: <code style="color:blue;font-size:medium;">gosales</code>
 
+## Adding a Database to watsonx.data
+
+When adding a database engine to the watsonx.data system, make sure to change the database display name since that needs to be unique. For instance, when you add `GOSALES` database from Db2 to the system, the display name could be `GOSALES` as well. However, if you now add the PostgreSQL database to the system, the display name cannot be the same. You may want to differentiate databases with the same name by prefixing them with the database type. For instance, the `GOSALES` database could be shown as `db2_gosales` or `pg_gosales` so that you keep the names distinct.
+
+Once a database has been added, make sure to wait for a few moments before attempting to access the database. The Presto server takes a few moments to start up. To make sure that it is running, run the `check_presto` command in a terminal window and wait until it says the service is ready.
+
+When attempting to view the contents of a new database, the process may take a few minutes to complete. Refresh the browser window if you haven't seen any changes to the display.
