@@ -1040,11 +1040,12 @@
 <h3 id="db2-internal-access">Db2 Internal Access</h3>
 <p>The Db2 server can be accessed on port 50000 inside the virtual machine using the following credentials:</p>
 <ul>
-<li>Hostname - <code style="color:blue;font-size:medium;">localhost</code></li>
+<li>Hostname - <code style="color:blue;font-size:medium;">watsonxdata</code></li>
 <li>Port - <code style="color:blue;font-size:medium;">50000</code></li>
 <li>Username - <code style="color:blue;font-size:medium;">db2inst1</code></li>
 <li>Password - <code style="color:blue;font-size:medium;">db2inst1</code></li>
 <li>Database - <code style="color:blue;font-size:medium;">gosales</code></li>
+<li>SSL - <code style="color:blue;font-size:medium;">off</code></li>
 </ul>
 <h3 id="db2-external-access">Db2 External Access</h3>
 <p>When accessing the database outside the virtual machine, you must change the host to 192.168.252.2. All of the other settings remain the same.</p>
@@ -1054,6 +1055,7 @@
 <li>Username - <code style="color:blue;font-size:medium;">db2inst1</code></li>
 <li>Password - <code style="color:blue;font-size:medium;">db2inst1</code></li>
 <li>Database - <code style="color:blue;font-size:medium;">gosales</code></li>
+<li>SSL - <code style="color:blue;font-size:medium;">off</code></li>
 </ul>
 <h2 id="postgresql-access">PostgreSQL Access</h2>
 <p>When connecting to the PostgreSQL engine, select the PostgreSQL driver. In order to connect to the PostgreSQL system, you will need to extract the admin password using the following command when connected to the watsonx.data system.</p>
