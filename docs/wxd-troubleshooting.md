@@ -9,6 +9,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Apache Superset screens differ from the lab](#apache-superset-screens-differ-from-the-lab)
    * [My VPN doesn't work](#my-vpn-doesnt-work)
    * [I am unable to use VPN](#i-am-unable-to-use-a-vpn)
+   * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
 
 ### What are the passwords for the services?
 
