@@ -4,7 +4,7 @@ There are three database systems that can be accessed inside and outside the vir
 
 In order to access these images outside the Virtual machine image, you must extract the certificates and add a host name to your workstation. Details on accessing the databases are shown below.
 
-   * [Accessing Presto](#watsonxdata-presto-access)
+   * [Accessing watsonx.data (Presto)](#watsonxdata-presto-access)
    * [Accessing Db2](#db2-access)
    * [Accessing PostgreSQL](#postgresql-access)
    * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
