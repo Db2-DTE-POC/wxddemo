@@ -10,6 +10,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [My VPN doesn't work](#my-vpn-doesnt-work)
    * [I am unable to use VPN](#i-am-unable-to-use-a-vpn)
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
+   * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
 
 ### What are the passwords for the services?
 
@@ -134,4 +135,13 @@ restart_presto
 
 This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.
 
+### Displaying Db2 Schema is failing
+
+Occasionally when attempting to expand the Db2 catalog (schema), the watsonx.data UI will not display any data or issue an error message. You can try refreshing the browser (not the refresh icon inside the UI) and try again. If you find that this is failing again, open the Query workspace and run the following SQL (replace db2_gosales with the name you cataloged the database with).
+
+```
+select count(*) from db2_gosales.gosalesdw.go_org_dim 
+```
+
+The result should be `123` and hopefully the tables that are part of the schema will display for you. 
 
