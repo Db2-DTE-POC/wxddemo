@@ -8,6 +8,8 @@ In order to access these images outside the Virtual machine image, you must extr
    * [Accessing Db2](#db2-access)
    * [Accessing PostgreSQL](#postgresql-access)
    * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
+   * [Accessing watsonx.data via Python](#accessing-watsonxdata-via-python)
+   * [Accessing watsonx.data via Pandas Dataframes](#accessing-watsonxdata-via-pandas-dataframes)
 
 ## watsonx.data Presto Access
 
@@ -125,3 +127,187 @@ When adding a database engine to the watsonx.data system, make sure to change th
 Once a database has been added, make sure to wait for a few moments before attempting to access the database. The Presto server takes a few moments to start up. To make sure that it is running, run the `check_presto` command in a terminal window and wait until it says the service is ready.
 
 When attempting to view the contents of a new database, the process may take a few minutes to complete. Refresh the browser window if you haven't seen any changes to the display.
+
+## Accessing watsonx.data via Python
+
+In order to access the watsonx.data database (Presto), you will need to install the Presto client using the following command on your local machine.
+
+```
+pip3 install presto-python-client
+```
+
+Once the installation is complete, extract the certificate from the watsonx.data server that we will use in the connection.
+
+```
+scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
+```
+
+Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
+
+```
+echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
+```
+
+Your Python or Jupyter notebook code will need to import the `prestodb` library and then connect to watsonx.data using the `connect` call.
+
+```
+import prestodb
+
+conn = prestodb.dbapi.connect(
+       host='watsonxdata',
+       port=8443,
+       user='ibmlhadmin',
+       catalog='tpch',
+       schema='tiny',
+       http_scheme='https',
+       auth=prestodb.auth.BasicAuthentication("ibmlhadmin", "password")
+)
+conn._http_session.verify = '/Users/myname/Downloads/lh-ssl-ts.crt'
+cur = conn.cursor()
+```
+
+In the above connection string, you will need to replace the following values:
+
+   * catalog - What is the name of the catalog that we are accessing
+   * schema - The schema inside the catalog that will be used
+   
+You also need to update the `conn._http_session.verify` value with the location where you downloaded the `lh-ssl-ts.crt` file.
+
+Once connected, you can run an SQL statement and return the results.
+
+```
+cur.execute("SELECT * FROM tpch.tiny.customer")
+rows = cur.fetchall()
+```
+
+The `rows` variable contains the answer set from the select statement. You can manipulate the `row` variable to view the results. 
+
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+rows[0]
+
+[1,
+ 'Customer#000000001',
+ 'IVhzIApeRb ot,c,E',
+ 15,
+ '25-989-741-2988',
+ 711.56,
+ 'BUILDING',
+ 'to the even, regular platelets. regular, ironic epitaphs nag e']
+</pre>
+
+The PrestoDB driver supports the DBAPI spec. For more details on the use of the DBAPI interface, please refer to <a href="https://peps.python.org/pep-0249/" target="_blank">https://peps.python.org/pep-0249/</a>.
+
+For instance, if you want to find the description of the columns returned, you would use the `description` function.
+
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+cur.description
+
+[('custkey', 'bigint', None, None, None, None, None),
+ ('name', 'varchar(25)', None, None, None, None, None),
+ ('address', 'varchar(40)', None, None, None, None, None),
+ ('nationkey', 'bigint', None, None, None, None, None),
+ ('phone', 'varchar(15)', None, None, None, None, None),
+ ('acctbal', 'double', None, None, None, None, None),
+ ('mktsegment', 'varchar(10)', None, None, None, None, None),
+ ('comment', 'varchar(117)', None, None, None, None, None)]
+</pre>
+
+## Accessing watsonx.data via Pandas Dataframes
+
+The following code is required for accessing watsonx.data in Jupyter notebooks.  Run the following code inside a notebook code cell.
+
+```
+%pip install ipython-sql==0.4.1
+%pip install sqlalchemy==1.4.46
+%pip install sqlalchemy==1.4.46 "pyhive[presto]"
+```
+
+The notebook may need a restart of the kernel to pick up the changes to the driver.
+
+If you are running in a Jupyter Lab environment, you can use the most current versions of the drivers.
+
+```
+%pip install ipython-sql
+%pip install sqlalchemy
+%pip install sqlalchemy "pyhive[presto]"
+```
+
+Once the drivers have been loaded, you will need to extract the certificate from the watsonx.data server that we will use in the connection.
+
+```
+scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
+```
+
+Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
+
+```
+echo '192.168.252.2' ibm-lh-presto-svc | sudo tee -a /etc/hosts
+```
+
+In your Jupyter notebook, you will need to import a number of libraries.
+
+```
+import pandas as pd
+import sqlalchemy
+from sqlalchemy import create_engine
+```
+
+Create a notebook cell which will contain all the credentials that are required to connect. Change the `catalog`, `schema` and `certfile` to your values.
+```
+userid    = "ibmlhadmin"
+password  = "password"
+hostname  = "ibm-lh-presto-svc"
+port      = "8443"
+catalog   = "tpch"
+schema    = "tiny"
+certfile  = "/Users/myname/Downloads/lh-ssl-ts.cert"
+connect_args={
+        'protocol': 'https', 
+        'requests_kwargs': {'verify': f'{certfile}'}
+        }
+```
+
+To create a connection to the database, use the following syntax.
+```
+engine = create_engine(
+   f"presto://{userid}:{password}@{hostname}:{port}/{catalog}/{schema}",
+   connect_args=connect_args
+   )
+```
+
+Now that you have established a connection, you can use the Pandas `read_sql_query` function to execute a SELECT statement against the database.
+
+```
+mypresto = pd.read_sql_query('SELECT * from tpch.tiny.customer',engine)
+```
+
+The variable `mypresto` contains the dataframe generated from the SELECT statement.
+
+```
+mypresto
+```
+
+![Browser](wxd-images/connection-pandas.png)
+
+You can use the features of Pandas to generate plots of the data in your notebook. First make sure you have `matplotlib` installed.
+
+```
+%pip install matplotlib
+```
+
+The following query will compute the total account balance across all nation key values.
+
+```
+sumbynation = pd.read_sql_query('SELECT "nationkey", sum("acctbal") from tpch.tiny.customer group by "nationkey" order by 2',engine)
+```
+
+Finally, we plot the results.
+
+```
+df.plot(kind="bar", x="FirstName", y="LastName")
+plt.show()
+```
+
+![Browser](wxd-images/connection-graph.png)
+
+
