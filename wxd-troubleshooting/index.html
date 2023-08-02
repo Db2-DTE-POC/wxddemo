@@ -740,6 +740,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#db2-is-not-allowing-connections-after-a-system-restart" class="md-nav__link">
+    Db2 is not allowing connections after a system restart
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -854,6 +861,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -945,6 +967,13 @@
         <li class="md-nav__item">
   <a href="#displaying-db2-schema-is-failing" class="md-nav__link">
     Displaying Db2 Schema is failing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db2-is-not-allowing-connections-after-a-system-restart" class="md-nav__link">
+    Db2 is not allowing connections after a system restart
   </a>
   
 </li>
@@ -1052,6 +1081,11 @@ exit
 <pre><code>select count(*) from db2_gosales.gosalesdw.go_org_dim 
 </code></pre>
 <p>The result should be <code>123</code> and hopefully the tables that are part of the schema will display for you. </p>
+<h3 id="db2-is-not-allowing-connections-after-a-system-restart">Db2 is not allowing connections after a system restart</h3>
+<p>If for reason you have stopped and restarted the server, the Db2 service may not refresh or allow for connections from the watsonx.data UI. This is caused by a setting in the Db2 container environment that attempts to rebuild the instance after a failure. The instance information is stored on a volume outside the container, so this step does not need to be performed. To enable Db2 to restart properly, run the following commands from the root user in the machine.</p>
+<pre><code>sed -i 's/PERSISTENT_HOME=false/PERSISTENT_HOME=true/' /Docker/.env_list
+docker restart db2server
+</code></pre>
 
               
             </article>

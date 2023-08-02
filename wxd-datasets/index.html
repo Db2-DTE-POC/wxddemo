@@ -908,6 +908,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wxd-glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1078,6 +1093,10 @@
 <li>Airline On-Time performance</li>
 <li>Taxi fares</li>
 </ul>
+<p>If you want to load you own data, check out the following website for a variety of public data sets that you can use.</p>
+<ul>
+<li><a href="https://github.com/awesomedata/awesome-public-datasets" taget="_blank">Awesome Public Datasets</a></li>
+</ul>
 <h2 id="data-location">Data Location</h2>
 <p>The data files can be found in the <code style="color:blue;font-size:medium;">/sampledata</code> directory. Underneath this directory you will find datasets in three different formats:</p>
 <ul>
@@ -1087,11 +1106,13 @@
 </ul>
 <p>Within the Parquet and Relational directories are SQL statements that can be used to catalog and load the data into the different systems. </p>
 <h2 id="loading-your-own-data">Loading your own data</h2>
-<p>You can load your own data into the image by using the following steps. <strong>Note</strong>: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.</p>
+<p>You can use a browser or link to an external file repository (i.e., Box) and download data directly into the virtual machine. If you have data in your workstation that you want to load into the image, use the following steps. <strong>Note</strong>: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.</p>
 <p>Use a terminal shell to copy the source data into a temporary location in the watsonx userid location.</p>
 <pre><code>scp ~/Downloads/myfile.csv watsonx@192.168.252.2:/home/watsonx/Downloads
 </code></pre>
 <p>This command will copy the <code>myfile.csv</code> file into the <code>Downloads</code> directory of the watsonx user. Once the data has been copied, you can use the MinIO interface to create a new Bucket and import the data into the bucket. At that point you can use the watsonx.data UI to catalog the data. </p>
+<p>See the section on <a href="../wxd-minio/#using-the-minio-console-ui">Minio usage</a> for details of how MinIO works. An example of creating a new bucket can be found in the <a href="../wxd-objectstore/#create-new-bucket-in-minio">Object Storage</a> section. </p>
+<p>Once you have loaded your data into the storage bucket, you will need to catalog this data into the watsonx.data system.</p>
 <h2 id="great-outdoors-company">Great Outdoors Company</h2>
 <p>The Sample Outdoors Company, or GO Sales, or any variation of the Sample Outdoors name, is the name of a fictitious business operation whose sample data is used to develop sample applications for IBM® and IBM customers. Its fictitious records include sample data for sales transactions, product distribution, finance, and human resources. Any resemblance to actual names, addresses, contact numbers, or transaction values, is coincidental. </p>
 <p>Two links that provide more details on the database.</p>
