@@ -6,6 +6,10 @@ There are three datasets that have been loaded into watsonx.data system for you 
    * Airline On-Time performance
    * Taxi fares
 
+If you want to load you own data, check out the following website for a variety of public data sets that you can use.
+
+* <a href="https://github.com/awesomedata/awesome-public-datasets" taget="_blank">Awesome Public Datasets</a>
+
 ## Data Location
 
 The data files can be found in the <code style="color:blue;font-size:medium;">/sampledata</code> directory. Underneath this directory you will find datasets in three different formats:
@@ -18,7 +22,7 @@ Within the Parquet and Relational directories are SQL statements that can be use
 
 ## Loading your own data
 
-You can load your own data into the image by using the following steps. **Note**: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.
+You can use a browser or link to an external file repository (i.e., Box) and download data directly into the virtual machine. If you have data in your workstation that you want to load into the image, use the following steps. **Note**: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.
 
 Use a terminal shell to copy the source data into a temporary location in the watsonx userid location.
 
@@ -27,6 +31,10 @@ scp ~/Downloads/myfile.csv watsonx@192.168.252.2:/home/watsonx/Downloads
 ```
 
 This command will copy the `myfile.csv` file into the `Downloads` directory of the watsonx user. Once the data has been copied, you can use the MinIO interface to create a new Bucket and import the data into the bucket. At that point you can use the watsonx.data UI to catalog the data. 
+
+See the section on [Minio usage](wxd-minio.md#using-the-minio-console-ui) for details of how MinIO works. An example of creating a new bucket can be found in the [Object Storage](wxd-objectstore.md#create-new-bucket-in-minio) section. 
+
+Once you have loaded your data into the storage bucket, you will need to catalog this data into the watsonx.data system.
 
 ## Great Outdoors Company
 

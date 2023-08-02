@@ -37,6 +37,7 @@ nav:
     - Disclaimer: "wxd-disclaimer.md"
     - Revisions: "wxd-revisions.md"
     - Acknowledgements: "wxd-acknowledgements.md"
+  - Glossary: "wxd-glossary.md"
 
   # Copyright
 copyright: Copyright &copy; 2023 IBM 

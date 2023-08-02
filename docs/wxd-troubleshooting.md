@@ -145,3 +145,14 @@ select count(*) from db2_gosales.gosalesdw.go_org_dim
 
 The result should be `123` and hopefully the tables that are part of the schema will display for you. 
 
+### Db2 is not allowing connections after a system restart
+
+If for reason you have stopped and restarted the server, the Db2 service may not refresh or allow for connections from the watsonx.data UI. This is caused by a setting in the Db2 container environment that attempts to rebuild the instance after a failure. The instance information is stored on a volume outside the container, so this step does not need to be performed. To enable Db2 to restart properly, run the following commands from the root user in the machine.
+
+```
+sed -i 's/PERSISTENT_HOME=false/PERSISTENT_HOME=true/' /Docker/.env_list
+docker restart db2server
+```
+
+
+
