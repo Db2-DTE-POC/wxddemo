@@ -1010,9 +1010,10 @@ Developer Base Image or use the following link.</p>
 <p>The email from TechZone indicating that the image is ready will contain a link to to your reservations. Click on the link and search for the watsonx.data reservation. Make sure to download the VPN certificate onto your machine. <strong>Do not use the VM Remote Console button on the reservation.</strong></p>
 <p>More details: <a href="../wxd-reference-access/">Accessing a TechZone image</a></p>
 <h2 id="accessing-the-image-watsonx-challenge">Accessing the Image (watsonx Challenge)</h2>
-<p>You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead.</p>
+<p>You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead. Please read the detailed instructions on Wireguard setup in the section below before getting started.</p>
 <h2 id="wireguard-setup">Wireguard Setup</h2>
-<p>Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab.</p>
+<p>Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab. </p>
+<p><strong>Note</strong>: watsonx.data challenge users should read the restrictions in the <a href="../wxd-reference-wireguard/#watsonxdata-challenge-multi-vpn-usage">Wireguard setup</a> section.</p>
 <p>More details: <a href="../wxd-reference-wireguard/">Wireguard Setup</a></p>
 <h2 id="vnc-access">VNC Access</h2>
 <p>Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: <code style="font-size: medium;color:blue;">192.168.252.2:5901</code>. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code>.</p>
