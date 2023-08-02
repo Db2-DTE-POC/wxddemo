@@ -45,11 +45,13 @@ More details: [Accessing a TechZone image](wxd-reference-access.md)
 
 ## Accessing the Image (watsonx Challenge)
 
-You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead.
+You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead. Please read the detailed instructions on Wireguard setup in the section below before getting started.
 
 ## Wireguard Setup
 
-Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab.
+Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab. 
+
+**Note**: watsonx.data challenge users should read the restrictions in the [Wireguard setup](wxd-reference-wireguard.md#watsonxdata-challenge-multi-vpn-usage) section.
 
 More details: [Wireguard Setup](wxd-reference-wireguard.md)
 
