@@ -13,7 +13,7 @@
     
     
       
-        <title>Time Travel - watsonx.data Lab</title>
+        <title>Taxi Rides - watsonx.data Lab</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#time-travel" class="md-skip">
+        <a href="#chicago-taxi-data" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Time Travel
+              Taxi Rides
             
           </span>
         </div>
@@ -502,14 +502,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -558,21 +556,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../wxd-timetravel/" class="md-nav__link">
         Time Travel
       </a>
-      
     </li>
   
 
@@ -678,12 +666,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
       
       
@@ -760,11 +750,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../wxd-datasets-taxi/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Taxi Rides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Taxi Rides
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taxirides" class="md-nav__link">
+    TAXIRIDES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -902,6 +953,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    Disclaimer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taxirides" class="md-nav__link">
+    TAXIRIDES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -914,114 +1000,88 @@
                 
 
 
-<h1 id="time-travel">Time Travel</h1>
-<p>Time travel allows you change the view of the data to a previous time. This is not the same as an <code>AS OF</code> query commonly used in SQL. The data is rolled back to a prior time.</p>
-<p>Let us look at the snapshots available for the customer table in the workshop schema. We currently have just 1 snapshot. First make sure you are in the proper directory.</p>
-<pre><code>cd /root/ibm-lh-dev/bin
-</code></pre>
-<p>Connect to Presto using the workshop schema.</p>
-<pre><code>./presto-cli --catalog iceberg_data --schema workshop
-</code></pre>
-<p>Check current snapshots – STARTING STATE.</p>
-<pre><code>SELECT 
-   * 
-FROM 
-   iceberg_data.workshop.&quot;customer$snapshots&quot; 
-ORDER BY 
-   committed_at;
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-        committed_at         |     snapshot_id     | parent_id | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                
------------------------------+---------------------+-----------+-----------+------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 2023-06-05 18:30:12.994 UTC | 6243511110201494487 | NULL      | append    | s3a://iceberg-bucket/customer/metadata/snap-6243511110201494487-1-b5ab84dc-671a-426a-a734-940baa49a11f.avro | {changed-partition-count=1, added-data-files=1, total-equality-deletes=0, added-records=1500, total-position-deletes=0, added-files-size=75240, total-delete-files=0, total-files-size=75240, total-records=1500, total-data-files=1} 
-(1 row)
-</pre>
-<p>Capture the first snapshot ID returned by the SQL statement. You will need this value when you run the rollback command.</p>
-<pre><code>SELECT 
-   snapshot_id 
-FROM 
-   iceberg_data.workshop.&quot;customer$snapshots&quot; 
-ORDER BY 
-   committed_at;
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-     snapshot_id     
----------------------
- 6243511110201494487 
-(1 row)
-</pre>
-
-<p>Remember that number that was returned with the query above. Insert the following record to change the customer table in the workshop schema. </p>
-<pre><code>insert into customer 
-  values(1501,'Deepak','IBM SVL',16,'123-212-3455',
-         123,'AUTOMOBILE','Testing snapshots');
-</code></pre>
-<p>Let us look at the snapshots available for the customer table in the workshop schema. You should have 2 snapshots. </p>
-<pre><code>SELECT 
-   * 
-FROM 
-   iceberg_data.workshop.&quot;customer$snapshots&quot; 
-ORDER BY 
-   committed_at;
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-        committed_at         |     snapshot_id     |      parent_id      | operation |                                               manifest_list                                                |                                                                                                                summary                                                                                                                
------------------------------+---------------------+---------------------+-----------+------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 2023-06-05 18:30:12.994 UTC | 6243511110201494487 | NULL                | append    | s3a://iceberg-bucket/customer/metadata/snap-6243511110201494487-1-b5ab84dc-671a-426a-a734-940baa49a11f.avro | {changed-partition-count=1, added-data-files=1, total-equality-deletes=0, added-records=1500, total-position-deletes=0, added-files-size=75240, total-delete-files=0, total-files-size=75240, total-records=1500, total-data-files=1} 
- 2023-06-05 18:52:49.193 UTC | 7110570704088319509 | 6243511110201494487 | append    | s3a://iceberg-bucket/customer/metadata/snap-7110570704088319509-1-ef26bcf1-c122-4ea4-86b7-ba26369be374.avro | {changed-partition-count=1, added-data-files=1, total-equality-deletes=0, added-records=1, total-position-deletes=0, added-files-size=1268, total-delete-files=0, total-files-size=76508, total-records=1501, total-data-files=2}     
-(2 rows)
-</pre>
-
-<p>Querying the customer table in the workshop schema, we can see the record inserted with name=’Deepak’.</p>
-<pre><code>select * from customer where name='Deepak';
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
- custkey |  name  | address | nationkey |    phone     | acctbal | mktsegment |      comment      
----------+--------+---------+-----------+--------------+---------+------------+-------------------
-    1501 | Deepak | IBM SVL |        16 | 123-212-3455 |   123.0 | AUTOMOBILE | Testing snapshots 
-(1 row)
-</pre>
-
-<p>We realize that we don’t want the recent updates or just want to see what the data was at any point in time to respond to regulatory requirements. We will leverage the out-of-box system function <code>rollback_to_snapshot</code> to rollback to an older snapshot. The syntax for this function is:
-<code style="color:blue; font-size: small">CALL iceberg_data.system.rollback_to_snapshot('workshop','customer',x);</code></p>
-<p>The "x" would get replaced with the <code style="color:blue;font-size:medium;">snapshot_id</code> number that was found in the earlier query. It will be different on your system than the examples above.</p>
-<p>Copy the next code segment into Presto.</p>
-<pre><code>CALL iceberg_data.system.rollback_to_snapshot('workshop','customer',
-</code></pre>
-<p>You will see output similar to the following:</p>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-CALL iceberg_data.system.rollback_to_snapshot('workshop','customer',
-              -> 
-</pre>
-<p>At this point you will need to copy and paste your <code>snapshot_id</code> into the Presto command line and press return or enter. You will see following:</p>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-CALL iceberg_data.system.rollback_to_snapshot('workshop','customer',
-              -> 7230522396120575591
-7230522396120575591
-</pre>
-<p>Now you will need to terminate the command with a <code>);</code> to see the final result.</p>
-<pre><code>);
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
-CALL iceberg_data.system.rollback_to_snapshot('workshop','customer',
-              -> 7230522396120575591
-7230522396120575591
-              -> );
-);
-CALL
-</pre>
-
-<p>Querying the customer table in the workshop schema, we cannot see the record inserted with name=’Deepak’.</p>
-<pre><code>select * from customer where name='Deepak';
-</code></pre>
-<pre style="font-size: small; color: darkgreen; overflow: auto">
- custkey |  name  | address | nationkey |    phone     | acctbal | mktsegment |      comment      
----------+--------+---------+-----------+--------------+---------+------------+-------------------
-(0 rows)
-</pre>
-<p>Quit Presto.</p>
-<pre><code>quit;
-</code></pre>
+<h1 id="chicago-taxi-data">Chicago Taxi Data</h1>
+<p>Taxi trips are reported to the City of Chicago in its role as a regulatory agency. To protect privacy but allow for aggregate analyses, the Taxi ID is consistent for any given taxi medallion number but does not show the number.</p>
+<p>The data set used in this system contains records from January 1st, 2013 and does not include the census tract value nor the Taxi ID.</p>
+<p><a href="https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew" target="taxis">Taxi Trips</a></p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>This site provides applications using data that has been modified for use from its original source, www.cityofchicago.org, the official website of the City of Chicago.  The City of Chicago makes no claims as to the content, accuracy, timeliness, or completeness of the data provided at this site.  The data provided at this site is subject to change at any time.  It is understood that the data provided at this site is being used at one’s own risk.</p>
+<h2 id="tables">Tables</h2>
+<h4 id="taxirides">TAXIRIDES</h4>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRIP_ID</td>
+<td>int</td>
+</tr>
+<tr>
+<td>COMPANY</td>
+<td>varchar</td>
+</tr>
+<tr>
+<td>DROPOFF_LATITUDE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>DROPOFF_LONGITUDE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>EXTRAS</td>
+<td>double</td>
+</tr>
+<tr>
+<td>FARE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>PAYMENT_TYPE</td>
+<td>varchar</td>
+</tr>
+<tr>
+<td>PICKUP_LATITUDE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>PICKUP_LONGITUDE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>TIPS</td>
+<td>double</td>
+</tr>
+<tr>
+<td>TOLLS</td>
+<td>double</td>
+</tr>
+<tr>
+<td>TRIP_END_TIMESTAMP</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td>TRIP_MILES</td>
+<td>double</td>
+</tr>
+<tr>
+<td>TRIP_SECONDS</td>
+<td>int</td>
+</tr>
+<tr>
+<td>TRIP_START_TIMESTAMP</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td>TRIP_TOTAL</td>
+<td>double</td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
@@ -1037,7 +1097,7 @@ CALL
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../wxd-advanced/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Functions" rel="prev">
+        <a href="../wxd-datasets-ontime/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ontime Flight Performance" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1046,20 +1106,20 @@ CALL
               <span class="md-footer__direction">
                 Previous
               </span>
-              Advanced Functions
+              Ontime Flight Performance
             </div>
           </div>
         </a>
       
       
         
-        <a href="../wxd-federation/" class="md-footer__link md-footer__link--next" aria-label="Next: Federation" rel="next">
+        <a href="../wxd-connections/" class="md-footer__link md-footer__link--next" aria-label="Next: Database Connections" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Federation
+              Database Connections
             </div>
           </div>
           <div class="md-footer__button md-icon">
