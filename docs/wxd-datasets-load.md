@@ -117,9 +117,11 @@ WITH ( format = 'CSV',
        external_location = 's3a://your_bucket/data_directory');
 </pre>
 
-You will need to create a table definition for your CSV file in order to catalog it in watsonx.data. Note that the only data type that is permitted for CSV columns is `varchar`. This is a restriction of the current driver. Plans are to update it to include other data types over time.
+You will need to create a table definition for your CSV file in order to catalog it in watsonx.data. Note that the **only** data type that is permitted for CSV columns is `varchar`. This is a restriction of the current driver. Plans are to update it to include other data types over time.
 
-To generate a `CREATE TABLE`` statement, you can run the following python script on workstation (assuming you have Python installed). You will need to make sure that `pandas` is available.
+If your data set does not include a header row (a row that defines the column names), you will need to create the table definition manually. 
+
+If the data set does contain a header record, you can use the following Python code to generate a `CREATE TABLE` statement. You will need to make sure that `pandas` is available.
 
 ```
 python3 -m pip install pandas --user
@@ -173,7 +175,7 @@ Gather the following information on your dataset:
 
 * catalog - The catalog the schema and table are created under (`hive_data`)
 * schema - The schema name that you created to hold your table (`mpg`)
-* tablename - The name of the table (`fuel_economy`)
+* table name - The name of the table (`fuel_economy`)
 * bucket - Where the data is located (`hive-bucket`)
 * directory - What directory contains your data (`fuel_economy`)
 * csv_in - The location on your local machine where the csv file is 
@@ -216,7 +218,7 @@ CREATE TABLE hive_data.mpg.fueleconomy
 WITH (
      format = 'CSV',
      csv_separator = ',',
-     external_location = 's3a://hive-bucket/fuel_economy'
+     external_location = 's3a://hive-bucket/fuel_economy',
      );
 </pre>
 
@@ -224,7 +226,7 @@ Cut and paste the output from the command into the watsonx.data Data Explorer wi
 
 ![Browser](wxd-images/watsonx-create-mpg.png)
 
-Now you can query the table with the following SQL.
+Now you can query the table with the following SQL. Note that the header record still exists in the answer set since we did not remove it from the CSV file.
 
 ```
 SELECT * FROM hive_data.mpg.fueleconomy LIMIT 10
