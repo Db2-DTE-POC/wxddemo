@@ -9,6 +9,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Apache Superset screens differ from the lab](#apache-superset-screens-differ-from-the-lab)
    * [My VPN doesn't work](#my-vpn-doesnt-work)
    * [I am unable to use VPN](#i-am-unable-to-use-a-vpn)
+   * [Too many incorrect logins using VNC and now I'm blocked](#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting)
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
    * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
@@ -174,6 +175,22 @@ docker restart db2server
 ### Queries are failing with a 400 code
 
 The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.
+
+### Too many incorrect logins using VNC and now I'm blocked from connecting
+
+If you lock yourself out of VNC because of too many incorrect logins, you can reset the service with the following commands.
+
+Connect as the root user.
+```
+ssh watsonx@192.168.252.2
+sudo su -
+```
+
+Then run the following command and you should be able to log in again.
+```
+systemctl restart vncserver@:1
+exit
+```
 
 
 

@@ -12,7 +12,11 @@ Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="h
  
 When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.
 
-**Note:** If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password.
+**Note:** If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use two colons in the address.
+
+```
+192.168.252.2::5901
+```
 
 ![Browser](wxd-images/vnc-password.png)
  

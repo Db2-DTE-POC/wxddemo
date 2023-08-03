@@ -768,6 +768,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting" class="md-nav__link">
+    Too many incorrect logins using VNC and now I'm blocked from connecting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1124,6 +1131,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting" class="md-nav__link">
+    Too many incorrect logins using VNC and now I'm blocked from connecting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1148,6 +1162,7 @@
 <li><a href="#apache-superset-screens-differ-from-the-lab">Apache Superset screens differ from the lab</a></li>
 <li><a href="#my-vpn-doesnt-work">My VPN doesn't work</a></li>
 <li><a href="#i-am-unable-to-use-a-vpn">I am unable to use VPN</a></li>
+<li><a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting">Too many incorrect logins using VNC and now I'm blocked</a></li>
 <li><a href="#presto-doesnt-appear-to-be-working">Presto doesn't appear to be working</a></li>
 <li><a href="#displaying-db2-schema-is-failing">Displaying Db2 Schema is failing</a></li>
 <li><a href="#queries-are-failing-with-a-400-code">Queries are failing with a 400 code</a></li>
@@ -1244,6 +1259,16 @@ docker restart db2server
 </code></pre>
 <h3 id="queries-are-failing-with-a-400-code">Queries are failing with a 400 code</h3>
 <p>The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.</p>
+<h3 id="too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting">Too many incorrect logins using VNC and now I'm blocked from connecting</h3>
+<p>If you lock yourself out of VNC because of too many incorrect logins, you can reset the service with the following commands.</p>
+<p>Connect as the root user.</p>
+<pre><code>ssh watsonx@192.168.252.2
+sudo su -
+</code></pre>
+<p>Then run the following command and you should be able to log in again.</p>
+<pre><code>systemctl restart vncserver@:1
+exit
+</code></pre>
 
               
             </article>
