@@ -32,6 +32,12 @@ nav:
   - Documentation: "wxd-reference-documentation.md"
   - Troubleshooting: "wxd-troubleshooting.md"
   - Datasets: "wxd-datasets.md"
+  - Dataset Details: 
+    - Dataset Overview: "wxd-datasets-intro.md"
+    - Loading External Datasets: "wxd-datasets-load.md"
+    - Great Outdoors Company: "wxd-datasets-gosales.md"
+    - Ontime Flight Performance: "wxd-datasets-ontime.md"
+    - Taxi Rides: "wxd-datasets-taxi.md"
   - Database Connections: "wxd-connections.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"

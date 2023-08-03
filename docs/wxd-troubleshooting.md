@@ -11,6 +11,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [I am unable to use VPN](#i-am-unable-to-use-a-vpn)
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
+   * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
 
 ### What are the passwords for the services?
 
@@ -28,16 +29,32 @@ SSH_TTY=true SSH_CLIENT=true passwords
 
 ### I Can't Open up a Terminal Window with VNC or Guacamole
 
-First thing to remember is that you can't use VNC and the TechZone Guacamole interface at the same time. Only one can be active at a time. If you start with VNC, you need to fully shut it down if you want to switch to the TechZone Guacamole version.
+First thing to remember is that you can't use VNC and the TechZone VM Remote Console (Guacamole) interface at the same time. Only one can be active at a time. 
 
-Commands to stop the VNC service are (as `root`):
+#### If you can't use terminal windows in VNC
 
+If you find that the terminal icons "spins" inside the VNC window, this is caused by attempting to connect to the virtual machine by using the VM Remote Console button in your reservation details screen. To fix this problem, you must log out of the VNC session (top right corner of the Linux desktop - press the power button and choose logout). Once VNC logs back in you will be able use the terminal window.
+
+#### If you really want to use the Techzone VM Remote Console
+
+If you start with VNC, you need to fully shut it down if you want to switch to the TechZone Guacamole version. 
+
+Commands to stop the VNC service are:
+
+```
+ssh watsonx@192.168.252.2
+sudo su -
+```
+
+Once you have become root, issue the following commands:
 ```
 systemctl stop vncserver@:1
 systemctl disable vncserver@:1
 ```
 
-#### A SQL Statement failed but there are no error messages
+Now you can close the VNC window and use the Techzone Remote Console interface.
+
+### A SQL Statement failed, but there are no error messages
 
 You need to use the Presto console <a href="http://192.168.252.2:8080" target="presto">http://192.168.252.2:8080</a> and search for the SQL statement. Click on the Query ID to find more details of the statement execution and scroll to the bottom of the web page to see any error details. 
 
@@ -153,6 +170,10 @@ If for reason you have stopped and restarted the server, the Db2 service may not
 sed -i 's/PERSISTENT_HOME=false/PERSISTENT_HOME=true/' /Docker/.env_list
 docker restart db2server
 ```
+
+### Queries are failing with a 400 code
+
+The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.
 
 
 
