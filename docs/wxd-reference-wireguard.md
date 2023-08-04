@@ -1,5 +1,7 @@
 # Wireguard VPN Access
 
+**Note:** watsonx.data users please make sure to read the section on [sharing VPNs](#watsonxdata-challenge-multi-vpn-usage) below.
+
 ## Download the VPN Certificate
 
 If you have not already downloaded the VPN certificate, follow these steps. 
