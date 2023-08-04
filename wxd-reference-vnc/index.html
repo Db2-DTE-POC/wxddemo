@@ -335,6 +335,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ultravnc-installation" class="md-nav__link">
+    UltraVNC Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="UltraVNC Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ultravnc" class="md-nav__link">
+    Using UltraVNC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -946,6 +966,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ultravnc-installation" class="md-nav__link">
+    UltraVNC Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="UltraVNC Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ultravnc" class="md-nav__link">
+    Using UltraVNC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -967,13 +1007,14 @@
 <li>VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code></li>
 <li>VNC for other VNC viewers - <code style="color:blue;font-size:medium;">192.168.252.2:5901</code></li>
 </ul>
-<p>Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="https://www.uvnc.com/downloads/ultravnc.html" target="_blank">UltraVNC</a>) to connect to watsonx. You can also connect using the Safari browser by using the URL provided. It will automatically start the screen sharing application.</p>
+<p>Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="https://www.uvnc.com/downloads/ultravnc.html" target="_blank">UltraVNC</a>) to connect to watsonx. See <a href="#ultravnc-installation">UltraVNC Installation</a> instructions below.</p>
+<p>You can connect using the OSX Safari browser by using the URL provided. It will automatically start the screen sharing application.</p>
 <p><strong>Note</strong>: The VNC URL format is only valid in Safari and will not work in other browsers.</p>
 <p>When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.</p>
 <p><strong>Note:</strong> If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use only the address (no VNC at the beginning).</p>
 <pre><code>192.168.252.2:5901
 </code></pre>
-<p><img alt="Browser" src="../wxd-images/vnc-password.png" /></p>
+<p><img alt="Browser" src="../wxd-images/vnc-password.png" /><img alt="Alt text" src="../2023-08-04_07-06-29.png" /></p>
 <p>Once connected you will see the console of the watsonx user.</p>
 <p><img alt="Browser" src="../wxd-images/vnc-console.png" /></p>
 <p>You may also want to consider making the screen size larger. Use the drop-down menu (Applications) at the top of the screen to select Other -&gt; Settings. </p>
@@ -988,6 +1029,57 @@
 <p>Clicking on this button will display the logon screen for the server.</p>
 <p><img alt="Browser" src="../wxd-images/techzone-guacamole.png" /></p>
 <p>Select the <code style="color:blue;font-size:medium;">watsonx</code> user and use <code style="color:blue;font-size:medium;">watsonx.data</code> as the password.</p>
+<h2 id="ultravnc-installation">UltraVNC Installation</h2>
+<p>UltraVNC is a VNC browser for the Windows environment. This is an open-source offering that can be found on Github in the <a href="https://github.com/ultravnc/ultravnc">UltraVNC project</a>.</p>
+<p>The developers of this code have additional offerings that they sell for a fee and use advertising on their site to support their work on this and other projects. Because of the way the website has been designed, there are a number of ads and buttons that might distract you from the actual product you want to download.</p>
+<p>The official web page of UltraVNC is <a href="https://uvnc.com/" target="_blank">https://uvnc.com/</a>. Instead of going through all the menus, 
+use the following link to go directly to the download screen:</p>
+<ul>
+<li><a href="https://uvnc.com/component/jdownloads/summary/453-ultravnc-1431-x64-setup.html" target="_blank">UltraVNC Download Link</a></li>
+</ul>
+<p>The website will display an initial download page that will wait for 10 seconds before you can do anything. This gives you time to read the advertising or make a voluntary donation to their coding efforts.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-wait.png" /></p>
+<p>Once the wait time has expired, you will see the following screen:</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-download.png" /></p>
+<p>Make sure to check that you accept the above conditions and press the download button. You should see the download progress in your browser.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-downloadprogress.png" /></p>
+<p>Click "Open File" against the downloaded file. </p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-openfile.png" /></p>
+<p>Once the installer starts it will ask for you to approve changes to the system.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-okinstall.png" /></p>
+<p>Press Yes and then select the language you want.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-language.png" /></p>
+<p>Press OK.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-license.png" /></p>
+<p>Select Accept the license agreement and press Next.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-summary.png" /></p>
+<p>The summary of what it is going to install is shown on this screen. You will then have to provide the installation location or use the default location for the code.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-filelocation.png" /></p>
+<p>The next panel asks which components you want to install. <strong>Only</strong> install the viewer.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-viewer.png" /></p>
+<p>Then it requests the name of the Shortcut folder. Just keep the name it recommends.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-shortcuts.png" /></p>
+<p>Press Next. The next panel comes up that asks if you want a desktop shortcut. Probably a good idea if you are going to use it for a long period of time. Notice how they make this install takes longer than expected to get you to donate?</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-desktop.png" /></p>
+<p>After all of that you will see the final installation screen.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-readytoinstall.png" /></p>
+<p>Click on Install and eventually you will get the completion notice.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-done.png" /></p>
+<p>Pressing Finish will give you one final chance to donate. Make sure to unselect "Show latest releases" or else you will be directed back to their website.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-exit.png" /></p>
+<h3 id="using-ultravnc">Using UltraVNC</h3>
+<p>Start UltraVNC viewer by scrolling through your applications on your desktop. Choose the UltraVNC Viewer (not the listen mode ones <strong>unless</strong> you want to watch someone else using the desktop). </p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-icon.png" /></p>
+<p>When the service starts, it will ask for the server and port. Enter <code>192.168.252.2:5901</code> in this field. </p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-connect.png" /></p>
+<p>Before hitting enter, you may want to select the options button and change the setting in Miscellaneous to prevent advertising from being displayed while working with this program. </p>
+<p>Press connect when done.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-options.png" /></p>
+<p>The password for the service is <code>watsonx.</code> which is <code>watsonx</code> with a period <code>.</code> at the end.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-password.png" /></p>
+<p>At this point you should see the desktop of the virtual machine.</p>
+<p><img alt="Browser" src="../wxd-images/ultravnc-desktop.png" /></p>
+<p>You are now connected and can work on the watsonx.data desktop.</p>
 
               
             </article>
