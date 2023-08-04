@@ -964,13 +964,14 @@
 <p><strong>Note</strong>: Before using VNC, make sure that you have installed Wireguard and have activated the connection.</p>
 <p>In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. </p>
 <ul>
-<li>VNC for watsonx userid - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code></li>
+<li>VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code></li>
+<li>VNC for other VNC viewers - <code style="color:blue;font-size:medium;">192.168.252.2:5901</code></li>
 </ul>
 <p>Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="https://www.uvnc.com/downloads/ultravnc.html" target="_blank">UltraVNC</a>) to connect to watsonx. You can also connect using the Safari browser by using the URL provided. It will automatically start the screen sharing application.</p>
 <p><strong>Note</strong>: The VNC URL format is only valid in Safari and will not work in other browsers.</p>
 <p>When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.</p>
-<p><strong>Note:</strong> If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use two colons in the address.</p>
-<pre><code>192.168.252.2::5901
+<p><strong>Note:</strong> If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use only the address (no VNC at the beginning).</p>
+<pre><code>192.168.252.2:5901
 </code></pre>
 <p><img alt="Browser" src="../wxd-images/vnc-password.png" /></p>
 <p>Once connected you will see the console of the watsonx user.</p>
