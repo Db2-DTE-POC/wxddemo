@@ -4,7 +4,8 @@
 
 In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. 
 
-   * VNC for watsonx userid - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
+   * VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
+   * VNC for other VNC viewers - <code style="color:blue;font-size:medium;">192.168.252.2:5901</code>
 
 Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="https://www.uvnc.com/downloads/ultravnc.html" target="_blank">UltraVNC</a>) to connect to watsonx. You can also connect using the Safari browser by using the URL provided. It will automatically start the screen sharing application.
 
@@ -12,10 +13,10 @@ Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="h
  
 When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.
 
-**Note:** If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use two colons in the address.
+**Note:** If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use only the address (no VNC at the beginning).
 
 ```
-192.168.252.2::5901
+192.168.252.2:5901
 ```
 
 ![Browser](wxd-images/vnc-password.png)

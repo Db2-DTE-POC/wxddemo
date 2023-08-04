@@ -12,7 +12,7 @@ There are a variety of data sets available for you to load from external sites. 
 
 ## Loading your own data
 
-You can use a browser or link to an external file repository (i.e., Box) and download data directly to your workstation. Once the data is on your workstation, use the following steps. 
+You can use a browser or link to an external file repository (i.e., Box) and download data directly to your workstation. Data can be CSV, Parquet, JSON, or TXT formats. Once the data is on your workstation, use the following steps. 
 
 **Note**: You cannot import customer data nor any data that has restrictions associated with its use. Any use of private data is in violation of the terms and conditions of using this image.
 
