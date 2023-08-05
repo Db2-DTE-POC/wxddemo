@@ -7,7 +7,7 @@ In order to access the console of the watsonx.data server, a VNC service needs t
    * VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
    * VNC for other VNC viewers - <code style="color:blue;font-size:medium;">192.168.252.2:5901</code>
 
-Use the Mac screen sharing app or an equivalent one on Windows (i.e., <a href="https://www.uvnc.com/downloads/ultravnc.html" target="_blank">UltraVNC</a>) to connect to watsonx. See [UltraVNC Installation](#ultravnc-installation) instructions below.
+Use the Mac screen sharing app or an equivalent one on Windows (i.e., UltraVNC) to connect to watsonx.data. See [UltraVNC Installation](#ultravnc-installation) instructions below.
 
 You can connect using the OSX Safari browser by using the URL provided. It will automatically start the screen sharing application.
 
@@ -146,3 +146,7 @@ At this point you should see the desktop of the virtual machine.
 ![Browser](wxd-images/ultravnc-desktop.png)
 
 You are now connected and can work on the watsonx.data desktop.
+
+If you find that performance is sluggish, this may be due to network latency. In the settings toolbar of the UltraVNC window, change the color resolution from `Full` to `256`. Your screen may look a bit washed out, but this will reduce the amount of data that needs to be sent over the network to render your screen.
+
+![Browser](wxd-images/ultravnc-performance.png)
