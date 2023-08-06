@@ -3,9 +3,9 @@
 The following sections describe how to get started quickly with the watsonx.data developer system. If you are not familiar with the tools mentioned below, select the details link for more instructions.
 
 * [Requesting an IBM userid](#ibm-userid)
+* [Accessing the watsonx Challenge](#accessing-the-image-watsonx-challenge)
 * [Requesting a TechZone image](#requesting-a-techzone-image-individual-use)
 * [Accessing the Image](#accessing-the-image-techzone)
-* [Accessing the watsonx Challenge](#accessing-the-image-watsonx-challenge)
 * [Wireguard Setup](#wireguard-setup)
 * [VNC Access](#vnc-access)
 * [SSH Access](#ssh-access)
@@ -22,9 +22,13 @@ An IBMid is needed to access IBM Technology Zone. If you do not have an IBMid, c
 
 More details: [Creating an IBM Userid](wxd-reference-ibmid.md)
 
-## Requesting a TechZone image (Individual Use)
+## Accessing the Image (watsonx Challenge)
 
-If you are running this lab as part of a workshop or the watsonx challenge, read the section below on [Accessing the Image (watsonx Challenge)](#accessing-the-image-watsonx-challenge).
+You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead. Please read the detailed instructions on Wireguard setup in the section below before getting started.
+
+## Requesting a TechZone image (Individual Use - Not for watsonx.data challenge)
+
+**Note**: Requesting individual images of watsonx.data has been disabled for education and test purposes for the duration of the challenge. If you are running this lab as part of a workshop or the watsonx challenge, read the section below on [Accessing the Image (watsonx Challenge)](#accessing-the-image-watsonx-challenge).
 
 Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
 Developer Base Image or use the following link.
@@ -37,15 +41,11 @@ Problem with reservations failing? Check the TechZone status page at <a href="ht
 
 More details: [Reserving a TechZone image](wxd-reference-techzone.md)
 
-## Accessing the Image (Techzone)
+## Accessing the Image (Individual Use - Not for watsonx.data challenge)
 
 The email from TechZone indicating that the image is ready will contain a link to to your reservations. Click on the link and search for the watsonx.data reservation. Make sure to download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
 
 More details: [Accessing a TechZone image](wxd-reference-access.md)
-
-## Accessing the Image (watsonx Challenge)
-
-You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead. Please read the detailed instructions on Wireguard setup in the section below before getting started.
 
 ## Wireguard Setup
 
@@ -59,7 +59,7 @@ More details: [Wireguard Setup](wxd-reference-wireguard.md)
 
 Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: <code style="font-size: medium;color:blue;">192.168.252.2:5901</code>. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code>.
 
-The password for the VNC connection is <code style="font-size: medium;color:blue;">watsonx.data</code>.
+The password for the VNC connection is <code style="font-size: medium;color:blue;">watsonx.data</code> when using OSX screen sharing and <code style="font-size: medium;color:blue;">watsonx.</code> for users on Windows systems.
 
 More details: [VNC Access](wxd-reference-vnc.md)
 
