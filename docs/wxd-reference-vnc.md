@@ -1,27 +1,32 @@
-# Using VNC 
+# Using VNC (Virtual Console)
 
-**Note**: Before using VNC, make sure that you have installed Wireguard and have activated the connection.
+The watsonx server that has been provisioned has no physical monitor attached to it (headless is what it is commonly referred to) and so we need to use a different technique to view the desktop of the main user or the system (watsonx).
 
-In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine console in one of two ways. The recommended approach is to use the VNC service that has been started on the machine. 
+The first thing to consider is whether you need to use VNC at all. All the services like the watsonx.data UI, MinIO, Presto, Apache Superset and Portainer, are all web-based servers which means you just need to use your own browser to access these programs. 
+
+Connecting into the watsonx virtual machine can be done using the secure shell command (ssh) which provides access to all the low-level commands you might need to use like starting the Apache Superset service. Note that Apache Superset is not up and running by default, so you will need to start it before attempting to connect to it.
+
+So what's VNC required for? One program that has been provided to view the database schemas is dBeaver, a community edition of software that provides a query interface to 100's of data sources, including the watsonx.data environment. You can only use this program using VNC. You do have the option of installing this software on your own machine if you wish.
+
+Select the section which best describes your environment:
+
+* [I am on a Mac OSX system and I can use VPN (Wireguard)](#access-watsonxdata-on-a-mac-osx-system)
+* [I am on a Windows system and I can use VPN (Wiregaurd)](#access-watsonxdata-on-a-windows-system)
+* [I am on a system which is locked down and cannot install software](#access-watsonxdata-with-no-vpn-or-vnc-access)
+
+## Access watsonx.data on a Mac OSX system
+
+In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine using the VNC service that has been started on the machine. 
 
    * VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
-   * VNC for other VNC viewers - <code style="color:blue;font-size:medium;">192.168.252.2:5901</code>
 
-Use the Mac screen sharing app or an equivalent one on Windows (i.e., UltraVNC) to connect to watsonx.data. See [UltraVNC Installation](#ultravnc-installation) instructions below.
-
-You can connect using the OSX Safari browser by using the URL provided. It will automatically start the screen sharing application.
+Use the Mac screen sharing app to connect to watsonx.data. You can connect using the OSX Safari browser by using the URL provided above. It will automatically start the screen sharing application.
 
 **Note**: The VNC URL format is only valid in Safari and will not work in other browsers.
  
 When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.
 
-**Note:** If you are using other VNC products like UltraVNC, you can only use 8 character passwords, so type in <code style="color:blue;font-size:medium;">watsonx.</code> as the password. The address on the UltraVNC tool requires you to use only the address (no VNC at the beginning).
-
-```
-192.168.252.2:5901
-```
-
-![Browser](wxd-images/vnc-password.png)![Alt text](2023-08-04_07-06-29.png)
+![Browser](wxd-images/vnc-password.png)
  
 Once connected you will see the console of the watsonx user.
 
@@ -35,22 +40,13 @@ In the Devices section of the Setting menu, select Displays and choose a resolut
 
 ![Browser](wxd-images/wxd-resolution.png)
 
-### TechZone Guacamole Access
-**Do not use this interface unless you find that you are unable to connect using the VNC link provided**. The TechZone reservation document includes a link to the details of the virtual machine.
+Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
 
-You can access the logon screen of the virtual machine by pressing the VM Remote Console button. **It is not recommended to use this interface for accessing the virtual machine.**
+## Access watsonx.data on a Windows system
 
-At the bottom of the reservation page you will find the console button.
+Windows does not supply a native VNC browser. You will need to install a program like RealVNC or UltraVNC to access the console. Directions for installing UltraVNC are shown below.
 
-![Browser](wxd-images/techzone-console.png)
-
-Clicking on this button will display the logon screen for the server.
-
-![Browser](wxd-images/techzone-guacamole.png)
-
-Select the <code style="color:blue;font-size:medium;">watsonx</code> user and use <code style="color:blue;font-size:medium;">watsonx.data</code> as the password.
-
-## UltraVNC Installation
+### UltraVNC
 
 UltraVNC is a VNC browser for the Windows environment. This is an open-source offering that can be found on Github in the [UltraVNC project](https://github.com/ultravnc/ultravnc).
 
@@ -105,9 +101,9 @@ Then it requests the name of the Shortcut folder. Just keep the name it recommen
 
 ![Browser](wxd-images/ultravnc-shortcuts.png)
 
-Press Next. The next panel comes up that asks if you want a desktop shortcut. Probably a good idea if you are going to use it for a long period of time. Notice how they make this install takes longer than expected to get you to donate?
+Press Next. The next panel comes up that asks if you want a desktop shortcut. Probably a good idea if you are going to use it for a long period of time. Notice how they make this install take longer than expected to get you to donate?
 
-![Browser](wxd-images/ultravnc-desktop.png)
+![Browser](wxd-images/ultravnc-shortcut.png)
 
 After all of that you will see the final installation screen.
 
@@ -150,3 +146,78 @@ You are now connected and can work on the watsonx.data desktop.
 If you find that performance is sluggish, this may be due to network latency. In the settings toolbar of the UltraVNC window, change the color resolution from `Full` to `256`. Your screen may look a bit washed out, but this will reduce the amount of data that needs to be sent over the network to render your screen.
 
 ![Browser](wxd-images/ultravnc-performance.png)
+
+Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
+
+## Access watsonx.data with no VPN or VNC access
+
+Special thanks to Max Simpson for providing guidance on how to use the VM Remote Console.
+
+**Do not use this interface unless you cannot install Wireguard or UltraVNC software on your machine.**
+
+The TechZone reservation document includes a link to the details of the virtual machine. This document was sent to you either as an email for a personal reservation, or as a link to the team-lead of a group of users.
+
+The web page will look similar to this.
+
+![Browser](wxd-images/challenge-reservation.png)
+
+You will need to enter the password for the reservation to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.
+
+![Browser](wxd-images/challenge-vpns.png)
+
+You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
+
+![Browser](wxd-images/techzone-console.png)
+
+Clicking on this button will display the logon screen for the server.
+
+![Browser](wxd-images/techzone-guacamole.png)
+
+Select the <code style="color:blue;font-size:medium;">techzone</code> user and use <code style="color:blue;font-size:medium;">IBMDem0s!</code> as the password.
+
+Once you are connected to the desktop of the user, select the Terminal App found at the bottom of the screen.
+
+![Browser](wxd-images/desktop-watsonx.png)
+
+The terminal app should display.
+
+![Browser](wxd-images/desktop-terminal.png)
+
+Type the following commands into the terminal window (you cannot cut and paste).
+<pre style="color: blue; overflow: auto">
+sudo systemctl stop vncserver@:1
+sudo systemctl disable vncserver@:1
+exit
+</pre>
+
+Once this is done, select the power button at the top of the screen.
+
+![Browser](wxd-images/desktop-logout.png)
+
+Select the Power Off/Logout Button. 
+
+![Browser](wxd-images/desktop-logout-user.png)
+
+Select Log Out from the menu. **Do not power off the machine at any time, otherwise you will impact all users on this machine.**
+
+![Browser](wxd-images/desktop-logout-yes.png)
+
+And finally confirm Log Out of this userid.
+
+Next log in as the watsonx user. The password is `watsonx.data`. At the top of the screen select the Open in a new window box.
+
+![Browser](wxd-images/desktop-newwindow.png)
+
+Once in fullscreen mode, select the URL in the browser. Note that you may need to increase the size of your browser window (or change the scaling in the browser) to see all the virtual desktop.
+
+![Browser](wxd-images/desktop-fullscreen.png)
+
+The URL will be similar to `https://techzone.ibm.com/my/reservations/desktop/vmware...`. You can share this URL will all members of your team to access the console. 
+
+Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
+
+## Restrictions on using the VM Remote Console or VNC
+
+The VNC console provides access to the virtual machine console. When someone connects through VNC they are viewing the Linux desktop of that machine. All users on the team can use VNC to view the desktop at the same time. Whatever activity takes place in the console will be viewed simultaneously by all users. This also means that all users will be able to interact with the console, including the ability to issue commands. 
+  
+Because the access is not restricted to one user, the team lead will need to determine who can work on the console at any one time. Team members can collaborate and help issue commands on the console, but you should only do this when you are in contact with one another (for instance, in a webex). If you do not restrict access, there is the possibility that one user may interfere with what another user is attempting to do.

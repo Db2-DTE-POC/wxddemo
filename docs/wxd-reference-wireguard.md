@@ -1,5 +1,7 @@
 # Wireguard VPN Access
 
+**Note:** If you cannot install a VPN program like Wireguard on your system, you will need to skip this section and use the VM Remote Console. See [Using VNC](wxd-reference-vnc.md#techzone-guacamole-access) for more details.
+
 **Note:** watsonx.data users please make sure to read the section on [sharing VPNs](#watsonxdata-challenge-multi-vpn-usage) below.
 
 ## Download the VPN Certificate
