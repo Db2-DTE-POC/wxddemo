@@ -13,7 +13,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
    * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
-   * [Nothing seems to be working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
+   * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
 
 ### What are the passwords for the services?
 
