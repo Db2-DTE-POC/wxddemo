@@ -13,6 +13,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
    * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
+   * [Nothing seems to be working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
 
 ### What are the passwords for the services?
 
@@ -191,6 +192,52 @@ Then run the following command and you should be able to log in again.
 systemctl restart vncserver@:1
 exit
 ```
+
+### SSH, VNC and watsonx.data UI are not working
+
+Symptoms:
+
+* You've tried to use SSH to log into the system and you get a timeout error.
+* All the Web-based UIs (watsonx.data UI, Presto) fail.
+* VNC gets a connection error.
+
+The first thing to check is to make sure your VPN is activated, Assuming you have already done that, here is what you need to do.
+
+The team-lead is required to run the following commands. 
+
+Connect to the watsonx.data Team lead portal: <a href="https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e" target="_blank">https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e</a> 
+
+The web page will look similar to this.
+
+![Browser](wxd-images/challenge-reservation.png)
+
+You will need to enter the password for the reservation (`Watsonx23`) to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.
+
+![Browser](wxd-images/challenge-vpns.png)
+
+You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
+
+![Browser](wxd-images/techzone-console.png)
+
+Clicking on this button will display the logon screen for the server.
+
+![Browser](wxd-images/techzone-guacamole.png)
+
+If you see this screen, the system is running and there is something wrong with your VPN certificate or your laptop is not connecting through the VPN. You will need to post a message in the watsonx.data support channel and ask for help.
+
+If you see the following screen:
+
+![Browser](wxd-images/desktop-poweroff.png)
+
+This means your server has been turned off. Click on the Power on button.
+
+![Browser](wxd-images/desktop-poweronyes.png)
+
+Make sure to press the Yes button to turn the power on! In a few minutes you should see the logon screen again.
+
+![Browser](wxd-images/techzone-guacamole.png)
+
+Wait for a few minutes for all the services to start and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).
 
 
 

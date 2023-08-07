@@ -775,6 +775,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssh-vnc-and-watsonxdata-ui-are-not-working" class="md-nav__link">
+    SSH, VNC and watsonx.data UI are not working
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1138,6 +1145,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssh-vnc-and-watsonxdata-ui-are-not-working" class="md-nav__link">
+    SSH, VNC and watsonx.data UI are not working
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1166,6 +1180,7 @@
 <li><a href="#presto-doesnt-appear-to-be-working">Presto doesn't appear to be working</a></li>
 <li><a href="#displaying-db2-schema-is-failing">Displaying Db2 Schema is failing</a></li>
 <li><a href="#queries-are-failing-with-a-400-code">Queries are failing with a 400 code</a></li>
+<li><a href="#ssh-vnc-and-watsonxdata-ui-are-not-working">Nothing seems to be working</a></li>
 </ul>
 <h3 id="what-are-the-passwords-for-the-services">What are the passwords for the services?</h3>
 <p>See the section on <a href="wxd-reference-passwords#passwords">Passwords</a>.</p>
@@ -1269,6 +1284,32 @@ sudo su -
 <pre><code>systemctl restart vncserver@:1
 exit
 </code></pre>
+<h3 id="ssh-vnc-and-watsonxdata-ui-are-not-working">SSH, VNC and watsonx.data UI are not working</h3>
+<p>Symptoms:</p>
+<ul>
+<li>You've tried to use SSH to log into the system and you get a timeout error.</li>
+<li>All the Web-based UIs (watsonx.data UI, Presto) fail.</li>
+<li>VNC gets a connection error.</li>
+</ul>
+<p>The first thing to check is to make sure your VPN is activated, Assuming you have already done that, here is what you need to do.</p>
+<p>The team-lead is required to run the following commands. </p>
+<p>Connect to the watsonx.data Team lead portal: <a href="https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e" target="_blank">https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e</a> </p>
+<p>The web page will look similar to this.</p>
+<p><img alt="Browser" src="../wxd-images/challenge-reservation.png" /></p>
+<p>You will need to enter the password for the reservation (<code>Watsonx23</code>) to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.</p>
+<p><img alt="Browser" src="../wxd-images/challenge-vpns.png" /></p>
+<p>You can access the logon screen of the virtual machine by pressing the VM Remote Console button. </p>
+<p><img alt="Browser" src="../wxd-images/techzone-console.png" /></p>
+<p>Clicking on this button will display the logon screen for the server.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-guacamole.png" /></p>
+<p>If you see this screen, the system is running and there is something wrong with your VPN certificate or your laptop is not connecting through the VPN. You will need to post a message in the watsonx.data support channel and ask for help.</p>
+<p>If you see the following screen:</p>
+<p><img alt="Browser" src="../wxd-images/desktop-poweroff.png" /></p>
+<p>This means your server has been turned off. Click on the Power on button.</p>
+<p><img alt="Browser" src="../wxd-images/desktop-poweronyes.png" /></p>
+<p>Make sure to press the Yes button to turn the power on! In a few minutes you should see the logon screen again.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-guacamole.png" /></p>
+<p>Wait for a few minutes for all the services to start and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).</p>
 
               
             </article>
