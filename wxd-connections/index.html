@@ -901,6 +901,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#python-and-jupyter-connection-code" class="md-nav__link">
+    Python and Jupyter Connection Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-watsonxdata-via-pandas-dataframes" class="md-nav__link">
     Accessing watsonx.data via Pandas Dataframes
   </a>
@@ -1128,6 +1135,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#python-and-jupyter-connection-code" class="md-nav__link">
+    Python and Jupyter Connection Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accessing-watsonxdata-via-pandas-dataframes" class="md-nav__link">
     Accessing watsonx.data via Pandas Dataframes
   </a>
@@ -1258,8 +1272,23 @@ echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
 <pre><code>scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
 </code></pre>
 <p>Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.</p>
+<p><strong>Mac OSX Hosts File</strong></p>
 <pre><code>echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
 </code></pre>
+<p><strong>Windows Hosts File</strong></p>
+<p>You must run the following command as an administrative user. </p>
+<pre><code>echo '192.168.252.2' watsonxdata &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
+</code></pre>
+<p>If you are not sure how to do that, first find the command shell in the program list:</p>
+<p><img alt="Browser" src="../wxd-images/windows-administrator.png" /></p>
+<p>Make sure to select <code>Run as Administrator</code>. A confirmation dialog will appear.</p>
+<p><img alt="Browser" src="../wxd-images/windows-adminyes.png" /></p>
+<p>Press Yes. You should see the terminal window appear. </p>
+<p><img alt="Browser" src="../wxd-images/windows-updatehost.png" /></p>
+<p>Copy the command below into the window and hit Enter to execute it. </p>
+<pre><code>echo '192.168.252.2' watsonxdata &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
+</code></pre>
+<h2 id="python-and-jupyter-connection-code">Python and Jupyter Connection Code</h2>
 <p>Your Python or Jupyter notebook code will need to import the <code>prestodb</code> library and then connect to watsonx.data using the <code>connect</code> call.</p>
 <pre><code>import prestodb
 
@@ -1330,7 +1359,12 @@ cur.description
 <pre><code>scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
 </code></pre>
 <p>Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.</p>
+<p><strong>Mac OSX Hosts File</strong></p>
 <pre><code>echo '192.168.252.2' ibm-lh-presto-svc | sudo tee -a /etc/hosts
+</code></pre>
+<p><strong>Windows Hosts File</strong></p>
+<p>Run the following as an administrative user.</p>
+<pre><code>echo '192.168.252.2' ibm-lh-presto-svc &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
 </code></pre>
 <p>In your Jupyter notebook, you will need to import a number of libraries.</p>
 <pre><code>import pandas as pd
