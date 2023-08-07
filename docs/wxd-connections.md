@@ -144,9 +144,39 @@ scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
 
 Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
 
+**Mac OSX Hosts File**
+
 ```
 echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
 ```
+
+**Windows Hosts File**
+
+You must run the following command as an administrative user. 
+
+```
+echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
+```
+
+If you are not sure how to do that, first find the command shell in the program list:
+
+![Browser](wxd-images/windows-administrator.png)
+
+Make sure to select `Run as Administrator`. A confirmation dialog will appear.
+
+![Browser](wxd-images/windows-adminyes.png)
+
+Press Yes. You should see the terminal window appear. 
+
+![Browser](wxd-images/windows-updatehost.png)
+
+Copy the command below into the window and hit Enter to execute it. 
+
+```
+echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
+```
+
+## Python and Jupyter Connection Code
 
 Your Python or Jupyter notebook code will need to import the `prestodb` library and then connect to watsonx.data using the `connect` call.
 
@@ -240,8 +270,18 @@ scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
 
 Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
 
+**Mac OSX Hosts File**
+
 ```
 echo '192.168.252.2' ibm-lh-presto-svc | sudo tee -a /etc/hosts
+```
+
+**Windows Hosts File**
+
+Run the following as an administrative user.
+
+```
+echo '192.168.252.2' ibm-lh-presto-svc >> %WINDIR%\System32\Drivers\Etc\Hosts
 ```
 
 In your Jupyter notebook, you will need to import a number of libraries.
