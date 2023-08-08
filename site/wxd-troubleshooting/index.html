@@ -769,6 +769,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#queries-are-failing-with-a-500-code" class="md-nav__link">
+    Queries are failing with a 500 code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries-fail-become-of-insufficient-memory" class="md-nav__link">
+    Queries fail become of insufficient memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting" class="md-nav__link">
     Too many incorrect logins using VNC and now I'm blocked from connecting
   </a>
@@ -1139,6 +1153,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#queries-are-failing-with-a-500-code" class="md-nav__link">
+    Queries are failing with a 500 code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries-fail-become-of-insufficient-memory" class="md-nav__link">
+    Queries fail become of insufficient memory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting" class="md-nav__link">
     Too many incorrect logins using VNC and now I'm blocked from connecting
   </a>
@@ -1179,7 +1207,10 @@
 <li><a href="#too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting">Too many incorrect logins using VNC and now I'm blocked</a></li>
 <li><a href="#presto-doesnt-appear-to-be-working">Presto doesn't appear to be working</a></li>
 <li><a href="#displaying-db2-schema-is-failing">Displaying Db2 Schema is failing</a></li>
-<li><a href="#queries-are-failing-with-a-400-code">Queries are failing with a 400 code</a></li>
+<li><a href="#queries-are-failing-with-a-400-code">Queries are failing with a 400 code</a><ul>
+<li><a href="#queries-are-failing-with-a-500-code">Queries are failing with a 500 code</a></li>
+</ul>
+</li>
 <li><a href="#ssh-vnc-and-watsonxdata-ui-are-not-working">SSH, VNC and watsonx.data UI are not working</a></li>
 </ul>
 <h3 id="what-are-the-passwords-for-the-services">What are the passwords for the services?</h3>
@@ -1274,6 +1305,53 @@ docker restart db2server
 </code></pre>
 <h3 id="queries-are-failing-with-a-400-code">Queries are failing with a 400 code</h3>
 <p>The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.</p>
+<h3 id="queries-are-failing-with-a-500-code">Queries are failing with a 500 code</h3>
+<p>A 500 code may indicate the watsonx.data UI has a problem connecting with the Presto engine. First log out of the console and trying logging back on. If that fails to solve the problem, you will need to reboot the console. Open up a terminal window into the server:</p>
+<pre><code>ssh watsonx@192.168.252.2
+</code></pre>
+<p>Then restart the docker container that is running the watsonx.data UI.</p>
+<pre><code>docker restart lhconsole-nodeclient-svc
+</code></pre>
+<h3 id="queries-fail-become-of-insufficient-memory">Queries fail become of insufficient memory</h3>
+<p>If you are running a complex query, you may get an error message similar to "Query exceeded per-node user memory limit" or a something similar. Watsonx.data (Presto) attempts to limit the amount of resources being using in a query and will stop a query if it exceeds a certain threshold. </p>
+<p>You can change the behavior of the system by making the following changes. <strong>Note</strong>: During this step you will disconnect anyone running a query on the server.</p>
+<p>What you need to do is make a change to the configuration settings of the Presto engine. First, ssh into watsonx:</p>
+<pre><code>ssh watsonx@192.168.252.2
+password=watsonx.data
+</code></pre>
+<p>Then enter the docker container for the presto engine:</p>
+<pre><code>docker exec -it ibm-lh-presto /bin/bash
+</code></pre>
+<p>Next, copy the original config file to a safe place in case we make an error:</p>
+<pre><code>cp /opt/presto/etc/config.properties /opt/presto/etc/config.properties.backup
+</code></pre>
+<p>Then update the properties file.</p>
+<pre><code>cat &gt;&gt; /opt/presto/etc/config.properties &lt;&lt; EOL
+experimental.spiller-spill-path=/tmp
+experimental.spiller-max-used-space-threshold=0.7
+experimental.max-spill-per-node=10GB
+experimental.query-max-spill-per-node=10GB
+experimental.spill-enabled=true
+EOL
+</code></pre>
+<p>Doublecheck that it worked.</p>
+<pre><code>cat /opt/presto/etc/config.properties | grep experimental
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+experimental.max-spill-per-node=10GB
+experimental.query-max-spill-per-node=10GB
+experimental.spill-enabled=true
+experimental.spiller-max-used-space-threshold=0.7
+experimental.spiller-spill-path=/tmp
+</pre>
+
+<p>If it is all good then exit the container.</p>
+<pre><code>exit
+</code></pre>
+<p>And now we restart the container. Make sure that you don't impact other users!</p>
+<pre><code>docker restart ibm-lh-presto
+</code></pre>
+<p>Now try running your query again.</p>
 <h3 id="too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting">Too many incorrect logins using VNC and now I'm blocked from connecting</h3>
 <p>If you lock yourself out of VNC because of too many incorrect logins, you can reset the service with the following commands.</p>
 <p>Connect as the root user.</p>

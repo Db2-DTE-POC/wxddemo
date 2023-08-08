@@ -13,6 +13,8 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
    * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
+   * [Queries are failing with a 500 code](#queries-are-failing-with-a-500-code)
+   * [Queries are failing with memory errors](#queries-fail-become-of-insufficient-memory)
    * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
 
 ### What are the passwords for the services?
@@ -176,6 +178,74 @@ docker restart db2server
 ### Queries are failing with a 400 code
 
 The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.
+
+### Queries are failing with a 500 code
+
+A 500 code may indicate the watsonx.data UI has a problem connecting with the Presto engine. First log out of the console and trying logging back on. If that fails to solve the problem, you will need to reboot the console. Open up a terminal window into the server:
+
+```
+ssh watsonx@192.168.252.2
+```
+
+Then restart the docker container that is running the watsonx.data UI.
+
+```
+docker restart lhconsole-nodeclient-svc
+```
+
+### Queries fail become of insufficient memory
+
+If you are running a complex query, you may get an error message similar to "Query exceeded per-node user memory limit" or a something similar. Watsonx.data (Presto) attempts to limit the amount of resources being using in a query and will stop a query if it exceeds a certain threshold. 
+
+You can change the behavior of the system by making the following changes. **Note**: During this step you will disconnect anyone running a query on the server.
+
+What you need to do is make a change to the configuration settings of the Presto engine. First, ssh into watsonx:
+```
+ssh watsonx@192.168.252.2
+password=watsonx.data
+```
+
+Then enter the docker container for the presto engine:
+```
+docker exec -it ibm-lh-presto /bin/bash
+```
+
+Next, copy the original config file to a safe place in case we make an error:
+```
+cp /opt/presto/etc/config.properties /opt/presto/etc/config.properties.backup
+```
+
+Then update the properties file.
+```
+cat >> /opt/presto/etc/config.properties << EOL
+experimental.spiller-spill-path=/tmp
+experimental.spiller-max-used-space-threshold=0.7
+experimental.max-spill-per-node=10GB
+experimental.query-max-spill-per-node=10GB
+experimental.spill-enabled=true
+EOL
+```
+Doublecheck that it worked.
+```
+cat /opt/presto/etc/config.properties | grep experimental
+```
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+experimental.max-spill-per-node=10GB
+experimental.query-max-spill-per-node=10GB
+experimental.spill-enabled=true
+experimental.spiller-max-used-space-threshold=0.7
+experimental.spiller-spill-path=/tmp
+</pre>
+
+If it is all good then exit the container.
+```
+exit
+```
+And now we restart the container. Make sure that you don't impact other users!
+```
+docker restart ibm-lh-presto
+```
+Now try running your query again.
 
 ### Too many incorrect logins using VNC and now I'm blocked from connecting
 
