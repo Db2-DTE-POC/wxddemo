@@ -1026,7 +1026,7 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p>Select Presto as the database connection type.</p>
 <p><img alt="Browser" src="../wxd-images/superset-6.png" /></p>
 <p>In the SQLALCHEMY URI field, enter the following information to connect to the hive_data catalog which contains the GOSALES, ONTIME, and TAXI data.</p>
-<pre><code>presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_data
+<pre><code>presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/hive_data
 </code></pre>
 <p>Enter the following information to connect to the iceberg_data catalog which will contain any tables you created when running the examples in the lab.</p>
 <pre><code>presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_data

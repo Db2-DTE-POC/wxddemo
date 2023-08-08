@@ -81,7 +81,7 @@ Select Presto as the database connection type.
 
 In the SQLALCHEMY URI field, enter the following information to connect to the hive_data catalog which contains the GOSALES, ONTIME, and TAXI data.
 ```
-presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/iceberg_data
+presto://ibmlhadmin:password@ibm-lh-presto-svc:8443/hive_data
 ```
 
 Enter the following information to connect to the iceberg_data catalog which will contain any tables you created when running the examples in the lab.
