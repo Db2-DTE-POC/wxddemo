@@ -39,6 +39,8 @@ nav:
     - Ontime Flight Performance: "wxd-datasets-ontime.md"
     - Taxi Rides: "wxd-datasets-taxi.md"
   - Database Connections: "wxd-connections.md"
+  - Articles:
+    - Using VNC with multiple users: "wxd-vnc-usage.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"
     - Revisions: "wxd-revisions.md"
