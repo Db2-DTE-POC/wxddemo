@@ -856,6 +856,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ssh-usage" class="md-nav__link">
+    SSH Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-do-i-need-vnc" class="md-nav__link">
     Why do I need VNC?
   </a>
@@ -893,6 +900,13 @@
         <li class="md-nav__item">
   <a href="#my-watsonxdata-ui-isnt-responsive-or-doesnt-seem-to-work" class="md-nav__link">
     My watsonx.data UI isn't responsive or doesn't seem to work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-issues" class="md-nav__link">
+    Other Issues?
   </a>
   
 </li>
@@ -1037,6 +1051,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ssh-usage" class="md-nav__link">
+    SSH Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#why-do-i-need-vnc" class="md-nav__link">
     Why do I need VNC?
   </a>
@@ -1078,6 +1099,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other-issues" class="md-nav__link">
+    Other Issues?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1105,6 +1133,23 @@
 <li><code style="color:blue;font-size:medium;">ssh watsonx@192.168.252.2</code> Shell into the watsonx.data machine</li>
 </ul>
 <p>Please note that Apache Superset is not started in the system. You need your team lead to start it using the instructions in the <a href="../wxd-superset/">Apache Superset</a> section.</p>
+<h4 id="ssh-usage">SSH Usage</h4>
+<p>The <code>ssh</code> command is used to get "into" the watsonx.data machine. This provides a way, without a desktop, to run commands in the server. The following command allows you to connect:</p>
+<pre><code>ssh watsonx@192.168.252.2
+password=watsonx.data
+</code></pre>
+<p>This is a good way to check if your system is working. If it comes back and asks for your password, you know that your VPN is working and you can start issuing commands in the server.</p>
+<p>So where do you enter the above command? Open up a terminal window on the Mac using the iTerm program (or similar) by clicking on the icon:</p>
+<p><img alt="Browser" src="../wxd-images/desktop-iterm.png" /></p>
+<p>You should see the terminal window appear.</p>
+<p><img alt="Browser" src="../wxd-images/desktop-itermwindow.png" /></p>
+<p>On Windows, use the CMD or PowerShell window. </p>
+<p><img alt="Browser" src="../wxd-images/desktop-itermwindows.png" /></p>
+<p>This is where you should be issuing your commands. </p>
+<p><strong>Caution</strong>: What you do in the ssh environment will impact <strong>all</strong> users on the system. When you are done using the shell, use the <code>exit</code> command and do not <code>logout</code>. You will cause everyone to disconnect from the system if they using VNC or another command shell.</p>
+<p style="color:red">DO NOT USE SSH INSIDE THE VNC CONSOLE</p>
+<p>You are already the watsonx user so using the ssh command is like logging into the machine again. You are already "watsonx" so you can run commands without using ssh. </p>
+<p>Also, don't use a terminal window inside VNC for complex commands. Cut and Paste does not work between a workstation and the VNC console. You need to use a terminal window outside VNC to paste commands.</p>
 <h4 id="why-do-i-need-vnc">Why do I need VNC?</h4>
 <p>Perhaps you can't use the VPN or VNC software, so your only alternative is to use the VM Remote Console. Other than that, you only need to use VNC if you want to use the dBeaver program which is installed in the system. dBeaver is a query tool and can be used to look at the data in the watsonx.data system. However, you can do the same thing with the watsonx.data UI or with Apache Superset.</p>
 <p>If you are unable to install any VPN or VNC software, please see the section on <a href="../wxd-troubleshooting/#i-am-unable-to-use-a-vpn">Using the VM Remote Console</a>.</p>
@@ -1151,6 +1196,8 @@ password=watsonx.data
 exit
 </code></pre>
 <p>Wait for a few minutes and try again. If that doesn't work then you will need to post your error in the slack channel.</p>
+<h4 id="other-issues">Other Issues?</h4>
+<p>If you find you are having a problem with the system, please look at the <a href="../wxd-troubleshooting/">Troubleshooting</a> section for more help.</p>
 
               
             </article>
