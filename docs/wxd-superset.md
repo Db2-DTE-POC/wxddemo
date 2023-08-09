@@ -41,12 +41,16 @@ sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt > docker-compose-non-dev.yml
 
 Use docker-compose to start Apache Superset.
 ```
-docker compose -f docker-compose-non-dev.yml up
+docker compose -f docker-compose-non-dev.yml up &
 ```
 
-This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. When you are finished using Apache Superset, you can shut it down by pressing CTRL-C. 
+This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the `&` at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command `fg` and then shutting it down by pressing CTRL-C. 
 
-**Note**: The terminal window is being used by Apache Superset, so you will need to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
+```
+fg
+```
+
+**Note**: The terminal window is being used by Apache Superset, so you will see all messages showing up in this window. You may want to open another terminal session to run any other commands against watsonx.data. Apache Superset takes a substantial amount of time to start. The startup is complete when the Apache Superset message displays Init Step 4/4 [Starting]. You can run queries while it is loading sample data. 
 
 ![Browser](wxd-images/superset-1.png)
  

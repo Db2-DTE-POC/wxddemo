@@ -15,6 +15,38 @@ You can access all of these servers using the browser on your laptop. Just make 
    
 Please note that Apache Superset is not started in the system. You need your team lead to start it using the instructions in the [Apache Superset](wxd-superset.md) section.
 
+#### SSH Usage
+
+The `ssh` command is used to get "into" the watsonx.data machine. This provides a way, without a desktop, to run commands in the server. The following command allows you to connect:
+```
+ssh watsonx@192.168.252.2
+password=watsonx.data
+```
+
+This is a good way to check if your system is working. If it comes back and asks for your password, you know that your VPN is working and you can start issuing commands in the server.
+
+So where do you enter the above command? Open up a terminal window on the Mac using the iTerm program (or similar) by clicking on the icon:
+
+![Browser](wxd-images/desktop-iterm.png)
+
+You should see the terminal window appear.
+
+![Browser](wxd-images/desktop-itermwindow.png)
+
+On Windows, use the CMD or PowerShell window. 
+
+![Browser](wxd-images/desktop-itermwindows.png)
+
+This is where you should be issuing your commands. 
+
+**Caution**: What you do in the ssh environment will impact **all** users on the system. When you are done using the shell, use the `exit` command and do not `logout`. You will cause everyone to disconnect from the system if they using VNC or another command shell.
+
+<p style="color:red">DO NOT USE SSH INSIDE THE VNC CONSOLE</p>
+You are already the watsonx user so using the ssh command is like logging into the machine again. You are already "watsonx" so you can run commands without using ssh. 
+
+Also, don't use a terminal window inside VNC for complex commands. Cut and Paste does not work between a workstation and the VNC console. You need to use a terminal window outside VNC to paste commands.
+
+
 #### Why do I need VNC?
 
 Perhaps you can't use the VPN or VNC software, so your only alternative is to use the VM Remote Console. Other than that, you only need to use VNC if you want to use the dBeaver program which is installed in the system. dBeaver is a query tool and can be used to look at the data in the watsonx.data system. However, you can do the same thing with the watsonx.data UI or with Apache Superset.
@@ -85,3 +117,6 @@ exit
 
 Wait for a few minutes and try again. If that doesn't work then you will need to post your error in the slack channel.
 
+#### Other Issues?
+
+If you find you are having a problem with the system, please look at the [Troubleshooting](wxd-troubleshooting.md) section for more help.

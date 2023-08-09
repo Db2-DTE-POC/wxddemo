@@ -273,7 +273,7 @@ Change the target directory to a location that you can remember! Next add the fo
 **Mac OSX Hosts File**
 
 ```
-echo '192.168.252.2' ibm-lh-presto-svc | sudo tee -a /etc/hosts
+echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
 ```
 
 **Windows Hosts File**
@@ -281,7 +281,7 @@ echo '192.168.252.2' ibm-lh-presto-svc | sudo tee -a /etc/hosts
 Run the following as an administrative user.
 
 ```
-echo '192.168.252.2' ibm-lh-presto-svc >> %WINDIR%\System32\Drivers\Etc\Hosts
+echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
 ```
 
 In your Jupyter notebook, you will need to import a number of libraries.
@@ -296,7 +296,7 @@ Create a notebook cell which will contain all the credentials that are required 
 ```
 userid    = "ibmlhadmin"
 password  = "password"
-hostname  = "ibm-lh-presto-svc"
+hostname  = "watsonxdata"
 port      = "8443"
 catalog   = "tpch"
 schema    = "tiny"
