@@ -108,8 +108,10 @@ sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt > docker-compose-non-dev.yml
 
 Use docker-compose to start Apache Superset.
 ```
-docker compose -f docker-compose-non-dev.yml up
+nohup docker compose -f docker-compose-non-dev.yml up &
 ```
+
+It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset.
 
 ### Apache Superset screens differ from the lab
 
