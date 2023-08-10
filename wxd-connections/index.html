@@ -1321,11 +1321,11 @@ echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
 </code></pre>
 <p>Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.</p>
 <p><strong>Mac OSX Hosts File</strong></p>
-<pre><code>echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
+<pre><code>echo '192.168.252.2 watsonxdata' | sudo tee -a /etc/hosts
 </code></pre>
 <p><strong>Windows Hosts File</strong></p>
 <p>You must run the following command as an administrative user. </p>
-<pre><code>echo '192.168.252.2' watsonxdata &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
+<pre><code>echo '192.168.252.2 watsonxdata' &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
 </code></pre>
 <p>If you are not sure how to do that, first find the command shell in the program list:</p>
 <p><img alt="Browser" src="../wxd-images/windows-administrator.png" /></p>
@@ -1334,7 +1334,7 @@ echo $POSTGRES_PASSWORD &gt; /tmp/postgres.pw
 <p>Press Yes. You should see the terminal window appear. </p>
 <p><img alt="Browser" src="../wxd-images/windows-updatehost.png" /></p>
 <p>Copy the command below into the window and hit Enter to execute it. </p>
-<pre><code>echo '192.168.252.2' watsonxdata &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
+<pre><code>echo '192.168.252.2 watsonxdata' &gt;&gt; %WINDIR%\System32\Drivers\Etc\Hosts
 </code></pre>
 <h2 id="python-and-jupyter-connection-code">Python and Jupyter Connection Code</h2>
 <p>Your Python or Jupyter notebook code will need to import the <code>prestodb</code> library and then connect to watsonx.data using the <code>connect</code> call.</p>
