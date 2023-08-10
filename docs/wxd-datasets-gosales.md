@@ -15,7 +15,9 @@ The Sample Outdoors Company, or GO Sales, or any variation of the Sample Outdoor
 
 ## Table Definitions
 
-These tables are created under the GOSALESDW schema.
+These tables are created under the GOSALESDW schema. Thanks to Michael Schapira for generating the following ER diagram. You may need to download the image to zoom in on the relationships.
+
+![Browser](wxd-images/GOSALESDW.png)
 
 #### DIST_INVENTORY_FACT
 |Column|Type
