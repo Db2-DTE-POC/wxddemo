@@ -1338,7 +1338,7 @@ exit
 <p>Log out of the Techzone userid and log into the <code>watsonx</code> user. At this point you can run the lab using this environment. Note that all URLs will continue to work in this image with IP addresses of <code>192.168.252.2</code>.</p>
 <h3 id="presto-doesnt-appear-to-be-working">Presto doesn't appear to be working</h3>
 <p>If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a restart of Presto with the following command:</p>
-<pre><code>restart_presto
+<pre><code>docker restart ibm-lh-presto
 </code></pre>
 <p>This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.</p>
 <h3 id="displaying-db2-schema-is-failing">Displaying Db2 Schema is failing</h3>
@@ -1380,6 +1380,10 @@ experimental.spiller-max-used-space-threshold=0.7
 experimental.max-spill-per-node=10GB
 experimental.query-max-spill-per-node=10GB
 experimental.spill-enabled=true
+query.max-memory=10GB
+query.max-memory-per-node=10GB
+query.max-total-memory-per-node=10GB
+query.max-total-memory=10GB
 EOL
 </code></pre>
 <p>Doublecheck that it worked.</p>
@@ -1399,7 +1403,8 @@ experimental.spiller-spill-path=/tmp
 <p>And now we restart the container. Make sure that you don't impact other users!</p>
 <pre><code>docker restart ibm-lh-presto
 </code></pre>
-<p>Now try running your query again.</p>
+<p>Now try running your query again. </p>
+<p><strong>Note</strong>: Once you make this change, only restart presto using the above command, otherwise you will lose the changes.</p>
 <h3 id="too-many-incorrect-logins-using-vnc-and-now-im-blocked-from-connecting">Too many incorrect logins using VNC and now I'm blocked from connecting</h3>
 <p>If you lock yourself out of VNC because of too many incorrect logins, you can reset the service with the following commands.</p>
 <p>Connect as the root user.</p>
