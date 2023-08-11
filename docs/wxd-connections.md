@@ -147,7 +147,7 @@ Change the target directory to a location that you can remember! Next add the fo
 **Mac OSX Hosts File**
 
 ```
-echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
+echo '192.168.252.2 watsonxdata' | sudo tee -a /etc/hosts
 ```
 
 **Windows Hosts File**
@@ -155,7 +155,7 @@ echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
 You must run the following command as an administrative user. 
 
 ```
-echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
+echo '192.168.252.2 watsonxdata' >> %WINDIR%\System32\Drivers\Etc\Hosts
 ```
 
 If you are not sure how to do that, first find the command shell in the program list:
@@ -173,7 +173,7 @@ Press Yes. You should see the terminal window appear.
 Copy the command below into the window and hit Enter to execute it. 
 
 ```
-echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
+echo '192.168.252.2 watsonxdata' >> %WINDIR%\System32\Drivers\Etc\Hosts
 ```
 
 ## Python and Jupyter Connection Code

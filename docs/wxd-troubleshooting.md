@@ -153,7 +153,7 @@ Log out of the Techzone userid and log into the `watsonx` user. At this point yo
 If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a restart of Presto with the following command:
 
 ```
-restart_presto
+docker restart ibm-lh-presto
 ```
 
 This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.
@@ -225,6 +225,10 @@ experimental.spiller-max-used-space-threshold=0.7
 experimental.max-spill-per-node=10GB
 experimental.query-max-spill-per-node=10GB
 experimental.spill-enabled=true
+query.max-memory=10GB
+query.max-memory-per-node=10GB
+query.max-total-memory-per-node=10GB
+query.max-total-memory=10GB
 EOL
 ```
 Doublecheck that it worked.
@@ -247,7 +251,9 @@ And now we restart the container. Make sure that you don't impact other users!
 ```
 docker restart ibm-lh-presto
 ```
-Now try running your query again.
+Now try running your query again. 
+
+**Note**: Once you make this change, only restart presto using the above command, otherwise you will lose the changes.
 
 ### Too many incorrect logins using VNC and now I'm blocked from connecting
 
