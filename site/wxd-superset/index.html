@@ -702,37 +702,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../wxd-datasets/" class="md-nav__link">
-        Datasets
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_11">
+        <label class="md-nav__link" for="__nav_10">
           Dataset Details
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dataset Details" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Dataset Details
         </label>
@@ -840,66 +825,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_13">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Articles" data-md-level="1">
-        <label class="md-nav__title" for="__nav_13">
-          <span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wxd-vnc-usage/" class="md-nav__link">
-        Using VNC with multiple users
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_14">
+        <label class="md-nav__link" for="__nav_12">
           Appendix
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Appendix" data-md-level="1">
-        <label class="md-nav__title" for="__nav_14">
+        <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           Appendix
         </label>
@@ -1051,15 +988,19 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p>Use docker-compose to start Apache Superset.</p>
 <pre><code>nohup docker compose -f docker-compose-non-dev.yml up &amp;
 </code></pre>
-<p>This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the <code>&amp;</code> at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command <code>fg</code> and then shutting it down by pressing CTRL-C. </p>
+<p>The <code>nohup</code> command will issue a message indicating that output will be directed to the <code>nohup.out</code> file. The <code>docker compose</code> command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the <code>&amp;</code> at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command <code>fg</code> and then shutting it down by pressing CTRL-C. </p>
 <pre><code>fg
 </code></pre>
-<p><strong>Note 1</strong>: It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the <code>nohup.out</code> file in the directory where you installed superset.</p>
-<p><strong>Note 2</strong>: If you have already installed Apache Superset and you stopped it, there is no need to reinstall the program. Go back to the <code>/home/watsonx/superset</code> directory and run the <code>docker compose</code> program again:</p>
+<p>It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the <code>nohup.out</code> file in the directory where you installed superset. </p>
+<p><img alt="Browser" src="../wxd-images/superset-1.png" /></p>
+<p>Use the following command to determine when you can access the image:</p>
+<pre><code>cat /home/watsonx/superset/nohup.out | grep &quot;Init Step 4/4&quot;
+</code></pre>
+<p>If you get output back then you can start connecting to the service.</p>
+<p>If you have already installed Apache Superset and you stopped it, there is no need to reinstall the program. Go back to the <code>/home/watsonx/superset</code> directory and run the <code>docker compose</code> program again:</p>
 <pre><code>nohup docker compose -f docker-compose-non-dev.yml up &amp;
 </code></pre>
-<p><img alt="Browser" src="../wxd-images/superset-1.png" /></p>
-<p>Open your browser and navigate to:</p>
+<p>Once the service is running, open your browser and navigate to:</p>
 <ul>
 <li>Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> </li>
 </ul>

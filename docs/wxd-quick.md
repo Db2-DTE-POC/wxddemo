@@ -3,7 +3,6 @@
 The following sections describe how to get started quickly with the watsonx.data developer system. If you are not familiar with the tools mentioned below, select the details link for more instructions.
 
 * [Requesting an IBM userid](#ibm-userid)
-* [Accessing the watsonx Challenge](#accessing-the-image-watsonx-challenge)
 * [Requesting a TechZone image](#requesting-a-techzone-image-individual-use)
 * [Accessing the Image](#accessing-the-image-techzone)
 * [Wireguard Setup](#wireguard-setup)
@@ -22,13 +21,7 @@ An IBMid is needed to access IBM Technology Zone. If you do not have an IBMid, c
 
 More details: [Creating an IBM Userid](wxd-reference-ibmid.md)
 
-## Accessing the Image (watsonx Challenge)
-
-You will receive instructions from your team lead on how to access the image. You will be supplied with the VPN certificate required to gain access to the image from your team lead. Please read the detailed instructions on Wireguard setup in the section below before getting started.
-
-## Requesting a TechZone image (Individual Use - Not for watsonx.data challenge)
-
-**Note**: Requesting individual images of watsonx.data has been disabled for education and test purposes for the duration of the challenge. If you are running this lab as part of a workshop or the watsonx challenge, read the section below on [Accessing the Image (watsonx Challenge)](#accessing-the-image-watsonx-challenge).
+## Requesting a TechZone image 
 
 Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
 Developer Base Image or use the following link.
@@ -41,17 +34,15 @@ Problem with reservations failing? Check the TechZone status page at <a href="ht
 
 More details: [Reserving a TechZone image](wxd-reference-techzone.md)
 
-## Accessing the Image (Individual Use - Not for watsonx.data challenge)
+## Accessing the Image 
 
-The email from TechZone indicating that the image is ready will contain a link to to your reservations. Click on the link and search for the watsonx.data reservation. Make sure to download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
+The email from TechZone indicating that the image is ready will contain a link to your reservations. Click on the link and search for the watsonx.data reservation. Make sure to download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
 
 More details: [Accessing a TechZone image](wxd-reference-access.md)
 
 ## Wireguard Setup
 
 Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab. 
-
-**Note**: watsonx.data challenge users should read the restrictions in the [Wireguard setup](wxd-reference-wireguard.md#watsonxdata-challenge-multi-vpn-usage) section.
 
 More details: [Wireguard Setup](wxd-reference-wireguard.md)
 

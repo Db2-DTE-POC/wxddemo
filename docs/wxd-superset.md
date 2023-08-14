@@ -44,23 +44,30 @@ Use docker-compose to start Apache Superset.
 nohup docker compose -f docker-compose-non-dev.yml up &
 ```
 
-This command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the `&` at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command `fg` and then shutting it down by pressing CTRL-C. 
+The `nohup` command will issue a message indicating that output will be directed to the `nohup.out` file. The `docker compose` command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the `&` at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command `fg` and then shutting it down by pressing CTRL-C. 
 
 ```
 fg
 ```
 
-**Note 1**: It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset.
+It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset. 
 
-**Note 2**: If you have already installed Apache Superset and you stopped it, there is no need to reinstall the program. Go back to the `/home/watsonx/superset` directory and run the `docker compose` program again:
+![Browser](wxd-images/superset-1.png)
+
+Use the following command to determine when you can access the image:
+```
+cat /home/watsonx/superset/nohup.out | grep "Init Step 4/4"
+```
+
+If you get output back then you can start connecting to the service.
+
+If you have already installed Apache Superset and you stopped it, there is no need to reinstall the program. Go back to the `/home/watsonx/superset` directory and run the `docker compose` program again:
 
 ```
 nohup docker compose -f docker-compose-non-dev.yml up &
 ```
 
-![Browser](wxd-images/superset-1.png)
- 
-Open your browser and navigate to:
+Once the service is running, open your browser and navigate to:
 
    * Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> 
 

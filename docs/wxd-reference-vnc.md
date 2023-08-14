@@ -155,15 +155,11 @@ Special thanks to Max Simpson for providing guidance on how to use the VM Remote
 
 **Do not use this interface unless you cannot install Wireguard or UltraVNC software on your machine.**
 
-The TechZone reservation document includes a link to the details of the virtual machine. This document was sent to you either as an email for a personal reservation, or as a link to the team-lead of a group of users.
+Find your email message that contains details of your reservation. Details of what the reservations and the page containing details of the reservation can be found in the [Accessing the reservation](wxd-reference-access.md) section. 
 
-The web page will look similar to this.
+Once the details appear, scroll down to the bottom of the web page, and you will see the VM Remote Console button along with the VPN certificates.
 
-![Browser](wxd-images/challenge-reservation.png)
-
-You will need to enter the password for the reservation to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.
-
-![Browser](wxd-images/challenge-vpns.png)
+![Browser](wxd-images/techzone-vpn.png)
 
 You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
 
@@ -198,7 +194,7 @@ Select the Power Off/Logout Button.
 
 ![Browser](wxd-images/desktop-logout-user.png)
 
-Select Log Out from the menu. **Do not power off the machine at any time, otherwise you will impact all users on this machine.**
+Select Log Out from the menu. **Do not power off the machine at any time, otherwise you will need to restart the machine.**
 
 ![Browser](wxd-images/desktop-logout-yes.png)
 
@@ -212,12 +208,10 @@ Once in fullscreen mode, select the URL in the browser. Note that you may need t
 
 ![Browser](wxd-images/desktop-fullscreen.png)
 
-The URL will be similar to `https://techzone.ibm.com/my/reservations/desktop/vmware...`. You can share this URL will all members of your team to access the console. 
+The URL will be similar to `https://techzone.ibm.com/my/reservations/desktop/vmware...`. You can share this URL will other people who may want access to the console. 
 
 Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
 
 ## Restrictions on using the VM Remote Console or VNC
 
-The VNC console provides access to the virtual machine console. When someone connects through VNC they are viewing the Linux desktop of that machine. All users on the team can use VNC to view the desktop at the same time. Whatever activity takes place in the console will be viewed simultaneously by all users. This also means that all users will be able to interact with the console, including the ability to issue commands. 
-  
-Because the access is not restricted to one user, the team lead will need to determine who can work on the console at any one time. Team members can collaborate and help issue commands on the console, but you should only do this when you are in contact with one another (for instance, in a webex). If you do not restrict access, there is the possibility that one user may interfere with what another user is attempting to do.
+The VNC console provides access to the virtual machine console. When someone connects through VNC they are viewing the Linux desktop of that machine. Multiple users can use the same VNC link to view the desktop at the same time. Whatever activity takes place in the console will be viewed simultaneously by all users. This also means that all users will be able to interact with the console, including the ability to issue commands. 

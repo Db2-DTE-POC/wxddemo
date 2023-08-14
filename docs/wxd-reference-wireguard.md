@@ -2,8 +2,6 @@
 
 **Note:** If you cannot install a VPN program like Wireguard on your system, you will need to skip this section and use the VM Remote Console. See [Using VNC](wxd-reference-vnc.md#techzone-guacamole-access) for more details.
 
-**Note:** watsonx.data users please make sure to read the section on [sharing VPNs](#watsonxdata-challenge-multi-vpn-usage) below.
-
 ## Download the VPN Certificate
 
 If you have not already downloaded the VPN certificate, follow these steps. 
@@ -59,17 +57,3 @@ Now that the VPN configuration is in the list, select it and press the Activate 
 At this point, any IP addresses starting with 192.168.252.2 will route to your Lab machine. In addition, you will be able to use your Terminal session locally to shell into the server, without having to use the VM Console.
 
 Once you are done with your lab, you should **disconnect the service**. Note that leaving this service on can sometimes cause IP address issues with other websites (even IBM internal sites!).
-
-## watsonx.data Challenge Multi-VPN usage
-
-If you are using a VPN certificate as part of the watsonx.data challenge, you will be sharing a virtual machine with a number of users. Each user will have a unique VPN certificate, but it will point to the same machine. Because the machine resources are shared, you must follow these guidelines:
-
-  * Port-based UI services
-  
-    All watsonx.data UI components (watsonx.data console, Presto UI, MinIO, Apache Superset, Portainer) are accessible by all users. Team members should agree on who will be making changes to resources in these environments. 
-
-  * VNC Console Access
-  
-    The VNC console provides access to the virtual machine console. When someone connects through VNC they are viewing the Linux desktop of that machine. All users on the team can use VNC to view the desktop at the same time. Whatever activity takes place in the console will be viewed simultaneously by all users. This also means that all users will be able to interact with the console, including the ability to issue commands. 
-  
-    Because the access is not restricted to one user, the team lead will need to determine who can work on the console at any one time. Team members can collaborate and help issue commands on the console, but you should only do this when you are in contact with one another (for instance, in a webex). If you do not restrict access, there is the possibility that one user may interfere with what another user is attempting to do.

@@ -111,7 +111,7 @@ Use docker-compose to start Apache Superset.
 nohup docker compose -f docker-compose-non-dev.yml up &
 ```
 
-It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset.
+The `nohup` command will issue a message indicating that output will be directed to the `nohup.out` file. It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset.
 
 ### Apache Superset screens differ from the lab
 
@@ -150,13 +150,22 @@ Log out of the Techzone userid and log into the `watsonx` user. At this point yo
 
 ### Presto doesn't appear to be working
 
-If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a restart of Presto with the following command:
+If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a soft restart of Presto with the following command:
 
 ```
 docker restart ibm-lh-presto
 ```
 
-This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.
+This will restart the Presto server. If you find that does not fix your problem, you will need to do a hard reset using the following commands:
+
+```
+sudo su -
+cd /root/ibm-lh-dev/bin
+./stop_service ibm-lh-presto
+./start_service ibm-lh-presto
+check_presto
+```
+The command will wait until the service is running before exiting.
 
 ### Displaying Db2 Schema is failing
 
@@ -281,17 +290,11 @@ Symptoms:
 
 The first thing to check is to make sure your VPN is activated, Assuming you have already done that, here is what you need to do.
 
-The team-lead is required to run the following commands. 
+Find your email message that contains details of your reservation. Details of what the reservations and the page containing details of the reservation can be found in the [Accessing the reservation](wxd-reference-access.md) section. 
 
-Connect to the watsonx.data Team lead portal: <a href="https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e" target="_blank">https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e</a> 
+Once the details appear, scroll down to the bottom of the web page, and you will see the VM Remote Console button along with the VPN certificates.
 
-The web page will look similar to this.
-
-![Browser](wxd-images/challenge-reservation.png)
-
-You will need to enter the password for the reservation (`Watsonx23`) to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.
-
-![Browser](wxd-images/challenge-vpns.png)
+![Browser](wxd-images/techzone-vpn.png)
 
 You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
 
@@ -315,7 +318,7 @@ Make sure to press the Yes button to turn the power on! In a few minutes you sho
 
 ![Browser](wxd-images/techzone-guacamole.png)
 
-Wait for a few minutes for all the services to start and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).
+Wait for a few minutes for all the services to start, and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).
 
 
 

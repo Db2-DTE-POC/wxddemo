@@ -31,7 +31,6 @@ nav:
   - Working with Object Store Buckets: "wxd-objectstore.md"
   - Documentation: "wxd-reference-documentation.md"
   - Troubleshooting: "wxd-troubleshooting.md"
-  - Datasets: "wxd-datasets.md"
   - Dataset Details: 
     - Dataset Overview: "wxd-datasets-intro.md"
     - Loading External Datasets: "wxd-datasets-load.md"
@@ -39,8 +38,6 @@ nav:
     - Ontime Flight Performance: "wxd-datasets-ontime.md"
     - Taxi Rides: "wxd-datasets-taxi.md"
   - Database Connections: "wxd-connections.md"
-  - Articles:
-    - Using VNC with multiple users: "wxd-vnc-usage.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"
     - Revisions: "wxd-revisions.md"
