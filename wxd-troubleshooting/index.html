@@ -811,37 +811,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../wxd-datasets/" class="md-nav__link">
-        Datasets
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_11">
+        <label class="md-nav__link" for="__nav_10">
           Dataset Details
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dataset Details" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Dataset Details
         </label>
@@ -949,66 +934,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_13">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Articles" data-md-level="1">
-        <label class="md-nav__title" for="__nav_13">
-          <span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wxd-vnc-usage/" class="md-nav__link">
-        Using VNC with multiple users
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_14">
+        <label class="md-nav__link" for="__nav_12">
           Appendix
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Appendix" data-md-level="1">
-        <label class="md-nav__title" for="__nav_14">
+        <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           Appendix
         </label>
@@ -1316,7 +1253,7 @@ sed -e '1,/version: &quot;3.7&quot;/ d' docker-compose-non-dev.yml  &gt;&gt; yam
 <p>Use docker-compose to start Apache Superset.</p>
 <pre><code>nohup docker compose -f docker-compose-non-dev.yml up &amp;
 </code></pre>
-<p>It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the <code>nohup.out</code> file in the directory where you installed superset.</p>
+<p>The <code>nohup</code> command will issue a message indicating that output will be directed to the <code>nohup.out</code> file. It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the <code>nohup.out</code> file in the directory where you installed superset.</p>
 <h3 id="apache-superset-screens-differ-from-the-lab">Apache Superset screens differ from the lab</h3>
 <p>The Apache Superset project makes frequent changes to the types of charts that are available. In some cases they remove or merge charts. Since these charts changes are dynamic, we are not able to guarantee that our examples will look the same as what you might have on your system.</p>
 <h3 id="my-vpn-doesnt-work">My VPN doesn't work</h3>
@@ -1337,10 +1274,17 @@ exit
 </code></pre>
 <p>Log out of the Techzone userid and log into the <code>watsonx</code> user. At this point you can run the lab using this environment. Note that all URLs will continue to work in this image with IP addresses of <code>192.168.252.2</code>.</p>
 <h3 id="presto-doesnt-appear-to-be-working">Presto doesn't appear to be working</h3>
-<p>If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a restart of Presto with the following command:</p>
+<p>If you find that the watsonx.data UI is generating error messages that suggest that queries are not running, or that the Presto service is dead, you can force a soft restart of Presto with the following command:</p>
 <pre><code>docker restart ibm-lh-presto
 </code></pre>
-<p>This will stop the Presto server and restart it again. The command will also wait until the service is running before exiting.</p>
+<p>This will restart the Presto server. If you find that does not fix your problem, you will need to do a hard reset using the following commands:</p>
+<pre><code>sudo su -
+cd /root/ibm-lh-dev/bin
+./stop_service ibm-lh-presto
+./start_service ibm-lh-presto
+check_presto
+</code></pre>
+<p>The command will wait until the service is running before exiting.</p>
 <h3 id="displaying-db2-schema-is-failing">Displaying Db2 Schema is failing</h3>
 <p>Occasionally when attempting to expand the Db2 catalog (schema), the watsonx.data UI will not display any data or issue an error message. You can try refreshing the browser (not the refresh icon inside the UI) and try again. If you find that this is failing again, open the Query workspace and run the following SQL (replace db2_gosales with the name you cataloged the database with).</p>
 <pre><code>select count(*) from db2_gosales.gosalesdw.go_org_dim 
@@ -1423,12 +1367,9 @@ exit
 <li>VNC gets a connection error.</li>
 </ul>
 <p>The first thing to check is to make sure your VPN is activated, Assuming you have already done that, here is what you need to do.</p>
-<p>The team-lead is required to run the following commands. </p>
-<p>Connect to the watsonx.data Team lead portal: <a href="https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e" target="_blank">https://techzone.ibm.com/my/workshops/student/64c7d31b90b16a0017af602e</a> </p>
-<p>The web page will look similar to this.</p>
-<p><img alt="Browser" src="../wxd-images/challenge-reservation.png" /></p>
-<p>You will need to enter the password for the reservation (<code>Watsonx23</code>) to see the machine details. Once the details appear, scroll down to the bottom of the web page and you will see the VM Remote Console button along with all the VPN certificates.</p>
-<p><img alt="Browser" src="../wxd-images/challenge-vpns.png" /></p>
+<p>Find your email message that contains details of your reservation. Details of what the reservations and the page containing details of the reservation can be found in the <a href="../wxd-reference-access/">Accessing the reservation</a> section. </p>
+<p>Once the details appear, scroll down to the bottom of the web page, and you will see the VM Remote Console button along with the VPN certificates.</p>
+<p><img alt="Browser" src="../wxd-images/techzone-vpn.png" /></p>
 <p>You can access the logon screen of the virtual machine by pressing the VM Remote Console button. </p>
 <p><img alt="Browser" src="../wxd-images/techzone-console.png" /></p>
 <p>Clicking on this button will display the logon screen for the server.</p>
@@ -1440,7 +1381,7 @@ exit
 <p><img alt="Browser" src="../wxd-images/desktop-poweronyes.png" /></p>
 <p>Make sure to press the Yes button to turn the power on! In a few minutes you should see the logon screen again.</p>
 <p><img alt="Browser" src="../wxd-images/techzone-guacamole.png" /></p>
-<p>Wait for a few minutes for all the services to start and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).</p>
+<p>Wait for a few minutes for all the services to start, and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).</p>
 
               
             </article>
@@ -1472,13 +1413,13 @@ exit
       
       
         
-        <a href="../wxd-datasets/" class="md-footer__link md-footer__link--next" aria-label="Next: Datasets" rel="next">
+        <a href="../wxd-datasets-intro/" class="md-footer__link md-footer__link--next" aria-label="Next: Dataset Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Datasets
+              Dataset Overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
