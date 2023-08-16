@@ -198,10 +198,12 @@ cur = conn.cursor()
 
 In the above connection string, you will need to replace the following values:
 
+   * host - `watsonxdata` when connecting to the image externally, and  `ibm-lh-presto-svc` when connecting internally 
    * catalog - What is the name of the catalog that we are accessing
    * schema - The schema inside the catalog that will be used
+
    
-You also need to update the `conn._http_session.verify` value with the location where you downloaded the `lh-ssl-ts.crt` file.
+You also need to update the `conn._http_session.verify` value with the location where you downloaded the `lh-ssl-ts.crt` file. For internal connections, this value will be `/certs/lh-ssl-ts.crt`.
 
 Once connected, you can run an SQL statement and return the results.
 
@@ -300,12 +302,20 @@ hostname  = "watsonxdata"
 port      = "8443"
 catalog   = "tpch"
 schema    = "tiny"
-certfile  = "/Users/myname/Downloads/lh-ssl-ts.cert"
+certfile  = "/Users/myname/Downloads/lh-ssl-ts.crt"
 connect_args={
         'protocol': 'https', 
         'requests_kwargs': {'verify': f'{certfile}'}
         }
 ```
+
+In the above settings, you will need to replace the following values:
+
+   * hostname - `watsonxdata` when connecting to the image externally, and  `ibm-lh-presto-svc` when connecting internally 
+   * catalog - What is the name of the catalog that we are accessing
+   * schema - The schema inside the catalog that will be used
+
+You also need to update the `certfile` value with the location where you downloaded the `lh-ssl-ts.crt` file. For internal connections, this value will be `/certs/lh-ssl-ts.crt`.   
 
 To create a connection to the database, use the following syntax.
 ```

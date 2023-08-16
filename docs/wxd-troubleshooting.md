@@ -16,6 +16,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Queries are failing with a 500 code](#queries-are-failing-with-a-500-code)
    * [Queries are failing with memory errors](#queries-fail-become-of-insufficient-memory)
    * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
+   * [Wireguard not starting](#wireguard-not-starting)
 
 ### What are the passwords for the services?
 
@@ -319,6 +320,12 @@ Make sure to press the Yes button to turn the power on! In a few minutes you sho
 ![Browser](wxd-images/techzone-guacamole.png)
 
 Wait for a few minutes for all the services to start, and then you will be able to use SSH, VNC, and watsonx.data UI. Don't use this interface to work with watsonx.data unless you cannot install VPN software (i.e., your machine is locked down).
+
+### Wireguard Not Starting
+
+On the Mac, the Wireguard application will not always display in the Dock. If it doesn't appear to "start", it may be sitting in the Systray at the bottom or top of your screen. The icon will be gray if no connections are active.
+
+![Browser](wxd-images/wg-systray.png) 
 
 
 

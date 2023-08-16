@@ -57,3 +57,9 @@ Now that the VPN configuration is in the list, select it and press the Activate 
 At this point, any IP addresses starting with 192.168.252.2 will route to your Lab machine. In addition, you will be able to use your Terminal session locally to shell into the server, without having to use the VM Console.
 
 Once you are done with your lab, you should **disconnect the service**. Note that leaving this service on can sometimes cause IP address issues with other websites (even IBM internal sites!).
+
+## Wireguard Not Starting
+
+On the Mac, the Wireguard application will not always display in the Dock. If it doesn't appear to "start", it may be sitting in the Systray at the bottom or top of your screen. The icon will be gray if no connections are active.
+
+![Browser](wxd-images/wg-systray.png) 
