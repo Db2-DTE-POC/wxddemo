@@ -1291,10 +1291,11 @@ cur = conn.cursor()
 </code></pre>
 <p>In the above connection string, you will need to replace the following values:</p>
 <ul>
+<li>host - <code>watsonxdata</code> when connecting to the image externally, and  <code>ibm-lh-presto-svc</code> when connecting internally </li>
 <li>catalog - What is the name of the catalog that we are accessing</li>
 <li>schema - The schema inside the catalog that will be used</li>
 </ul>
-<p>You also need to update the <code>conn._http_session.verify</code> value with the location where you downloaded the <code>lh-ssl-ts.crt</code> file.</p>
+<p>You also need to update the <code>conn._http_session.verify</code> value with the location where you downloaded the <code>lh-ssl-ts.crt</code> file. For internal connections, this value will be <code>/certs/lh-ssl-ts.crt</code>.</p>
 <p>Once connected, you can run an SQL statement and return the results.</p>
 <pre><code>cur.execute(&quot;SELECT * FROM tpch.tiny.customer&quot;)
 rows = cur.fetchall()
@@ -1363,12 +1364,19 @@ hostname  = &quot;watsonxdata&quot;
 port      = &quot;8443&quot;
 catalog   = &quot;tpch&quot;
 schema    = &quot;tiny&quot;
-certfile  = &quot;/Users/myname/Downloads/lh-ssl-ts.cert&quot;
+certfile  = &quot;/Users/myname/Downloads/lh-ssl-ts.crt&quot;
 connect_args={
         'protocol': 'https', 
         'requests_kwargs': {'verify': f'{certfile}'}
         }
 </code></pre>
+<p>In the above settings, you will need to replace the following values:</p>
+<ul>
+<li>hostname - <code>watsonxdata</code> when connecting to the image externally, and  <code>ibm-lh-presto-svc</code> when connecting internally </li>
+<li>catalog - What is the name of the catalog that we are accessing</li>
+<li>schema - The schema inside the catalog that will be used</li>
+</ul>
+<p>You also need to update the <code>certfile</code> value with the location where you downloaded the <code>lh-ssl-ts.crt</code> file. For internal connections, this value will be <code>/certs/lh-ssl-ts.crt</code>.   </p>
 <p>To create a connection to the database, use the following syntax.</p>
 <pre><code>engine = create_engine(
    f&quot;presto://{userid}:{password}@{hostname}:{port}/{catalog}/{schema}&quot;,
