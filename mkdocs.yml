@@ -38,6 +38,7 @@ nav:
     - Ontime Flight Performance: "wxd-datasets-ontime.md"
     - Taxi Rides: "wxd-datasets-taxi.md"
   - Database Connections: "wxd-connections.md"
+  - VMWare Image: "wxd-vmware.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"
     - Revisions: "wxd-revisions.md"

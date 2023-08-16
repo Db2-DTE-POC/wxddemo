@@ -80,7 +80,7 @@ The Db2 server can be accessed on port 50000 inside the virtual machine using th
 
 ### Db2 External Access
 
-When accessing the database outside the virtual machine, you must change the host to 192.168.252.2. All of the other settings remain the same.
+When accessing the database outside the virtual machine, you must change the host to 192.168.252.2. All the other settings remain the same.
 
    * Hostname - <code style="color:blue;font-size:medium;">192.168.252.2</code>
    * Port - <code style="color:blue;font-size:medium;">50000</code>

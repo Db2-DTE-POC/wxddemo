@@ -110,6 +110,13 @@ First check to make sure that the Presto engine has finished starting. While the
 ```
 check_presto
 ```
+
+Switch to the bin directory as the root user.
+
+```
+sudo su -
+cd /root/ibm-lh-dev/bin
+```
  
 Connect to Presto using the new customer catalog.
 ``` 
