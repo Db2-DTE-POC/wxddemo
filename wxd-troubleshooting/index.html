@@ -810,6 +810,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#firefox-and-chrome-freeze-when-connecting-to-minio" class="md-nav__link">
+    Firefox and Chrome freeze when connecting to MinIO
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1208,6 +1215,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#firefox-and-chrome-freeze-when-connecting-to-minio" class="md-nav__link">
+    Firefox and Chrome freeze when connecting to MinIO
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1241,6 +1255,7 @@
 <li><a href="#ssh-vnc-and-watsonxdata-ui-are-not-working">SSH, VNC and watsonx.data UI are not working</a></li>
 <li><a href="#wireguard-not-starting">Wireguard not starting</a></li>
 <li><a href="#no-access-to-prestominio-ui-after-restart">No access to Presto/Minio UI after restart</a></li>
+<li><a href="#firefox-and-chrome-freeze-when-connecting-to-minio">Firefox and Chrome freeze when connecting to MinIO</a></li>
 </ul>
 <h3 id="what-are-the-passwords-for-the-services">What are the passwords for the services?</h3>
 <p>See the section on <a href="wxd-reference-passwords#passwords">Passwords</a>.</p>
@@ -1440,6 +1455,8 @@ export LH_RUN_MODE=diag
 ./start.sh 
 </code></pre>
 <p>This set of commands will stop all the services in watsonx.data and restart them in diagnostic mode. This will now open the <code>http</code> ports for use.</p>
+<h3 id="firefox-and-chrome-freeze-when-connecting-to-minio">Firefox and Chrome freeze when connecting to MinIO</h3>
+<p>Firefox and Chrome on OSX will occasionally freeze when connecting to the MinIO console. The Safari browser is much more reliable. This problem appears to be caused by some features which are not properly handled by these browsers. </p>
 
               
             </article>
