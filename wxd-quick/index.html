@@ -258,8 +258,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vnc-access" class="md-nav__link">
-    VNC Access
+  <a href="#vnc-access-optional" class="md-nav__link">
+    VNC Access (Optional)
   </a>
   
 </li>
@@ -1029,8 +1029,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vnc-access" class="md-nav__link">
-    VNC Access
+  <a href="#vnc-access-optional" class="md-nav__link">
+    VNC Access (Optional)
   </a>
   
 </li>
@@ -1115,7 +1115,8 @@ Developer Base Image or use the following link.</p>
 <h2 id="wireguard-setup">Wireguard Setup</h2>
 <p>Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab. </p>
 <p>More details: <a href="../wxd-reference-wireguard/">Wireguard Setup</a></p>
-<h2 id="vnc-access">VNC Access</h2>
+<h2 id="vnc-access-optional">VNC Access (Optional)</h2>
+<p>The entire lab (excluding dBeaver access) can be run using your local browser and a command window. In order to use the dBeaver tool (optional), you will need to connect to the console of the watsonx server. </p>
 <p>Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: <code style="font-size: medium;color:blue;">192.168.252.2:5901</code>. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code>.</p>
 <p>The password for the VNC connection is <code style="font-size: medium;color:blue;">watsonx.data</code> when using OSX screen sharing and <code style="font-size: medium;color:blue;">watsonx.</code> for users on Windows systems.</p>
 <p>More details: <a href="../wxd-reference-vnc/">VNC Access</a></p>
