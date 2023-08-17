@@ -46,7 +46,9 @@ Install Wireguard (or similar utility) that allows a VPN certificate to be impor
 
 More details: [Wireguard Setup](wxd-reference-wireguard.md)
 
-## VNC Access
+## VNC Access (Optional)
+
+The entire lab (excluding dBeaver access) can be run using your local browser and a command window. In order to use the dBeaver tool (optional), you will need to connect to the console of the watsonx server. 
 
 Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: <code style="font-size: medium;color:blue;">192.168.252.2:5901</code>. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code>.
 
