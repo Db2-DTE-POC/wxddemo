@@ -21,7 +21,10 @@ Note that some commands may span multiple lines, so make sure you copy everythin
 
 ## System Check
 
-Make sure that you have an open terminal session using SSH from your workstation, or a terminal window inside the VNC browser.
+Make sure that you have an open terminal session using SSH from your workstation, or a terminal window inside the VNC browser. 
+
+**Note**: If you are running commands inside the virtual machine (VNC or a VMWare image), you do not have to use `ssh` to connect to the system., Your terminal window is already the `watsonx` user.
+
 ```
 ssh watsonx@192.168.252.2
 ```

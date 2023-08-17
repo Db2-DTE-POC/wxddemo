@@ -20,17 +20,16 @@ Before starting the machine, you may want to adjust the hardware requirements.
    * Disable side channel mitigation ON (VMware only)
 
 ### VMware URLs 
-All the URLs in the lab use `192.168.252.2` as the host. The VMWware image has been set up with two host adapters, one of which provides the `192.168.252.2` address. You can continue to use this address and links in the documentation, but `localhost` can also be used.
+All the URLs in the lab use `192.168.252.2` as the host. When running in the VMWware image, you must use `localhost` for the addresses. You must substitute `localhost` for the `192.168.252.2` address when you come across it in the documentation.
 
 The following URLs and Ports are used to access the watsonx.data services.
 The ports that are used in the lab are listed below.
 
-   * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console
-   * <a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a> - Presto console
-   * <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a> - MinIO console (S3 buckets)
-   * <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)
-   * <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)
-   * <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code> - VNC Access (Access to GUI in the machine)
+   * <a href="https://localhost:9443" target="_blank">https://localhost:9443</a> - watsonx.data management console
+   * <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> - Presto console
+   * <a href="http://localhost:9001" target="_blank">http://localhost:9001</a> - MinIO console (S3 buckets)
+   * <a href="https://localhost:6443" target="_blank">https://localhost:6443</a> - Portainer (Docker container management)
+   * <a href="http://localhost:8088" target="_blank">http://localhost:8088</a> - Apache Superset (Query and Graphing)
    * <code style="color:blue;font-size:medium;">8443</code> - Presto External Port
    * <code style="color:blue;font-size:medium;">5432</code> - Postgres External Port
    * <code style="color:blue;font-size:medium;">50000</code> - Db2 Database Port
@@ -99,7 +98,7 @@ Remember that inside your virtual machine, you will be using `https://localhost:
 
 ### VirtualBox
 
-VirtualBox does not externalize the IP address of the virtual machine. The `ifconfig` command will provide an IP address of the machine but it will not be reachable from your host browser. To open the ports, you must use the network option on the virtual machine. This step can be done while the machine is running. From the VirtualBox console, choose Settings for the machine and then click on the Network option.
+VirtualBox does not externalize the IP address of the virtual machine. The `ifconfig` command will provide an IP address of the machine, but it will not be reachable from your host browser. To open the ports, you must use the network option on the virtual machine. This step can be done while the machine is running. From the VirtualBox console, choose Settings for the machine and then click on the Network option.
 
 ![Browser](wxd-images/vbox-network.png)
  
