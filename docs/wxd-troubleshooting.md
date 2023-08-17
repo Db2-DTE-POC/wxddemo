@@ -18,6 +18,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
    * [Wireguard not starting](#wireguard-not-starting)
    * [No access to Presto/Minio UI after restart](#no-access-to-prestominio-ui-after-restart)
+   * [Firefox and Chrome freeze when connecting to MinIO](#firefox-and-chrome-freeze-when-connecting-to-minio)
 
 ### What are the passwords for the services?
 
@@ -344,5 +345,7 @@ export LH_RUN_MODE=diag
 
 This set of commands will stop all the services in watsonx.data and restart them in diagnostic mode. This will now open the `http` ports for use.
 
+### Firefox and Chrome freeze when connecting to MinIO
 
+Firefox and Chrome on OSX will occasionally freeze when connecting to the MinIO console. The Safari browser is much more reliable. This problem appears to be caused by some features which are not properly handled by these browsers. 
 

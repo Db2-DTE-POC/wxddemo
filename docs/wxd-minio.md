@@ -31,9 +31,11 @@ passwords text
 Open your browser and navigate to:
 
    * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+   * **Note**: Firefox on OSX occasionally freezes when connecting to the MinIO console. The Safari browser is much more reliable.
    
 ![Browser](wxd-images/minio-logon.png)
- 
+
+
 Login with object store credentials found above (These will be different for your system). You should see current buckets in MinIO.
 
 ![Browser](wxd-images/minio-objects.png)
