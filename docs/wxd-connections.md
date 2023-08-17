@@ -192,7 +192,7 @@ conn = prestodb.dbapi.connect(
        http_scheme='https',
        auth=prestodb.auth.BasicAuthentication("ibmlhadmin", "password")
 )
-conn._http_session.verify = '/Users/myname/Downloads/lh-ssl-ts.crt'
+conn._http_session.verify = '/certs/lh-ssl-ts.crt'
 cur = conn.cursor()
 ```
 
@@ -302,7 +302,7 @@ hostname  = "watsonxdata"
 port      = "8443"
 catalog   = "tpch"
 schema    = "tiny"
-certfile  = "/Users/myname/Downloads/lh-ssl-ts.crt"
+certfile  = "/certs/lh-ssl-ts.crt"
 connect_args={
         'protocol': 'https', 
         'requests_kwargs': {'verify': f'{certfile}'}
