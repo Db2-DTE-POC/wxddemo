@@ -81,7 +81,8 @@ More details: [SSH Access](wxd-reference-ssh.md)
 
 ## Open Ports
 
-The following URLs and Ports are used to access the watsonx.data services.
+The following URLs and Ports are used to access the watsonx.data services. Most browsers will work with these URLs. However, Mac OSX users should be aware that accessing the MinIO console may occasionally cause Firefox and Chrome to lock up. If you find that this occurs, try using Safari which appears to work fine.
+
 The ports that are used in the lab are listed below.
 
    * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console
