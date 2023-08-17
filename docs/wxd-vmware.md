@@ -36,6 +36,11 @@ The ports that are used in the lab are listed below.
 
 **The Apache Superset link will not be active until started as part of the lab.**
 
+These links have been placed into the Firefox browser for your convenience.
+
+![Browser](wxd-images/vmware-browser.png)
+
+
 ## Starting the VMware Image
 
 When the machine starts, you will be prompted with the logon screen.

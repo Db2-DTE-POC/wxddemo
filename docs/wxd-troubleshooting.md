@@ -17,6 +17,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Queries are failing with memory errors](#queries-fail-become-of-insufficient-memory)
    * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
    * [Wireguard not starting](#wireguard-not-starting)
+   * [No access to Presto/Minio UI after restart](#no-access-to-prestominio-ui-after-restart)
 
 ### What are the passwords for the services?
 
@@ -326,6 +327,22 @@ Wait for a few minutes for all the services to start, and then you will be able 
 On the Mac, the Wireguard application will not always display in the Dock. If it doesn't appear to "start", it may be sitting in the Systray at the bottom or top of your screen. The icon will be gray if no connections are active.
 
 ![Browser](wxd-images/wg-systray.png) 
+
+### No access to Presto/Minio UI after restart
+
+If you are using a Techzone image that has been suspended, or restarted, you may come across a situation where you are unable to connect to any service that uses the `http` protocol. The `watsonx.service` needs to have a diagnostic flag set that opens up these ports, and sometimes this diagnostic setting is not being updated. 
+
+To manually stop and start the system, you will need to connect with root user privileges and run the following commands:
+
+```
+sudo su -
+cd /root/ibm-lh-dev/bin
+./stop.sh
+export LH_RUN_MODE=diag
+./start.sh 
+```
+
+This set of commands will stop all the services in watsonx.data and restart them in diagnostic mode. This will now open the `http` ports for use.
 
 
 
