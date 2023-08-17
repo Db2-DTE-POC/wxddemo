@@ -803,6 +803,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#no-access-to-prestominio-ui-after-restart" class="md-nav__link">
+    No access to Presto/Minio UI after restart
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1194,6 +1201,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#no-access-to-prestominio-ui-after-restart" class="md-nav__link">
+    No access to Presto/Minio UI after restart
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1226,6 +1240,7 @@
 <li><a href="#queries-fail-become-of-insufficient-memory">Queries are failing with memory errors</a></li>
 <li><a href="#ssh-vnc-and-watsonxdata-ui-are-not-working">SSH, VNC and watsonx.data UI are not working</a></li>
 <li><a href="#wireguard-not-starting">Wireguard not starting</a></li>
+<li><a href="#no-access-to-prestominio-ui-after-restart">No access to Presto/Minio UI after restart</a></li>
 </ul>
 <h3 id="what-are-the-passwords-for-the-services">What are the passwords for the services?</h3>
 <p>See the section on <a href="wxd-reference-passwords#passwords">Passwords</a>.</p>
@@ -1415,6 +1430,16 @@ exit
 <h3 id="wireguard-not-starting">Wireguard Not Starting</h3>
 <p>On the Mac, the Wireguard application will not always display in the Dock. If it doesn't appear to "start", it may be sitting in the Systray at the bottom or top of your screen. The icon will be gray if no connections are active.</p>
 <p><img alt="Browser" src="../wxd-images/wg-systray.png" /> </p>
+<h3 id="no-access-to-prestominio-ui-after-restart">No access to Presto/Minio UI after restart</h3>
+<p>If you are using a Techzone image that has been suspended, or restarted, you may come across a situation where you are unable to connect to any service that uses the <code>http</code> protocol. The <code>watsonx.service</code> needs to have a diagnostic flag set that opens up these ports, and sometimes this diagnostic setting is not being updated. </p>
+<p>To manually stop and start the system, you will need to connect with root user privileges and run the following commands:</p>
+<pre><code>sudo su -
+cd /root/ibm-lh-dev/bin
+./stop.sh
+export LH_RUN_MODE=diag
+./start.sh 
+</code></pre>
+<p>This set of commands will stop all the services in watsonx.data and restart them in diagnostic mode. This will now open the <code>http</code> ports for use.</p>
 
               
             </article>
