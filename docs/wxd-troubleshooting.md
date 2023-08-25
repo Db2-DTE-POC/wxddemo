@@ -13,7 +13,7 @@ Although we have tried to make the lab as error-free as possible, occasionally t
    * [Presto doesn't appear to be working](#presto-doesnt-appear-to-be-working)
    * [Displaying Db2 Schema is failing](#displaying-db2-schema-is-failing)
    * [Queries are failing with a 400 code](#queries-are-failing-with-a-400-code)
-   * [Queries are failing with a 500 code](#queries-are-failing-with-a-500-code)
+   * [Queries are failing with a 200 or 500 code](#queries-are-failing-with-a-200-or-500-code)
    * [Queries are failing with memory errors](#queries-fail-become-of-insufficient-memory)
    * [SSH, VNC and watsonx.data UI are not working](#ssh-vnc-and-watsonxdata-ui-are-not-working)
    * [Wireguard not starting](#wireguard-not-starting)
@@ -193,7 +193,7 @@ docker restart db2server
 
 The watsonx.data UI will log you out after a period of inactivity, but doesn't tell you that this has happened. When you attempt to run a query, the error that is returned (400) indicates that you need to log back in again.
 
-### Queries are failing with a 500 code
+### Queries are failing with a 200 or 500 code
 
 A 500 code may indicate the watsonx.data UI has a problem connecting with the Presto engine. First log out of the console and trying logging back on. If that fails to solve the problem, you will need to reboot the console. Open up a terminal window into the server:
 
