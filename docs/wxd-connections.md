@@ -10,6 +10,7 @@ In order to access these images outside the Virtual machine image, you must extr
    * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
    * [Accessing watsonx.data via Python](#accessing-watsonxdata-via-python)
    * [Accessing watsonx.data via Pandas Dataframes](#accessing-watsonxdata-via-pandas-dataframes)
+   * [Generating a Certificate](#generating-a-certificate)
 
 ## watsonx.data Presto Access
 
@@ -360,4 +361,32 @@ plt.show()
 
 ![Browser](wxd-images/connection-graph.png)
 
+## Generating a Certificate
 
+If you need to regenerate the certificates used by the system, use the following steps. 
+
+Use a terminal window to issue the following commands. All commands run as root in the system.
+```
+sudo su -
+```
+
+Copy the existing certificates in the watsonx.data system into the `certs` directory. **Note**: The `certs` directory should exist on the system. If it does not, you will need to create it.
+```
+docker cp ibm-lh-presto:/mnt/infra/tls/lh-ssl-ts.jks /certs/lh-ssl-ts.jks
+docker cp ibm-lh-presto:/mnt/infra/tls/cert.crt /certs/lh-ssl-ts.crt
+```
+
+Extract the certificate information locally. This command may generate warning messages during execution. These errors can be safely ignored as long as the `presto.cert` file is created.
+```
+echo QUIT | openssl s_client -showcerts -connect 127.0.0.1:8443 | awk '/-----BEGIN CERTIFICATE-----/ {p=1}; p; /-----END CERTIFICATE-----/ {p=0}' > presto.cert
+```
+
+Use the `keytool` command to generate the jks key. The tool will prompt the user to verify that the certificate is valid and to provide a userid for the certificate. This system uses `watsonx.data` as the password. You have the choice of using any password you want, as long as you remember to use it in any dialog that requires the cert file password.
+```
+keytool -import -alias presto-cert -file ./presto.cert -keystore ./presto-key.jks
+```
+
+Copy the generated cert file to the proper directory.
+```
+cp ./presto-key.jks /certs/.
+```
