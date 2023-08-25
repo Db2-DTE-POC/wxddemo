@@ -2,7 +2,7 @@
 
 Although we have tried to make the lab as error-free as possible, occasionally things will go wrong. Here is a list of common questions, problems, and potential solutions.
 
-   * [What are the passwords for the serviers](#what-are-the-passwords-for-the-services)
+   * [What are the passwords for the services](#what-are-the-passwords-for-the-services)
    * [I Can't Open up a Terminal Window with VNC or Guacamole](#i-cant-open-up-a-terminal-window-with-vnc-or-guacamole)
    * [A SQL Statement failed but there are no error messages](#a-sql-statement-failed-but-there-are-no-error-messages)
    * [Apache Superset isn't Starting](#apache-superset-isnt-starting)
