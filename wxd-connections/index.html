@@ -899,6 +899,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#generating-a-certificate" class="md-nav__link">
+    Generating a Certificate
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1148,6 +1155,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#generating-a-certificate" class="md-nav__link">
+    Generating a Certificate
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1172,6 +1186,7 @@
 <li><a href="#adding-a-database-to-watsonxdata">Adding a database to watsonx.data</a></li>
 <li><a href="#accessing-watsonxdata-via-python">Accessing watsonx.data via Python</a></li>
 <li><a href="#accessing-watsonxdata-via-pandas-dataframes">Accessing watsonx.data via Pandas Dataframes</a></li>
+<li><a href="#generating-a-certificate">Generating a Certificate</a></li>
 </ul>
 <h2 id="watsonxdata-presto-access">watsonx.data Presto Access</h2>
 <p>When connecting to the Presto engine, choose the PrestoDB driver.</p>
@@ -1416,6 +1431,24 @@ connect_args={
 plt.show()
 </code></pre>
 <p><img alt="Browser" src="../wxd-images/connection-graph.png" /></p>
+<h2 id="generating-a-certificate">Generating a Certificate</h2>
+<p>If you need to regenerate the certificates used by the system, use the following steps. </p>
+<p>Use a terminal window to issue the following commands. All commands run as root in the system.</p>
+<pre><code>sudo su -
+</code></pre>
+<p>Copy the existing certificates in the watsonx.data system into the <code>certs</code> directory. <strong>Note</strong>: The <code>certs</code> directory should exist on the system. If it does not, you will need to create it.</p>
+<pre><code>docker cp ibm-lh-presto:/mnt/infra/tls/lh-ssl-ts.jks /certs/lh-ssl-ts.jks
+docker cp ibm-lh-presto:/mnt/infra/tls/cert.crt /certs/lh-ssl-ts.crt
+</code></pre>
+<p>Extract the certificate information locally. This command may generate warning messages during execution. These errors can be safely ignored as long as the <code>presto.cert</code> file is created.</p>
+<pre><code>echo QUIT | openssl s_client -showcerts -connect 127.0.0.1:8443 | awk '/-----BEGIN CERTIFICATE-----/ {p=1}; p; /-----END CERTIFICATE-----/ {p=0}' &gt; presto.cert
+</code></pre>
+<p>Use the <code>keytool</code> command to generate the jks key. The tool will prompt the user to verify that the certificate is valid and to provide a userid for the certificate. This system uses <code>watsonx.data</code> as the password. You have the choice of using any password you want, as long as you remember to use it in any dialog that requires the cert file password.</p>
+<pre><code>keytool -import -alias presto-cert -file ./presto.cert -keystore ./presto-key.jks
+</code></pre>
+<p>Copy the generated cert file to the proper directory.</p>
+<pre><code>cp ./presto-key.jks /certs/.
+</code></pre>
 
               
             </article>
