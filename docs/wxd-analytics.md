@@ -139,10 +139,24 @@ Generate the PNG file from the explain statement.
 ```
 dot -Tpng /tmp/fixedplan.dot > /tmp/plan.png
 ```
-You can't view this image directory in the terminal window. The only way to view it is via the VNC connection or VMware console. As the watsonx user, run the following command from a terminal window.
 
-**Note**: Cut and Paste does not work for VNC sessions. You will have to type this command in manually. 
+Open a separate terminal window and issue the following command (using the SSH port number and server name supplied in your reservation).
+
+#### Mac OSX user
+
+```bash
+scp -port watsonx@region.techzone-server.com:/tmp/plan.png plan.png && open plan.png
 ```
+
+#### Windows user
+
+```bash
+scp -port watsonx@region.techzone-server.com:/tmp/plan.png plan.png & start "" "plan.png"
+```
+
+#### Linux user (watsonx.data server)
+
+```bash
 eog /tmp/plan.png
 ```
 
@@ -165,9 +179,7 @@ quit;
 ```
 
 ### Inspect object store directory/object/file structure
-Open your browser and navigate to:
-   
-   * MinIO console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+Open your browser and connect to the MinIO console.
 
 If you forget the userid and password, use the following command to extract them or use the <code style="color:blue;font-size:medium;">passwords</code> command.
 ```
@@ -278,10 +290,24 @@ Generate the PNG file from the explain statement.
 ```
 dot -Tpng /tmp/fixedplan.dot > /tmp/plan.png
 ```
-You can't view this image directory in the terminal window. The only way to view it is via the VNC connection or VMware console. As the watsonx user, run the following command from a terminal window.
 
-Run the following command to view the visual explain.
+Open a separate terminal window and issue the following command (using the SSH port number and server name supplied in your reservation).
+
+#### Mac OSX user
+
+```bash
+scp -port watsonx@region.techzone-server.com:/tmp/plan.png plan.png && open plan.png
 ```
+
+#### Windows user
+
+```bash
+scp -port watsonx@region.techzone-server.com:/tmp/plan.png plan.png & start "" "plan.png"
+```
+
+#### Linux user (watsonx.data server)
+
+```bash
 eog /tmp/plan.png
 ```
 

@@ -2,9 +2,9 @@
 
 ![WatsonX](wxd-images/watsonxlogoibm.png)
 
-The next-gen watsonx.data lakehouse is designed to overcome the costs and complexities enterprises face. This will be the world’s first and only open data store with multi-engine support that is built for hybrid deployment  across your entire ecosystem.
+The next-gen watsonx.data lakehouse is designed to overcome the costs and complexities enterprises face. This will be the world’s first and only open data store with multi-engine support that is built for hybrid deployment across your entire ecosystem.
  
-   * Watsonx.data is the only lakehouse with multiple query engines allowing you to optimize costs and performance by pairing the right workload with the right engine.
+   * WatsonX.data is the only lakehouse with multiple query engines allowing you to optimize costs and performance by pairing the right workload with the right engine.
    * Run all workloads from a single pane of glass, eliminating trade-offs with convenience while still improving cost and performance.
    * Deploy anywhere with full support for hybrid-cloud and multi cloud environments.
    * Shared metadata across multiple engines eliminates the need to re-catalog, accelerating time to value while ensuring governance and eliminating costly implementation efforts.
@@ -13,8 +13,8 @@ This lab uses the watsonx.data developer package. The Developer package is meant
 
 We organized this lab into a number of sections that cover many of the highlights and key features of watsonx.data.
 
-   * Access a Techzone or VMWare image for testing
-   * Starting watsonx.data
+   * Access a TechZone or VMWare image for testing
+   * Checking watsonx.data status
    * Introduction to watsonx.data components
    * Analytical SQL
    * Advanced SQL functions
@@ -23,4 +23,16 @@ We organized this lab into a number of sections that cover many of the highlight
 
 In addition, there is an Appendix which includes common errors and potential fixes or workarounds. 
 
-Get started by reserving a Techzone image!
+## Watsonx.data Developer Image 
+
+The watsonx.data system is running on a virtual machine with the following resources:
+
+   * 4 vCPUs
+   * 16Gb of memory
+   * 400Gb of disk
+
+This is sufficient for running this exercises found in this lab but should not be used for performance testing or dealing with large data sets.
+
+## Watsonx.data Level 3 Technical Training
+
+This system is used as a basis for the watsonx.data Level 3 Technical Training. For the detailed lab material, please refer to the following PDF found in Seismic: [https://ibm.seismic.com/Link/Content/DCG37pjmPj7VmGCHj2Df8fHVmDJj](https://ibm.seismic.com/Link/Content/DCG37pjmPj7VmGCHj2Df8fHVmDJj)

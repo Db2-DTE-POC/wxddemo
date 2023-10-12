@@ -1,16 +1,34 @@
 # Database Connections
 
-There are three database systems that can be accessed inside and outside the virtual machine environment: watsonx.data Presto, Db2 LUW and PostgreSQL.
+There are three database systems that can be accessed inside and outside the virtual machine environment: watsonx.data Presto, Db2 LUW, MySQL and PostgreSQL.
 
-In order to access these images outside the Virtual machine image, you must extract the certificates and add a host name to your workstation. Details on accessing the databases are shown below.
+In order to access these images outside the Virtual machine image, you need the server name and port for the service. You will also need to download the `presto-key.jks` file for connecting to Presto.
 
+   * [Connection Certificate](#watsonxdata-connection-certificate)
    * [Accessing watsonx.data (Presto)](#watsonxdata-presto-access)
    * [Accessing Db2](#db2-access)
    * [Accessing PostgreSQL](#postgresql-access)
+   * [Accessing MySQL]
    * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
    * [Accessing watsonx.data via Python](#accessing-watsonxdata-via-python)
    * [Accessing watsonx.data via Pandas Dataframes](#accessing-watsonxdata-via-pandas-dataframes)
    * [Generating a Certificate](#generating-a-certificate)
+
+## watsonx.data Connection Certificate
+
+When connecting to the watsonx.data Presto database, you will need to have the connection certificate available to the client that you are using. Usually this location is your workstation, but it could be another service like CP4D.
+
+To extract the certificate to your local file system, use the following command in a terminal window. Replace the `port` and `regions.techzone-server.com` with the SSH values found in the TechZone reservation.
+
+```
+scp -P port watsonx@region.techzone-server.com:/certs/presto-key.jks /Users/myname/Downloads
+```
+
+Change the target directory to a location that you can remember! 
+
+You can also download the certificate by using the Jupyter Notebook link and opening the Credentials notebook. There you will find links to the certificates.
+
+![Browser](wxd-images/jupyter-credentials.png)
 
 ## watsonx.data Presto Access
 
@@ -34,24 +52,14 @@ In addition, you need to set the following driver properties:
 
 ### Presto External Access
 
-The watsonx.data Presto database requires that the certificate be extracted from the image and a host name be added to your workstation. 
+The watsonx.data Presto database requires that the certificate be extracted from the image. See the section above on [Connection Certificate](#watsonxdata-connection-certificate) for more details.
 
-The first step is to extract the Presto certificate onto your local file system.
-
-```
-scp watsonx@192.168.252.2:/certs/presto-key.jks /Users/myname/Downloads
-```
-
-Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
-
-```
-echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
-```
+In the following settings, remember to update the Hostname and Port to the values provided in your TechZone reservation.
 
 The database connection settings are:
 
-   * Hostname: <code style="color:blue;font-size:medium;">watsonxdata</code>
-   * Port: <code style="color:blue;font-size:medium;">8443</code>
+   * Hostname: <code style="color:blue;font-size:medium;">region.techzone-server.com</code>
+   * Port: <code style="color:blue;font-size:medium;">port</code>
    * Username: <code style="color:blue;font-size:medium;">ibmlhadmin</code>
    * Password: <code style="color:blue;font-size:medium;">password</code>
    * Database: <code style="color:blue;font-size:medium;">tpch</code>
@@ -81,10 +89,10 @@ The Db2 server can be accessed on port 50000 inside the virtual machine using th
 
 ### Db2 External Access
 
-When accessing the database outside the virtual machine, you must change the host to 192.168.252.2. All the other settings remain the same.
+When accessing the database outside the virtual machine, you must change the host to `region.techzone-server.com` and the port number based on your TechZone reservation. All the other settings remain the same.
 
-   * Hostname - <code style="color:blue;font-size:medium;">192.168.252.2</code>
-   * Port - <code style="color:blue;font-size:medium;">50000</code>
+   * Hostname - <code style="color:blue;font-size:medium;">region.techzone-server.com</code>
+   * Port - <code style="color:blue;font-size:medium;">port</code>
    * Username - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Password - <code style="color:blue;font-size:medium;">db2inst1</code>
    * Database - <code style="color:blue;font-size:medium;">gosales</code>
@@ -95,11 +103,10 @@ When accessing the database outside the virtual machine, you must change the hos
 When connecting to the PostgreSQL engine, select the PostgreSQL driver. In order to connect to the PostgreSQL system, you will need to extract the admin password using the following command when connected to the watsonx.data system.
 
 ```
-export POSTGRES_PASSWORD=$(docker exec ibm-lh-postgres printenv | grep POSTGRES_PASSWORD | sed 's/.*=//')
-echo "Postgres Userid   : admin"
-echo "Postgres Password : " $POSTGRES_PASSWORD
-echo $POSTGRES_PASSWORD > /tmp/postgres.pw
+cat /certs/passwords
 ```
+
+You can also retrieve the credentials by opening up the Credentials notebook in the Jupyter notebook service.
 
 ### PostgreSQL Internal Access
 
@@ -115,15 +122,52 @@ When accessing the PostgreSQL database in the system, use the following settings
 
 The following credentials are used for remote access.
 
-   * Hostname: <code style="color:blue;font-size:medium;">192.168.252.2</code>
-   * Port: <code style="color:blue;font-size:medium;">5432</code>
+   * Hostname: <code style="color:blue;font-size:medium;">regions.techzone-server.com</code>
+   * Port: <code style="color:blue;font-size:medium;">port</code>
    * Username: <code style="color:blue;font-size:medium;">admin</code>
    * Password: The value that was extracted in the earlier step
    * Database name: <code style="color:blue;font-size:medium;">gosales</code>
 
+## MySQL Access
+
+When connecting to the MySQL engine, select the MySQL driver. 
+
+```
+export POSTGRES_PASSWORD=$(docker exec ibm-lh-postgres printenv | grep POSTGRES_PASSWORD | sed 's/.*=//')
+echo "Postgres Userid   : admin"
+echo "Postgres Password : " $POSTGRES_PASSWORD
+echo $POSTGRES_PASSWORD > /tmp/postgres.pw
+```
+
+### MySQL Internal Access
+
+When accessing the MySQL database in the system, use the following settings.
+
+   * Hostname –<code style="color:blue;font-size:medium;">watsonxdata</code>
+   * Port – <code style="color:blue;font-size:medium;">3306</code>
+   * Username – <code style="color:blue;font-size:medium;">root</code>
+   * Password - <code style="color:blue;font-size:medium;">password</code>
+   * Database – <code style="color:blue;font-size:medium;">gosalesdw</code>   
+
+You must set the `allowPublicKeyRetrieval` to `True` for the connection to work with dBeaver.
+
+![Browser](wxd-images/mysql-publickey.png)
+
+### MySQL External Access
+
+The following credentials are used for remote access.
+
+   * Hostname: <code style="color:blue;font-size:medium;">regions.techzone-server.com</code>
+   * Port: <code style="color:blue;font-size:medium;">port</code>
+   * Username: <code style="color:blue;font-size:medium;">root</code>
+   * Password - <code style="color:blue;font-size:medium;">password</code>
+   * Database name: <code style="color:blue;font-size:medium;">gosalesdw</code>   
+
+You must set the `allowPublicKeyRetrieval` to `True` for the connection to work with dBeaver (see above).   
+
 ## Adding a Database to watsonx.data
 
-When adding a database engine to the watsonx.data system, make sure to change the database display name since that needs to be unique. For instance, when you add `GOSALES` database from Db2 to the system, the display name could be `GOSALES` as well. However, if you now add the PostgreSQL database to the system, the display name cannot be the same. You may want to differentiate databases with the same name by prefixing them with the database type. For instance, the `GOSALES` database could be shown as `db2_gosales` or `pg_gosales` so that you keep the names distinct.
+When adding a database engine to the watsonx.data system, make sure to change the database display name since that needs to be unique. For instance, when you add `gosales` database from Db2 to the system, the display name could be `gosales` as well. However, if you now add the PostgreSQL database to the system, the display name cannot be the same. You may want to differentiate databases with the same name by prefixing them with the database type. For instance, the `gosales` database could be shown as `db2_gosales` or `pg_gosales` so that you keep the names distinct.
 
 Once a database has been added, make sure to wait for a few moments before attempting to access the database. The Presto server takes a few moments to start up. To make sure that it is running, run the `check_presto` command in a terminal window and wait until it says the service is ready.
 
@@ -140,42 +184,12 @@ pip3 install presto-python-client
 Once the installation is complete, extract the certificate from the watsonx.data server that we will use in the connection.
 
 ```
-scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
+scp -P port watsonx@region.techzone-server.com:/certs/presto-key.jks /Users/myname/Downloads
 ```
 
-Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
+Change the target directory to a location that you can remember! 
 
-**Mac OSX Hosts File**
-
-```
-echo '192.168.252.2 watsonxdata' | sudo tee -a /etc/hosts
-```
-
-**Windows Hosts File**
-
-You must run the following command as an administrative user. 
-
-```
-echo '192.168.252.2 watsonxdata' >> %WINDIR%\System32\Drivers\Etc\Hosts
-```
-
-If you are not sure how to do that, first find the command shell in the program list:
-
-![Browser](wxd-images/windows-administrator.png)
-
-Make sure to select `Run as Administrator`. A confirmation dialog will appear.
-
-![Browser](wxd-images/windows-adminyes.png)
-
-Press Yes. You should see the terminal window appear. 
-
-![Browser](wxd-images/windows-updatehost.png)
-
-Copy the command below into the window and hit Enter to execute it. 
-
-```
-echo '192.168.252.2 watsonxdata' >> %WINDIR%\System32\Drivers\Etc\Hosts
-```
+You can also download the certificate by using the Jupyter Notebook link and opening the Certificate notebook. 
 
 ## Python and Jupyter Connection Code
 
@@ -268,24 +282,12 @@ If you are running in a Jupyter Lab environment, you can use the most current ve
 Once the drivers have been loaded, you will need to extract the certificate from the watsonx.data server that we will use in the connection.
 
 ```
-scp watsonx@192.168.252.2:/certs/lh-ssl-ts.crt /Users/myname/Downloads
+scp -P port watsonx@region.techzone-server.com:/certs/presto-key.jks /Users/myname/Downloads
 ```
 
-Change the target directory to a location that you can remember! Next add the following host information to your local hosts file. You may need to authenticate on your workstation in order to change the file.
+Change the target directory to a location that you can remember! 
 
-**Mac OSX Hosts File**
-
-```
-echo '192.168.252.2' watsonxdata | sudo tee -a /etc/hosts
-```
-
-**Windows Hosts File**
-
-Run the following as an administrative user.
-
-```
-echo '192.168.252.2' watsonxdata >> %WINDIR%\System32\Drivers\Etc\Hosts
-```
+You can also download the certificate by using the Jupyter Notebook link and opening the Certificate notebook. 
 
 In your Jupyter notebook, you will need to import a number of libraries.
 
@@ -312,7 +314,7 @@ connect_args={
 
 In the above settings, you will need to replace the following values:
 
-   * hostname - `watsonxdata` when connecting to the image externally, and  `ibm-lh-presto-svc` when connecting internally 
+   * hostname - `region.techzone-server.com` when connecting to the image externally, and  `ibm-lh-presto-svc` when connecting internally 
    * catalog - What is the name of the catalog that we are accessing
    * schema - The schema inside the catalog that will be used
 
@@ -360,33 +362,3 @@ plt.show()
 ```
 
 ![Browser](wxd-images/connection-graph.png)
-
-## Generating a Certificate
-
-If you need to regenerate the certificates used by the system, use the following steps. 
-
-Use a terminal window to issue the following commands. All commands run as root in the system.
-```
-sudo su -
-```
-
-Copy the existing certificates in the watsonx.data system into the `certs` directory. **Note**: The `certs` directory should exist on the system. If it does not, you will need to create it.
-```
-docker cp ibm-lh-presto:/mnt/infra/tls/lh-ssl-ts.jks /certs/lh-ssl-ts.jks
-docker cp ibm-lh-presto:/mnt/infra/tls/cert.crt /certs/lh-ssl-ts.crt
-```
-
-Extract the certificate information locally. This command may generate warning messages during execution. These errors can be safely ignored as long as the `presto.cert` file is created.
-```
-echo QUIT | openssl s_client -showcerts -connect 127.0.0.1:8443 | awk '/-----BEGIN CERTIFICATE-----/ {p=1}; p; /-----END CERTIFICATE-----/ {p=0}' > presto.cert
-```
-
-Use the `keytool` command to generate the jks key. The tool will prompt the user to verify that the certificate is valid and to provide a userid for the certificate. This system uses `watsonx.data` as the password. You have the choice of using any password you want, as long as you remember to use it in any dialog that requires the cert file password.
-```
-keytool -import -alias presto-cert -file ./presto.cert -keystore ./presto-key.jks
-```
-
-Copy the generated cert file to the proper directory.
-```
-cp ./presto-key.jks /certs/.
-```

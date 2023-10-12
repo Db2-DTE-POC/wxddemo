@@ -3,32 +3,36 @@ site_name: watsonx.data Lab
 #   name: material
 nav:
   - Introduction: "wxd-intro.md"
-  - Quick Start: "wxd-quick.md"
-  - How to Reference:
+  - What's New: "wxd-revisions.md"
+  # - Quick Start: "wxd-quick.md"
+  - Getting Started:
     - Requesting an IBMid: "wxd-reference-ibmid.md"
     - Requesting an image: "wxd-reference-techzone.md"
     - Accessing the reservation: "wxd-reference-access.md"
-    - VPN Access with Wireguard: "wxd-reference-wireguard.md"
-    - VNC Basics: "wxd-reference-vnc.md"
-    - SSH and SCP Commands: "wxd-reference-ssh.md"
     - Available Ports: "wxd-reference-ports.md"
+    - VM Remote Console: "wxd-reference-vnc.md"
+    - SSH and SCP Commands: "wxd-reference-ssh.md"
     - Userids and Passwords: "wxd-reference-passwords.md"
-    - Portainer Console: "wxd-reference-portainer.md"
     - Documentation: "wxd-reference-documentation.md"
-  - Check Server Status: "wxd-startwatsonx.md"
-  - Introduction: 
+  - Lab Instructions: "wxd-lab-instructions.md"
+  - Jupyter Notebook: "wxd-jupyter.md"
+  - Core Components: 
     - Presto CLI: "wxd-prestocli.md"
     - watsonx.data UI: "wxd-watsonui.md"
     - Presto UI: "wxd-presto.md"
     - MinIO UI: "wxd-minio.md"
-    - dBeaver: "wxd-dbeaver.md"
   - Presto SQL:
     - Analytic Workloads: "wxd-analytics.md"
     - Advanced Functions: "wxd-advanced.md"
     - Time Travel: "wxd-timetravel.md"
     - Federation: "wxd-federation.md"
+    - System Connector: "wxd-systemconnector.md"
+  - Optional Tools:
     - Apache Superset: "wxd-superset.md"
+    - dBeaver: "wxd-dbeaver.md"
+    - Portainer Console: "wxd-reference-portainer.md"
   - Working with Object Store Buckets: "wxd-objectstore.md"
+  - Ingesting Data: "wxd-ingest.md"
   - Documentation: "wxd-reference-documentation.md"
   - Troubleshooting: "wxd-troubleshooting.md"
   - Dataset Details: 
@@ -41,7 +45,6 @@ nav:
   - VMWare Image: "wxd-vmware.md"
   - Appendix: 
     - Disclaimer: "wxd-disclaimer.md"
-    - Revisions: "wxd-revisions.md"
     - Acknowledgements: "wxd-acknowledgements.md"
   - Glossary: "wxd-glossary.md"
 

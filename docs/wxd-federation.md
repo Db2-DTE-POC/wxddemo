@@ -65,10 +65,12 @@ echo "Postgres Userid   : admin"
 echo "Postgres Password : " $POSTGRES_PASSWORD
 echo $POSTGRES_PASSWORD > /tmp/postgres.pw
 ```
+Open your browser and navigate to:
 
-Open your browser and connect to the watsonx.data UI:
 
-   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
+* Watsonx.data UI - https://region.techzone-server.com:port
+* Credentials: username: <code style="color:blue;font-size:medium;">ibmlhadmin</code> password: <code style="color:blue;font-size:medium;">password</code>
+
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
@@ -97,27 +99,27 @@ Enter the following values:
    * Password – The value that was extracted in the earlier step
    * Catalog Name – <code style="color:blue;font-size:medium;">pgdatadb</code>
    
-Your screen should look like the one below. Press "Add".
+Your screen should look like the one below. You can press the "Test" button to check to see if the connection settings are correct. Once you are satisfied with the settings, press "Add". 
 
-![Browser](wxd-images/watsonx-adddb-filled.png)
+![Browser](wxd-images/watsonx-add-pgdatadb.png)
 
 The infrastructure screen should now show the Postgres database.
 
-![Browser](wxd-images/watsonx-infrastructure-2.png)
+![Browser](wxd-images/watsonx-2-infrastructure.png)
  
 What we are currently missing the connection between the Presto engine and the Postgres data in pgdatadb. We must connect the pgdatadb database to the Presto engine. Use your mouse to hover over the pgdatadb icon until you see the Associate connection icon:
 
-![Browser](wxd-images/watsonx-associate-icon.png)
+![Browser](wxd-images/watsonx-pgdatadb-associate-icon.png)
  
 Click on the association icon. You should see the following confirmation dialog:
 
-![Browser](wxd-images/watsonx-associate-engine.png)
+![Browser](wxd-images/watsonx-pgdata-associate-engine.png)
 
 Select the <code style="color:blue;font-size:medium;">presto-01</code> engine and press **Save and restart engine**.
  
 Press the Associate button and the screen will update to show the connection.
 
-![Browser](wxd-images/watsonx-infrastructure-3.png)
+![Browser](wxd-images/watsonx-3-infrastructure.png)
  
 ### Presto Federation
 

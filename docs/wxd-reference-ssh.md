@@ -1,21 +1,24 @@
 # SSH Access
 
-You have the choice of using the VNC connection to the virtual machine, or using a local terminal shell (iterm, Hyper, terminal) to run commands against the watsonx.data server.
+Your TechZone reservation will include the server name and port number to use when connecting using ssh. The port number is referred to as <tt style="font-size: large; color: darkgreen;">port</tt> in the command below, while the server will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>. Replace these values with those found in your reservation.
 
-To connect to the server, open a terminal session and issue the following command to connect as the <code style="color:blue;font-size:medium;">watsonx</code> user:
+You have the choice of using the VM Remote console and logging in as the watsonx user to issues commands, or using a local terminal shell (iTerm, Hyper, terminal) to run commands against the watsonx.data server. You can have multiple connections into the machine at any one time. 
+
+You may find it is easier to cut-and-paste commands into a local terminal shell rather than using the VM Remote Console because the console does not support cut-and-paste operation from your workstation to the remote desktop.
+
+Open a terminal window and use the following syntax to connect as the <code style="font-size: medium;color:blue;">watsonx</code> userid.
 
 ```
-ssh watsonx@192.168.252.2
+ssh -p port watsonx@region.techzone-server.com
 ```
 
-When connected as the <code style="color:blue;font-size:medium;">watsonx</code> user, you can become the root user by entering the following command in the terminal window.
+The port number and server name are provided as part of the TechZone reservation details.
+
+To become the root user, issue the following command.
 ```
 sudo su -
 ```
-
-The password for watsonx and root is <code style="color:blue;font-size:medium;">watsonx.data</code>. 
-
-You can have multiple connections into the machine at any one time. You may find it is easier to cut-and-paste commands into a local terminal shell rather than using the VNC console.
+Password for both users is <code style="color:blue;font-size:medium;">watsonx.data</code>.
 
 ## Copying Files
 
@@ -24,7 +27,7 @@ If you need to move files into or out of the virtual machine, you can use the fo
 To copy a file into the virtual machine use the following syntax:
 
 ```
-scp myfile.txt watsonx@192.168.252.2:/tmp
+scp -P port myfile.txt watsonx@region.techzone-server.com:/tmp/myfile.txt
 ```
 
 The filename `myfile.txt` will be copied to the `/tmp` directory. The temporary directory is useful since you can copy the file to multiple places from within the Linux environment.
@@ -32,13 +35,13 @@ The filename `myfile.txt` will be copied to the `/tmp` directory. The temporary 
 Multiple files can be moved by using wildcard characters using the following syntax:
 
 ```
-scp myfile.* watsonx@192.168.252.2:/tmp
+scp -P port myfile.* watsonx@region.techzone-server.com:/tmp
 ```
 
 To move files from the image back to your local system requires you reverse the file specification.
 
 ```
-scp watsonx@192.168.252.2:/tmp/myfile.txt /Downloads/myfile.txt
+scp -P port watsonx@region.techzone-server.com:/tmp/myfile.txt /Downloads/myfile.txt
 ```
 
 You can also use wildcards to select more than one file.

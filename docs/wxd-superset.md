@@ -2,17 +2,9 @@
 
 Apache Superset is not a part of watsonx.data and is only used to demonstrate the capability to connect to watsonx.data from other BI/Reporting tools. You will need to install Apache Superset as part of this lab. The Superset repository needs to be in sync with the image being downloaded, so these libraries cannot be preloaded into this development image.
 
-Open a terminal window and connect via SSH as `watsonx`. 
-
-```
-ssh watsonx@192.168.252.2
-```
-
-Password is `watsonx.data`.
+Open a terminal window and connect via SSH as the `watsonx` user. Do not connect as the root user.
 
 Clone the Apache Superset repository with the git command. This command typically takes less than 1 minute to download the code.
-
-Download the superset code again.
 
 ```
 git clone https://github.com/apache/superset.git
@@ -41,35 +33,18 @@ sed 's/\${TAG:-latest-dev}/2.1.0/' yamlfix.txt > docker-compose-non-dev.yml
 
 Use docker-compose to start Apache Superset.
 ```
-nohup docker compose -f docker-compose-non-dev.yml up &
+docker compose -f docker-compose-non-dev.yml up
 ```
 
-The `nohup` command will issue a message indicating that output will be directed to the `nohup.out` file. The `docker compose` command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the background (note the `&` at the end of the command). If you want to stop it you will need to bring it back to the foreground using the command `fg` and then shutting it down by pressing CTRL-C. 
+The `docker compose` command will download the necessary code for Apache Superset and start the service. The terminal session will contain the logging information for the service. The process is running in the foreground so you will see all the messages being produced by the program. If you want to stop the service at any time you will need to press CTRL-C. If you close this terminal window at any time, the process will stop.
 
-```
-fg
-```
-
-It takes some time for the service to start, so be patient! You can view any output from the Apache Superset system by viewing the `nohup.out` file in the directory where you installed superset. 
+When you see "Init Step 4/4", the service is ready for connections.
 
 ![Browser](wxd-images/superset-1.png)
 
-Use the following command to determine when you can access the image:
-```
-cat /home/watsonx/superset/nohup.out | grep "Init Step 4/4"
-```
-
-If you get output back then you can start connecting to the service.
-
 If you have already installed Apache Superset and you stopped it, there is no need to reinstall the program. Go back to the `/home/watsonx/superset` directory and run the `docker compose` program again:
 
-```
-nohup docker compose -f docker-compose-non-dev.yml up &
-```
-
-Once the service is running, open your browser and navigate to:
-
-   * Apache Superset - <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> 
+Once the service is running, open your browser and navigate to the URL and port that were provided in your TechZone reservation.
 
 The credentials for Apache Superset are userid `admin`, Password `admin`.
 

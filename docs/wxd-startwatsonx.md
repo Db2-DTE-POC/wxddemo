@@ -1,16 +1,11 @@
-# System Overview
+# Lab Instructions
 
-The watsonx.data system is running on a virtual machine with the following resources:
+## URL Conventions
 
-   * 4 vCPUs
-   * 16Gb of memory
-   * 400Gb of disk
+Your TechZone reservation contains a number of URLs for the services provided in the watsonx.data server. The URL will contain the name of the server and the corresponding port number for the service. Throughout the documentation, the server name will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>and port number is referred to as <tt style="font-size: large; color: darkgreen;">port</tt>. Where you see these URLS, replace them with the values found in your reservation.
 
-This is sufficient for running this exercises found in this lab but cannot be used for large scale testing. 
+## Commands
 
-When the system initially starts it may take up to 5 minutes before you can issue SQL commands against the Presto engine. If you find the watsonx.data UI is generating error messages then it may be because all of the processes have not finished starting.
-
-## Lab Instructions
 Throughout the labs, any command that needs to be executed will be highlighted in a grey box:
 ```
 cd /root/ibm-lh-dev/bin
@@ -21,12 +16,12 @@ Note that some commands may span multiple lines, so make sure you copy everythin
 
 ## System Check
 
-Make sure that you have an open terminal session using SSH from your workstation, or a terminal window inside the VNC browser. 
+Your TechZone reservation will include the server name and port number to use when connecting using ssh. The port number is referred to as <tt style="font-size: large; color: darkgreen;">port</tt> in the command below, while the server will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>. Replace these values with those found in your reservation.
 
-**Note**: If you are running commands inside the virtual machine (VNC or a VMWare image), you do not have to use `ssh` to connect to the system., Your terminal window is already the `watsonx` user.
+Make sure that you have an open terminal session and use the following command to connect to the watsonx.data server.
 
-```
-ssh watsonx@192.168.252.2
+```bash
+ssh -p port watsonx@region.techzone-server.com
 ```
 Password is <code style="color:blue;font-size:medium;">watsonx.data</code>.
 Next switch to the root userid.
@@ -43,7 +38,7 @@ Once you have switched to the development directory, you can start running watso
 ```bash
 ./status.sh --all
 ```
-Output will look like:
+Output will look similar to:
 <pre style="font-size: small; color: darkgreen; overflow: scroll"">
 using /root/ibm-lh-dev/localstorage/volumes as data root directory for user: root/1001 
 infra config location is /root/ibm-lh-dev/localstorage/volumes/infra

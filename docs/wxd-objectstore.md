@@ -19,9 +19,7 @@ In the GA version, there will be a user experience to facilitate such setup, how
      * The _shared_ meta-store is critical in all of this as it helps provide relevant schema information to the engines.
 
 ### Create new bucket in MinIO
-Open your browser and navigate to:
-
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+Open your browser and navigate to the MinIO console.
    
 Check to see if the MinIO credentials exist in your terminal session.
 ```
@@ -53,8 +51,6 @@ You should now see your new bucket below.
 ![Browser](wxd-images/minio-bucket-4.png)
  
 Open your browser and connect to the watsonx.data UI:
-
-   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a>
    
 Navigate to the Infrastructure manager by clicking on the icon below the Home symbol.
 
@@ -143,9 +139,7 @@ quit;
 ```
 You can use the Developer sandbox (bin/dev-sandbox.sh), as described in [MinIO UI](wxd-minio.md#do-i-really-need-apache-iceberg), to inspect the Customer bucket with the s3-inspect utility.
 
-It's easier to use the MinIO console to view the bucket instead. Open your browser and navigate to:
-
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+It's easier to use the MinIO console to view the bucket instead. Open your browser and navigate to the MinIO console.
 
 From the main screen select Object Browser and view the contents of the customer bucket.
 

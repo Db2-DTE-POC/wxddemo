@@ -1,5 +1,5 @@
 # Requesting a TechZone image
-Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
+Log into TechZone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
 Developer Base Image or use the following link.
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
@@ -11,7 +11,9 @@ you have logged in, you should see the following.
 
 ![Browser](wxd-images/techzone-main.png)
  
-Select the Environment tab on the far-left side.
+Select the Environment tab on the far-left side. 
+
+**Note**: There may be more than one environment available. Choose the one best suited for your requirements.
 
 ![Browser](wxd-images/techzone-environment.png)
  
@@ -34,17 +36,17 @@ education). Next select preferred Geography for the image.
 
 Choose any of the regions that are closest to your location. 
 
-**Note**: During periods of high TechZone utilization, the provisioning of your
-lab environment may fail. This is not an error with the lab itself, but a 
-consequence of the popularity of running workloads on TechZone. The recommendation is to try to reserve the environment again and choose a different data center. To check the status of the TechZone environment, please refer to the TechZone status page at <a href="https://techzone.status.io" target="_blank">https://techzone.status.io</a>.
+**Note**: The TechZone scheduler will pick a location in your region that has capacity to deploy your image. Previously you needed to pick a physical location (DAL10, WDC04, TOK02, etc...). The number of locations has expanded to 4 North American, 4 European and 2 AP locations which will hopefully provide more capacity to deploy the lab.
+
+If you find that your reservation is not being provisioned, check the status of the TechZone environment by referring to the TechZone status page at <a href="https://techzone.status.io" target="_blank">https://techzone.status.io</a>.
 
 Next select the end date for the lab.
 
 ![Browser](wxd-images/techzone-date.png)
 
-Make sure you select enough time for you to use the lab! It defaults to 2 days, but you can extend the reservation! **You must enable VPN Access**. If you do not enable VPN you will have to run the lab entirely in the TechZone browser. 
+Make sure you select enough time for you to use the lab! It defaults to 2 days, but you can extend the reservation! **You do not need to enable VPN Access**.
 
-Once you have completed the form, check the box indicating that you agree to the terms and conditions of using TechZone and click SUBMIT on the bottom right-hand corner.
+Once you have completed the form, check the box indicating that you agree to the terms and conditions of using TechZone, and click SUBMIT on the bottom right-hand corner.
 
 ![Browser](wxd-images/techzone-submit.png)
 
@@ -60,4 +62,4 @@ You may also get a message telling you that the system provisioning has Failed.
 
 ![Browser](wxd-images/techzone-fail.png)
 
-Ignore the reason field since it is usually related to an environment failure caused by lack of resources. Check the status of Techzone first (<a href="https://techzone.status.io" target="_blank">https://techzone.status.io</a>). If the systems appear to be okay, try requesting another image or using a different server location if possible. Contact TechZone support if you are having difficulties provisioning a system.
+Ignore the reason field since it is usually related to an environment failure caused by lack of resources. Check the status of TechZone first (<a href="https://techzone.status.io" target="_blank">https://techzone.status.io</a>). If the systems appear to be okay, try requesting another image or using a different server location if possible. Contact TechZone support if you are having difficulties provisioning a system.

@@ -15,26 +15,16 @@ MinIO Password:  93da45c5af87abd86c9dbc83
 
 You can get all passwords for the system when you are logged in as the <code style="color:blue;font-size:medium;">watsonx</code> user by using the following command.
 ```
-passwords
+cat /certs/passwords
 ```
-
-If you receive the following message:
-<pre style="font-size: medium; color: darkgreen; overflow: auto">
-(zenity:29252): Gtk-WARNING **: 11:27:32.683: cannot open display:
-</pre>
-
-You will need to issue the command with the `text` option.
-```
-passwords text
-```
+Your TechZone reservation will include the server name and port number to use when connecting to the MinIO. The default port number is 9001, while the server will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>. Replace these values with those found in your reservation.
 
 Open your browser and navigate to:
 
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+   * Minio console - http://region.techzone-server.com:port
    * **Note**: Firefox on OSX occasionally freezes when connecting to the MinIO console. The Safari browser is much more reliable.
    
 ![Browser](wxd-images/minio-logon.png)
-
 
 Login with object store credentials found above (These will be different for your system). You should see current buckets in MinIO.
 
@@ -147,7 +137,7 @@ iceberg-bucket b'customer/metadata/snap-6143645832277262458-1-7cb074a4-3da7-4184
 
 You can extract the string with the following command.
 ```
-PARQUET=$(/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket iceberg-bucket | grep -o '.*parquet' | sed -n "s/.*b'//p")
+PARQUET=$(/scripts/s3-inspect.py --host ibm-lh-minio-svc:9000 --accessKey $LH_S3_ACCESS_KEY --secretKey $LH_S3_SECRET_KEY --bucket iceberg-bucket | grep -o -m 1 ".*'customer.*parquet" | sed -n "s/.*b'//p")
 ```
 
 The file name that is retrieved is substituted into the next command.

@@ -10,7 +10,7 @@ Select the resources tab to get details on how to download the file.
 
 Download the `watsonxdata.ova` file onto your local machine and then use the import function of VMware or VirtualBox to register it with the system. 
 
-**Note**:  this virtual machine was created using X64 (Intel) hardware so this may not work in an OSX environment using M1/M2 chips. Once the machine is imported you can delete the OVA file.
+**Note**: This virtual machine was created using X64 (Intel) hardware, so this will not work in an OSX environment using M1/M2 chips. Once the machine is imported you can delete the OVA file.
 
 Before starting the machine, you may want to adjust the hardware requirements.
 
@@ -20,7 +20,7 @@ Before starting the machine, you may want to adjust the hardware requirements.
    * Disable side channel mitigation ON (VMware only)
 
 ### VMware URLs 
-All the URLs in the lab use `192.168.252.2` as the host. When running in the VMWware image, you must use `localhost` for the addresses. You must substitute `localhost` for the `192.168.252.2` address when you come across it in the documentation.
+All the URLs in the lab use `192.168.252.2` as the host. When running in the VMware image, you must use `localhost` for the addresses. You must substitute `localhost` for the `192.168.252.2` address when you come across it in the documentation.
 
 The following URLs and Ports are used to access the watsonx.data services.
 The ports that are used in the lab are listed below.

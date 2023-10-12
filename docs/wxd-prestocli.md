@@ -1,4 +1,5 @@
 # watsonx.data Introduction
+ 
  Watsonx.data is based on open source PrestoDB, a distributed query engine that enables querying data stored in open file formats using open table formats for optimization or performance. Some of the characteristics which you will learn and see in action include:
 
    * Compute processing is performed in memory and in parallel.
@@ -9,8 +10,7 @@ All the below tasks will be done using the Developer edition of watsonx.data.
 ## Using watsonx.data
 Connectivity to watsonx.data can be done using the following methods:
 
-   * Command line interface(CLI)
-   * Windows, Linux, OSX
+   * Command line interface (CLI)
    * JDBC drivers
    * watsonx.data UI 
 

@@ -1,8 +1,10 @@
 # Using the watsonx.data console UI
+Your TechZone reservation will include the server name and port number to use when connecting to the watsonx.data UI. The default port number is 9443, while the server will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>. Replace these values with those found in your reservation.
+
 Open your browser and navigate to:
 
-   * watsonx.data UI - <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> 
-   * Credentials: username: <code style="color:blue;font-size:medium;">ibmlhadmin</code> password: <code style="color:blue;font-size:medium;">password</code>
+* Watsonx.data UI - https://region.techzone-server.com:port
+* Credentials: username: <code style="color:blue;font-size:medium;">ibmlhadmin</code> password: <code style="color:blue;font-size:medium;">password</code>
 
 Note: You will get a Certificate error in Firefox:
 
@@ -12,7 +14,7 @@ Select Advanced.
 
 ![Browser](wxd-images/browser-warning-2.png)
  
-Choose “Accept the Risk and Continue”. If you are using Google Chrome, you can bypass the error message by typing in “thisisunsafe” or clicking on the "Proceed to 192.168.252.2 (unsafe)" link.
+Choose “Accept the Risk and Continue”. If you are using Google Chrome, you can bypass the error message by typing in “thisisunsafe” or clicking on the "Proceed to `server name` (unsafe)" link. The `server name` value will be replaced with the name of the TechZone server you are connecting to. 
 
 ![Browser](wxd-images/chrome-browser.png)
 

@@ -7,12 +7,16 @@ This table lists the passwords for the services that have "fixed" userids and pa
 |Virtual Machine|watsonx|watsonx.data
 |Virtual Machine|root|watsonx.data
 |watsonx.data UI|ibmlhadmin|password
-|Presto|None|None
+|Jupyter Notebook|none|watsonx.data
+|Presto|ibmlhadmin|password
 |Minio|Generated|Generated
 |Postgres|admin|Generated
 |Apache Superset|admin|admin
 |Portainer|admin|watsonx.data
 |Db2|db2inst1|db2inst1
+|MySQL|root|password
+|VNC Windows|none|watsonx.
+|VNC OSX|none|watsonx.data
 
 Use the following commands to get the generated userid and password for MinIO.
 ```
@@ -29,25 +33,18 @@ echo "Postgres Userid   : admin"
 echo "Postgres Password : " $POSTGRES_PASSWORD
 ```
 
-You can get all passwords for the system when you are logged in as the <code style="color:blue;font-size:medium;">watsonx</code> user by using the following command.
+You can get all passwords for the system when you are logged by issuing the following command:
+```bash
+cat /certs/passwords
 ```
+
+If the passwords do not appear to work, you may need to regenerate them. The following must be run as the `root` user.
+
+```bash
+sudo su -
 passwords
 ```
 
-If you receive the following message:
-<pre style="font-size: medium; color: darkgreen; overflow: auto">
-(zenity:29252): Gtk-WARNING **: 11:27:32.683: cannot open display:
-</pre>
-
-You will need to issue the command with the `text` option.
-```
-passwords text
-```
+The `passwords` command will refresh the passwords and also display them. If this command is not run as root, an error message will be displayed because the password file cannot be updated as the `watsonx` user.
 
 ![Browser](wxd-images/wxd-showpasswords.png)
-
-When running this command from within the virtual machine, it will display a list that you can select values from.
-
-![Browser](wxd-images/wxd-showpasswords-vm.png)
-
-**Note:** You cannot cut-and-paste values into the VNC window. 

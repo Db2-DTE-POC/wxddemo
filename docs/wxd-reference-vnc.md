@@ -1,28 +1,70 @@
-# Using VNC (Virtual Console)
+# Using the VM Remote Console
 
 The watsonx server that has been provisioned has no physical monitor attached to it (headless is what it is commonly referred to) and so we need to use a different technique to view the desktop of the main user or the system (watsonx).
 
-The first thing to consider is whether you need to use VNC at all. All the services like the watsonx.data UI, MinIO, Presto, Apache Superset and Portainer, are all web-based servers which means you just need to use your own browser to access these programs. 
+The first thing to consider is whether you need to use the VM Remote Console at all. All the services like the watsonx.data UI, MinIO, Presto, Apache Superset and Portainer, are all web-based servers which means you just need to use your own browser to access these programs. 
 
 Connecting into the watsonx virtual machine can be done using the secure shell command (ssh) which provides access to all the low-level commands you might need to use like starting the Apache Superset service. Note that Apache Superset is not up and running by default, so you will need to start it before attempting to connect to it.
 
-So what's VNC required for? One program that has been provided to view the database schemas is dBeaver, a community edition of software that provides a query interface to 100's of data sources, including the watsonx.data environment. You can only use this program using VNC. You do have the option of installing this software on your own machine if you wish.
+So what's the VM Remote Console required for? One program that has been provided to view the database schemas is dBeaver, a community edition of software that provides a query interface to 100's of data sources, including the watsonx.data environment. You can only use this program using the VM Remote Console. You do have the option of installing this software on your own machine if you wish.
 
-Select the section which best describes your environment:
+Find your email message that contains details of your reservation. Details of what the reservations and the page containing details of the reservation can be found in the [Accessing the reservation](wxd-reference-access.md) section. 
 
-* [I am on a Mac OSX system and I can use VPN (Wireguard)](#access-watsonxdata-on-a-mac-osx-system)
-* [I am on a Windows system and I can use VPN (Wiregaurd)](#access-watsonxdata-on-a-windows-system)
-* [I am on a system which is locked down and cannot install software](#access-watsonxdata-with-no-vpn-or-vnc-access)
+Once the details appear, scroll down to the bottom of the web page, and you will see the VM Remote Console button.
+
+![Browser](wxd-images/techzone-vpn.png)
+
+You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
+
+![Browser](wxd-images/techzone-console.png)
+
+Clicking on this button will display the logon screen for the server.
+
+![Browser](wxd-images/techzone-guacamole.png)
+
+Select the <code style="color:blue;font-size:medium;">watsonx</code> user and use <code style="color:blue;font-size:medium;">watsonx.data</code> as the password.
+
+![Browser](wxd-images/desktop-newwindow.png)
+
+You can open this window in a separate browser window, or place it into fullscreen mode. Note that you may need to increase the size of your browser window (or change the scaling in the browser) to see all the virtual desktop.
+
+At this point you have access to the desktop of the watsonx user and can issue commands from within this environment. As mentioned previously, you do not need to use this interface to use the lab.
+
+## Enabling VNC Access
+
+The watsonx.data image has port `5901` exposed for use with VNC browsers. If you want to use VNC instead of the VM Remote Console access, you must do the following:
+
+* Make sure you are not currently logged in using the VM Virtual Console
+* You have suitable VNC software (Mac OSX includes this). Use RealVNC or UltraVNC on a Windows box. 
+* You have a Terminal Shell open to issue root commands
+
+In a terminal window, ssh into the watsonx.data virtual machine as the watsonx user. Then you will need to become the root user and issue the following commands:
+```
+sudo su -
+systemctl enable vncserver@:1
+systemctl start vncserver@:1
+systemctl daemon-reload 
+```
+
+After these commands complete, you will not be able to use the VM Remote Console to connect to the watsonx userid. Instead, you will need to use your VNC software to connect to the server.
+
+If at any time you want to turn off VNC support, issue the following commands:
+```
+sudo su -
+systemctl disable vncserver@:1
+systemctl stop vncserver@:1
+systemctl daemon-reload 
+```
 
 ## Access watsonx.data on a Mac OSX system
 
-In order to access the console of the watsonx.data server, a VNC service needs to be used. Once your reservation is active, you can connect to the machine using the VNC service that has been started on the machine. 
+Once the VNC service has been started, you can connect to the machine using the VNC service by using the URL provided in your reservation document (sample URL below):
 
-   * VNC for watsonx userid (OSX) - <code style="color:blue;font-size:medium;">vnc://192.168.252.2:5901</code>
+* VNC Service - vnc://region.techzone-server.com:28314
 
 Use the Mac screen sharing app to connect to watsonx.data. You can connect using the OSX Safari browser by using the URL provided above. It will automatically start the screen sharing application.
 
-**Note**: The VNC URL format is only valid in Safari and will not work in other browsers.
+**Note**: The VNC URL format is only valid in Safari and may not work in other browsers.
  
 When the service connects to the server it will prompt for the password of the <code style="color:blue;font-size:medium;">watsonx</code> user - <code style="color:blue;font-size:medium;">watsonx.data</code>.
 
@@ -40,11 +82,11 @@ In the Devices section of the Setting menu, select Displays and choose a resolut
 
 ![Browser](wxd-images/wxd-resolution.png)
 
-Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
-
 ## Access watsonx.data on a Windows system
 
-Windows does not supply a native VNC browser. You will need to install a program like RealVNC or UltraVNC to access the console. Directions for installing UltraVNC are shown below.
+Windows does not supply a native VNC browser. You will need to install a program like RealVNC or UltraVNC to access the console. Directions for installing UltraVNC are shown below. 
+
+**Note**: This software has not been officially approved for use on Windows, although it has been tested against the watsonx.data server.
 
 ### UltraVNC
 
@@ -123,7 +165,11 @@ Start UltraVNC viewer by scrolling through your applications on your desktop. Ch
 
 ![Browser](wxd-images/ultravnc-icon.png)
 
-When the service starts, it will ask for the server and port. Enter `192.168.252.2:5901` in this field. 
+When the service starts, it will ask for the server and port (Example below). 
+
+* VNC Service - vnc://region.techzone-server.com:28314
+
+For the server you would enter `region.techzone-server.com` and the port would be `28314`. The examples below assume the IP address of `192.168.252.2` with a port number of `5901`.
 
 ![Browser](wxd-images/ultravnc-connect.png)
 
@@ -146,72 +192,3 @@ You are now connected and can work on the watsonx.data desktop.
 If you find that performance is sluggish, this may be due to network latency. In the settings toolbar of the UltraVNC window, change the color resolution from `Full` to `256`. Your screen may look a bit washed out, but this will reduce the amount of data that needs to be sent over the network to render your screen.
 
 ![Browser](wxd-images/ultravnc-performance.png)
-
-Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
-
-## Access watsonx.data with no VPN or VNC access
-
-Special thanks to Max Simpson for providing guidance on how to use the VM Remote Console.
-
-**Do not use this interface unless you cannot install Wireguard or UltraVNC software on your machine.**
-
-Find your email message that contains details of your reservation. Details of what the reservations and the page containing details of the reservation can be found in the [Accessing the reservation](wxd-reference-access.md) section. 
-
-Once the details appear, scroll down to the bottom of the web page, and you will see the VM Remote Console button along with the VPN certificates.
-
-![Browser](wxd-images/techzone-vpn.png)
-
-You can access the logon screen of the virtual machine by pressing the VM Remote Console button. 
-
-![Browser](wxd-images/techzone-console.png)
-
-Clicking on this button will display the logon screen for the server.
-
-![Browser](wxd-images/techzone-guacamole.png)
-
-Select the <code style="color:blue;font-size:medium;">techzone</code> user and use <code style="color:blue;font-size:medium;">IBMDem0s!</code> as the password.
-
-Once you are connected to the desktop of the user, select the Terminal App found at the bottom of the screen.
-
-![Browser](wxd-images/desktop-watsonx.png)
-
-The terminal app should display.
-
-![Browser](wxd-images/desktop-terminal.png)
-
-Type the following commands into the terminal window (you cannot cut and paste).
-<pre style="color: blue; overflow: auto">
-sudo systemctl stop vncserver@:1
-sudo systemctl disable vncserver@:1
-exit
-</pre>
-
-Once this is done, select the power button at the top of the screen.
-
-![Browser](wxd-images/desktop-logout.png)
-
-Select the Power Off/Logout Button. 
-
-![Browser](wxd-images/desktop-logout-user.png)
-
-Select Log Out from the menu. **Do not power off the machine at any time, otherwise you will need to restart the machine.**
-
-![Browser](wxd-images/desktop-logout-yes.png)
-
-And finally confirm Log Out of this userid.
-
-Next log in as the watsonx user. The password is `watsonx.data`. At the top of the screen select the Open in a new window box.
-
-![Browser](wxd-images/desktop-newwindow.png)
-
-Once in fullscreen mode, select the URL in the browser. Note that you may need to increase the size of your browser window (or change the scaling in the browser) to see all the virtual desktop.
-
-![Browser](wxd-images/desktop-fullscreen.png)
-
-The URL will be similar to `https://techzone.ibm.com/my/reservations/desktop/vmware...`. You can share this URL will other people who may want access to the console. 
-
-Please review [Restrictions on using VNC](#restrictions-on-using-the-vm-remote-console-or-vnc) below.
-
-## Restrictions on using the VM Remote Console or VNC
-
-The VNC console provides access to the virtual machine console. When someone connects through VNC they are viewing the Linux desktop of that machine. Multiple users can use the same VNC link to view the desktop at the same time. Whatever activity takes place in the console will be viewed simultaneously by all users. This also means that all users will be able to interact with the console, including the ability to issue commands. 

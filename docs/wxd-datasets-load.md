@@ -18,14 +18,12 @@ You can use a browser or link to an external file repository (i.e., Box) and dow
 
 The first step is to connect to MinIO. Extract the MinIO credentials by using the `passwords` command:
 ```
-passwords text
+passwords
 ```
 
 ![Browser](wxd-images/wxd-showpasswords.png)
 
-Open your browser and navigate to:
-
-   * Minio console - <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a>
+Open your browser and navigate to the MinIO console.
    
 ![Browser](wxd-images/minio-logon.png)
  
@@ -90,7 +88,7 @@ You will need to change the following values:
 * data_directory - The directory in which your file is located
 * your_bucket - The bucket the data physically resides in
 
-For the fuel economy example, using `mpg` as the schema, the You neSQL would be:
+For the fuel economy example, using `mpg` as the schema, the SQL would be:
 
 ```
 DROP SCHEMA hive_data.mpg;

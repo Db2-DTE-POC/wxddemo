@@ -5,8 +5,6 @@ The following sections describe how to get started quickly with the watsonx.data
 * [Requesting an IBM userid](#ibm-userid)
 * [Requesting a TechZone image](#requesting-a-techzone-image-individual-use)
 * [Accessing the Image](#accessing-the-image-techzone)
-* [Wireguard Setup](#wireguard-setup)
-* [VNC Access](#vnc-access)
 * [SSH Access](#ssh-access)
 * [Open Ports](#open-ports)
 * [Passwords](#passwords)
@@ -23,12 +21,10 @@ More details: [Creating an IBM Userid](wxd-reference-ibmid.md)
 
 ## Requesting a TechZone image 
 
-Log into Techzone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
+Log into TechZone (<a href="https://techzone.ibm.com" target="_blank">https://techzone.ibm.com</a>) and search for the watsonx.data
 Developer Base Image or use the following link.
 
 [https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image](https://techzone.ibm.com/collection/ibm-watsonxdata-developer-base-image)
-
-Make sure to **enable VPN access** in the reservation. 
 
 Problem with reservations failing? Check the TechZone status page at <a href="https://techzone.status.io" target="_blank">https://techzone.status.io</a>.
 
@@ -36,33 +32,21 @@ More details: [Reserving a TechZone image](wxd-reference-techzone.md)
 
 ## Accessing the Image 
 
-The email from TechZone indicating that the image is ready will contain a link to your reservations. Click on the link and search for the watsonx.data reservation. Make sure to download the VPN certificate onto your machine. **Do not use the VM Remote Console button on the reservation.**
+The email from TechZone indicating that the image is ready will contain a link to your reservations. Click on the link and search for the watsonx.data reservation. 
 
 More details: [Accessing a TechZone image](wxd-reference-access.md)
 
-## Wireguard Setup
-
-Install Wireguard (or similar utility) that allows a VPN certificate to be imported and used to access the virtual machine. Import the certificate that was downloaded in the previous step and activate the connection. There is no need to turn off IBM VPN when using Wireguard, but we recommend you turn off Wireguard when done with the lab. 
-
-More details: [Wireguard Setup](wxd-reference-wireguard.md)
-
-## VNC Access (Optional)
-
-The entire lab (excluding dBeaver access) can be run using your local browser and a command window. In order to use the dBeaver tool (optional), you will need to connect to the console of the watsonx server. 
-
-Once the Wireguard VPN service is enabled, you can access the machine console using the following IP address: <code style="font-size: medium;color:blue;">192.168.252.2:5901</code>. For Mac OSX users, place the following value into the Safari browser to access the console: <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code>.
-
-The password for the VNC connection is <code style="font-size: medium;color:blue;">watsonx.data</code> when using OSX screen sharing and <code style="font-size: medium;color:blue;">watsonx.</code> for users on Windows systems.
-
-More details: [VNC Access](wxd-reference-vnc.md)
-
 ## SSH Access
+
+Your TechZone reservation will include the server name and port number to use when connecting using ssh. The port number is referred to as <tt style="font-size: large; color: darkgreen;">port</tt> in the command below, while the server will be referred to as <tt style="font-size: large; color: darkgreen;">region.techzone-server.com</tt>. Replace these values with those found in your reservation.
 
 Open a terminal window and use the following syntax to connect as the <code style="font-size: medium;color:blue;">watsonx</code> userid.
 
 ```
-ssh watsonx@192.168.252.2
+ssh -p port watsonx@region.techzone-server.com
 ```
+
+The port number and server name are provided as part of the TechZone reservation details.
 
 To become the root user, issue the following command.
 ```
@@ -73,8 +57,8 @@ Password for both users is <code style="color:blue;font-size:medium;">watsonx.da
 You can copy files into and out of the server using the following syntax:
 
 ```
-scp myfile.txt watsonx@192.168.252.2:/tmp/myfile.txt
-scp watsonx@192.168.252.2:/tmp/myfile.txt myfile.txt
+scp -P port myfile.txt watsonx@region.techzone-server.com:/tmp/myfile.txt
+scp -P port watsonx@region.techzone-server.com:/tmp/myfile.txt myfile.txt
 ```
 
 More details: [SSH Access](wxd-reference-ssh.md)
@@ -83,19 +67,28 @@ More details: [SSH Access](wxd-reference-ssh.md)
 
 The following URLs and Ports are used to access the watsonx.data services. Most browsers will work with these URLs. However, Mac OSX users should be aware that accessing the MinIO console may occasionally cause Firefox and Chrome to lock up. If you find that this occurs, try using Safari which appears to work fine.
 
-The ports that are used in the lab are listed below.
+The ports that are used in the lab are listed below. Note that the internal port number is always the same when running in the VMware image using the VM Remote Console. When using your workstation's browser, you will need to use the server name and port number supplied in the TechZone reservation. 
 
-   * <a href="https://192.168.252.2:9443" target="_blank">https://192.168.252.2:9443</a> - watsonx.data management console
-   * <a href="http://192.168.252.2:8080" target="_blank">http://192.168.252.2:8080</a> - Presto console
-   * <a href="http://192.168.252.2:9001" target="_blank">http://192.168.252.2:9001</a> - MinIO console (S3 buckets)
-   * <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a> - Portainer (Docker container management)
-   * <a href="http://192.168.252.2:8088" target="_blank">http://192.168.252.2:8088</a> - Apache Superset (Query and Graphing)
-   * <code style="font-size: medium;color:blue;">vnc://192.168.252.2:5901</code> - VNC Access (Access to GUI in the machine)
-   * <code style="font-size: medium;color:blue;">8443</code> - Presto External Port
-   * <code style="font-size: medium;color:blue;">5432</code> - Postgres External Port
-   * <code style="font-size: medium;color:blue;">50000</code> - Db2 Database Port   
+|Service|Port|Active|
+|-------|------|----|
+| watsonx.data management console|9443|Yes
+| Presto console|8443|Yes
+| MinIO console (S3 buckets)|9001|Yes
+| MinIO S3 Endpoint|9000|Yes
+| Portainer (Docker container management)|6443|Yes
+| Apache Superset (Query and Graphing)|8088|**No**
+| Jupyter Notebook|8888|Yes
+| Presto External Port|8443|Yes
+| Hive metadata Port|9043|Yes
+| MySQL External Port|3306|Yes
+| Postgres External Port|5432|Yes
+| Db2 Database Port|50000|Yes
+| VNC Port |5901|**No**
 
-**The Apache Superset link will not be active until started as part of the lab.**
+**Note**: The following ports are not active unless the service is started:
+
+* Apache Superset (8088)
+* VNC Terminal Display (5901)
 
 More details: [Open Ports](wxd-reference-ports.md)
 
@@ -108,12 +101,16 @@ This table lists the passwords for the services that have "fixed" userids and pa
 |Virtual Machine|watsonx|watsonx.data
 |Virtual Machine|root|watsonx.data
 |watsonx.data UI|ibmlhadmin|password
-|Presto|None|None
+|Jupyter Notebook|none|watsonx.data
+|Presto|ibmlhadmin|password
 |Minio|Generated|Generated
 |Postgres|admin|Generated
 |Apache Superset|admin|admin
 |Portainer|admin|watsonx.data
 |Db2|db2inst1|db2inst1
+|MySQL|root|password
+|VNC Windows|none|watsonx.
+|VNC OSX|none|watsonx.data
 
 Use the following commands to get the generated userid and password for MinIO.
 ```
@@ -130,30 +127,26 @@ echo "Postgres Userid   : admin"
 echo "Postgres Password : " $POSTGRES_PASSWORD
 ```
 
-You can get all passwords for the system when you are logged in as the <code style="color:blue;font-size:medium;">watsonx</code> user by using the following command.
+You can get all passwords for the system when you are logged by issuing the following command:
+```bash
+cat /certs/passwords
 ```
+
+If the passwords do not appear to work, you may need to regenerate them. The following must be run as the `root` user.
+
+```bash
+sudo su -
 passwords
 ```
 
-If you receive the following message:
-<pre style="font-size: medium; color: darkgreen; overflow: auto">
-(zenity:29252): Gtk-WARNING **: 11:27:32.683: cannot open display:
-</pre>
-
-You will need to issue the command with the `text` option.
-```
-passwords text
-```
-
-**Note**: You cannot cut and paste a value into a VNC screen.
+The `passwords` command will refresh the passwords and also display them. If this command is not run as root, an error message will be displayed because the password file cannot be updated as the `watsonx` user.
 
 More details: [Passwords](wxd-reference-passwords.md)
 
 ## Portainer
 
-This lab system has Portainer installed. Portainer provides an administrative interface to the Docker images that are running on this system. You can use this console to check that all the containers are running and see what resources they are using. Open your browser and navigate to:
+This lab system has Portainer installed. Portainer provides an administrative interface to the Docker images that are running on this system. You can use this console to check that all the containers are running and see what resources they are using. Open your TechZone reservation and select the Portainer link to connect to it.
 
-   * Portainer console - <a href="https://192.168.252.2:6443" target="_blank">https://192.168.252.2:6443</a>
    * Credentials: userid: <code style="font-size: medium;color:blue;">admin</code> password: <code style="font-size: medium;color:blue;">watsonx.data</code>
 
 More details: [Portainer](wxd-reference-portainer.md)   
