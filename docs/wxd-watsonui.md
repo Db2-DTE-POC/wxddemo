@@ -30,7 +30,7 @@ The userid is<code style="color:blue;font-size:medium;">ibmlhadmin</code> with p
  
 Dismiss all the error messages and then click on the Person icon (far right side above the messages) and Logout. Close the browser window after logging out and open the web page again until you get the proper login screen. At this point you will be connected to the console.
 
-## watsonx.data UI Navigation
+## Watsonx.data UI Navigation
 
 The main screen provides a snapshot of the objects that are currently found in the watsonx.data system. The infrastructure components shows that there is 1 engine, 2 catalogs and 2 buckets associated with the system.
 

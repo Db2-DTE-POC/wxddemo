@@ -517,6 +517,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minio-cli" class="md-nav__link">
+    MinIO CLI
+  </a>
+  
+    <nav class="md-nav" aria-label="MinIO CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minio-system-alias" class="md-nav__link">
+    Minio System Alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-buckets" class="md-nav__link">
+    List Buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-bucket" class="md-nav__link">
+    Create a Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-data" class="md-nav__link">
+    Loading Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-or-bucket" class="md-nav__link">
+    Delete a File or Bucket
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1036,6 +1084,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minio-cli" class="md-nav__link">
+    MinIO CLI
+  </a>
+  
+    <nav class="md-nav" aria-label="MinIO CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minio-system-alias" class="md-nav__link">
+    Minio System Alias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-buckets" class="md-nav__link">
+    List Buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-bucket" class="md-nav__link">
+    Create a Bucket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-data" class="md-nav__link">
+    Loading Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-file-or-bucket" class="md-nav__link">
+    Delete a File or Bucket
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1223,6 +1319,147 @@ row group 0, column 1:
 <p>Exit from the Sandbox.</p>
 <pre><code>exit
 </code></pre>
+<h2 id="minio-cli">MinIO CLI</h2>
+<p>The MinIO Client <code>mc</code> command line tool provides an alternative to UNIX commands like <code>ls</code>, <code>cat</code>, <code>cp</code>, <code>mirror</code>, and <code>diff</code> with support for both file systems and Amazon S3-compatible cloud storage services.</p>
+<p>The <code>mc</code> commandline tool is built for compatibility with the AWS S3 API and is tested with MinIO and AWS S3 for expected functionality and behavior. Complete details and restrictions around the use of the CLI command can be found on the <a href="https://min.io/docs/minio/linux/reference/minio-mc.html">MinIO Client</a> page.</p>
+<p>You can use the MinIO CLI from a variety of clients. The MinIO ports are open in the developer edition image, which provides an alternative to loading data directly from your workstation rather than using the MinIO UI interface.</p>
+<h3 id="minio-system-alias">Minio System Alias</h3>
+<p>Before running commands against the MinIO server, an alias must be created that includes the access and secret key. The values can be extracted from the system by listing the contents of the <code>/certs/passwords</code> file or by running the <code>passwords</code> command as the root user.</p>
+<pre><code>cat /certs/passwords
+</code></pre>
+<p>The values for the MinIO access and secret key can also be exported with the following code:</p>
+<pre><code>export LH_S3_ACCESS_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_ACCESS_KEY | sed 's/.*=//')
+export LH_S3_SECRET_KEY=$(docker exec ibm-lh-presto printenv | grep LH_S3_SECRET_KEY | sed 's/.*=//')
+echo &quot;MinIO Userid  : &quot; $LH_S3_ACCESS_KEY
+echo &quot;MinIO Password: &quot; $LH_S3_SECRET_KEY
+</code></pre>
+<p>The <code>alias</code> command has the following syntax:</p>
+<p><code style="color:blue;font-size:medium;">mc alias set alias-name hostname:port access_key secret_key</code></p>
+<p>For a local connection, we will use the following values:</p>
+<ul>
+<li>Alias Name - <code style="color:blue;font-size:medium;">watsonxdata</code></li>
+<li>Hostname – <code style="color:blue;font-size:medium;">watsonxdata</code></li>
+<li>Port – <code style="color:blue;font-size:medium;">9000</code></li>
+<li>Access Key – <code style="color:blue;font-size:medium;">$LH_S3_ACCESS_KEY</code></li>
+<li>Secret Key - <code style="color:blue;font-size:medium;">$LH_S3_SECRET_KEY</code></li>
+</ul>
+<p>If you are using an external client to connect to the MinIO service, you will need the URL and Port number from the TechZone reservation. The access key and secret key will be the same values that are found above.</p>
+<ul>
+<li>Hostname –<code style="color:blue;font-size:medium;">region.techzone-server.com</code></li>
+<li>Port – <code style="color:blue;font-size:medium;">12345</code></li>
+</ul>
+<p>The alias for local access is found below.</p>
+<pre><code>mc alias set watsonxdata http://watsonxdata:9000 $LH_S3_ACCESS_KEY $LH_S3_SECRET_KEY
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+Added `watsonxdata` successfully.
+</pre>
+
+<h3 id="list-buckets">List Buckets</h3>
+<p>The <code>mc</code> command provides us with a number of commands that allows us to manage buckets and files within them. The following command checks to see what buckets currently exist in the system. </p>
+<pre><code>mc ls tree watsonxdata
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+[2023-09-29 14:38:19 EDT]     0B hive-bucket/
+[2023-09-29 14:38:19 EDT]     0B iceberg-bucket/
+</pre>
+
+<p>You can view the contents of a bucket by traversing down the path.</p>
+<pre><code>mc ls tree watsonxdata/hive-bucket
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+[2023-10-13 10:34:36 EDT]     0B gosalesdw/
+[2023-10-13 10:34:36 EDT]     0B hive_sql/
+[2023-10-13 10:34:36 EDT]     0B ontime/
+[2023-10-13 10:34:36 EDT]     0B taxi/
+</pre>
+
+<h3 id="create-a-bucket">Create a Bucket</h3>
+<p>At this point we will create a new bucket to hold some data. Use the <code>mb</code> (make bucket) command. The command requires the alias name for the MinIO connection followed by the name of the bucket.</p>
+<p><code style="color:blue;font-size:medium;">
+mc mb alias-name/new-bucket
+</code></p>
+<p>The following code will create a new bucket in the system called <code>sampledata</code>.</p>
+<pre><code>mc mb watsonxdata/sampledata
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+Bucket created successfully `watsonxdata/sampledata`.
+</pre>
+
+<p>We can double check that the bucket it there.</p>
+<pre><code>mc ls tree watsonxdata
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+[2023-09-29 14:38:19 EDT]     0B hive-bucket/
+[2023-09-29 14:38:19 EDT]     0B iceberg-bucket/
+[2023-10-13 10:39:47 EDT]     0B sampledata/
+</pre>
+
+<h3 id="loading-data">Loading Data</h3>
+<p>One of the most powerful features of the MinIO CLI is its ability to load data directory from your workstation into the bucket, rather than having to use the MinIO UI. It is also significantly faster than using the UI interface.</p>
+<p>The next example will load data into the bucket that was just created. The directory that we will be using to load data from is called <code>/sampledata</code> and found in the root directory of the watsonx.data server.</p>
+<pre><code>ls /sampledata/csv
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+gosales  ontime  taxi
+</pre>
+
+<p>Next we will load the data from each one of these directories into the <code>sampledata</code> bucket. The <code>mc</code> command allows you to select which files to place into a bucket, or an entire directory with recursion. In this case we are loading all three directories the files into the bucket. Note the use of the
+<code>/</code> at the end of the directory name to prevent the directory name <code>csv</code> from being used as the high-level directory name in the target bucket.</p>
+<pre><code>mc cp --recursive /sampledata/csv/ watsonxdata/sampledata/
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+...data/csv/taxi/taxi.csv: 306.16 MiB / 306.16 MiB ━━━━━━━━━━━━━━━━━━ 147.91 MiB/s 2s
+</pre>
+
+<p>We can double-check that our files are there with the <code>--files</code> option:</p>
+<pre><code>mc tree --files watsonxdata/sampledata/
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+watsonxdata/sampledata/
+├─ gosales
+│  ├─ DIST_INVENTORY_FACT.csv
+│  ├─ DIST_PRODUCT_FORECAST_FACT.csv
+│  ├─ DIST_RETURNED_ITEMS_FACT.csv
+│  ├─ DIST_RETURN_REASON_DIM.csv
+....
+│  ├─ EMP_EMPLOYEE_DIM.csv
+│  ├─ SLS_SALES_TARG_FACT.csv
+│  ├─ gosales_createtable.sql
+│  └─ gosales_load_postgres.sql
+├─ ontime
+│  ├─ aircraft.csv
+│  ├─ airline_id.csv
+│  ├─ airport_id.csv
+│  ├─ cancellation.csv
+│  └─ ontime.csv
+└─ taxi
+   └─ taxi.csv
+</pre>
+
+<h3 id="delete-a-file-or-bucket">Delete a File or Bucket</h3>
+<p>Use the <code>rb</code> (Remove bucket) command to remove a bucket and its contents. You can remove individual objects by using the <code>rm</code> (Remove) command by fully qualifying the object. The next command will remove the <code>ontime.csv</code> file from the <code>ontime</code> folder.</p>
+<pre><code>mc rm watsonxdata/sampledata/ontime/ontime.csv
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+Removed `watsonxdata/sampledata/ontime/ontime.csv`.
+</pre>
+
+<p>The delete bucket command will fail if you still have data in the bucket.</p>
+<pre><code>mc rb watsonxdata/sampledata
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+mc: <ERROR> `watsonxdata/sampledata` is not empty. 
+Retry this command with ‘--force’ flag if you want to remove 
+`watsonxdata/sampledata` and all its contents 
+</pre>
+
+<p>Adding the <code>--force</code> option will remove the bucket and all the data in it. Use with caution!</p>
+<pre><code>mc rb --force watsonxdata/sampledata
+</code></pre>
+<pre style="font-size: small; color: darkgreen; overflow: auto">
+Removed `watsonxdata/sampledata` successfully.
+</pre>
 
               
             </article>

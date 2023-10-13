@@ -1,4 +1,4 @@
-# watsonx.data Ports
+# Watsonx.data Ports
 
 The top of your TechZone reservation will contain a list of published services at the top of the details page.
 

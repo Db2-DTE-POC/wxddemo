@@ -14,7 +14,7 @@ In order to access these images outside the Virtual machine image, you need the 
    * [Accessing watsonx.data via Pandas Dataframes](#accessing-watsonxdata-via-pandas-dataframes)
    * [Generating a Certificate](#generating-a-certificate)
 
-## watsonx.data Connection Certificate
+## Watsonx.data Connection Certificate
 
 When connecting to the watsonx.data Presto database, you will need to have the connection certificate available to the client that you are using. Usually this location is your workstation, but it could be another service like CP4D.
 
@@ -30,7 +30,7 @@ You can also download the certificate by using the Jupyter Notebook link and ope
 
 ![Browser](wxd-images/jupyter-credentials.png)
 
-## watsonx.data Presto Access
+## Watsonx.data Presto Access
 
 When connecting to the Presto engine, choose the PrestoDB driver.
 
