@@ -8,7 +8,7 @@ In order to access these images outside the Virtual machine image, you need the 
    * [Accessing watsonx.data (Presto)](#watsonxdata-presto-access)
    * [Accessing Db2](#db2-access)
    * [Accessing PostgreSQL](#postgresql-access)
-   * [Accessing MySQL]
+   * [Accessing MySQL](#mysql-access)
    * [Adding a database to watsonx.data](#adding-a-database-to-watsonxdata)
    * [Accessing watsonx.data via Python](#accessing-watsonxdata-via-python)
    * [Accessing watsonx.data via Pandas Dataframes](#accessing-watsonxdata-via-pandas-dataframes)
